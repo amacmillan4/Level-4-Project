@@ -2,10 +2,8 @@ package project.android.bellringing;
 
 import java.util.ArrayList;
 
-import project.android.bellringing.R;
-
-
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -170,6 +168,11 @@ public class MethodInteractionFragment extends Fragment {
 			@Override
 			public void onClick(View view) {
 
+				if (isPlaying == false){
+					Intent i = new Intent(getActivity(), MethodShowActivity.class);
+					startActivity(i);
+				}
+				
 				isPlaying = false;
 				
 				for (BellImageView b: bellImageViews)
