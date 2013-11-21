@@ -1,0 +1,58 @@
+package project.android.bellringing;
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+
+public class MethodShowFragment extends Fragment {
+
+	Method method = new Method("Aberafan", "&-36-14-58-16-34-58-56-58,12", 100, 8);
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		setRetainInstance(true);
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
+		View v = inflater.inflate(R.layout.fragment_activity_show, parent, false);
+		
+		LinearLayout linLayout = (LinearLayout) v.findViewById(R.id.methodShowLinLayout);
+		
+		String a = method.calcNext() + "";
+		
+		int i = 1;
+		LinesView displayMethod = new LinesView(getActivity());
+		
+		//LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(null);
+		
+		
+		displayMethod.setText("12345678\n");
+		displayMethod.setTextColor(Color.BLACK);
+		displayMethod.setBackgroundColor(Color.WHITE);
+		displayMethod.setTextSize(24);
+		
+		while (i < 50){
+			displayMethod.append(a);
+			i++;
+			if(i % method.getBells() == 0){
+				displayMethod.append("\n");
+			}
+			
+			a = method.calcNext() + "";
+		}
+		
+		displayMethod.drawLines(true);
+		linLayout.addView(displayMethod);
+		
+		return v;
+		
+	}
+
+	
+}
