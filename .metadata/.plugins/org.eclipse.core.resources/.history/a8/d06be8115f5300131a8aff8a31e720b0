@@ -1,0 +1,41 @@
+package project.android.bellringing;
+
+import project.android.bellringing.R;
+
+import android.content.Context;
+import android.media.MediaPlayer;
+
+public class AudioPlayer {
+	
+	private MediaPlayer mPlayer = new MediaPlayer();
+	
+	public void stop() {
+		if (mPlayer!= null){
+			mPlayer.release();
+			mPlayer = null;
+		}
+	}
+	
+	public void play(Context c, String bell){
+				
+		if (bell.equals("1"))
+			mPlayer = MediaPlayer.create(c, R.raw.bell72);
+		else if (bell.equals("2"))
+			mPlayer = MediaPlayer.create(c, R.raw.bell71);
+		else if (bell.equals("3"))
+			mPlayer = MediaPlayer.create(c, R.raw.bell69);
+		else if (bell.equals("4"))
+			mPlayer = MediaPlayer.create(c, R.raw.bell67);
+		else if (bell.equals("5"))
+			mPlayer = MediaPlayer.create(c, R.raw.bell65);
+		else if (bell.equals("6"))
+			mPlayer = MediaPlayer.create(c, R.raw.bell64);
+		else if (bell.equals("7"))
+			mPlayer = MediaPlayer.create(c, R.raw.bell62);
+		else if (bell.equals("8"))
+			mPlayer = MediaPlayer.create(c, R.raw.bell60);
+		
+		mPlayer.start();
+	}
+
+}

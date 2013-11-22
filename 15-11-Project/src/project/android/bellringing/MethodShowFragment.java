@@ -26,11 +26,6 @@ public class MethodShowFragment extends Fragment {
 
 		String a = method.calcNext() + "";
 
-		
-
-
-		
-
 		int x = 0;
 		while (x < 16){
 			

@@ -1,0 +1,63 @@
+package project.android.bellringing;
+
+import android.content.Context;
+import android.media.MediaPlayer;
+import android.media.SoundPool;
+
+public class AudioPlayer {
+	
+	//private MediaPlayer mPlayer = new MediaPlayer();
+	private SoundPool sPool;
+	
+//	public void stop() {
+//		if (mPlayer!= null){
+//			mPlayer.release();
+//			mPlayer = null;
+//		}
+//	}
+//	
+	public void play(Context c, String bell){
+				
+		
+		int soundId = 0;
+		
+		if (bell.equals("1"))
+			soundId = sPool.load(c, R.raw.bell72,1);
+		else if (bell.equals("2"))
+			soundId = sPool.load(c, R.raw.bell71,1);
+		else if (bell.equals("3"))
+			soundId = sPool.load(c, R.raw.bell69,1);
+		else if (bell.equals("4"))
+			soundId = sPool.load(c, R.raw.bell67,1);
+		else if (bell.equals("5"))
+			soundId = sPool.load(c, R.raw.bell65,1);
+		else if (bell.equals("6"))
+			soundId = sPool.load(c, R.raw.bell64,1);
+		else if (bell.equals("7"))
+			soundId = sPool.load(c, R.raw.bell62,1);
+		else if (bell.equals("8"))
+			soundId = sPool.load(c, R.raw.bell60,1);
+		
+		sPool.play(soundId, 1, 1, 1, 0, 1);
+		
+//		if (bell.equals("1"))
+//			mPlayer = MediaPlayer.create(c, R.raw.bell72);
+//		else if (bell.equals("2"))
+//			mPlayer = MediaPlayer.create(c, R.raw.bell71);
+//		else if (bell.equals("3"))
+//			mPlayer = MediaPlayer.create(c, R.raw.bell69);
+//		else if (bell.equals("4"))
+//			mPlayer = MediaPlayer.create(c, R.raw.bell67);
+//		else if (bell.equals("5"))
+//			mPlayer = MediaPlayer.create(c, R.raw.bell65);
+//		else if (bell.equals("6"))
+//			mPlayer = MediaPlayer.create(c, R.raw.bell64);
+//		else if (bell.equals("7"))
+//			mPlayer = MediaPlayer.create(c, R.raw.bell62);
+//		else if (bell.equals("8"))
+//			mPlayer = MediaPlayer.create(c, R.raw.bell60);
+		
+		//mPlayer.start();
+	}
+
+}

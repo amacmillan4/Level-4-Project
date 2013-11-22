@@ -44,9 +44,7 @@
             android:layout_height="35dp"
             android:layout_alignParentBottom="true"
             android:layout_toRightOf="@+id/btnHelp"
-            android:gravity="right"
-            android:text="Show"
-            android:textAlignment="center" />
+            android:text="Show"/>
 
         <Button
             android:id="@+id/btnRun"
@@ -54,9 +52,7 @@
             android:layout_height="35dp"
             android:layout_alignParentBottom="true"
             android:layout_toLeftOf="@+id/btnHelp"
-            android:gravity="center_horizontal"
-            android:text="Run"
-            android:textAlignment="center" />
+            android:text="Run"/>
 
         <Button
             android:id="@+id/btnHelp"

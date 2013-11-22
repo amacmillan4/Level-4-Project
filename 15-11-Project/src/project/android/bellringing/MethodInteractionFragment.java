@@ -45,6 +45,7 @@ public class MethodInteractionFragment extends Fragment {
 	LinesView methodView;
 	boolean startingRound = false;
 	boolean finished = false;
+	boolean paused = false;
 	boolean waitForMe = true;
 	double pressTime, playTime;
 	TextView txtMethodName, score;
@@ -162,7 +163,6 @@ public class MethodInteractionFragment extends Fragment {
 		txtMethodName.setText(method.getName());
 
 		showButton = (Button) v.findViewById(R.id.btnStop);
-		showButton.setBackgroundColor(Color.LTGRAY);
 		showButton.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -184,7 +184,6 @@ public class MethodInteractionFragment extends Fragment {
 		
 		//Set-up Button to run the method
 		runButton = (Button) v.findViewById(R.id.btnRun);
-		runButton.setBackgroundColor(Color.LTGRAY);
 		runButton.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -320,10 +319,13 @@ public class MethodInteractionFragment extends Fragment {
 				i++;
 
 				try {
-					wait(200);
+					wait(150);
+					
+					while(paused == true)
+						wait(500);
 
 					if (i % ((methodCopy.getBells()) * 2) == 0)
-						wait(200);
+						wait(150);
 
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block

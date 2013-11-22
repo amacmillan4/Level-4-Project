@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:id="@+id/globalView" >
+    
+    <RelativeLayout 
+	    android:layout_width="350dp"
+	    android:layout_height="350dp" 
+    	android:id="@+id/l1">
+	</RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <project.android.bellringing.LinesView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="160dp"
+            android:layout_centerInParent="true"
+            android:scrollbars="vertical" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="22dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/btnStop"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/btnHelp"
+            android:gravity="right"
+            android:text="Show"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/btnRun"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/btnHelp"
+            android:gravity="center_horizontal"
+            android:text="Run"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/btnHelp"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="Help"
+            android:textAlignment="center"  />
+
+    </RelativeLayout>
+
+</LinearLayout>
+
