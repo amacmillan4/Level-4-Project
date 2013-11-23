@@ -27,29 +27,27 @@ public class MethodInteractionFragment extends Fragment {
 	ArrayList<TextView> bellNumberTextViews = new ArrayList<TextView>();
 
 	View v;	//Global View
-	
+
 	AudioPlayer bellAudio = new AudioPlayer();
 	DisplayMethod displayMethodThread = new DisplayMethod();
 	boolean isPlaying = false;
-	
+
 	Method method = new Method("Aberafan", "&-36-14-58-16-34-58-56-58,12", 100, 8);
 	Method methodCopy = method;
-	
-	Button showButton;
 
-	Button runButton;
+	Button showButton, runButton, helpButton;	
 
-	final Button helpButton = null;
-	
+
 	Handler mHandler = new Handler();
 	LinesView methodView;
-	boolean startingRound = false;
-	boolean finished = false;
+	boolean rounds = false;
 	boolean paused = false;
+	boolean changed = false;
+	boolean stand = false;
 	boolean waitForMe = true;
 	double pressTime, playTime;
 	TextView txtMethodName, score;
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -68,31 +66,31 @@ public class MethodInteractionFragment extends Fragment {
 			@Override
 			public void onClick(View view) {
 
-				if(finished == true){
-					
+				if(isPlaying){
+
 					pressTime = System.currentTimeMillis();
-					
+
 					if (playTime != 0){
 						score.setText(Math.abs(playTime - pressTime) + "");
 					}
-						
+
 				}
 
 			}
 		});
-		
+
 		//Get a handle on the layout
 		RelativeLayout relativeLayoutTopScreen = (RelativeLayout) v.findViewById(R.id.l1);
 		relativeLayoutTopScreen.setBackgroundColor(Color.WHITE);
-		
+
 		//Find out the Width of the Screen
 		int widthRelLayout = 350;
 		widthRelLayout = dpToPx(widthRelLayout);
-		
+
 		int heightRelLayout = widthRelLayout;
-		
+
 		int scale = (int) (heightRelLayout/ ((int) (methodCopy.getBells() + 1)/2)) - 20;
-		
+
 		//Starting positions
 		int pos = ((int) (widthRelLayout/2 - scale*1.2));
 		int posX = (int) (heightRelLayout/2 - scale * 0.6);
@@ -168,46 +166,104 @@ public class MethodInteractionFragment extends Fragment {
 			@Override
 			public void onClick(View view) {
 
-				if (isPlaying == false){
-					Intent i = new Intent(getActivity(), MethodShowActivity.class);
-					getActivity().startActivity(i);
-				}
-				
-				isPlaying = false;
-				
-				for (BellImageView b: bellImageViews)
-					b.setClickable(true);
-				
+				if(paused){
+					isPlaying = false;
+					paused = false;
+					runButton.setText("Start");
+					helpButton.setText("Help");
+					showButton.setText("Show");
+					methodView.clearText();
+					methodCopy = method;
+				}else{
 
+					if (isPlaying == false){
+						Intent i = new Intent(getActivity(), MethodShowActivity.class);
+						getActivity().startActivity(i);
+					}else{
+
+						stand = true;
+						runButton.setText("Start");
+						helpButton.setText("Help");
+						showButton.setText("Show");
+						for (BellImageView b: bellImageViews)
+							b.setClickable(true);
+
+					}
+				}
 			}
 		});
-		
+
 		//Set-up Button to run the method
 		runButton = (Button) v.findViewById(R.id.btnRun);
 		runButton.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View view) {
-
-				if(startingRound == false)
-					startingRound = true;
-				else 
-					startingRound = false;
-
 				//Start Method
-				if (isPlaying == false){
-					runButton.setText("Go");
-					showButton.setText("Stand");
-					displayMethodThread = new DisplayMethod();
-					isPlaying = true;
-					displayMethodThread.execute();
-				}
 
+				if(paused){
+					paused = false;
+					helpButton.setText("Pause");
+					showButton.setText("Stand");
+					if (rounds)
+						runButton.setText("Go");
+					else
+						runButton.setText("Rounds");
+
+				}else{
+
+					if(rounds == false && isPlaying == false){
+						rounds = true;
+						methodCopy.swapRound();
+					}
+					else if(rounds == true && isPlaying) {
+						changed = true;
+						rounds = false;
+						runButton.setText("Rounds");
+					} else if(isPlaying && rounds == false){
+						rounds = true;
+						changed = true;
+						runButton.setText("Go");
+						showButton.setText("Stand");
+						helpButton.setText("Pause");
+					}
+
+					if (isPlaying == false){
+						runButton.setText("Go");
+						showButton.setText("Stand");
+						helpButton.setText("Pause");
+						displayMethodThread = new DisplayMethod();
+						isPlaying = true;
+						displayMethodThread.execute();
+					}
+				}
 			}
 		});
 
-		
-		
+		helpButton = (Button) v.findViewById(R.id.btnHelp);
+		helpButton.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				if (isPlaying){
+					if(paused){
+						//TODO Open Help page
+					}
+					else{
+						paused = true;
+						runButton.setText("Continue");
+						helpButton.setText("Help");
+						showButton.setText("Stop");
+
+					}
+				}
+				else{
+					//TODO Open Help page
+				}
+			}
+		});
+
+
 		score = (TextView) v.findViewById(R.id.textView2);
 
 		for(BellImageView i : bellImageViews){
@@ -245,11 +301,11 @@ public class MethodInteractionFragment extends Fragment {
 				public void run() {
 
 					methodView.clearText();
-					
+
 					//Nullify listeners while playing
 					for (BellImageView b: bellImageViews)
 						b.setClickable(false);
-					
+
 				}
 			}); 
 
@@ -258,29 +314,12 @@ public class MethodInteractionFragment extends Fragment {
 			int i= 0;
 
 			while (!x.equals("\r") && isPlaying){
-				
+
 				//Re-initialise scoring variables
 				pressTime = 0;
 				playTime = 0;
 
-				String n = "";
-
-				if (finished == true){
-					n = methodCopy.calcNext() + "";
-				}
-				else{
-
-					n = methodCopy.start();
-
-					if (startingRound == false && n.equals("Complete")){
-						finished = true;
-						n = methodCopy.calcNext() + "";
-					}
-					else if (startingRound == true && n.equals("Complete"))
-						n = methodCopy.start();
-				}
-
-
+				String n = methodCopy.calcNext();
 
 				final String next = n;
 
@@ -305,27 +344,38 @@ public class MethodInteractionFragment extends Fragment {
 
 						playTime = System.currentTimeMillis();
 						bellAudio.play(getActivity(),next);
-						
+
 						if (pressTime != 0)
 							score.setText(Math.abs(playTime - pressTime) + "");
-					
-						
+
+
 						methodView.drawLines(true);
-						
-						
+
+
 					}
 				}); 
 
 				i++;
 
 				try {
-					wait(150);
-					
+					wait(200);
+
 					while(paused == true)
 						wait(500);
 
-					if (i % ((methodCopy.getBells()) * 2) == 0)
-						wait(150);
+					if (i % ((methodCopy.getBells()) * 2) == 0){
+						wait(200);
+
+						if(changed == true){
+							method.swapRound();
+							changed = false;
+						}
+						
+						if(stand == true){
+							stand = false;
+							isPlaying = false;
+						}
+					}
 
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block

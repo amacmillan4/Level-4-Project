@@ -21,9 +21,11 @@ public class Method {
 
 	private int currentMethodSection;
 	private int currentOperationSection = 0;
-	
+
 	private int currentStart = 0;
 	private boolean handStroke = true;
+
+	boolean rounds = false;
 
 	public Method(String name, String method, int pealTime, int bells) {
 		this.name = name;
@@ -31,7 +33,7 @@ public class Method {
 		this.method = method.split(",")[0];
 		this.leadEnd = method.split(",")[1];
 		this.bells = bells;
-		
+
 		//Fill arrayList with correct number of bells
 		bellNumbering = new ArrayList<String>(bells);
 		for(int i = 0; i < bells; i++)
@@ -81,22 +83,32 @@ public class Method {
 			currentLine += bellNumbering.get(i);
 
 	}
-	
+
 	public String start(){
-		
+
 		if (handStroke == false && currentStart == bellNumbering.size()){
 			currentStart = 0;
 			handStroke = true;
-			return "Complete";
 		}
-		
+
 		if (handStroke == true && currentStart == bellNumbering.size()){
 			currentStart = 0;
 			handStroke = false;
 		}
-		
+
 		return bellNumbering.get(currentStart++);
-		
+
+	}
+
+	public void swapRound(){
+
+		if (rounds)
+			rounds = false;
+		else
+		{
+			restartMethod();
+			rounds = true;
+		}
 	}
 
 	public void restartMethod(){
@@ -105,39 +117,47 @@ public class Method {
 
 		for(int i = 0; i < bells; i++)
 			bellNumbering.add(possibleBellNumbering[i] + "");
-		
+
 		loops = 0;
 		currentMethodSection = 0;
 		currentOperationSection = 0;
-		
+
+		currentLine = "";
 		for(int i = 0; i < bells; i++)
 			currentLine += bellNumbering.get(i);
+		
+		System.out.println("RESTART "+currentLine);
 	}
-	
-	public char calcNext(){
-		
-		if (loops == (bells - 1) && currentMethodSection == bells)
-			return '\r';
-		
-		if (currentOperationSection == methodRep.size()){
-			currentOperationSection = 0;
-			loops++;
-		}			
-		
-		if (currentMethodSection == bells || ((currentMethodSection == 0 && currentOperationSection == 0))){
-			currentLine = calcLine(currentLine, methodRep.get(currentOperationSection++));
-			currentMethodSection = 0;
-		}
-		
-		return currentLine.toCharArray()[currentMethodSection++];
 
+	public String calcNext(){
+
+		if (rounds == true){
+			return start();
+		}
+		else{
+
+			if (loops == (bells - 1) && currentMethodSection == bells)
+				return "\r";
+
+			if (currentOperationSection == methodRep.size()){
+				currentOperationSection = 0;
+				loops++;
+			}			
+
+			if (currentMethodSection == bells || ((currentMethodSection == 0 && currentOperationSection == 0))){
+				currentLine = calcLine(currentLine, methodRep.get(currentOperationSection++));
+				currentMethodSection = 0;
+			}
+
+			return currentLine.toCharArray()[currentMethodSection++] + "";
+		}
 
 	}
 
 	public String calcLine(String lastLine, String operation){
 
 		String newLine = lastLine;
-		
+
 		if (operation.equals("x")){
 			for (int i = 1; i <= bells; i = i + 2)
 				newLine = swap(newLine, i , i+1);
@@ -150,9 +170,9 @@ public class Method {
 
 			for (int i = 0; i < temp.length; i++)
 				copy.set(bellNumbering.indexOf(temp[i] + ""), "REMOVE");
-			
+
 			copy.removeAll(Collections.singleton("REMOVE"));
-			
+
 			for (int i = 0; i < copy.size(); i = i + 2)
 				newLine = swap(newLine,bellNumbering.indexOf(copy.get(i)) + 1, bellNumbering.indexOf(copy.get(i+1)) + 1);
 
