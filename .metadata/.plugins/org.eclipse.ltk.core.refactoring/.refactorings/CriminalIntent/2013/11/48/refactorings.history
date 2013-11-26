@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;CrimeLab.java&apos; to &apos;15-11-Project/src/project.android.bellringing&apos;&#x0D;&#x0A;- Original project: &apos;CriminalIntent&apos;&#x0D;&#x0A;- Destination element: &apos;15-11-Project/src/project.android.bellringing&apos;&#x0D;&#x0A;- Original element: &apos;com.bignerdranch.android.criminalintent.CrimeLab.java&apos;" description="Copy compilation unit" destination="=15-11-Project/src&lt;project.android.bellringing" element1="/src&lt;com.bignerdranch.android.criminalintent{CrimeLab.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1385412721381" units="1" version="1.0"/>
+</session>

@@ -1,0 +1,34 @@
+package project.android.bellringing;
+
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class CustomList extends ArrayAdapter<String>{
+
+	private final Activity context;
+	private final String[] web1;
+	private final String[] web2;
+	
+	public CustomList(Activity context, String[] web1, String[] web2) {
+		super(context, R.layout.listview_top_3);
+		this.context = context;
+		this.web1 = web1;
+		this.web2 = web2;
+
+	}
+	@Override
+	public View getView(int position, View view, ViewGroup parent) {
+		LayoutInflater inflater = context.getLayoutInflater();
+		View rowView= inflater.inflate(R.layout.listview_top_3, null, true);
+		TextView txtTitle1 = (TextView) rowView.findViewById(R.id.textView1);
+		TextView txtTitle2 = (TextView) rowView.findViewById(R.id.textView2);
+		txtTitle1.setText(web1[position]);
+		txtTitle2.setText(web2[position]);
+		return rowView;
+	}
+}

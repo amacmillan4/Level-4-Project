@@ -1,0 +1,7 @@
+package project.android.bellringing;
+
+import android.widget.ArrayAdapter;
+
+public class Top3CustomAdapter extends ArrayAdapter<T> {
+
+}

@@ -56,7 +56,7 @@ public class MethodInteractionFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
-		v = inflater.inflate(R.layout.fragment_method_interaction, parent, false);
+		v = inflater.inflate(R.layout.fragment_activity_interaction, parent, false);
 
 		//Get handle on LinearLayout to display bells
 		LinearLayout globalLinearLayout = (LinearLayout) v.findViewById(R.id.globalView);
