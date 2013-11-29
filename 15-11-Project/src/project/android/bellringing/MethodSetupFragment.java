@@ -1,5 +1,6 @@
 package project.android.bellringing;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -21,32 +22,66 @@ public class MethodSetupFragment extends Fragment {
 		// Inflate the layout for this fragment
 
 		View view = inflater.inflate(R.layout.fragment_activity_start, parent, false);
-	
+
 		LinearLayout ll = (LinearLayout) view.findViewById(R.id.test);
-		
+
 		View v1 = inflater.inflate(R.layout.listview_top_3, parent);
 		TextView title = (TextView) v1.findViewById(R.id.Title);
 		TextView choice = (TextView) v1.findViewById(R.id.Choice);
 		v1.setClickable(true);
+		v1.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+
+				Intent i = new Intent(getActivity(), MethodSetupStageActivity.class);
+				getActivity().startActivity(i);
+
+			}
+		}
+
+				);
 
 		title.setText("Stage");
 		choice.setText("Major");
 		ll.addView(v1);
-		
+
 		View v2 = inflater.inflate(R.layout.listview_top_3, parent);
 		v2.setClickable(true);
 		title = (TextView) v2.findViewById(R.id.Title);
 		choice = (TextView) v2.findViewById(R.id.Choice);
 
+		v2.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+
+				Intent i = new Intent(getActivity(), MethodSetupCompositionActivity.class);
+				getActivity().startActivity(i);
+
+			}
+		});
+
 		title.setText("Composition");
 		choice.setText("Plain Course");
 		ll.addView(v2);
-		
+
 		View v3 = inflater.inflate(R.layout.listview_top_3, parent);
 		v3.setClickable(true);
 		title = (TextView) v3.findViewById(R.id.Title);
 		choice = (TextView) v3.findViewById(R.id.Choice);
-		
+
+		v3.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+
+				Intent i = new Intent(getActivity(), MethodInteractionActivity.class);
+				getActivity().startActivity(i);
+
+			}
+		});
+
 		title.setText("Method");
 		choice.setText("Aberafan");
 		ll.addView(v3);
