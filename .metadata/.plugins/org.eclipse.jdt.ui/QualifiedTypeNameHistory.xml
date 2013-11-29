@@ -4,4 +4,6 @@
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="android.graphics.Color"/>
 <fullyQualifiedTypeName name="android.app.Fragment"/>
+<fullyQualifiedTypeName name="project.android.bellringing.R.layout"/>
+<fullyQualifiedTypeName name="project.android.bellringing.R.id"/>
 </qualifiedTypeNameHistroy>

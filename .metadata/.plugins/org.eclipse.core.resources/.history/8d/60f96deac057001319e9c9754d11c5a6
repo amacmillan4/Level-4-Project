@@ -1,0 +1,52 @@
+package project.android.bellringing;
+
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
+public class Top3CustomAdapter<String> extends ArrayAdapter<String> {
+
+	private ArrayList<String> entries;
+
+	public Top3CustomAdapter(Context context, int textViewResourceId){
+		super(context, textViewResourceId);
+	}
+
+	public Top3CustomAdapter(Activity a, int textViewResourceId, ArrayList<String> entries) {
+		super(a, textViewResourceId, entries);
+
+		this.entries = entries;
+	}
+
+	public static class ViewHolder{
+		public TextView item1;
+		public TextView item2;
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+
+		View v = convertView;
+
+		if (v == null) {
+
+			LayoutInflater vi = LayoutInflater.from(getContext());
+			v = vi.inflate(R.layout.listview_top_3, null);
+
+		}
+
+		TextView title = (TextView) v.findViewById(R.id.Title);
+		TextView choice = (TextView) v.findViewById(R.id.Choice);
+
+		choice.setText(entries.get(1) + "");
+
+
+		return v;
+	}
+}
