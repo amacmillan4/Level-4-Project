@@ -1,0 +1,11 @@
+package project.android.bellringing;
+
+public class SetupInstructions {
+
+	private int stage;
+	private int composition;
+	private String bellType;
+	private String pealTime;
+	private boolean stopAtRounds, handstrokeGap, waitForMe, scoreBlows, scoreSummary,orientationLock;
+	
+}

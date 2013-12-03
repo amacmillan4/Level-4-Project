@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/rl1"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="30dp"
+                android:orientation="vertical"
+                android:background="#F5F5F0"  >
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/buttonLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/test"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp" >
+
+                <Button
+                    android:id="@+id/button1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Handbells" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Towerbells" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/buttonLayout"
+                android:background="#F5F5F0"  >
+
+               <LinearLayout
+                android:id="@+id/test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="30dp"
+                android:orientation="vertical"
+                android:background="#F5F5F0"  >
+            </LinearLayout>
+
+                <TextView
+                    android:id="@+id/TxtRounds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@id/TxtPealTimeTitle"
+                    android:text="Stop at Rounds"
+                    android:textSize="20sp"
+                    android:textStyle="bold" >
+                </TextView>
+
+                <Switch
+                    android:id="@+id/switchRounds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/TxtPealTime"
+                    android:textColorLink="@android:color/holo_orange_light" />
+
+                <TextView
+                    android:id="@+id/TxtHandstrokeGap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:textStyle="bold" 
+                    android:text="Handstroke Gap"
+                    android:layout_below="@id/TxtRounds"
+                    android:textSize="20sp" >
+                </TextView>
+
+                <Switch
+                    android:id="@+id/switchGap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/TxtRounds" />
+                
+                <TextView
+                    android:id="@+id/TxtWait"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:textStyle="bold" 
+                    android:text="Wait for Me"
+                    android:layout_below="@id/TxtHandstrokeGap"
+                    android:textSize="20sp" >
+                </TextView>
+
+                <Switch
+                    android:id="@+id/switchWait"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/TxtHandstrokeGap" />
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:id="@+id/rl3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rl2"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="#F5F5F0" >
+
+                <TextView
+                    android:id="@+id/TxtScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:text="Score Blows"
+                    android:textSize="20sp"
+                    android:textStyle="bold" >
+                </TextView>
+
+                <Switch
+                    android:id="@+id/switchScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"/>
+
+                <TextView
+                    android:id="@+id/TxtSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:textStyle="bold" 
+                    android:text="Score Summary"
+                    android:layout_below="@id/TxtScore"
+                    android:textSize="20sp" >
+                </TextView>
+
+                <Switch
+                    android:id="@+id/switchSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/TxtScore" />
+                
+                <TextView
+                    android:id="@+id/TxtOrientation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:textStyle="bold" 
+                    android:text="Orientation Lock"
+                    android:layout_below="@id/TxtSummary"
+                    android:textSize="20sp" >
+                </TextView>
+
+                <Switch
+                    android:id="@+id/switchOrientation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/TxtSummary" />
+            </RelativeLayout>
+            
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>

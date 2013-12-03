@@ -5,29 +5,53 @@ import java.util.ArrayList;
 import android.content.Context;
 
 public class MethodLab {
-    private ArrayList<Method> arrayMethod;
+	private ArrayList<Method> arrayMethod;
+	private SetupInstructions setup;
 
-    private static MethodLab methodLab;
-    private Context mAppContext;
+	private static MethodLab methodLab;
+	private Context mAppContext;
 
-    private MethodLab(Context appContext) {
-        mAppContext = appContext;
-        arrayMethod = new ArrayList<Method>();
-        for (int i = 0; i < 100; i++) {
-           // Method m = new Method();
-            //method.add();
-        }
-    }
+	private int i = 0;
+	
+	private MethodLab(Context appContext) {
+		setmAppContext(appContext);
+		arrayMethod = new ArrayList<Method>();
+	}
 
-    public static MethodLab get(Context c) {
-        if (methodLab == null) {
-        	methodLab = new MethodLab(c.getApplicationContext());
-        }
-        return methodLab;
-    }
 
-    public ArrayList<Method> getCrimes() {
-        return arrayMethod;
-    }
+	public static MethodLab get(Context c) {
+		if (methodLab == null) {
+			methodLab = new MethodLab(c.getApplicationContext());
+		}
+		return methodLab;
+	}
+	
+	public Method getNext(){
+		Method a = arrayMethod.get(i);
+		if (i < arrayMethod.size() - 1)
+			i++;
+		
+		return a;
+	}
+	
+	public SetupInstructions getSetup(){
+		return setup;
+	}
+	
+	public void updateSetup(SetupInstructions s){
+		setup = s;
+	}
+
+
+	public Context getmAppContext() {
+		return mAppContext;
+	}
+
+
+	public void setmAppContext(Context mAppContext) {
+		this.mAppContext = mAppContext;
+	}
+
+	
 }
 

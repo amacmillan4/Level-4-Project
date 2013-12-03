@@ -12,7 +12,6 @@ public class Method {
 	private String method;
 	private ArrayList<String> methodRep;
 	private String leadEnd;
-	private int pealTime;
 	private int bells;
 
 	private int loops;
@@ -29,7 +28,6 @@ public class Method {
 
 	public Method(String name, String method, int pealTime, int bells) {
 		this.name = name;
-		this.pealTime = pealTime; 
 		this.method = method.split(",")[0];
 		this.leadEnd = method.split(",")[1];
 		this.bells = bells;
@@ -211,14 +209,6 @@ public class Method {
 		this.bells = bells;
 	}
 
-	public int getPealTime() {
-		return pealTime;
-	}
-
-	public void setPealTime(int pealTime) {
-		this.pealTime = pealTime;
-	}
-
 	public String getName() {
 		return name;
 	}
@@ -235,7 +225,7 @@ public class Method {
 	@Override
 	public String toString() {
 		return "Method [name=" + name + ", method=" + method + ", leadEnd="
-				+ leadEnd + ", pealTime=" + pealTime + ", bells=" + bells + "]";
+				+ leadEnd + ", bells=" + bells + "]";
 	}
 
 }

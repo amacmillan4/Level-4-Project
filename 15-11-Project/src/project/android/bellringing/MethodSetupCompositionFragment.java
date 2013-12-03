@@ -31,16 +31,27 @@ public class MethodSetupCompositionFragment extends Fragment {
 
 		return view;
 	}
-	
-	private View setup(LayoutInflater inflater, int layout, ViewGroup parent, String text){
+
+	private View setup(LayoutInflater inflater, int layout, ViewGroup parent, final String text){
 		View v1 = inflater.inflate(layout, parent);
 		TextView title = (TextView) v1.findViewById(R.id.CustomTitle);
 		v1.setClickable(true);
 
+		v1.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				MethodLab.get(getActivity()).getSetup().setStage(text);
+				getActivity().finish();
+
+			}
+		});
+
 		title.setText(text);
-		
+
 		return v1;
-		
+
 	}
 
 }

@@ -1,0 +1,85 @@
+package project.android.bellringing;
+
+public class SetupInstructions {
+
+	private int stage;
+	private int composition;
+	private String bellType;
+	private String pealTime;
+	private boolean stopAtRounds, handstrokeGap, waitForMe, scoreBlows, scoreSummary,orientationLock;
+	public SetupInstructions(int stage, int composition, String bellType,String pealTime, boolean stopAtRounds, boolean handstrokeGap,
+			boolean waitForMe, boolean scoreBlows, boolean scoreSummary,boolean orientationLock) {
+		
+		this.stage = stage;
+		this.composition = composition;
+		this.bellType = bellType;
+		this.pealTime = pealTime;
+		this.stopAtRounds = stopAtRounds;
+		this.handstrokeGap = handstrokeGap;
+		this.waitForMe = waitForMe;
+		this.scoreBlows = scoreBlows;
+		this.scoreSummary = scoreSummary;
+		this.orientationLock = orientationLock;
+	}
+	public int getStage() {
+		return stage;
+	}
+	public void setStage(int stage) {
+		this.stage = stage;
+	}
+	public int getComposition() {
+		return composition;
+	}
+	public void setComposition(int composition) {
+		this.composition = composition;
+	}
+	public String getBellType() {
+		return bellType;
+	}
+	public void setBellType(String bellType) {
+		this.bellType = bellType;
+	}
+	public String getPealTime() {
+		return pealTime;
+	}
+	public void setPealTime(String pealTime) {
+		this.pealTime = pealTime;
+	}
+	public boolean isStopAtRounds() {
+		return stopAtRounds;
+	}
+	public void setStopAtRounds(boolean stopAtRounds) {
+		this.stopAtRounds = stopAtRounds;
+	}
+	public boolean isHandstrokeGap() {
+		return handstrokeGap;
+	}
+	public void setHandstrokeGap(boolean handstrokeGap) {
+		this.handstrokeGap = handstrokeGap;
+	}
+	public boolean isWaitForMe() {
+		return waitForMe;
+	}
+	public void setWaitForMe(boolean waitForMe) {
+		this.waitForMe = waitForMe;
+	}
+	public boolean isScoreBlows() {
+		return scoreBlows;
+	}
+	public void setScoreBlows(boolean scoreBlows) {
+		this.scoreBlows = scoreBlows;
+	}
+	public boolean isScoreSummary() {
+		return scoreSummary;
+	}
+	public void setScoreSummary(boolean scoreSummary) {
+		this.scoreSummary = scoreSummary;
+	}
+	public boolean isOrientationLock() {
+		return orientationLock;
+	}
+	public void setOrientationLock(boolean orientationLock) {
+		this.orientationLock = orientationLock;
+	}
+	
+}

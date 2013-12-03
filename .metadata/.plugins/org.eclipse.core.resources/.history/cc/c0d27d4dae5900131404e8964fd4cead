@@ -1,0 +1,118 @@
+package project.android.bellringing;
+
+import java.util.ArrayList;
+
+import android.content.Context;
+
+public class MethodLab {
+	private ArrayList<Method> arrayMethod;
+
+	private static MethodLab methodLab;
+	private Context mAppContext;
+
+	private int stage;
+	private int composition;
+	private String bellType;
+	private String pealTime;
+	private boolean StopAtRounds, HandstrokeGap, WaitForMe, ScoreBlows, ScoreSummary,OrientationLock;
+
+	private MethodLab(Context appContext) {
+		mAppContext = appContext;
+		arrayMethod = new ArrayList<Method>();
+	}
+
+
+	public static MethodLab get(Context c) {
+		if (methodLab == null) {
+			methodLab = new MethodLab(c.getApplicationContext());
+		}
+		return methodLab;
+	}
+
+	public ArrayList<Method> getCrimes() {
+		return arrayMethod;
+	}
+	
+
+	public int getStage() {
+		return stage;
+	}
+
+
+	public int getComposition() {
+		return composition;
+	}
+
+	public void setComposition(int composition) {
+		this.composition = composition;
+	}
+
+	public String getBellType() {
+		return bellType;
+	}
+
+	public void setBellType(String bellType) {
+		this.bellType = bellType;
+	}
+
+	public String getPealTime() {
+		return pealTime;
+	}
+
+	public void setPealTime(String pealTime) {
+		this.pealTime = pealTime;
+	}
+
+	public boolean isStopAtRounds() {
+		return StopAtRounds;
+	}
+
+	public void setStopAtRounds(boolean stopAtRounds) {
+		StopAtRounds = stopAtRounds;
+	}
+
+	public boolean isHandstrokeGap() {
+		return HandstrokeGap;
+	}
+
+	public void setHandstrokeGap(boolean handstrokeGap) {
+		HandstrokeGap = handstrokeGap;
+	}
+
+	public boolean isWaitForMe() {
+		return WaitForMe;
+	}
+
+	public void setWaitForMe(boolean waitForMe) {
+		WaitForMe = waitForMe;
+	}
+
+	public boolean isScoreBlows() {
+		return ScoreBlows;
+	}
+
+	public void setScoreBlows(boolean scoreBlows) {
+		ScoreBlows = scoreBlows;
+	}
+
+	public boolean isScoreSummary() {
+		return ScoreSummary;
+	}
+
+	public void setScoreSummary(boolean scoreSummary) {
+		ScoreSummary = scoreSummary;
+	}
+
+	public boolean isOrientationLock() {
+		return OrientationLock;
+	}
+
+	public void setOrientationLock(boolean orientationLock) {
+		OrientationLock = orientationLock;
+	}
+
+	public void setStage(int stage) {
+		this.stage = stage;
+	}
+}
+

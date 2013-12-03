@@ -26,8 +26,8 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerInParent="true"
                 android:layout_marginTop="30dp"
-                android:orientation="vertical"
-                android:background="#F5F5F0"  >
+                android:background="#F5F5F0"
+                android:orientation="vertical" >
             </LinearLayout>
 
             <LinearLayout
@@ -40,13 +40,13 @@
                 android:layout_marginTop="15dp" >
 
                 <Button
-                    android:id="@+id/button1"
+                    android:id="@+id/btnHandbells"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Handbells" />
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/btnTowerbells"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Towerbells" />
@@ -57,33 +57,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/buttonLayout"
-                android:background="#F5F5F0"  >
+                android:background="#F5F5F0" >
 
-                <TextView
-                    android:id="@+id/TxtPealTimeTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_alignParentLeft="true"
-                    android:text="Peal Time"
-                    android:textSize="20sp"
-                    android:textStyle="bold" >
-                </TextView>
-
-                <TextView
-                    android:id="@+id/TxtPealTime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:layout_alignParentRight="true"
-                    android:text="1:20"
-                    android:textSize="20sp" >
-                </TextView>
+                <LinearLayout
+                    android:id="@+id/pealTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerInParent="true"
+                    android:background="#F5F5F0"
+                    android:orientation="vertical" >
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/TxtRounds"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_alignParentLeft="true"
-                    android:layout_below="@id/TxtPealTimeTitle"
+                    android:layout_below="@id/pealTime"
                     android:text="Stop at Rounds"
                     android:textSize="20sp"
                     android:textStyle="bold" >
@@ -94,7 +85,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_below="@+id/TxtPealTime"
+                    android:layout_below="@+id/pealTime"
                     android:textColorLink="@android:color/holo_orange_light" />
 
                 <TextView
@@ -102,10 +93,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_alignParentLeft="true"
-                    android:textStyle="bold" 
-                    android:text="Handstroke Gap"
                     android:layout_below="@id/TxtRounds"
-                    android:textSize="20sp" >
+                    android:text="Handstroke Gap"
+                    android:textSize="20sp"
+                    android:textStyle="bold" >
                 </TextView>
 
                 <Switch
@@ -114,16 +105,16 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_below="@+id/TxtRounds" />
-                
+
                 <TextView
                     android:id="@+id/TxtWait"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:textStyle="bold" 
-                    android:text="Wait for Me"
                     android:layout_below="@id/TxtHandstrokeGap"
-                    android:textSize="20sp" >
+                    android:text="Wait for Me"
+                    android:textSize="20sp"
+                    android:textStyle="bold" >
                 </TextView>
 
                 <Switch
@@ -133,14 +124,14 @@
                     android:layout_alignParentRight="true"
                     android:layout_below="@id/TxtHandstrokeGap" />
             </RelativeLayout>
-            
+
             <RelativeLayout
                 android:id="@+id/rl3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/rl2"
-                android:layout_marginTop="30dp"
                 android:layout_marginBottom="30dp"
+                android:layout_marginTop="30dp"
                 android:background="#F5F5F0" >
 
                 <TextView
@@ -157,17 +148,17 @@
                     android:id="@+id/switchScore"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"/>
+                    android:layout_alignParentRight="true" />
 
                 <TextView
                     android:id="@+id/TxtSummary"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_alignParentLeft="true"
-                    android:textStyle="bold" 
-                    android:text="Score Summary"
                     android:layout_below="@id/TxtScore"
-                    android:textSize="20sp" >
+                    android:text="Score Summary"
+                    android:textSize="20sp"
+                    android:textStyle="bold" >
                 </TextView>
 
                 <Switch
@@ -176,16 +167,16 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_below="@id/TxtScore" />
-                
+
                 <TextView
                     android:id="@+id/TxtOrientation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:textStyle="bold" 
-                    android:text="Orientation Lock"
                     android:layout_below="@id/TxtSummary"
-                    android:textSize="20sp" >
+                    android:text="Orientation Lock"
+                    android:textSize="20sp"
+                    android:textStyle="bold" >
                 </TextView>
 
                 <Switch
@@ -195,7 +186,6 @@
                     android:layout_alignParentRight="true"
                     android:layout_below="@id/TxtSummary" />
             </RelativeLayout>
-            
         </RelativeLayout>
     </LinearLayout>
 
