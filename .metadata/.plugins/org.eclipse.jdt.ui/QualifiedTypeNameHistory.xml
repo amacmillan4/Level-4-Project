@@ -4,7 +4,7 @@
 <fullyQualifiedTypeName name="android.graphics.Color"/>
 <fullyQualifiedTypeName name="android.app.Fragment"/>
 <fullyQualifiedTypeName name="project.android.bellringing.R.layout"/>
+<fullyQualifiedTypeName name="android.widget.NumberPicker.OnValueChangeListener"/>
 <fullyQualifiedTypeName name="project.android.bellringing.R.id"/>
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
-<fullyQualifiedTypeName name="android.widget.NumberPicker.OnValueChangeListener"/>
 </qualifiedTypeNameHistroy>

@@ -108,7 +108,9 @@ public class MethodSetupFragment extends Fragment {
 			@Override
 			public void onClick(View view) {
 
-				
+				Intent i = new Intent(getActivity(), MethodInteractionActivity.class);
+				getActivity().startActivity(i);
+
 			}
 		});
 
@@ -135,19 +137,6 @@ public class MethodSetupFragment extends Fragment {
 
 		title.setText("Peal Time");
 		ll2.addView(v4);
-		
-		Button run = (Button) view.findViewById(R.id.btnStartRun);
-		run.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				
-				Intent i = new Intent(getActivity(), MethodInteractionActivity.class);
-				getActivity().startActivity(i);
-				
-			}
-		});
 		
 		updateView();
 

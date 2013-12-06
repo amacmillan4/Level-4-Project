@@ -195,22 +195,6 @@
                 android:layout_below="@id/rl3"
                 android:layout_centerHorizontal="true"
                 android:text="Play Method" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="40dp" />
-
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/btnStartRun"
-                android:height="40dp" />
             
         </RelativeLayout>
     </LinearLayout>

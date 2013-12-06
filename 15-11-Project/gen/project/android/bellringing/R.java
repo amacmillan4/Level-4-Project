@@ -34,10 +34,10 @@ public final class R {
         public static final int towerbell_ur_256=0x7f02000a;
     }
     public static final class id {
-        public static final int Choice=0x7f09002d;
+        public static final int Choice=0x7f09002e;
         public static final int CustomTitle=0x7f090003;
         public static final int CustomeImage=0x7f090004;
-        public static final int Title=0x7f09002c;
+        public static final int Title=0x7f09002d;
         public static final int TxtHandstrokeGap=0x7f090018;
         public static final int TxtOrientation=0x7f090021;
         public static final int TxtRounds=0x7f090016;
@@ -45,32 +45,33 @@ public final class R {
         public static final int TxtSummary=0x7f09001f;
         public static final int TxtWait=0x7f09001a;
         public static final int aa=0x7f09000c;
-        public static final int action_settings=0x7f09002e;
+        public static final int action_settings=0x7f09002f;
         public static final int btnHandbells=0x7f090012;
         public static final int btnHelp=0x7f09000a;
-        public static final int btnPealTime=0x7f09002b;
+        public static final int btnPealTime=0x7f09002c;
         public static final int btnRun=0x7f09000b;
+        public static final int btnStartRun=0x7f090023;
         public static final int btnStop=0x7f090009;
         public static final int btnTowerbells=0x7f090013;
         public static final int buttonLayout=0x7f090011;
         public static final int globalView=0x7f090005;
-        public static final int hours=0x7f090028;
+        public static final int hours=0x7f090029;
         public static final int l1=0x7f090006;
         public static final int linearLayout1=0x7f09000e;
         public static final int methodInteractionFragment=0x7f090000;
         public static final int methodSelectFragment=0x7f090002;
         public static final int methodShowFragment=0x7f090001;
         public static final int methodShowLinLayout=0x7f09000d;
-        public static final int minutes=0x7f09002a;
+        public static final int minutes=0x7f09002b;
         public static final int pealTime=0x7f090015;
-        public static final int pealtimeLL1=0x7f090026;
-        public static final int pealtimeRL1=0x7f090027;
+        public static final int pealtimeLL1=0x7f090027;
+        public static final int pealtimeRL1=0x7f090028;
         public static final int rl1=0x7f09000f;
         public static final int rl2=0x7f090014;
         public static final int rl3=0x7f09001c;
-        public static final int stageLL1=0x7f090023;
-        public static final int stageList=0x7f090025;
-        public static final int stageRL1=0x7f090024;
+        public static final int stageLL1=0x7f090024;
+        public static final int stageList=0x7f090026;
+        public static final int stageRL1=0x7f090025;
         public static final int switchGap=0x7f090019;
         public static final int switchOrientation=0x7f090022;
         public static final int switchRounds=0x7f090017;
@@ -80,7 +81,7 @@ public final class R {
         public static final int test=0x7f090010;
         public static final int textView1=0x7f090007;
         public static final int textView2=0x7f090008;
-        public static final int textView3=0x7f090029;
+        public static final int textView3=0x7f09002a;
     }
     public static final class layout {
         public static final int activity_method_interaction=0x7f030000;
