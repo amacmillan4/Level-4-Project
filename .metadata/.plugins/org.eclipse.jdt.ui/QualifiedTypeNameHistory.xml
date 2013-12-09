@@ -7,4 +7,8 @@
 <fullyQualifiedTypeName name="android.widget.NumberPicker.OnValueChangeListener"/>
 <fullyQualifiedTypeName name="project.android.bellringing.R.id"/>
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="android.widget.CompoundButton.OnCheckedChangeListener"/>
 </qualifiedTypeNameHistroy>

@@ -28,7 +28,7 @@ public class MethodInteractionFragment extends Fragment {
 
 	View v;	//Global View
 
-	AudioPlayer bellAudio = new AudioPlayer();
+	AudioPlayer bellAudio;
 	DisplayMethod displayMethodThread = new DisplayMethod();
 	boolean isPlaying = false;
 
@@ -36,7 +36,6 @@ public class MethodInteractionFragment extends Fragment {
 	Method methodCopy = method;
 
 	Button showButton, runButton, helpButton;	
-
 
 	Handler mHandler = new Handler();
 	LinesView methodView;
@@ -48,6 +47,32 @@ public class MethodInteractionFragment extends Fragment {
 	double pressTime, playTime;
 	TextView txtMethodName, score;
 
+
+
+	@Override
+	public void onDestroy() {
+		displayMethodThread.cancel(true);
+		super.onDestroy();
+	}
+
+	@Override
+	public void onStop() {
+		displayMethodThread.cancel(true);
+		super.onStop();
+	}
+
+	@Override
+	public void onDetach() {
+		displayMethodThread.cancel(true);
+		super.onDetach();
+	}
+
+	@Override
+	public void onPause() {
+		displayMethodThread.cancel(true);
+		super.onPause();
+	}
+
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -57,6 +82,10 @@ public class MethodInteractionFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
 		v = inflater.inflate(R.layout.fragment_activity_interaction, parent, false);
+
+
+
+		bellAudio = new AudioPlayer(getActivity(), true);
 
 		//Get handle on LinearLayout to display bells
 		LinearLayout globalLinearLayout = (LinearLayout) v.findViewById(R.id.globalView);
@@ -292,6 +321,7 @@ public class MethodInteractionFragment extends Fragment {
 
 			final ArrayList<String> bells = new ArrayList<String>();
 
+			//Set up bells to be rung
 			for (char a: possibleBellNumbering){
 				bells.add(a + "");
 			}
@@ -326,9 +356,12 @@ public class MethodInteractionFragment extends Fragment {
 				x = next;
 
 				final String copyX = x;
+
+				//If text reaches the length of the number of bells then it is due a new line character
 				if ((currentText.length() - methodCopy.getBells()) % ((methodCopy.getBells()) + 1) == 0 && currentText.length() >= methodCopy.getBells())
 					currentText += "\n";
 
+				//Add the next letter to the current text
 				currentText += x;
 				final String cText = currentText;
 
@@ -336,21 +369,37 @@ public class MethodInteractionFragment extends Fragment {
 					@Override
 					public void run() {
 
+						//Sets which bell the user is playing
 						methodView.setBell(bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString());
+
+						//Displays the correct amount of text on screen
 						methodView.setLimitingText(methodCopy.getBells(), cText, 6);
 
+						//Switch the bell position
 						BellImageView b = (BellImageView)v.findViewById(bells.indexOf(copyX) + 1);
 						b.switchImage((Integer) b.getTag());
 
+						
+						//TODO
+						if (MethodLab.get(getActivity()).getSetup().isWaitForMe()){
+							while (pressTime == 0){
+								try {
+									wait(250);
+								} catch (InterruptedException e) {
+									e.printStackTrace();
+								}
+							}
+						}
+
+						//Record the play time and play the bell
 						playTime = System.currentTimeMillis();
 						bellAudio.play(getActivity(),next);
+
 
 						if (pressTime != 0)
 							score.setText(Math.abs(playTime - pressTime) + "");
 
-
 						methodView.drawLines(true);
-
 
 					}
 				}); 
@@ -363,14 +412,17 @@ public class MethodInteractionFragment extends Fragment {
 					while(paused == true)
 						wait(500);
 
-					if (i % ((methodCopy.getBells()) * 2) == 0){
-						wait(200);
+					if (i % ((methodCopy.getBells()) * 2) == 0 ){
+
+						//Enabling the handstroke gap
+						if(MethodLab.get(getActivity()).getSetup().isHandstrokeGap())
+							wait(200);
 
 						if(changed == true){
 							method.swapRound();
 							changed = false;
 						}
-						
+
 						if(stand == true){
 							stand = false;
 							isPlaying = false;
@@ -382,8 +434,6 @@ public class MethodInteractionFragment extends Fragment {
 					e.printStackTrace();
 				}
 			}
-
-
 
 			return null;
 		}

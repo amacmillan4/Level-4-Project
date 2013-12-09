@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -16,7 +17,7 @@ public class MethodSetupFragment extends Fragment {
 	TextView stage, composition, method, peal;
 	Button hand, tower;
 	Switch stopAtRounds, handstrokeGap, waitForMe, scoreBlows, scoreSummary, orientationLock;
-	
+
 	public void updateView(){
 		SetupInstructions s = MethodLab.get(getActivity()).getSetup();
 		stage.setText(s.getStage());
@@ -24,8 +25,8 @@ public class MethodSetupFragment extends Fragment {
 		method.setText("Aberafan");
 		stage.setText(s.getStage());
 		peal.setText(s.getPealTime());
-		
-		
+		handstrokeGap.setChecked(s.isHandstrokeGap());
+		waitForMe.setChecked(s.isWaitForMe());
 	}
 
 	@Override
@@ -50,8 +51,29 @@ public class MethodSetupFragment extends Fragment {
 		tower = (Button) view.findViewById(R.id.btnTowerbells);
 
 		stopAtRounds = (Switch) view.findViewById(R.id.switchRounds);
+		
+		///Set up the "Handstroke Gap" switch
 		handstrokeGap = (Switch) view.findViewById(R.id.switchGap);
+		handstrokeGap.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				MethodLab.get(getActivity()).getSetup().setHandstrokeGap(isChecked);
+
+			}
+		});
+
+		//Set up "wait for me" switch
 		waitForMe = (Switch) view.findViewById(R.id.switchWait);
+		waitForMe.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				MethodLab.get(getActivity()).getSetup().setWaitForMe(isChecked);
+
+			}
+		});
+
 		scoreBlows = (Switch) view.findViewById(R.id.switchScore);
 		orientationLock = (Switch) view.findViewById(R.id.switchOrientation);
 		scoreSummary = (Switch) view.findViewById(R.id.switchSummary);
@@ -77,7 +99,6 @@ public class MethodSetupFragment extends Fragment {
 
 		title.setText("Stage");
 		ll.addView(v1);
-
 
 		View v2 = inflater.inflate(R.layout.listview_top_3, parent);
 		v2.setClickable(true);
@@ -108,7 +129,7 @@ public class MethodSetupFragment extends Fragment {
 			@Override
 			public void onClick(View view) {
 
-				
+
 			}
 		});
 
@@ -135,20 +156,20 @@ public class MethodSetupFragment extends Fragment {
 
 		title.setText("Peal Time");
 		ll2.addView(v4);
-		
+
 		Button run = (Button) view.findViewById(R.id.btnStartRun);
 		run.setOnClickListener(new View.OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				
+				updateView();
 				Intent i = new Intent(getActivity(), MethodInteractionActivity.class);
 				getActivity().startActivity(i);
-				
+
 			}
 		});
-		
+
 		updateView();
 
 		return view;
