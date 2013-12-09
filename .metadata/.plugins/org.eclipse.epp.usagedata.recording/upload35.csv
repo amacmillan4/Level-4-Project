@@ -1,0 +1,276 @@
+what,kind,bundleId,bundleVersion,description,time
+opened,editor,com.android.ide.eclipse.adt,22.2.1.v201309180102-833290,"com.android.ide.eclipse.editors.CommonXmlEditor",1386597262226
+activated,editor,com.android.ide.eclipse.adt,22.2.1.v201309180102-833290,"com.android.ide.eclipse.editors.CommonXmlEditor",1386597262300
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1386597281820
+opened,editor,com.android.ide.eclipse.adt,22.2.1.v201309180102-833290,"com.android.ide.eclipse.editors.CommonXmlEditor",1386597282186
+activated,editor,com.android.ide.eclipse.adt,22.2.1.v201309180102-833290,"com.android.ide.eclipse.editors.CommonXmlEditor",1386597282267
+activated,editor,com.android.ide.eclipse.adt,22.2.1.v201309180102-833290,"com.android.ide.eclipse.editors.CommonXmlEditor",1386597294029
+closed,editor,com.android.ide.eclipse.adt,22.2.1.v201309180102-833290,"com.android.ide.eclipse.editors.CommonXmlEditor",1386597294030
+activated,editor,com.android.ide.eclipse.adt,22.2.1.v201309180102-833290,"com.android.ide.eclipse.editors.CommonXmlEditor",1386597295092
+closed,editor,com.android.ide.eclipse.adt,22.2.1.v201309180102-833290,"com.android.ide.eclipse.editors.CommonXmlEditor",1386597295097
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1386597306955
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386597347134
+activated,view,com.android.ide.eclipse.ddms,22.2.1.v201309180102-833290,"com.android.ide.eclipse.ddms.views.LogCatView",1386597383886
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386597431093
+activated,editor,com.android.ide.eclipse.adt,22.2.1.v201309180102-833290,"com.android.ide.eclipse.editors.CommonXmlEditor",1386597431125
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386597882389
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598428711
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598432780
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598440720
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598443632
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598463339
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598466345
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598487605
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1386598487621
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386598493270
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598503257
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598505518
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386598505527
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598513709
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598520188
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598526691
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598530712
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598533404
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598618565
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598639128
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598671551
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1386598676659
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598680468
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598682993
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1386598683001
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598684388
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598688051
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1386598691060
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598695707
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598713347
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1386598715923
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598723236
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598723384
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598725913
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598746887
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598764425
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598768229
+opened,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1386598940777
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1386598940837
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1386598955649
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1386598960586
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1386598961525
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1386598985776
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598989420
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598990599
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386598990609
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598993671
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598994396
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386598994405
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386598997263
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599002843
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1386599005714
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599012395
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599014611
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599015041
+started,bundle,org.eclipse.ant.ui,3.5.101.v20120110-1739,"org.eclipse.ant.ui",1386599019655
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599020060
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1386599020067
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599025980
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599029113
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1386599029122
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599033343
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599036681
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1386599036689
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599040646
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599044162
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1386599044170
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599048410
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599052418
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1386599052431
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599054499
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599056722
+executed,command,org.eclipse.ui.ide,3.7.0.v20110928-1505,"org.eclipse.ui.navigate.openResource",1386599056730
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599061336
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599068078
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1386599068086
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599072009
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599075680
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1386599075688
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599077654
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599080310
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1386599080317
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599083054
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599085523
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1386599085532
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599087032
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599089469
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1386599089477
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599091040
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599097295
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1386599097308
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599102165
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599113809
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1386599113822
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1386599124136
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1386599127305
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1386599127556
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1386599127772
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1386599128842
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1386599129063
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1386599129944
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1386599130198
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386599131365
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1386599143958
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599146215
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599147460
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599147816
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599151515
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1386599151523
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599153556
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599156842
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1386599156852
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599158954
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599162421
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1386599162429
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599164019
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599167839
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1386599167848
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599170695
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599174324
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1386599174332
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599176024
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599178130
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1386599178138
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599179594
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599181849
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1386599181856
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599183211
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599185323
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1386599185330
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599186861
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599189059
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1386599189067
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599190574
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599192699
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1386599192708
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599194142
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599196134
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1386599196142
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599197505
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599199349
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1386599199357
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599200745
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599203039
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.rename.element",1386599203048
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1386599206861
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599210531
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599211871
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599213232
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599241809
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1386599243164
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1386599243934
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1386599247003
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1386599256334
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.copy",1386599333850
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1386599337767
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.copy",1386599547574
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1386599552705
+error,log,,,"Unhandled event loop exception",1386599555696
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.indent",1386599555957
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386599558916
+error,log,,,"Unhandled event loop exception",1386599560751
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.indent",1386599561061
+error,log,,,"Unhandled event loop exception",1386599562554
+error,log,,,"Unhandled event loop exception",1386599564181
+error,log,,,"Unhandled event loop exception",1386599568765
+error,log,,,"Unhandled event loop exception",1386599574275
+error,log,,,"Unhandled event loop exception",1386599578297
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.indent",1386599582511
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1386599591926
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1386599596736
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1386599681684
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1386599707083
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1386599842853
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.copy",1386599851811
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1386599855230
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.text.contentAssist.proposals",1386599866370
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1386599875643
+opened,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1386599878700
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1386599878745
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386599885126
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386599886398
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386599887228
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1386599917979
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.select.wordPrevious",1386599952802
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.select.wordNext",1386599963062
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.select.wordNext",1386599963381
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.select.wordNext",1386599963851
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.select.wordNext",1386599969057
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.select.wordNext",1386599969927
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.select.wordNext",1386599975532
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.select.wordNext",1386599976110
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1386599979363
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1386599981811
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1386599981999
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.text.contentAssist.proposals",1386599989354
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599991910
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386599992113
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386599996588
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386599996993
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386600029404
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386600029843
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386600030748
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386600031249
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386600031280
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386600031313
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386600031342
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386600031376
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386600031406
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386600031439
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386600031473
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386600031504
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386600031536
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386600031569
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386600031598
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386600031719
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386600031875
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1386600040345
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1386600057906
+opened,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1386600058137
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1386600058183
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1386600187169
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1386600187379
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1386600208494
+activated,editor,com.android.ide.eclipse.adt,22.2.1.v201309180102-833290,"com.android.ide.eclipse.editors.CommonXmlEditor",1386600220447
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1386600222534
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1386600258785
+activated,editor,com.android.ide.eclipse.adt,22.2.1.v201309180102-833290,"com.android.ide.eclipse.editors.CommonXmlEditor",1386600263022
+closed,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1386600263022
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1386600263914
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1386600294542
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386600297505
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386600320084
+opened,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1386600321309
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1386600321385
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386600362406
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386600365163
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.generate.constructor.using.fields",1386600365203
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386600378294
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386600378602
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386600378784
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1386600378943
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1386600411887
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.copy",1386600423042
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1386600428404
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1386600433541
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386600442623
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1386600442750
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.copy",1386600471861
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1386600473369
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1386600482886
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.goto.wordPrevious",1386600486597
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.goto.wordPrevious",1386600486776
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.goto.wordPrevious",1386600486954
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.goto.wordPrevious",1386600487098
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.goto.wordPrevious",1386600487278
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.goto.wordPrevious",1386600487424
+executed,command,org.eclipse.ui.workbench.texteditor,3.7.0.v20110928-1504,"org.eclipse.ui.edit.text.goto.wordPrevious",1386600487602
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.copy",1386600494771
+no handler,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1386600496105
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1386600503765

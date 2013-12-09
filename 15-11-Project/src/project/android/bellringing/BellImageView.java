@@ -26,16 +26,15 @@ public class BellImageView extends ImageView {
 		super.setTag(i);
 	}
 
-	public void switchImage(int resourceID){
+	public void switchImage(int resourceID, ImageId im){
 
-		if(resourceID == R.drawable.bell_dl_256)
-			setImageResource(R.drawable.bell_ul_256);
-		else if(resourceID == R.drawable.bell_dr_256)
-			setImageResource(R.drawable.bell_ur_256);
-		else if(resourceID == R.drawable.bell_ur_256)
-			setImageResource(R.drawable.bell_dr_256);
-		else if(resourceID == R.drawable.bell_ul_256)
-			setImageResource(R.drawable.bell_dl_256);
-
+		if(resourceID == im.getLeftDown())
+			setImageResource(im.getLeftUp());
+		else if(resourceID == im.getRightDown())
+			setImageResource(im.getRightUp());
+		else if(resourceID == im.getRightUp())
+			setImageResource(im.getRightDown());
+		else if(resourceID == im.getLeftUp())
+			setImageResource(im.getLeftDown());
 	}
 }

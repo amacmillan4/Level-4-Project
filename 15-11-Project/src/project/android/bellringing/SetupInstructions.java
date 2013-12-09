@@ -4,15 +4,14 @@ public class SetupInstructions {
 
 	private String stage;
 	private String composition;
-	private String bellType;
 	private String pealTime;
-	private boolean stopAtRounds, handstrokeGap, waitForMe, scoreBlows, scoreSummary,orientationLock;
-	public SetupInstructions(String stage, String composition, String bellType,String pealTime, boolean stopAtRounds, boolean handstrokeGap,
+	private boolean handbells, stopAtRounds, handstrokeGap, waitForMe, scoreBlows, scoreSummary,orientationLock;
+	public SetupInstructions(String stage, String composition, boolean handbells,String pealTime, boolean stopAtRounds, boolean handstrokeGap,
 			boolean waitForMe, boolean scoreBlows, boolean scoreSummary,boolean orientationLock) {
 		
 		this.stage = stage;
 		this.composition = composition;
-		this.bellType = bellType;
+		this.handbells = handbells;
 		this.pealTime = pealTime;
 		this.stopAtRounds = stopAtRounds;
 		this.handstrokeGap = handstrokeGap;
@@ -33,11 +32,11 @@ public class SetupInstructions {
 	public void setComposition(String composition) {
 		this.composition = composition;
 	}
-	public String getBellType() {
-		return bellType;
+	public boolean getHandbellsOrNot() {
+		return handbells;
 	}
-	public void setBellType(String bellType) {
-		this.bellType = bellType;
+	public void setHandbellsOrNot(boolean handbells) {
+		this.handbells = handbells;
 	}
 	public String getPealTime() {
 		return pealTime;

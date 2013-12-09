@@ -28,6 +28,7 @@ public class MethodInteractionFragment extends Fragment {
 
 	View v;	//Global View
 
+	ImageId images;
 	AudioPlayer bellAudio;
 	DisplayMethod displayMethodThread = new DisplayMethod();
 	boolean isPlaying = false;
@@ -83,9 +84,8 @@ public class MethodInteractionFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
 		v = inflater.inflate(R.layout.fragment_activity_interaction, parent, false);
 
-
-
-		bellAudio = new AudioPlayer(getActivity(), true);
+		bellAudio = new AudioPlayer(getActivity(), MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
+		images = new ImageId(MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
 
 		//Get handle on LinearLayout to display bells
 		LinearLayout globalLinearLayout = (LinearLayout) v.findViewById(R.id.globalView);
@@ -143,7 +143,7 @@ public class MethodInteractionFragment extends Fragment {
 			b = posX - posX * Math.cos(Math.toRadians((i) * 180/ (int) ((methodCopy.getBells() - 1 )/ 2)));
 
 
-			bellImageViews.add(initializeImgViews(getActivity(),(methodCopy.getBells()/2) - i,R.drawable.bell_dl_256,RelativeLayout.ALIGN_PARENT_LEFT,
+			bellImageViews.add(initializeImgViews(getActivity(),(methodCopy.getBells()/2) - i,images.getLeftDown(),RelativeLayout.ALIGN_PARENT_LEFT,
 					(int) a,0,(int) b,scale - (i)));
 
 			//Add textView with same id as ImageView + 20
@@ -157,7 +157,7 @@ public class MethodInteractionFragment extends Fragment {
 			bellNumberTextViews.add(t1);
 
 
-			bellImageViews.add(initializeImgViews(getActivity(),(methodCopy.getBells()/2) + i + 1,R.drawable.bell_dr_256,RelativeLayout.ALIGN_PARENT_RIGHT,
+			bellImageViews.add(initializeImgViews(getActivity(),(methodCopy.getBells()/2) + i + 1,images.getRightDown(),RelativeLayout.ALIGN_PARENT_RIGHT,
 					0,(int) a,(int) b,scale + ((i + 1))));
 
 			//Add textView with same id as ImageView + 20
@@ -365,9 +365,32 @@ public class MethodInteractionFragment extends Fragment {
 				currentText += x;
 				final String cText = currentText;
 
+				
+
+				//Waits for user
+				if (MethodLab.get(getActivity()).getSetup().isWaitForMe()){
+					while (pressTime == 0 && bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(copyX)){
+						try {
+							wait(250);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+				
 				mHandler.post(new Runnable() {
 					@Override
 					public void run() {
+						//Record the play time and play the bell
+						playTime = System.currentTimeMillis();
+						bellAudio.play(getActivity(),next);
+
+						//TODO Calculate Score
+						if (pressTime != 0)
+							score.setText(Math.abs(playTime - pressTime) + "");
+
+						//Ensures the view draws the lines
+						methodView.drawLines(true);
 
 						//Sets which bell the user is playing
 						methodView.setBell(bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString());
@@ -377,30 +400,7 @@ public class MethodInteractionFragment extends Fragment {
 
 						//Switch the bell position
 						BellImageView b = (BellImageView)v.findViewById(bells.indexOf(copyX) + 1);
-						b.switchImage((Integer) b.getTag());
-
-						
-						//TODO
-						if (MethodLab.get(getActivity()).getSetup().isWaitForMe()){
-							while (pressTime == 0){
-								try {
-									wait(250);
-								} catch (InterruptedException e) {
-									e.printStackTrace();
-								}
-							}
-						}
-
-						//Record the play time and play the bell
-						playTime = System.currentTimeMillis();
-						bellAudio.play(getActivity(),next);
-
-
-						if (pressTime != 0)
-							score.setText(Math.abs(playTime - pressTime) + "");
-
-						methodView.drawLines(true);
-
+						b.switchImage((Integer) b.getTag(), images);
 					}
 				}); 
 
@@ -506,11 +506,11 @@ public class MethodInteractionFragment extends Fragment {
 			//If an ImageView has changed side, update image with bell for correct side
 			if(params1.rightMargin == 0){
 				params1.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-				x1.setImageResource(R.drawable.bell_dl_256);
+				x1.setImageResource(images.getLeftDown());
 			}
 			else{
 				params1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-				x1.setImageResource(R.drawable.bell_dr_256);
+				x1.setImageResource(images.getRightDown());
 			}
 
 			params1.height = params.height;

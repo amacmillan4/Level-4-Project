@@ -17,7 +17,7 @@
         <activity
             android:name="project.android.bellringing.MethodSetupActivity"
             android:label="@string/app_name" 
-            android:theme="@android:style/Theme.Light">
+            android:theme="@android:style/Theme.Holo.Light">
             
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,30 +28,32 @@
         
         <activity
             android:name="project.android.bellringing.MethodShowActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Holo.Light" >
         </activity>
         
         <activity
             android:name="project.android.bellringing.MethodSetupStageActivity"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.Light" >
+             android:theme="@android:style/Theme.Holo.Light" >
         </activity>
         
          <activity
             android:name="project.android.bellringing.MethodSetupCompositionActivity"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.Light" >
+            android:theme="@android:style/Theme.Holo.Light">
         </activity>
         
          <activity
             android:name="project.android.bellringing.MethodSetupPealTimeActivity"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.Light" >
+             android:theme="@android:style/Theme.Holo.Light">
         </activity>
         
         <activity
             android:name="project.android.bellringing.MethodInteractionActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" 
+            android:theme="@android:style/Theme.Holo.Light">
         </activity>
     </application>
 

@@ -15,8 +15,7 @@ import android.widget.TextView;
 public class MethodSetupFragment extends Fragment {
 
 	TextView stage, composition, method, peal;
-	Button hand, tower;
-	Switch stopAtRounds, handstrokeGap, waitForMe, scoreBlows, scoreSummary, orientationLock;
+	Switch bellType, stopAtRounds, handstrokeGap, waitForMe, scoreBlows, scoreSummary, orientationLock;
 
 	public void updateView(){
 		SetupInstructions s = MethodLab.get(getActivity()).getSetup();
@@ -47,13 +46,25 @@ public class MethodSetupFragment extends Fragment {
 
 		View view = inflater.inflate(R.layout.fragment_activity_start, parent, false);
 
-		hand = (Button) view.findViewById(R.id.btnHandbells);
-		tower = (Button) view.findViewById(R.id.btnTowerbells);
+		MethodLab.get(getActivity()).updateSetup(new SetupInstructions("Minor", "Plain Course", false, "2:00", false, false, false, false, true, false));
 
+		
+		bellType = (Switch) view.findViewById(R.id.switchBells);
+		bellType.setChecked(MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
+		bellType.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				MethodLab.get(getActivity()).getSetup().setHandbellsOrNot(isChecked);
+
+			}
+		});
+		
 		stopAtRounds = (Switch) view.findViewById(R.id.switchRounds);
 		
 		///Set up the "Handstroke Gap" switch
 		handstrokeGap = (Switch) view.findViewById(R.id.switchGap);
+		handstrokeGap.setChecked(MethodLab.get(getActivity()).getSetup().isHandstrokeGap());
 		handstrokeGap.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
 
 			@Override
@@ -65,6 +76,7 @@ public class MethodSetupFragment extends Fragment {
 
 		//Set up "wait for me" switch
 		waitForMe = (Switch) view.findViewById(R.id.switchWait);
+		waitForMe.setChecked(MethodLab.get(getActivity()).getSetup().isWaitForMe());
 		waitForMe.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
 
 			@Override
@@ -77,8 +89,6 @@ public class MethodSetupFragment extends Fragment {
 		scoreBlows = (Switch) view.findViewById(R.id.switchScore);
 		orientationLock = (Switch) view.findViewById(R.id.switchOrientation);
 		scoreSummary = (Switch) view.findViewById(R.id.switchSummary);
-
-		MethodLab.get(getActivity()).updateSetup(new SetupInstructions("Minor", "Plain Course", "Handbells", "2:00", true, false, true, false, true, false));
 
 		LinearLayout ll = (LinearLayout) view.findViewById(R.id.test);
 

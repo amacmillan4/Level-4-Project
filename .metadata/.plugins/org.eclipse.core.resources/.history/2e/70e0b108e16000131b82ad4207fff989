@@ -1,0 +1,22 @@
+package project.android.bellringing;
+
+public class ImageId {
+
+	private int leftDown, leftUp, rightDown, rightUp;
+	private boolean handbells;
+	
+	public ImageId(boolean handbells) {
+		this.handbells = handbells;
+		
+		if (this.handbells){
+			leftDown = R.drawable.bell_dl_256;
+			rightDown = R.drawable.bell_dr_256;
+			leftUp = R.drawable.bell_ul_256;
+			rightUp = R.drawable.bell_ur_256;
+
+		}
+	}
+	
+	
+	
+}

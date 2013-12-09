@@ -39,17 +39,14 @@
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="20dp" >
 
-                <Button
-                    android:id="@+id/btnHandbells"
+                <Switch
+                    android:id="@+id/switchBells"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Handbells" />
-
-                <Button
-                    android:id="@+id/btnTowerbells"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Towerbells" />
+                    android:checked="true"
+                    android:textOff="Towerbells"
+                    android:textOn="Handbells" />
+                
             </LinearLayout>
 
             <RelativeLayout
