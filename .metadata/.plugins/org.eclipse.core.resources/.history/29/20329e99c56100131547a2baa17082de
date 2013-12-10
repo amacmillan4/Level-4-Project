@@ -1,0 +1,136 @@
+package project.android.bellringing;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.regex.Pattern;
+
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
+
+
+public class MethodSetupMethodChoiceFragment extends Fragment {
+
+	HashMap<Integer, ArrayList<String>> hmap;
+
+	@Override
+	public void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		setRetainInstance(true);
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
+		// Inflate the layout for this fragment
+		View view = inflater.inflate(R.layout.fragment_activity_start_method_choice, parent, false);
+
+		LinearLayout ll = (LinearLayout) view.findViewById(R.id.MC_listLL);
+
+		setup();
+		
+//		for (int i = 0; i < hmap.size(); i++){
+//			//View test = inflater.inflate(R.layout.method_choice_item, parent);
+//			//ll.addView(setupCheckBox(hmap.get(i + 500).get(0),test));
+//			System.out.println(hmap.get(i+500).get(0));
+//		}
+
+		return view;
+	}
+
+	private View setupCheckBox(String name, View test){
+
+
+		test.setClickable(true);
+		final CheckBox title = (CheckBox) test.findViewById(R.id.MC_checkbox);
+		test.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+				title.setChecked(!title.isChecked());
+
+			}
+		});
+
+		title.setText(name);
+
+		return test;
+
+	}
+
+	@SuppressLint("UseSparseArrays")
+	private void setup(){
+
+		Pattern pattern = Pattern.compile("([a-zA-Z]+)([0-9]*)");
+		Pattern pattern2 = Pattern.compile("<.*><.*");
+
+		ArrayList<String> a = new ArrayList<String>();
+		hmap = new HashMap<Integer, ArrayList<String>>();
+
+		String[] files = null;
+		try {
+			files = getActivity().getAssets().list("files");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println(files[0]);
+
+//		for(File f: files){
+//			Matcher m = pattern.matcher(f.getName());
+//			m.matches();
+//
+//			if(m.group(2).equals("8"))
+//				a.add(f.getPath());
+//		}
+//
+//		try{
+//			int i = 500;
+//			for(String file: a){
+//
+//				BufferedReader br = null;			
+//				br = new BufferedReader(new FileReader(file));
+//
+//				String line;
+//				line = br.readLine();
+//
+//				while (line != null) {
+//					Matcher matcher = pattern2.matcher(line);
+//
+//					while (matcher.find()) {
+//						String[] split = line.split("><");
+//
+//						try{
+//							ArrayList<String> alist = new ArrayList<String>();
+//							alist.add(split[0].substring(1,split[0].length()));
+//							alist.add(split[3].split(",")[0].substring(1,split[3].split(",")[0].length()));
+//							alist.add(split[3].split(",")[1]);
+//
+//							System.out.println(i + " " + alist.get(1));
+//
+//							hmap.put(i, alist);
+//							i++;
+//							
+//						}catch(Exception e){
+//							System.out.println("Poor format");
+//						}
+//
+//					}
+//
+//					line = br.readLine();
+//				}
+//
+//				br.close();	
+//			}
+//
+//		}catch(Exception e){
+//			System.out.println("File Not Found");
+//		}
+	}
+
+}

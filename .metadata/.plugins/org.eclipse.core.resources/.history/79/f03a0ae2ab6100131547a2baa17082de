@@ -1,0 +1,58 @@
+import java.io.File;
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		Pattern pattern = Pattern.compile("([a-zA-Z]+)([0-9]*)");
+
+		//Pattern pattern = Pattern.compile("<.*><.*");
+
+		ArrayList<String> a = new ArrayList<String>();
+		
+			File dir = new File("files");
+			File[] files = dir.listFiles();
+						
+			for(File f: files){
+				Matcher m = pattern.matcher(f.getName());
+				m.matches();
+								
+				if(m.group(2).equals("8"))
+					a.add(f.getName());
+			}
+			
+			try{
+			
+//			BufferedReader br = new BufferedReader(new FileReader("libs/D16"));
+//
+//			String line = br.readLine();
+//
+//			while (line != null) {
+//
+//				Matcher matcher = pattern.matcher(line);
+//
+//				while (matcher.find()) {
+//
+//					String[] split = line.split("><");
+//
+//					System.out.print(split[0] + "\t" + split[1]);
+//				}
+//				line = br.readLine();
+//				System.out.println();
+//			}
+//
+//			br.close();
+				
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+
+
+		
+		
+
+	}
+}

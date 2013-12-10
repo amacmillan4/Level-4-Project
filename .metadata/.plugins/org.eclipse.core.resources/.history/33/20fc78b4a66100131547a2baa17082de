@@ -1,0 +1,43 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Test {
+
+		public static void main(String[] args) {
+			//Pattern pattern = Pattern.compile("<[a-zA-Z0-9./\\,&-]*>");
+			
+			Pattern pattern = Pattern.compile("<.*><.*");
+
+			
+			    try {
+					 BufferedReader br = new BufferedReader(new FileReader("libs/D16"));
+
+			        String line = br.readLine();
+
+			        while (line != null) {
+			        	
+			        	Matcher matcher = pattern.matcher(line);
+			        	
+			    		while (matcher.find()) {
+			    			
+			    			String[] split = line.split("><");
+			    			
+			    			System.out.print(split[0] + "\t" + split[1]);
+			    		}
+			    		line = br.readLine();
+			            System.out.println();
+			        }
+			        
+				    br.close();
+
+			        
+			    } catch (Exception e){
+			    	System.out.println("File non existant");
+
+
+		}
+
+	}
+}
