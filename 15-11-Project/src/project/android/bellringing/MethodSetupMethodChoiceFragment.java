@@ -21,6 +21,9 @@ import android.widget.LinearLayout;
 public class MethodSetupMethodChoiceFragment extends Fragment {
 
 	HashMap<Integer, ArrayList<String>> hmap;
+	HashMap<String, String> nameToBells = new HashMap<String, String>();
+	HashMap<String, String> bellsToFile = new HashMap<String, String>();
+	
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -34,7 +37,8 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 		View view = inflater.inflate(R.layout.fragment_activity_start_method_choice, parent, false);
 
 		LinearLayout ll = (LinearLayout) view.findViewById(R.id.MC_listLL);
-
+		
+		hashMapSetup();
 		setup();
 		
 		for (int i = 0; i <50; i++){
@@ -86,14 +90,13 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 			Matcher m = pattern.matcher(f);
 			m.matches();
 
-			if(m.group(2).equals("8"))
+			if(m.group(2).equals(nameToBells.get(MethodLab.get(getActivity()).getSetup().getComposition())));
 				a.add("files/" +f);
 		}
 
 		try{
 			int i = 500;
 			for(String file: a){
-				System.out.println(file);
 				BufferedReader br = null;			
 				br = new BufferedReader(new InputStreamReader(getActivity().getAssets().open(file)));
 
@@ -111,9 +114,7 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 							alist.add(split[0].substring(1,split[0].length()));
 							alist.add(split[3].split(",")[0].substring(1,split[3].split(",")[0].length()));
 							alist.add(split[3].split(",")[1]);
-
-							System.out.println(i + " " + alist.get(1));
-
+							
 							hmap.put(i, alist);
 							i++;
 							
@@ -133,5 +134,18 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 			System.out.println("File Not Found");
 		}
 	}
-
+	
+	private void hashMapSetup(){
+		String[] names = {"Minimus", "Doubles", "Doubles on 6", "Minor", "Triples", "Major", "Caters", "Royal", "Cinques", "Maximus", "Sextuples", "14", "Septuples", "16"};
+		String[] otherNames = {"Alliance Methods", "Delight Methods", "Differential Methods", "Half Methods", "Plain Methods", "Principles", "Surprise Methods", "Treble Bob Methods", "Treble Place Methods"};
+		String[] fileNames = {"A", "D", "DF", "H", "P", "PR", "S", "T", "TB"};
+		
+		for( int i = 0; i < names.length; i++){
+			nameToBells.put(names[i], i + "");
+		}
+		
+		for (int i = 0; i < otherNames.length; i++){
+			bellsToFile.put(otherNames[i], fileNames[i]);
+		}
+}
 }
