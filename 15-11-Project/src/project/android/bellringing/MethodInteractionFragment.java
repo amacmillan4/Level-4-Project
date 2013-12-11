@@ -173,7 +173,7 @@ public class MethodInteractionFragment extends Fragment {
 		}
 
 		//Set up TextView to display the method
-		methodView = (LinesView) v.findViewById(R.id.textView1);
+		methodView = (LinesView) v.findViewById(R.id.MC_title);
 		methodView.setTextSize(24);
 		methodView.setText("           ");
 		methodView.setTextColor(Color.BLACK);
