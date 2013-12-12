@@ -1,0 +1,38 @@
+package project.android.bellringing;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+
+import android.content.Context;
+
+public class MethodDataTxtSerializer {
+
+	private Context context;
+	private String filename;
+	
+	public MethodDataTxtSerializer(Context c, String f){
+		context = c;
+		filename = f;
+	}
+
+
+	public void saveData(SetupInstructions s) throws IOException{
+		
+		//Write file to disk
+		Writer writer = null;
+		try{
+			OutputStream out = context.openFileOutput(filename, Context.MODE_PRIVATE);
+			writer = new OutputStreamWriter(out);
+			writer.write(s.toString());
+		
+		} finally {
+			if (writer != null)
+				writer.close();
+		}
+		
+	}
+	
+	
+}

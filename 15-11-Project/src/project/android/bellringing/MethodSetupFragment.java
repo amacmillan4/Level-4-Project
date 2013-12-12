@@ -40,24 +40,6 @@ public class MethodSetupFragment extends Fragment {
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setRetainInstance(true);
-
-		try{
-			BufferedReader br = null;			
-			br = new BufferedReader(new InputStreamReader(getActivity().getAssets().open("cache/Previous")));
-
-			String line = br.readLine();
-
-			MethodLab.get(getActivity()).updateSetup(
-					new SetupInstructions(line.split(",")[0], line.split(",")[1], line.split(",")[2],
-							Boolean.parseBoolean(line.split(",")[3]), line.split(",")[4],Boolean.parseBoolean(line.split(",")[5]), 
-							Boolean.parseBoolean(line.split(",")[6]), Boolean.parseBoolean(line.split(",")[7]), Boolean.parseBoolean(line.split(",")[8]),
-							Boolean.parseBoolean(line.split(",")[9]), Boolean.parseBoolean(line.split(",")[10])));
-
-			br.close();
-		}
-		catch( Exception e){
-			System.out.println("File not found");
-		}
 	}
 
 	@Override
@@ -65,13 +47,19 @@ public class MethodSetupFragment extends Fragment {
 		super.onResume();
 		updateView();
 	}
+	
+	@Override
+	public void onPause(){
+		super.onPause();
+		MethodLab.get(getActivity()).saveData();
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
 		// Inflate the layout for this fragment
 
 		View view = inflater.inflate(R.layout.fragment_activity_start, parent, false);
-
+		
 		//Setup 
 		bellType = (Switch) view.findViewById(R.id.switchBells);
 		bellType.setChecked(MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());

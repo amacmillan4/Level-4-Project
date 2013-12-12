@@ -1,0 +1,68 @@
+package project.android.bellringing;
+
+import java.util.ArrayList;
+
+import android.content.Context;
+
+public class MethodLab {
+	private ArrayList<Method> arrayMethod;
+	private SetupInstructions setup;
+
+	private static MethodLab methodLab;
+	private static Context mAppContext;
+	
+	private MethodDataTxtSerializer mData;
+
+	private int i = 0;
+	
+	public boolean saveData(){
+		try {
+			mData.saveData(setup);
+			return true;
+		} catch (Exception e){
+			return false;
+		}
+	}
+	
+	public MethodLab(Context appContext) {
+		setmAppContext(appContext);
+		mData = new MethodDataTxtSerializer(mAppContext, "load.txt");	
+    }
+
+
+	public static MethodLab get(Context c) {
+		if (methodLab == null) {
+			methodLab = new MethodLab(c.getApplicationContext());
+		}
+		return methodLab;
+	}
+	
+	public Method getNext(){
+		Method a = arrayMethod.get(i);
+		if (i < arrayMethod.size() - 1)
+			i++;
+		
+		return a;
+	}
+	
+	public SetupInstructions getSetup(){
+		return setup;
+	}
+	
+	public void updateSetup(SetupInstructions s){
+		setup = s;
+	}
+
+
+	public Context getmAppContext() {
+		return mAppContext;
+	}
+
+
+	public void setmAppContext(Context mAppContext) {
+		this.mAppContext = mAppContext;
+	}
+
+	
+}
+
