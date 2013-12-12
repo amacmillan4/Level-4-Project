@@ -23,6 +23,9 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 	HashMap<Integer, ArrayList<String>> hmap = new HashMap<Integer, ArrayList<String>>() ;
 	HashMap<String, String> nameToBells = new HashMap<String, String>();
 	HashMap<String, String> bellsToFile = new HashMap<String, String>();
+	ArrayList<View> allViews = new ArrayList<View>();
+
+	int chosen = 1;
 
 
 	@Override
@@ -43,6 +46,8 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 
 		for (int i = 0; i < hmap.size(); i++){			
 
+			int j = 0;
+			
 			if (hmap.get(500 + i).size() == 1){
 
 				View test = inflater.inflate(R.layout.method_choice_title, parent);
@@ -53,9 +58,12 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 
 			}
 			else{
-				System.out.println("2");
+				//if (hmap.get(i + 500).get(0).equals(MethodLab.get(getActivity()).)
+				
 				View test = inflater.inflate(R.layout.method_choice_item, parent);
-				ll.addView(setupCheckBox(hmap.get(i + 500).get(0),test));
+				View v = setupCheckBox(hmap.get(i + 500).get(0),test, j);
+				allViews.add(j++, v);
+				ll.addView(v);
 			}
 		}
 
@@ -72,16 +80,22 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 		return view;
 	}
 
-	private View setupCheckBox(String name, View test){
+	private View setupCheckBox(String name, View test,  final int i){
 
 
 		test.setClickable(true);
+		test.setId(i);
 		final CheckBox title = (CheckBox) test.findViewById(R.id.MC_checkbox);
+		title.setClickable(false);
 		test.setOnClickListener(new View.OnClickListener() {
 
 			@Override
-			public void onClick(View view) {
-				title.setChecked(!title.isChecked());
+			public void onClick(View v) {
+				if (chosen != i){
+					((CheckBox) allViews.get(chosen).findViewById(R.id.MC_checkbox)).setChecked(false);
+					title.setChecked(!title.isChecked());
+					chosen = i;
+				}
 
 			}
 		});

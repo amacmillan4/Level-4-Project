@@ -1,6 +1,10 @@
 package project.android.bellringing;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -21,17 +25,39 @@ public class MethodSetupFragment extends Fragment {
 		SetupInstructions s = MethodLab.get(getActivity()).getSetup();
 		stage.setText(s.getStage());
 		composition.setText(s.getComposition());
-		method.setText("Aberafan");
-		stage.setText(s.getStage());
+		method.setText(s.getMethod());
 		peal.setText(s.getPealTime());
+		bellType.setChecked(s.getHandbellsOrNot());
+		stopAtRounds.setChecked(s.isStopAtRounds());
 		handstrokeGap.setChecked(s.isHandstrokeGap());
 		waitForMe.setChecked(s.isWaitForMe());
+		scoreBlows.setChecked(s.isScoreBlows());
+		scoreSummary.setChecked(s.isScoreSummary());
+		orientationLock.setChecked(s.isOrientationLock());
 	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setRetainInstance(true);
+
+		try{
+			BufferedReader br = null;			
+			br = new BufferedReader(new InputStreamReader(getActivity().getAssets().open("cache/Previous")));
+
+			String line = br.readLine();
+
+			MethodLab.get(getActivity()).updateSetup(
+					new SetupInstructions(line.split(",")[0], line.split(",")[1], line.split(",")[2],
+							Boolean.parseBoolean(line.split(",")[3]), line.split(",")[4],Boolean.parseBoolean(line.split(",")[5]), 
+							Boolean.parseBoolean(line.split(",")[6]), Boolean.parseBoolean(line.split(",")[7]), Boolean.parseBoolean(line.split(",")[8]),
+							Boolean.parseBoolean(line.split(",")[9]), Boolean.parseBoolean(line.split(",")[10])));
+
+			br.close();
+		}
+		catch( Exception e){
+			System.out.println("File not found");
+		}
 	}
 
 	@Override
@@ -46,8 +72,6 @@ public class MethodSetupFragment extends Fragment {
 
 		View view = inflater.inflate(R.layout.fragment_activity_start, parent, false);
 
-		MethodLab.get(getActivity()).updateSetup(new SetupInstructions("Minor", "Plain Course", false, "2:00", false, false, false, false, true, false));
-
 		//Setup 
 		bellType = (Switch) view.findViewById(R.id.switchBells);
 		bellType.setChecked(MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
@@ -59,9 +83,18 @@ public class MethodSetupFragment extends Fragment {
 
 			}
 		});
-		
+
 		stopAtRounds = (Switch) view.findViewById(R.id.switchRounds);
-		
+		stopAtRounds.setChecked(MethodLab.get(getActivity()).getSetup().isStopAtRounds());
+		stopAtRounds.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				MethodLab.get(getActivity()).getSetup().setStopAtRounds(isChecked);
+
+			}
+		});
+
 		///Set up the "Handstroke Gap" switch
 		handstrokeGap = (Switch) view.findViewById(R.id.switchGap);
 		handstrokeGap.setChecked(MethodLab.get(getActivity()).getSetup().isHandstrokeGap());
@@ -87,8 +120,27 @@ public class MethodSetupFragment extends Fragment {
 		});
 
 		scoreBlows = (Switch) view.findViewById(R.id.switchScore);
+		scoreBlows.setChecked(MethodLab.get(getActivity()).getSetup().isScoreBlows());
+		scoreBlows.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				MethodLab.get(getActivity()).getSetup().setScoreBlows(isChecked);
+
+			}
+		});
+		
 		orientationLock = (Switch) view.findViewById(R.id.switchOrientation);
 		scoreSummary = (Switch) view.findViewById(R.id.switchSummary);
+		scoreSummary.setChecked(MethodLab.get(getActivity()).getSetup().isScoreSummary());
+		scoreSummary.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				MethodLab.get(getActivity()).getSetup().setScoreSummary(isChecked);
+
+			}
+		});
 
 		LinearLayout ll = (LinearLayout) view.findViewById(R.id.test);
 
@@ -184,6 +236,21 @@ public class MethodSetupFragment extends Fragment {
 		updateView();
 
 		return view;
+	}
+	
+	public class WriteChanges extends AsyncTask<Void,Void,Void>{
+
+
+		@Override
+		protected synchronized Void doInBackground(Void... arg0) {
+			
+			String text = MethodLab.get(getActivity()).getSetup().toString();;
+						
+			
+			
+			return null;
+		}
+
 	}
 
 

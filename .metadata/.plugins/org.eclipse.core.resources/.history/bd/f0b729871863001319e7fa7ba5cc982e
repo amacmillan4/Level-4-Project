@@ -1,0 +1,242 @@
+package project.android.bellringing;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
+import android.widget.Switch;
+import android.widget.TextView;
+
+public class MethodSetupFragment extends Fragment {
+
+	TextView stage, composition, method, peal;
+	Switch bellType, stopAtRounds, handstrokeGap, waitForMe, scoreBlows, scoreSummary, orientationLock;
+
+	public void updateView(){
+		SetupInstructions s = MethodLab.get(getActivity()).getSetup();
+		stage.setText(s.getStage());
+		composition.setText(s.getComposition());
+		method.setText(s.getMethod());
+		peal.setText(s.getPealTime());
+		bellType.setChecked(s.getHandbellsOrNot());
+		stopAtRounds.setChecked(s.isStopAtRounds());
+		handstrokeGap.setChecked(s.isHandstrokeGap());
+		waitForMe.setChecked(s.isWaitForMe());
+		scoreBlows.setChecked(s.isScoreBlows());
+		scoreSummary.setChecked(s.isScoreSummary());
+		orientationLock.setChecked(s.isOrientationLock());
+	}
+
+	@Override
+	public void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		setRetainInstance(true);
+
+		try{
+			BufferedReader br = null;			
+			br = new BufferedReader(new InputStreamReader(getActivity().getAssets().open("cache/Previous")));
+
+			String line = br.readLine();
+
+			MethodLab.get(getActivity()).updateSetup(
+					new SetupInstructions(line.split(",")[0], line.split(",")[1], line.split(",")[2],
+							Boolean.parseBoolean(line.split(",")[3]), line.split(",")[4],Boolean.parseBoolean(line.split(",")[5]), 
+							Boolean.parseBoolean(line.split(",")[6]), Boolean.parseBoolean(line.split(",")[7]), Boolean.parseBoolean(line.split(",")[8]),
+							Boolean.parseBoolean(line.split(",")[9]), Boolean.parseBoolean(line.split(",")[10])));
+
+			br.close();
+		}
+		catch( Exception e){
+			System.out.println("File not found");
+		}
+	}
+
+	@Override
+	public void onResume(){
+		super.onResume();
+		updateView();
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
+		// Inflate the layout for this fragment
+
+		View view = inflater.inflate(R.layout.fragment_activity_start, parent, false);
+
+		//Setup 
+		bellType = (Switch) view.findViewById(R.id.switchBells);
+		bellType.setChecked(MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
+		bellType.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				MethodLab.get(getActivity()).getSetup().setHandbellsOrNot(isChecked);
+
+			}
+		});
+
+		stopAtRounds = (Switch) view.findViewById(R.id.switchRounds);
+		stopAtRounds.setChecked(MethodLab.get(getActivity()).getSetup().isStopAtRounds());
+		stopAtRounds.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				MethodLab.get(getActivity()).getSetup().setStopAtRounds(isChecked);
+
+			}
+		});
+
+		///Set up the "Handstroke Gap" switch
+		handstrokeGap = (Switch) view.findViewById(R.id.switchGap);
+		handstrokeGap.setChecked(MethodLab.get(getActivity()).getSetup().isHandstrokeGap());
+		handstrokeGap.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				MethodLab.get(getActivity()).getSetup().setHandstrokeGap(isChecked);
+
+			}
+		});
+
+		//Set up "wait for me" switch
+		waitForMe = (Switch) view.findViewById(R.id.switchWait);
+		waitForMe.setChecked(MethodLab.get(getActivity()).getSetup().isWaitForMe());
+		waitForMe.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				MethodLab.get(getActivity()).getSetup().setWaitForMe(isChecked);
+
+			}
+		});
+
+		scoreBlows = (Switch) view.findViewById(R.id.switchScore);
+		scoreBlows.setChecked(MethodLab.get(getActivity()).getSetup().isScoreBlows());
+		scoreBlows.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				MethodLab.get(getActivity()).getSetup().setScoreBlows(isChecked);
+
+			}
+		});
+		
+		orientationLock = (Switch) view.findViewById(R.id.switchOrientation);
+		scoreSummary = (Switch) view.findViewById(R.id.switchSummary);
+		scoreSummary.setChecked(MethodLab.get(getActivity()).getSetup().isScoreSummary());
+		scoreSummary.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				MethodLab.get(getActivity()).getSetup().setScoreSummary(isChecked);
+
+			}
+		});
+
+		LinearLayout ll = (LinearLayout) view.findViewById(R.id.test);
+
+		View v1 = inflater.inflate(R.layout.listview_top_3, parent);
+		TextView title = (TextView) v1.findViewById(R.id.Title);
+		stage = (TextView) v1.findViewById(R.id.Choice);
+		v1.setClickable(true);
+		v1.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+
+				Intent i = new Intent(getActivity(), MethodSetupStageActivity.class);
+				getActivity().startActivity(i);
+
+			}
+		});
+
+		title.setText("Stage");
+		ll.addView(v1);
+
+		View v2 = inflater.inflate(R.layout.listview_top_3, parent);
+		v2.setClickable(true);
+		title = (TextView) v2.findViewById(R.id.Title);
+		composition = (TextView) v2.findViewById(R.id.Choice);
+
+		v2.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+
+				Intent i = new Intent(getActivity(), MethodSetupCompositionActivity.class);
+				getActivity().startActivity(i);
+
+			}
+		});
+
+		title.setText("Composition");
+		ll.addView(v2);
+
+		View v3 = inflater.inflate(R.layout.listview_top_3, parent);
+		v3.setClickable(true);
+		title = (TextView) v3.findViewById(R.id.Title);
+		method = (TextView) v3.findViewById(R.id.Choice);
+
+		v3.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+				Intent i = new Intent(getActivity(), MethodSetupMethodChoiceActivity.class);
+				getActivity().startActivity(i);
+
+			}
+		});
+
+		title.setText("Method");
+		ll.addView(v3);
+
+		LinearLayout ll2 = (LinearLayout) view.findViewById(R.id.pealTime);
+
+		View v4 = inflater.inflate(R.layout.listview_top_3, parent);
+		v4.setClickable(true);
+		title = (TextView) v4.findViewById(R.id.Title);
+		peal = (TextView) v4.findViewById(R.id.Choice);
+
+		v4.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+
+				Intent i = new Intent(getActivity(), MethodSetupPealTimeActivity.class);
+				getActivity().startActivity(i);
+
+			}
+		});
+
+		title.setText("Peal Time");
+		ll2.addView(v4);
+
+		Button run = (Button) view.findViewById(R.id.btnStartRun);
+		run.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				updateView();
+				Intent i = new Intent(getActivity(), MethodInteractionActivity.class);
+				getActivity().startActivity(i);
+
+			}
+		});
+
+		updateView();
+
+		return view;
+	}
+
+
+
+}
