@@ -27,7 +27,7 @@ public class MethodDataTxtSerializer {
 		SetupInstructions s = null;
 		
 		try{
-			//Open and read the file into a StringBuilder
+			//Open and read the file 
 			InputStream in = context.openFileInput(filename);
 			reader = new BufferedReader(new InputStreamReader(in));
 			String line = reader.readLine().trim();

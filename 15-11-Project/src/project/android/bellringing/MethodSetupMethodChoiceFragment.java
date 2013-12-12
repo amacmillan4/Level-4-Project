@@ -1,10 +1,6 @@
 package project.android.bellringing;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,18 +16,25 @@ import android.widget.TextView;
 
 public class MethodSetupMethodChoiceFragment extends Fragment {
 
-	HashMap<Integer, ArrayList<String>> hmap = new HashMap<Integer, ArrayList<String>>() ;
-	HashMap<String, String> nameToBells = new HashMap<String, String>();
-	HashMap<String, String> bellsToFile = new HashMap<String, String>();
-	ArrayList<View> allViews = new ArrayList<View>();
-
 	int chosen = 1;
 
+	private ShortlistedMethods sm;
+	private MethodShortlistSerializer shortlistSerializer;
+	
+	private ArrayList<View> allViews = new ArrayList<View>();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setRetainInstance(true);
+
+		shortlistSerializer = new MethodShortlistSerializer(getActivity());
+		try {
+			sm = shortlistSerializer.loadData(MethodLab.get(getActivity()).getSetup().getStage());
+		} catch (IOException e) {
+			sm = null;
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -41,30 +44,29 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 
 		LinearLayout ll = (LinearLayout) view.findViewById(R.id.MC_listLL);
 
-		hashMapSetup();
-		setup();
+		for(String s: sm.getKeys()){
 
-		for (int i = 0; i < hmap.size(); i++){			
-
-			int j = 0;
+			LinearLayout linLayout = new LinearLayout(getActivity());
 			
-			if (hmap.get(500 + i).size() == 1){
+			View test = inflater.inflate(R.layout.method_choice_title, parent);
+			TextView t = (TextView) test.findViewById(R.id.MC_title);
+			t.setText(s);
+			test.setClickable(false);
+			
+			linLayout.addView(test);
+			
 
-				View test = inflater.inflate(R.layout.method_choice_title, parent);
-				TextView t = (TextView) test.findViewById(R.id.MC_title);
-				t.setText(hmap.get(500 + i).get(0));
-				test.setClickable(false);
-				ll.addView(test);			
+			for (Method2 method: sm.getMap().get(s.hashCode())){
 
-			}
-			else{
-				//if (hmap.get(i + 500).get(0).equals(MethodLab.get(getActivity()).)
+				View item = inflater.inflate(R.layout.method_choice_item, parent);
+				View v = setupCheckBox(method.getName(), item);
+				linLayout.addView(v);
 				
-				View test = inflater.inflate(R.layout.method_choice_item, parent);
-				View v = setupCheckBox(hmap.get(i + 500).get(0),test, j);
-				allViews.add(j++, v);
-				ll.addView(v);
 			}
+			
+			allViews.add(linLayout);
+			ll.addView(linLayout);
+
 		}
 
 		Button b = (Button) view.findViewById(R.id.MC_Add);
@@ -80,22 +82,17 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 		return view;
 	}
 
-	private View setupCheckBox(String name, View test,  final int i){
-
+	private View setupCheckBox(String name, View test){
 
 		test.setClickable(true);
-		test.setId(i);
 		final CheckBox title = (CheckBox) test.findViewById(R.id.MC_checkbox);
 		title.setClickable(false);
 		test.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				if (chosen != i){
-					((CheckBox) allViews.get(chosen).findViewById(R.id.MC_checkbox)).setChecked(false);
-					title.setChecked(!title.isChecked());
-					chosen = i;
-				}
+				
+				System.out.println("ALLAN");
 
 			}
 		});
@@ -105,68 +102,10 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 		return test;
 	}
 
-
-	private void setup(){
-
-		Pattern pattern2 = Pattern.compile("<.*><.*");
-
-
-		try{
-			int i = 500;
-			BufferedReader br = null;			
-			br = new BufferedReader(new InputStreamReader(getActivity().getAssets().open("cache/" + MethodLab.get(getActivity()).getSetup().getStage())));
-
-			String line;
-			line = br.readLine();
-
-			while (line != null) {
-
-				Matcher matcher = pattern2.matcher(line);
-				ArrayList<String> alist = new ArrayList<String>();
-
-				if (matcher.find()) {
-
-					String[] split = line.split("><");
-
-					try{						
-						alist.add(split[0].substring(1,split[0].length()));
-						alist.add(split[3].split(",")[0].substring(1,split[3].split(",")[0].length()));
-						alist.add(split[3].split(",")[1]);
-
-						hmap.put(i, alist);
-
-					}catch(Exception e){
-						System.out.println("Poor format");
-					}
-				}
-				else{
-					alist.add(line);
-					hmap.put(i, alist);
-				}
-				i++;
-
-				line = br.readLine();
-			}
-
-			br.close();	
-		}
-
-		catch(Exception e){
-			System.out.println("File Not Found");
-		}
-	}
-
 	private void hashMapSetup(){
 		String[] names = {"Minimus", "Doubles", "Doubles on 6", "Minor", "Triples", "Major", "Caters", "Royal", "Cinques", "Maximus", "Sextuples", "14", "Septuples", "16"};
 		String[] otherNames = {"Alliance Methods", "Delight Methods", "Differential Methods", "Half Methods", "Plain Methods", "Principles", "Surprise Methods", "Treble Bob Methods", "Treble Place Methods"};
 		String[] fileNames = {"A", "D", "DF", "H", "P", "PR", "S", "T", "TB"};
 
-		for( int i = 0; i < names.length; i++){
-			nameToBells.put(names[i], i + "");
-		}
-
-		for (int i = 0; i < otherNames.length; i++){
-			bellsToFile.put(otherNames[i], fileNames[i]);
-		}
 	}
 }
