@@ -233,8 +233,7 @@ public class Method2 {
 
 	@Override
 	public String toString() {
-		return "Method [name=" + name + ", method=" + method + ", leadEnd="
-				+ leadEnd + ", bells=" + bells + "]";
+		return name + "\t" + type + "\t" + bells + "\t" + method + "," + leadEnd;
 	}
 
 }

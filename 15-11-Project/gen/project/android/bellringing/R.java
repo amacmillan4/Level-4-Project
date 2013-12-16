@@ -42,8 +42,6 @@ public final class R {
         public static final int MC_Edit=0x7f09002a;
         public static final int MC_Options=0x7f090028;
         public static final int MC_Scroll=0x7f09002c;
-        public static final int MC_add_Scroll=0x7f090023;
-        public static final int MC_add_listLL=0x7f090024;
         public static final int MC_checkbox=0x7f090038;
         public static final int MC_listLL=0x7f09002d;
         public static final int MC_title=0x7f090007;
@@ -54,8 +52,10 @@ public final class R {
         public static final int TxtScore=0x7f09001c;
         public static final int TxtSummary=0x7f09001e;
         public static final int TxtWait=0x7f090019;
-        public static final int aa=0x7f09000c;
         public static final int action_settings=0x7f090039;
+        public static final int addMenu=0x7f09000c;
+        public static final int addMenu_deselectAll=0x7f090023;
+        public static final int addMenu_save=0x7f090024;
         public static final int btnHelp=0x7f09000a;
         public static final int btnPealTime=0x7f090035;
         public static final int btnRun=0x7f09000b;

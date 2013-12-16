@@ -1,16 +1,17 @@
 package project.android.bellringing;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import android.content.Context;
-import android.util.SparseArray;
 
 public class MethodShortlistSerializer {
 
@@ -20,11 +21,13 @@ public class MethodShortlistSerializer {
 		context = c;
 	}
 
-	public ShortlistedMethods loadData(String stage) throws IOException{
+	public ArrayList<Method2> loadData(String stage) throws IOException{
 
 		BufferedReader reader = null;
-		ShortlistedMethods sm = new ShortlistedMethods();
+		ArrayList<Method2> methods = new ArrayList<Method2>();
 
+		System.out.println(stage);
+		
 		try{
 			//Open and read the file 
 			InputStream in = context.openFileInput(stage);
@@ -32,17 +35,17 @@ public class MethodShortlistSerializer {
 			String line = reader.readLine().trim();
 
 			while (line != null) {
-				String[] split = line.split("><");
+				String[] split = line.split("\t");
 
-				Method2 method = new Method2((split[0].substring(1,split[0].length())), split[1],
-						Integer.parseInt(split[2]), split[3].substring(1,split[3].length()));
-
-				sm.addMethod(method);
+				Method2 method = new Method2(split[0], split[1],
+						Integer.parseInt(split[2]), split[3]);
+				
+				methods.add(method);
 
 				line = reader.readLine();
 			}		
-			
-		} catch (FileNotFoundException e){
+
+		} catch (Exception e){
 			//Ignore, Only happens when starting afresh
 
 		} finally {
@@ -50,22 +53,50 @@ public class MethodShortlistSerializer {
 				reader.close();
 		}
 
-		return sm;
+		return methods;
 
 	}
 
-	public void saveData(SparseArray<Method2> s, String filename) throws IOException{
+	public void saveData(ArrayList<Method2> methods, String filename){
 
 		//Write file to disk
 		Writer writer = null;
 		try{
 			OutputStream out = context.openFileOutput(filename, Context.MODE_PRIVATE);
 			writer = new OutputStreamWriter(out);
-			writer.write(s.toString());
 
-		} finally {
+			//Sort methods
+			Collections.sort(methods, new Comparator<Method2>() {
+			    public int compare(Method2 a, Method2 b) {
+			        return a.getType().compareTo(b.getType());
+			    }
+			});
+			
+			String currentType = "";
+			String stringToWrite = "";
+			
+			for (Method2 m: methods){
+				if (!m.getType().equals(currentType)){
+					currentType = m.getType();
+				}
+				stringToWrite += m.toString() + "\n";
+				
+			}
+			
+			System.out.println(stringToWrite);
+			
+			writer.write(stringToWrite);
+	
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+		finally {
 			if (writer != null)
-				writer.close();
+				try {
+					writer.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 		}
 
 	}

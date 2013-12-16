@@ -1,5 +1,4 @@
 package project.android.bellringing;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import android.content.Intent;
@@ -17,55 +16,44 @@ import android.widget.TextView;
 public class MethodSetupMethodChoiceFragment extends Fragment {
 
 	int chosen = 1;
+	private LinearLayout ll; 
 
-	private ShortlistedMethods sm;
-	private MethodShortlistSerializer shortlistSerializer;
-	
-	private ArrayList<View> allViews = new ArrayList<View>();
+	private ArrayList<Method2> loadedMethods;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setRetainInstance(true);
-
-		shortlistSerializer = new MethodShortlistSerializer(getActivity());
-		try {
-			sm = shortlistSerializer.loadData(MethodLab.get(getActivity()).getSetup().getStage());
-		} catch (IOException e) {
-			sm = null;
-			e.printStackTrace();
-		}
 	}
+
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
 		// Inflate the layout for this fragment
 		View view = inflater.inflate(R.layout.fragment_activity_start_method_choice, parent, false);
 
-		LinearLayout ll = (LinearLayout) view.findViewById(R.id.MC_listLL);
+		MethodLab.get(getActivity()).loadMethods();
 
-		for(String s: sm.getKeys()){
+		ll = (LinearLayout) view.findViewById(R.id.MC_listLL);
 
-			LinearLayout linLayout = new LinearLayout(getActivity());
-			
-			View test = inflater.inflate(R.layout.method_choice_title, parent);
-			TextView t = (TextView) test.findViewById(R.id.MC_title);
-			t.setText(s);
-			test.setClickable(false);
-			
-			linLayout.addView(test);
-			
+		loadedMethods = MethodLab.get(getActivity()).getMethods();
 
-			for (Method2 method: sm.getMap().get(s.hashCode())){
+		String currentType = "";
 
-				View item = inflater.inflate(R.layout.method_choice_item, parent);
-				View v = setupCheckBox(method.getName(), item);
-				linLayout.addView(v);
-				
+		for(Method2 m: loadedMethods){
+
+			if(!m.getType().equals(currentType)){
+				currentType = m.getType();
+				View test = inflater.inflate(R.layout.method_choice_title, parent);
+				TextView t = (TextView) test.findViewById(R.id.MC_title);
+				t.setText(currentType);
+				test.setClickable(false);
+				ll.addView(test);
 			}
-			
-			allViews.add(linLayout);
-			ll.addView(linLayout);
+
+			View item = inflater.inflate(R.layout.method_choice_item, parent);
+			View v = setupCheckBox(m.getName(), item);
+			ll.addView(v);
 
 		}
 
@@ -75,7 +63,8 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				Intent i = new Intent(getActivity(), MethodSetupMiniMethodChoiceActivity.class);
-				getActivity().startActivity(i);				
+				getActivity().startActivity(i);	
+				getActivity().finish();
 			}
 		});
 
@@ -91,7 +80,7 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				
+
 				System.out.println("ALLAN");
 
 			}

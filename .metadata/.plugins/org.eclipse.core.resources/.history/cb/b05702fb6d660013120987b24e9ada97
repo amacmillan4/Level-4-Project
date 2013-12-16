@@ -1,0 +1,47 @@
+package project.android.bellringing;
+
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.CheckedTextView;
+import android.widget.TextView;
+
+public class CustomArrayAdapter<T> extends ArrayAdapter<String[]> {
+
+	private ArrayList<String[]> entries;
+
+	public CustomArrayAdapter(Context context, int textViewResourceId){
+		super(context, textViewResourceId);
+	}
+
+	public CustomArrayAdapter(Activity a, int textViewResourceId, ArrayList<String[]> entries) {
+		super(a, textViewResourceId, entries);
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+
+		CheckedTextView ctv = (CheckedTextView) convertView;
+
+		if (ctv == null) {
+
+			LayoutInflater vi = LayoutInflater.from(getContext());
+			ctv = (CheckedTextView) vi.inflate(android.R.layout.simple_list_item_multiple_choice, null);
+
+		}
+
+		CheckedTextView ctv = (CheckedTextView) v;
+		TextView choice = (TextView) v.findViewById(R.id.Choice);
+
+		
+		choice.setText(entries.get(position)[1] + "");
+
+
+		return v;
+	}
+}

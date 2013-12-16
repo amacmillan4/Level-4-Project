@@ -1,0 +1,64 @@
+package project.android.bellringing;
+
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.CheckedTextView;
+
+public class CustomArrayAdapter<T> extends ArrayAdapter<ArrayList<String>> {
+
+	private ArrayList<Boolean> entries = new ArrayList<Boolean>();
+
+	public CustomArrayAdapter(Context context, int textViewResourceId){
+		super(context, textViewResourceId);
+	}
+
+	public CustomArrayAdapter(Activity a, int textViewResourceId, ArrayList<String[]> entries) {
+		super(a, textViewResourceId, entries);
+	}
+
+	@Override
+	public View getView(final int position, View convertView, ViewGroup parent) {
+
+		 CheckedTextView c;
+		
+		if (convertView == null) {
+
+			LayoutInflater vi = LayoutInflater.from(getContext());
+			 c = (CheckedTextView) vi.inflate(android.R.layout.simple_list_item_multiple_choice, null);
+
+		}
+		else{
+			c = (CheckedTextView) convertView;
+		}
+		
+		final CheckedTextView ctv = c;
+
+		if (entries.get(position) == false)
+			ctv.setChecked(false);
+		else
+			ctv.setChecked(true);
+		
+		ctv.setOnClickListener(new View.OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				ctv.setChecked(!ctv.isChecked());
+				
+				if (entries.get(position) == false)
+					entries.set(position, true);
+				else
+					entries.set(position, false);
+			}
+			
+		});
+
+
+		return ctv;
+	}
+}

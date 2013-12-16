@@ -14,14 +14,13 @@ import android.content.Context;
 public class MethodDataTxtSerializer {
 
 	private Context context;
-	private String filename;
 	
-	public MethodDataTxtSerializer(Context c, String f){
+	public MethodDataTxtSerializer(Context c){
 		context = c;
-		filename = f;
+		
 	}
 
-	public SetupInstructions loadData() throws IOException{
+	public SetupInstructions loadData(String filename) throws IOException{
 		
 		BufferedReader reader = null;
 		SetupInstructions s = null;
@@ -47,7 +46,7 @@ public class MethodDataTxtSerializer {
 		
 	}
 
-	public void saveData(SetupInstructions s) throws IOException{
+	public void saveData(SetupInstructions s, String filename) throws IOException{
 		
 		//Write file to disk
 		Writer writer = null;

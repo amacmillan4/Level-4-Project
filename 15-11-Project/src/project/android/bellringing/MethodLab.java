@@ -13,25 +13,44 @@ public class MethodLab {
 	private static Context mAppContext;
 
 	private MethodDataTxtSerializer mData;
+	private MethodShortlistSerializer mss;
 
+	private ArrayList<Method2> addMethods;
+	
 	private int i = 0;
 
 	public boolean saveData(){
 		try {
-			mData.saveData(setup);
+			mData.saveData(setup, "load.txt");
 			return true;
 		} catch (Exception e){
 			return false;
 		}
 	}
+	
+	public void saveMethodData(){
+		mss.saveData(addMethods, setup.getStage());
+	}
+	
+	public ArrayList<Method2> loadMethods(){
+		try {
+			return mss.loadData(setup.getStage());
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 
 	public MethodLab(Context appContext) {
 		setmAppContext(appContext);
 		
-		mData = new MethodDataTxtSerializer(mAppContext, "load.txt");
+		mData = new MethodDataTxtSerializer(mAppContext);
+		mss = new MethodShortlistSerializer(mAppContext);
+		addMethods = new ArrayList<Method2>();
 		
 		try {
-			setup = mData.loadData();
+			setup = mData.loadData("load.txt");
 		} catch (IOException e) {
 			setup = new SetupInstructions();
 		}
@@ -61,6 +80,21 @@ public class MethodLab {
 		setup = s;
 	}
 
+	public void setMethods(ArrayList<Method2> m){
+		addMethods = m;
+	}
+	
+	public void addMethods(ArrayList<Method2> m){
+		
+		for(Method2 method: m){
+			addMethods.add(method);
+		}
+		
+	}
+	
+	public ArrayList<Method2> getMethods(){
+		return addMethods;
+	}
 
 	public Context getmAppContext() {
 		return mAppContext;

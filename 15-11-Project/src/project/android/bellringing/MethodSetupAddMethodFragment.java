@@ -6,20 +6,23 @@ import java.util.HashMap;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.LinearLayout;
+import android.widget.Button;
 
 
-public class MethodSetupAddMethodFragment extends Fragment {
+public class MethodSetupAddMethodFragment extends ListFragment {
 
 	HashMap<String, String> nameToBells = new HashMap<String, String>();
 	HashMap<String, String> bellsToFile = new HashMap<String, String>();
 	SparseArray<Method2> map;
+	CustomArrayAdapter<String> adapter;
+	ArrayList<Integer> selections = new ArrayList<Integer>();
+	
+	MethodShortlistSerializer mss;
 
 
 	@Override
@@ -32,14 +35,19 @@ public class MethodSetupAddMethodFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
 		// Inflate the layout for this fragment
-		View view = inflater.inflate(R.layout.fragment_activity_start_add_method, parent, false);		
+		View view = inflater.inflate(R.layout.fragment_activity_start_add_method, parent, false);	
 		
-		LinearLayout ll = (LinearLayout) view.findViewById(R.id.MC_add_listLL);
+		mss = new MethodShortlistSerializer(getActivity());
+		
+		ArrayList<String> names = new ArrayList<String>();
+		
+		Intent intent = getActivity().getIntent();
+		String s = intent.getStringExtra("filename");
 
 		try{
 			int i = 0;
 			BufferedReader br = null;			
-			br = new BufferedReader(new InputStreamReader(getActivity().getAssets().open("files/S8")));
+			br = new BufferedReader(new InputStreamReader(getActivity().getAssets().open("files/" + s)));
 
 			String line;
 			line = br.readLine();
@@ -51,55 +59,55 @@ public class MethodSetupAddMethodFragment extends Fragment {
 				try{
 					Method2 m = new Method2(split[0].substring(1,split[0].length()),split[1],
 							Integer.parseInt(split[2]),	split[3].substring(1,split[3].length()));
-					
+
 					map.put(i, m);
-					
-					View item = inflater.inflate(R.layout.method_choice_item, parent);
-					View v = setupCheckBox(m.getName(), item);
-					ll.addView(v);
-					
+					names.add(i, m.getName());
+
 					i++;
 
 				}catch(Exception e){
-					System.out.println("Poor format");
+					System.out.println(line);
 				}
 
 				line = br.readLine();
 			}
 
 			br.close();	
+
+
+			adapter = new CustomArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_multiple_choice, names);
+			setListAdapter(adapter);
+
 		}
-
-
 		catch(Exception e){
 			System.out.println("File Not Found");
 		}
+		
+		Button add = (Button) view.findViewById(R.id.addMenu_save);
+		add.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+
+				ArrayList<Method2> a = new ArrayList<Method2>();
+				
+				for(Integer i: adapter.getMethods()){
+					a.add(map.get(i));
+					System.out.println(map.get(i).getName());
+				}
+							
+				MethodLab.get(getActivity()).addMethods(a);
+				MethodLab.get(getActivity()).saveMethodData();
+				Intent i = new Intent(getActivity(), MethodSetupMethodChoiceActivity.class);
+				getActivity().startActivity(i);	
+				getActivity().finish();
+				
+			}
+		});
 
 		return view;
 	}
 
-	private View setupCheckBox(String name, View test){
-
-
-		test.setClickable(true);
-		final CheckBox title = (CheckBox) test.findViewById(R.id.MC_checkbox);
-		test.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent i = new Intent(getActivity(), MethodSetupAddMethodActivity.class);
-				getActivity().startActivity(i);				
-
-
-			}
-
-		});
-
-		title.setText(name);
-
-		return test;
-
-	}
-	
 	private void hashMapSetup(){
 		String[] names = {"Minimus", "Doubles", "Doubles on 6", "Minor", "Triples", "Major", "Caters", "Royal", "Cinques", "Maximus", "Sextuples", "14", "Septuples", "16"};
 		String[] otherNames = {"Alliance Methods", "Delight Methods", "Differential Methods", "Half Methods", "Plain Methods", "Principles", "Surprise Methods", "Treble Bob Methods", "Treble Place Methods"};

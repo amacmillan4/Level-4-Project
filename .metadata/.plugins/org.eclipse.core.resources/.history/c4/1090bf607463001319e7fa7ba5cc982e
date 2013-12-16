@@ -1,0 +1,175 @@
+package project.android.bellringing;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+
+public class MethodSetupMethodChoiceFragment extends Fragment {
+
+	int chosen = 1;
+
+	private ShortlistedMethods sm;
+	private MethodShortlistSerializer shortlistSerializer;
+
+	private ArrayList<View> allViews = new ArrayList<View>();
+
+	private LinearLayout ll; 
+
+
+	@Override
+	public void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		setRetainInstance(true);
+
+		shortlistSerializer = new MethodShortlistSerializer(getActivity());
+		try {
+			sm = shortlistSerializer.loadData(MethodLab.get(getActivity()).getSetup().getStage());
+		} catch (IOException e) {
+			sm = null;
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void onResume(){
+		super.onResume();
+
+		for(Method2 m: MethodLab.get(getActivity()).getMethods()){
+
+			boolean found = false;
+
+			for(int i = 0; i < sm.getKeys().size(); i++){
+
+				if(m.getType().equals(sm.getKeys().get(i))){
+					
+					System.out.println("NAH");
+					
+					found = true;
+					ViewGroup v = (ViewGroup) allViews.remove(i);
+
+					View item = View.inflate(getActivity(), R.layout.method_choice_item, v);
+					View checkbox = setupCheckBox(m.getName(), item);
+					v.addView(checkbox);
+
+					allViews.add(i, v);
+				}
+
+			}
+			
+			if (found == false){
+				sm.addMethod(m);
+				
+				LayoutInflater inflater = getActivity().getLayoutInflater();
+			
+				LinearLayout linLayout = new LinearLayout(getActivity());
+
+				View test = inflater.inflate(R.layout.method_choice_title, linLayout);
+				TextView t = (TextView) test.findViewById(R.id.MC_title);
+				t.setText(m.getType());
+				test.setClickable(false);
+
+				linLayout.addView(test);
+
+				//View item = View.inflate(getActivity(), R.layout.method_choice_item, linLayout);
+			    //View v = setupCheckBox(m.getName(), item);
+
+				//linLayout.addView(v);
+				
+
+				allViews.add(linLayout);
+				ll.addView(linLayout);
+			}
+
+			found = false;
+		}
+
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
+		// Inflate the layout for this fragment
+		View view = inflater.inflate(R.layout.fragment_activity_start_method_choice, parent, false);
+
+		ll = (LinearLayout) view.findViewById(R.id.MC_listLL);
+
+
+		System.out.println("CREATING VIEW");
+
+		for(String s: sm.getKeys()){
+
+			LinearLayout linLayout = new LinearLayout(getActivity());
+
+			View test = inflater.inflate(R.layout.method_choice_title, parent);
+			TextView t = (TextView) test.findViewById(R.id.MC_title);
+			t.setText(s);
+			test.setClickable(false);
+
+			linLayout.addView(test);
+
+
+			for (Method2 method: sm.getMap().get(s.hashCode())){
+
+				View item = inflater.inflate(R.layout.method_choice_item, parent);
+				View v = setupCheckBox(method.getName(), item);
+				linLayout.addView(v);
+
+			}
+
+			allViews.add(linLayout);
+			ll.addView(linLayout);
+
+		}
+
+		Button b = (Button) view.findViewById(R.id.MC_Add);
+		b.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(getActivity(), MethodSetupMiniMethodChoiceActivity.class);
+				getActivity().startActivity(i);				
+			}
+		});
+
+		return view;
+	}
+
+	private View setupCheckBox(String name, View test){
+
+		test.setClickable(true);
+		//final CheckBox title = (CheckBox) test.findViewById(R.id.MC_checkbox);
+		System.out.println(((ViewGroup)test).getChildCount() + "");
+		CheckBox title = (CheckBox) ((ViewGroup)test).getChildAt(3);
+		
+		title.setClickable(false);
+		test.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+				System.out.println("ALLAN");
+
+			}
+		});
+
+		title.setText(name);
+
+		return test;
+	}
+
+	private void hashMapSetup(){
+		String[] names = {"Minimus", "Doubles", "Doubles on 6", "Minor", "Triples", "Major", "Caters", "Royal", "Cinques", "Maximus", "Sextuples", "14", "Septuples", "16"};
+		String[] otherNames = {"Alliance Methods", "Delight Methods", "Differential Methods", "Half Methods", "Plain Methods", "Principles", "Surprise Methods", "Treble Bob Methods", "Treble Place Methods"};
+		String[] fileNames = {"A", "D", "DF", "H", "P", "PR", "S", "T", "TB"};
+
+	}
+}

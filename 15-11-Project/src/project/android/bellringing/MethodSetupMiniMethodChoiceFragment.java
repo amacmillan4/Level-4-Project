@@ -1,21 +1,15 @@
 package project.android.bellringing;
 import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 
@@ -23,8 +17,9 @@ import android.widget.LinearLayout;
 public class MethodSetupMiniMethodChoiceFragment extends Fragment {
 
 	ArrayList<String> list = new ArrayList<String>();
-	HashMap<String, String> nameToBells = new HashMap<String, String>();
-	HashMap<String, String> bellsToFile = new HashMap<String, String>();
+	HashMap<String, String> typeToFilenames = new HashMap<String, String>();
+	HashMap<String, String> stageToBells = new HashMap<String, String>();
+
 
 
 	@Override
@@ -53,7 +48,7 @@ public class MethodSetupMiniMethodChoiceFragment extends Fragment {
 		return view;
 	}
 
-	private View setupCheckBox(String name, View test){
+	private View setupCheckBox(final String name, View test){
 
 
 		test.setClickable(true);
@@ -64,9 +59,9 @@ public class MethodSetupMiniMethodChoiceFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				Intent i = new Intent(getActivity(), MethodSetupAddMethodActivity.class);
-				getActivity().startActivity(i);				
-
-
+				i.putExtra("filename", typeToFilenames.get(name) + stageToBells.get(MethodLab.get(getActivity()).getSetup().getStage()));
+				getActivity().startActivity(i);		
+				getActivity().finish();
 			}
 		});
 
@@ -85,11 +80,14 @@ public class MethodSetupMiniMethodChoiceFragment extends Fragment {
 
 			String line;
 			line = br.readLine();
+			
+			System.out.println(stageToBells.get(MethodLab.get(getActivity()).getSetup().getStage()));
 
 			while(line != null){
-				if(line.split("-")[0].equals("8")){
+				if(line.split("-")[0].equals(stageToBells.get(MethodLab.get(getActivity()).getSetup().getStage()))){
 					for(String s: line.split("-")[1].split(",")){
 						list.add(s);
+						System.out.println(s);
 					}
 				}
 
@@ -104,16 +102,20 @@ public class MethodSetupMiniMethodChoiceFragment extends Fragment {
 
 
 	private void hashMapSetup(){
-		String[] names = {"Minimus", "Doubles", "Doubles on 6", "Minor", "Triples", "Major", "Caters", "Royal", "Cinques", "Maximus", "Sextuples", "14", "Septuples", "16"};
-		String[] otherNames = {"Alliance Methods", "Delight Methods", "Differential Methods", "Half Methods", "Plain Methods", "Principles", "Surprise Methods", "Treble Bob Methods", "Treble Place Methods"};
+
 		String[] fileNames = {"A", "D", "DF", "H", "P", "PR", "S", "T", "TB"};
+		String[] type = {"Alliance Methods", "Delight Methods", "Differential Methods", "Half Methods", "Plain Methods", "Principles", "Surprise Methods", "Treble Place Methods", "Treble Bob Methods"};
 
-		for( int i = 0; i < names.length; i++){
-			nameToBells.put(names[i], i + "");
+		String[] names = {"Minimus", "Doubles", "Minor", "Triples", "Major", "Caters", "Royal", "Cinques", "Maximus", "Sextuples", "14", "Septuples", "16"};
+		
+		for (int i = 0; i < type.length; i++){
+			typeToFilenames.put(type[i], fileNames[i]);
 		}
-
-		for (int i = 0; i < otherNames.length; i++){
-			bellsToFile.put(otherNames[i], fileNames[i]);
+		
+		for (int i = 0; i < names.length; i++){
+			stageToBells.put(names[i], (4 + i) + "");
 		}
+		
+	
 	}
 }
