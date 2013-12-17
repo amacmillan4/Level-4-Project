@@ -15,25 +15,19 @@ import android.widget.TextView;
 
 public class MethodSetupMethodChoiceFragment extends Fragment {
 
+	int chosen = 1;
 	private LinearLayout ll; 
 
 	private ArrayList<Method2> loadedMethods;
 	private ArrayList<View> titles;
 	private ArrayList<View> allViews;
-
+	
 	private ArrayList<View> selectedMethod;
-
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setRetainInstance(true);
-	}
-	
-	@Override
-	public void onPause(){
-		super.onPause();
-		//MethodLab.get(getActivity()).setMethods(loadedMethods);
-		//MethodLab.get(getActivity()).saveMethodData();
 	}
 
 
@@ -42,7 +36,7 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 		// Inflate the layout for this fragment
 		View view = inflater.inflate(R.layout.fragment_activity_start_method_choice, parent, false);
 		ll = (LinearLayout) view.findViewById(R.id.MC_listLL);
-
+		
 		//Load Methods from cache
 		MethodLab.get(getActivity()).loadMethods();
 		loadedMethods = MethodLab.get(getActivity()).getMethods();
@@ -52,21 +46,21 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 		allViews = new ArrayList<View>();
 		selectedMethod = new ArrayList<View>();
 		String currentType = "";
-		View test = null;
-
+		int numOfOptions = 0;
+		
+		
 		//Display the titles and methods
 		for(Method2 m: loadedMethods){
-
-
+						
 			//Add new title if it doesn't exist already
 			if(!m.getType().equals(currentType)){
 				currentType = m.getType();
-				test = inflater.inflate(R.layout.method_choice_title, parent);
+				View test = inflater.inflate(R.layout.method_choice_title, parent);
 				test.setClickable(false);
 
 				TextView t = (TextView) test.findViewById(R.id.MC_title);
 				t.setText(currentType);
-
+				
 				ll.addView(test);
 				titles.add(test);
 			}
@@ -74,12 +68,9 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 			//Add Method to list
 			View item = inflater.inflate(R.layout.method_choice_item, parent);
 			item = setupCheckBox(m.getName(), item);
-			item.setTag(R.string.View, test);
-			item.setTag(R.string.Method, m);
 			ll.addView(item);
 			allViews.add(item);
-
-
+			
 
 		}
 
@@ -93,23 +84,21 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 				getActivity().finish();
 			}
 		});
-
+		
 		Button select = (Button) view.findViewById(R.id.MC_Select);
 		select.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-
+								
 				ArrayList<Method2> a = new ArrayList<Method2>();
-
-				if (selectedMethod.size() != 0){
-					for(Method2 m: loadedMethods){
-						if (((CheckBox) selectedMethod.get(0).findViewById(R.id.MC_checkbox)).getText().equals(m.getName())){
-							a.add(m);						
-						}
+				
+				for(Method2 m: loadedMethods){
+					if (((CheckBox) selectedMethod.get(0).findViewById(R.id.MC_checkbox)).getText().equals(m.getName())){
+                          a.add(m);						
 					}
 				}
-
+				
 				MethodLab.get(getActivity()).setChosenMethod(a);
 				getActivity().finish();
 			}
@@ -120,32 +109,38 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-
+								
 				if (!(selectedMethod.size() == 0)){
 					View view = selectedMethod.remove(0);
 					ll.removeView(view);
 					allViews.remove(view);
-					loadedMethods.remove(view.getTag(R.string.Method));
-
+					
 					boolean flag = false;
-
-					for (View t: allViews){
-						if (t.getTag(R.string.View) == view.getTag(R.string.View)){
+					
+					//See if any of the same type of method exist
+					for(View t: allViews)
+						if (((TextView) t.findViewById(R.id.MC_checkbox)).getText().equals(((TextView) view.findViewById(R.id.MC_checkbox)).getText())){
 							flag = true;
 							break;
 						}
-					}
-
-					if (!flag){
-						titles.remove((View) view.getTag(R.string.View));
-						ll.removeView((View) view.getTag(R.string.View));
+					
+					//If none exist delete the title
+					if (flag == false){
+						
+						for (View t: titles){
+							if (((TextView) t.findViewById(R.id.MC_title)).getText().equals(((TextView) view.findViewById(R.id.MC_checkbox)).getText())){
+								ll.removeView(t);
+								break;
+							}
+						}
+						
 					}
 				}
-
+				
 			}
 		});
 
-
+		
 		return view;
 	}
 
@@ -155,7 +150,7 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 		final CheckBox title = (CheckBox) test.findViewById(R.id.MC_checkbox);
 		title.setClickable(false);
 		title.setText(name);
-
+		
 		test.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -166,16 +161,16 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 					title.setChecked(false);
 					selectedMethod.remove(test); 
 				}
-
+				
 				//Else check it, remove any other checked methods and add 
 				else{
 					title.setChecked(true);
-
+					
 					if(selectedMethod.size() > 0)
-						((CheckBox) allViews.get(allViews.indexOf(selectedMethod.remove(0))).findViewById(R.id.MC_checkbox)).setChecked(false);
-
+						 ((CheckBox) allViews.get(allViews.indexOf(selectedMethod.remove(0))).findViewById(R.id.MC_checkbox)).setChecked(false);
+					
 					selectedMethod.add(test);
-
+					
 				}
 			}
 		});

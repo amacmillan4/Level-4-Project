@@ -163,6 +163,8 @@ public final class R {
         public static final int tbell74=0x7f040026;
     }
     public static final class string {
+        public static final int Method=0x7f060003;
+        public static final int View=0x7f060002;
         public static final int action_settings=0x7f060001;
         public static final int app_name=0x7f060000;
     }

@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 public class MethodSetupMethodChoiceFragment extends Fragment {
 
+	int chosen = 1;
 	private LinearLayout ll; 
 
 	private ArrayList<Method2> loadedMethods;
@@ -27,13 +28,6 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setRetainInstance(true);
-	}
-	
-	@Override
-	public void onPause(){
-		super.onPause();
-		//MethodLab.get(getActivity()).setMethods(loadedMethods);
-		//MethodLab.get(getActivity()).saveMethodData();
 	}
 
 
@@ -74,8 +68,7 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 			//Add Method to list
 			View item = inflater.inflate(R.layout.method_choice_item, parent);
 			item = setupCheckBox(m.getName(), item);
-			item.setTag(R.string.View, test);
-			item.setTag(R.string.Method, m);
+			item.setTag(test);
 			ll.addView(item);
 			allViews.add(item);
 
@@ -125,20 +118,19 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 					View view = selectedMethod.remove(0);
 					ll.removeView(view);
 					allViews.remove(view);
-					loadedMethods.remove(view.getTag(R.string.Method));
 
 					boolean flag = false;
 
 					for (View t: allViews){
-						if (t.getTag(R.string.View) == view.getTag(R.string.View)){
+						if (t.getTag() == view.getTag()){
 							flag = true;
 							break;
 						}
 					}
 
 					if (!flag){
-						titles.remove((View) view.getTag(R.string.View));
-						ll.removeView((View) view.getTag(R.string.View));
+						titles.remove((View) view.getTag());
+						ll.removeView((View) view.getTag());
 					}
 				}
 

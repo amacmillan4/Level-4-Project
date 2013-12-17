@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 public class MethodSetupMethodChoiceFragment extends Fragment {
 
+	int chosen = 1;
 	private LinearLayout ll; 
 
 	private ArrayList<Method2> loadedMethods;
