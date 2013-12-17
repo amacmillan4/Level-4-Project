@@ -1,7 +1,6 @@
 package project.android.bellringing;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -23,9 +22,17 @@ public class MethodSetupFragment extends Fragment {
 
 	public void updateView(){
 		SetupInstructions s = MethodLab.get(getActivity()).getSetup();
+		ArrayList<Method2> m = MethodLab.get(getActivity()).getChosenMethod();
+		
 		stage.setText(s.getStage());
 		composition.setText(s.getComposition());
-		method.setText(s.getMethod());
+		
+		if (m.size() == 0){
+			method.setText("");
+		}
+		else{
+			method.setText(m.get(0).getName());
+		}
 		peal.setText(s.getPealTime());
 		bellType.setChecked(s.getHandbellsOrNot());
 		stopAtRounds.setChecked(s.isStopAtRounds());
@@ -232,7 +239,7 @@ public class MethodSetupFragment extends Fragment {
 		@Override
 		protected synchronized Void doInBackground(Void... arg0) {
 			
-			String text = MethodLab.get(getActivity()).getSetup().toString();;
+			String text = MethodLab.get(getActivity()).getSetup().toString();
 						
 			
 			

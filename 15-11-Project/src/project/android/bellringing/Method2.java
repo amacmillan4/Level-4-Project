@@ -27,12 +27,20 @@ public class Method2 {
 
 	boolean rounds = false;
 
-	public Method2(String name, String type, int bells, String method) {
+	public Method2(String name, String type, String method, String bells) {
 		this.name = name;
 		this.type = type;
 		this.method = method.split(",")[0];
 		this.leadEnd = method.split(",")[1];
-		this.bells = bells;
+		this.bells = Integer.parseInt(bells);
+	}
+	
+	public Method2(String line) {
+		this.name = line.split("\t")[0];
+		this.type = line.split("\t")[1];
+		this.method = line.split("\t")[2].split(",")[0];
+		this.leadEnd = line.split("\t")[2].split(",")[1];
+		this.bells = Integer.parseInt(line.split("\t")[3]);
 	}
 
 	public void initialize(){
@@ -233,7 +241,7 @@ public class Method2 {
 
 	@Override
 	public String toString() {
-		return name + "\t" + type + "\t" + bells + "\t" + method + "," + leadEnd;
+		return name + "\t" + type + "\t" + method + "," + leadEnd + "\t" + bells;
 	}
 
 }

@@ -37,8 +37,7 @@ public class MethodShortlistSerializer {
 			while (line != null) {
 				String[] split = line.split("\t");
 
-				Method2 method = new Method2(split[0], split[1],
-						Integer.parseInt(split[2]), split[3]);
+				Method2 method = new Method2(split[0], split[1], split[2], split[3]);
 				
 				methods.add(method);
 

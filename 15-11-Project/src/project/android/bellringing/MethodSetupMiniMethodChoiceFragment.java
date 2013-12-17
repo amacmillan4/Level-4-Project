@@ -35,7 +35,6 @@ public class MethodSetupMiniMethodChoiceFragment extends Fragment {
 
 		LinearLayout ll = (LinearLayout) view.findViewById(R.id.mini_MC_listLL);
 
-		hashMapSetup();
 		setup();
 
 		for (int i = 0; i < list.size(); i++){
@@ -59,7 +58,7 @@ public class MethodSetupMiniMethodChoiceFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				Intent i = new Intent(getActivity(), MethodSetupAddMethodActivity.class);
-				i.putExtra("filename", typeToFilenames.get(name) + stageToBells.get(MethodLab.get(getActivity()).getSetup().getStage()));
+				i.putExtra("filename", name);
 				getActivity().startActivity(i);		
 				getActivity().finish();
 			}
@@ -73,6 +72,11 @@ public class MethodSetupMiniMethodChoiceFragment extends Fragment {
 
 	private void setup(){
 
+		String[] names = {"Minimus", "Doubles", "Minor", "Triples", "Major", "Caters", "Royal", "Cinques", "Maximus", "Sextuples", "14", "Septuples", "16"};
+
+		for (int i = 0; i < names.length; i++){
+			stageToBells.put(names[i], (4 + i) + "");
+		}
 
 		try{
 			BufferedReader br = null;			
@@ -80,7 +84,7 @@ public class MethodSetupMiniMethodChoiceFragment extends Fragment {
 
 			String line;
 			line = br.readLine();
-			
+
 			System.out.println(stageToBells.get(MethodLab.get(getActivity()).getSetup().getStage()));
 
 			while(line != null){
@@ -98,24 +102,6 @@ public class MethodSetupMiniMethodChoiceFragment extends Fragment {
 		}catch(Exception e){
 			System.out.println("File Not Found");
 		}
-	}
+	}	
 
-
-	private void hashMapSetup(){
-
-		String[] fileNames = {"A", "D", "DF", "H", "P", "PR", "S", "T", "TB"};
-		String[] type = {"Alliance Methods", "Delight Methods", "Differential Methods", "Half Methods", "Plain Methods", "Principles", "Surprise Methods", "Treble Place Methods", "Treble Bob Methods"};
-
-		String[] names = {"Minimus", "Doubles", "Minor", "Triples", "Major", "Caters", "Royal", "Cinques", "Maximus", "Sextuples", "14", "Septuples", "16"};
-		
-		for (int i = 0; i < type.length; i++){
-			typeToFilenames.put(type[i], fileNames[i]);
-		}
-		
-		for (int i = 0; i < names.length; i++){
-			stageToBells.put(names[i], (4 + i) + "");
-		}
-		
-	
-	}
 }

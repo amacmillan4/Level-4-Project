@@ -19,6 +19,10 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 	private LinearLayout ll; 
 
 	private ArrayList<Method2> loadedMethods;
+	private ArrayList<View> titles;
+	private ArrayList<View> allViews;
+	
+	private ArrayList<View> selectedMethod;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -31,29 +35,39 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
 		// Inflate the layout for this fragment
 		View view = inflater.inflate(R.layout.fragment_activity_start_method_choice, parent, false);
-
-		MethodLab.get(getActivity()).loadMethods();
-
 		ll = (LinearLayout) view.findViewById(R.id.MC_listLL);
-
+		
+		//Load Methods from cache
+		MethodLab.get(getActivity()).loadMethods();
 		loadedMethods = MethodLab.get(getActivity()).getMethods();
 
+		//Variable used to display headings of methods
+		titles = new ArrayList<View>();
+		allViews = new ArrayList<View>();
+		selectedMethod = new ArrayList<View>(1);
 		String currentType = "";
 
+		//Display the titles and methods
 		for(Method2 m: loadedMethods){
-
+			
+			//Add new title if it doesn't exist already
 			if(!m.getType().equals(currentType)){
 				currentType = m.getType();
 				View test = inflater.inflate(R.layout.method_choice_title, parent);
+				test.setClickable(false);
+
 				TextView t = (TextView) test.findViewById(R.id.MC_title);
 				t.setText(currentType);
-				test.setClickable(false);
+				
 				ll.addView(test);
+				titles.add(test);
 			}
 
+			//Add Method to list
 			View item = inflater.inflate(R.layout.method_choice_item, parent);
-			View v = setupCheckBox(m.getName(), item);
-			ll.addView(v);
+			item = setupCheckBox(m.getName(), item);
+			ll.addView(item);
+			allViews.add(item);
 
 		}
 
@@ -67,34 +81,61 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 				getActivity().finish();
 			}
 		});
+		
+		Button select = (Button) view.findViewById(R.id.MC_Select);
+		select.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+								
+				ArrayList<Method2> a = new ArrayList<Method2>();
+				
+				for(Method2 m: loadedMethods){
+					if (((CheckBox) selectedMethod.get(0).findViewById(R.id.MC_checkbox)).getText().equals(m.getName())){
+                          a.add(m);						
+					}
+				}
+				
+				MethodLab.get(getActivity()).setChosenMethod(a);
+				getActivity().finish();
+			}
+		});
+
 
 		return view;
 	}
 
-	private View setupCheckBox(String name, View test){
+	private View setupCheckBox(String name, final View test){
 
 		test.setClickable(true);
 		final CheckBox title = (CheckBox) test.findViewById(R.id.MC_checkbox);
 		title.setClickable(false);
+		title.setText(name);
+		
 		test.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 
-				System.out.println("ALLAN");
-
+				//If checked then uncheck and remove
+				if(title.isChecked()){
+					title.setChecked(false);
+					selectedMethod.remove(test); 
+				}
+				
+				//Else check it, remove any other checked methods and add 
+				else{
+					title.setChecked(true);
+					
+					if(selectedMethod.size() > 0)
+						 ((CheckBox) allViews.get(allViews.indexOf(selectedMethod.remove(0))).findViewById(R.id.MC_checkbox)).setChecked(false);
+					
+					selectedMethod.add(test);
+					
+				}
 			}
 		});
 
-		title.setText(name);
-
 		return test;
-	}
-
-	private void hashMapSetup(){
-		String[] names = {"Minimus", "Doubles", "Doubles on 6", "Minor", "Triples", "Major", "Caters", "Royal", "Cinques", "Maximus", "Sextuples", "14", "Septuples", "16"};
-		String[] otherNames = {"Alliance Methods", "Delight Methods", "Differential Methods", "Half Methods", "Plain Methods", "Principles", "Surprise Methods", "Treble Bob Methods", "Treble Place Methods"};
-		String[] fileNames = {"A", "D", "DF", "H", "P", "PR", "S", "T", "TB"};
-
 	}
 }

@@ -1,0 +1,95 @@
+package project.android.bellringing;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.util.ArrayList;
+
+import android.content.Context;
+
+public class MethodDataTxtSerializer {
+
+	private Context context;
+	private String filename;
+
+	public MethodDataTxtSerializer(Context c, String f){
+		context = c;
+		filename = f;
+
+	}
+
+	public SetupInstructions loadSetupData() throws IOException{
+
+		BufferedReader reader = null;
+		SetupInstructions s = null;
+
+		try{
+			//Open and read the file 
+			InputStream in = context.openFileInput(filename);
+			reader = new BufferedReader(new InputStreamReader(in));
+			String line = reader.readLine().trim();
+			System.out.println(line);
+			s = new SetupInstructions(line);
+
+		} catch (FileNotFoundException e){
+			//Ignore, Only happens when starting afresh
+			s = new SetupInstructions();
+
+		} finally {
+			if (reader != null)
+				reader.close();
+		}
+
+		return s;
+
+	}
+
+	public ArrayList<Method2> loadMethodData() throws IOException{
+
+		BufferedReader reader = null;
+		ArrayList<Method2> a = new ArrayList<Method2>();
+
+		try{
+			//Open and read the file 
+			InputStream in = context.openFileInput(filename);
+			reader = new BufferedReader(new InputStreamReader(in));
+			String line = reader.readLine().trim();
+			System.out.println(line);
+			Method2 m = new Method2(line);
+			a.add(m);
+
+		} catch (FileNotFoundException e){
+			//Ignore, Only happens when starting afresh
+
+		} finally {
+			if (reader != null)
+				reader.close();
+		}
+
+		return a;
+
+	}
+
+	public void saveData(SetupInstructions s, String filename) throws IOException{
+
+		//Write file to disk
+		Writer writer = null;
+		try{
+			OutputStream out = context.openFileOutput(filename, Context.MODE_PRIVATE);
+			writer = new OutputStreamWriter(out);
+			writer.write(s.toString());
+
+		} finally {
+			if (writer != null)
+				writer.close();
+		}
+
+	}
+
+
+}

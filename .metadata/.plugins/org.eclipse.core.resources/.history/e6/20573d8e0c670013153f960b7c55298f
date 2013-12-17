@@ -1,0 +1,118 @@
+package project.android.bellringing;
+import java.util.ArrayList;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+
+public class MethodSetupMethodChoiceFragment extends Fragment {
+
+	int chosen = 1;
+	private LinearLayout ll; 
+
+	private ArrayList<Method2> loadedMethods;
+	private ArrayList<View> titles;
+	private ArrayList<View> allViews;
+	
+	private ArrayList<View> selectedMethod;
+
+	@Override
+	public void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		setRetainInstance(true);
+	}
+
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
+		// Inflate the layout for this fragment
+		View view = inflater.inflate(R.layout.fragment_activity_start_method_choice, parent, false);
+		ll = (LinearLayout) view.findViewById(R.id.MC_listLL);
+		
+		//Load Methods from cache
+		MethodLab.get(getActivity()).loadMethods();
+		loadedMethods = MethodLab.get(getActivity()).getMethods();
+
+		//Variable used to display headings of methods
+		titles = new ArrayList<View>();
+		allViews = new ArrayList<View>();
+		selectedMethod = new ArrayList<View>(1);
+		String currentType = "";
+		int i = 0;
+
+		//Display the titles and methods
+		for(Method2 m: loadedMethods){
+
+			if(!m.getType().equals(currentType)){
+				currentType = m.getType();
+				View test = inflater.inflate(R.layout.method_choice_title, parent);
+				TextView t = (TextView) test.findViewById(R.id.MC_title);
+				t.setText(currentType);
+				test.setClickable(false);
+				ll.addView(test);
+			}
+
+			View item = inflater.inflate(R.layout.method_choice_item, parent);
+			ll.addView(setupCheckBox(m.getName(), item, i++));
+
+		}
+
+		Button b = (Button) view.findViewById(R.id.MC_Add);
+		b.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(getActivity(), MethodSetupMiniMethodChoiceActivity.class);
+				getActivity().startActivity(i);	
+				getActivity().finish();
+			}
+		});
+
+		return view;
+	}
+
+	private View setupCheckBox(String name, final View test){
+
+		test.setClickable(true);
+		final CheckBox title = (CheckBox) test.findViewById(R.id.MC_checkbox);
+		title.setClickable(false);
+		title.setText(name);
+		
+		test.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+				//If checked then uncheck and remove
+				if(title.isChecked()){
+					title.setChecked(false);
+					selectedMethod.remove(test); 
+				}
+				
+				//Else check it, remove any other checked methods and add 
+				else{
+					title.setChecked(true);
+					
+					if(selectedMethod.size() > 1)
+						 ((CheckBox) allViews.get(allViews.indexOf(selectedMethod.remove(0))).findViewById(R.id.MC_checkbox)).setChecked(false);
+					
+					selectedMethod.add(test);
+					
+				}
+
+			}
+		});
+
+		
+
+		return test;
+	}
+}

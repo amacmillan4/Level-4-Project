@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import android.content.Context;
 
 public class MethodLab {
-	private ArrayList<Method> arrayMethod;
+	private ArrayList<Method2> arrayMethod;
 	private SetupInstructions setup;
 
 	private static MethodLab methodLab;
@@ -16,43 +16,43 @@ public class MethodLab {
 	private MethodShortlistSerializer mss;
 
 	private ArrayList<Method2> addMethods;
-	
-	private int i = 0;
 
-	public boolean saveData(){
+	public void saveData(){
 		try {
-			mData.saveData(setup, "load.txt");
-			return true;
-		} catch (Exception e){
-			return false;
+			mData.saveSetupData(setup);
+			mData.saveSetupMethod(arrayMethod);
+		} catch (IOException e){
+			e.printStackTrace();
 		}
 	}
-	
+
 	public void saveMethodData(){
 		mss.saveData(addMethods, setup.getStage());
 	}
-	
-	public ArrayList<Method2> loadMethods(){
+
+	public void loadMethods(){
 		try {
-			return mss.loadData(setup.getStage());
+			System.out.println("LOADING " + setup.getStage() );
+			addMethods =  mss.loadData(setup.getStage());
 		} catch (IOException e) {
 			e.printStackTrace();
-			return null;
 		}
 	}
-	
+
 
 	public MethodLab(Context appContext) {
 		setmAppContext(appContext);
-		
-		mData = new MethodDataTxtSerializer(mAppContext);
+
+		mData = new MethodDataTxtSerializer(mAppContext, "setup.txt", "method.txt");
 		mss = new MethodShortlistSerializer(mAppContext);
 		addMethods = new ArrayList<Method2>();
-		
+
 		try {
-			setup = mData.loadData("load.txt");
+			setup = mData.loadSetupData();
+			arrayMethod = mData.loadSetupMethod();
 		} catch (IOException e) {
 			setup = new SetupInstructions();
+			arrayMethod = new ArrayList<Method2>();
 		}
 	}
 
@@ -64,12 +64,12 @@ public class MethodLab {
 		return methodLab;
 	}
 
-	public Method getNext(){
-		Method a = arrayMethod.get(i);
-		if (i < arrayMethod.size() - 1)
-			i++;
-
-		return a;
+	public void setChosenMethod(ArrayList<Method2> m){
+		arrayMethod = m;
+	}
+	
+	public ArrayList<Method2> getChosenMethod(){
+		return arrayMethod;
 	}
 
 	public SetupInstructions getSetup(){
@@ -83,15 +83,15 @@ public class MethodLab {
 	public void setMethods(ArrayList<Method2> m){
 		addMethods = m;
 	}
-	
+
 	public void addMethods(ArrayList<Method2> m){
-		
+
 		for(Method2 method: m){
 			addMethods.add(method);
 		}
-		
+
 	}
-	
+
 	public ArrayList<Method2> getMethods(){
 		return addMethods;
 	}

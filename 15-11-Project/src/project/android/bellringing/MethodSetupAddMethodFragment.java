@@ -16,20 +16,20 @@ import android.widget.Button;
 
 public class MethodSetupAddMethodFragment extends ListFragment {
 
-	HashMap<String, String> nameToBells = new HashMap<String, String>();
-	HashMap<String, String> bellsToFile = new HashMap<String, String>();
+	HashMap<String, String> typeToFilenames = new HashMap<String, String>();
+	HashMap<String, String> stageToBells = new HashMap<String, String>();
 	SparseArray<Method2> map;
 	CustomArrayAdapter<String> adapter;
 	ArrayList<Integer> selections = new ArrayList<Integer>();
 	
 	MethodShortlistSerializer mss;
 
-
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setRetainInstance(true);
 		map = new SparseArray<Method2>();
+		hashMapSetup();
 	}
 
 	@Override
@@ -43,7 +43,10 @@ public class MethodSetupAddMethodFragment extends ListFragment {
 		
 		Intent intent = getActivity().getIntent();
 		String s = intent.getStringExtra("filename");
+		s = typeToFilenames.get(s) + stageToBells.get(MethodLab.get(getActivity()).getSetup().getStage());
 
+		System.out.println(s);
+		
 		try{
 			int i = 0;
 			BufferedReader br = null;			
@@ -57,8 +60,7 @@ public class MethodSetupAddMethodFragment extends ListFragment {
 				String[] split = line.split("><");
 
 				try{
-					Method2 m = new Method2(split[0].substring(1,split[0].length()),split[1],
-							Integer.parseInt(split[2]),	split[3].substring(1,split[3].length()));
+					Method2 m = new Method2(split[0].substring(1,split[0].length()), s , split[3].substring(1,split[3].length()) ,split[2]);
 
 					map.put(i, m);
 					names.add(i, m.getName());
@@ -66,6 +68,7 @@ public class MethodSetupAddMethodFragment extends ListFragment {
 					i++;
 
 				}catch(Exception e){
+					e.printStackTrace();
 					System.out.println(line);
 				}
 
@@ -109,16 +112,20 @@ public class MethodSetupAddMethodFragment extends ListFragment {
 	}
 
 	private void hashMapSetup(){
-		String[] names = {"Minimus", "Doubles", "Doubles on 6", "Minor", "Triples", "Major", "Caters", "Royal", "Cinques", "Maximus", "Sextuples", "14", "Septuples", "16"};
-		String[] otherNames = {"Alliance Methods", "Delight Methods", "Differential Methods", "Half Methods", "Plain Methods", "Principles", "Surprise Methods", "Treble Bob Methods", "Treble Place Methods"};
+
 		String[] fileNames = {"A", "D", "DF", "H", "P", "PR", "S", "T", "TB"};
+		String[] type = {"Alliance Methods", "Delight Methods", "Differential Methods", "Half Methods", "Plain Methods", "Principles", "Surprise Methods", "Treble Place Methods", "Treble Bob Methods"};
 
-		for( int i = 0; i < names.length; i++){
-			nameToBells.put(names[i], i + "");
+		String[] names = {"Minimus", "Doubles", "Minor", "Triples", "Major", "Caters", "Royal", "Cinques", "Maximus", "Sextuples", "14", "Septuples", "16"};
+		
+		for (int i = 0; i < type.length; i++){
+			typeToFilenames.put(type[i], fileNames[i]);
 		}
-
-		for (int i = 0; i < otherNames.length; i++){
-			bellsToFile.put(otherNames[i], fileNames[i]);
+		
+		for (int i = 0; i < names.length; i++){
+			stageToBells.put(names[i], (4 + i) + "");
 		}
+		
+	
 	}
 }

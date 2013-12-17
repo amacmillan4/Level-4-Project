@@ -40,25 +40,26 @@ public class SetupInstructions {
 
 	public SetupInstructions(String s){
 
-		this.stage = s.split(",")[0];
-		this.composition = s.split(",")[1];
-		this.method = s.split(",")[2];
-		this.pealTime = s.split(",")[3];
-		this.handbells = Boolean.parseBoolean(s.split(",")[4]);
-		this.stopAtRounds = Boolean.parseBoolean(s.split(",")[5]);
-		this.handstrokeGap = Boolean.parseBoolean(s.split(",")[6]);
-		this.waitForMe = Boolean.parseBoolean(s.split(",")[7]);
-		this.scoreBlows = Boolean.parseBoolean(s.split(",")[8]);
-		this.scoreSummary = Boolean.parseBoolean(s.split(",")[9]);
-		this.orientationLock = Boolean.parseBoolean(s.split(",")[10]);
+		this.stage = s.split("\t")[0];
+		this.composition = s.split("\t")[1];
+		this.method = s.split("\t")[2];
+		this.pealTime = s.split("\t")[3];
+		this.handbells = Boolean.parseBoolean(s.split("\t")[4]);
+		this.stopAtRounds = Boolean.parseBoolean(s.split("\t")[5]);
+		this.handstrokeGap = Boolean.parseBoolean(s.split("\t")[6]);
+		this.waitForMe = Boolean.parseBoolean(s.split("\t")[7]);
+		this.scoreBlows = Boolean.parseBoolean(s.split("\t")[8]);
+		this.scoreSummary = Boolean.parseBoolean(s.split("\t")[9]);
+		this.orientationLock = Boolean.parseBoolean(s.split("\t")[10]);
 
 	}
 
 	@Override
 	public String toString() {
-		return stage + ","	+ composition + "," + method + "," + pealTime
-				+ "," + handbells + "," + stopAtRounds	+ "," + handstrokeGap + ","
-				+ waitForMe + "," + scoreBlows + "," + scoreSummary + "," + orientationLock;
+		
+		return stage + "\t"	+ composition + "\t" + method + "\t" + pealTime
+				+ "\t" + handbells + "\t" + stopAtRounds + "\t" + handstrokeGap + "\t"
+				+ waitForMe + "\t" + scoreBlows + "\t" + scoreSummary + "\t" + orientationLock;
 	}
 
 	public String getStage() {
