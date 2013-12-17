@@ -45,7 +45,7 @@ public class MethodSetupAddMethodFragment extends ListFragment {
 		String type = intent.getStringExtra("filename");
 		String s = typeToFilenames.get(type) + stageToBells.get(MethodLab.get(getActivity()).getSetup().getStage());
 
-		
+		System.out.println(s);
 		try{
 			int i = 0;
 			BufferedReader br = null;			
@@ -107,12 +107,23 @@ public class MethodSetupAddMethodFragment extends ListFragment {
 			}
 		});
 
+		Button deselectAll = (Button) view.findViewById(R.id.addMenu_deselectAll);
+		deselectAll.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+
+				adapter.uncheckAll();
+				
+			}
+		});
+		
 		return view;
 	}
 
 	private void hashMapSetup(){
 
-		String[] fileNames = {"A", "D", "DF", "H", "P", "PR", "S", "T", "TB"};
+		String[] fileNames = {"A", "D", "DF", "H", "P", "PR", "S", "TP", "T"};
 		String[] type = {"Alliance Methods", "Delight Methods", "Differential Methods", "Half Methods", "Plain Methods", "Principles", "Surprise Methods", "Treble Place Methods", "Treble Bob Methods"};
 
 		String[] names = {"Minimus", "Doubles", "Minor", "Triples", "Major", "Caters", "Royal", "Cinques", "Maximus", "Sextuples", "14", "Septuples", "16"};

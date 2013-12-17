@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Method2 {
-
 	private String name;
 	private String type;
+	private String wholeMethod;
 	private String method;
 	private String leadEnd;
 	private int bells;
@@ -14,7 +14,7 @@ public class Method2 {
 	private final char[] possibleBellNumbering = {'1','2','3','4','5','6','7','8','9','0','E','T','A','B','C','D'};
 	private ArrayList<String> bellNumbering;
 
-	private ArrayList<String> methodRep;
+	private ArrayList<String> methodChanges;
 	private int loops;
 
 	private String currentLine;
@@ -27,62 +27,59 @@ public class Method2 {
 
 	boolean rounds = false;
 
-	public Method2(String name, String type, String method, String bells) {
+	public Method2(String name, String type, String wholeMethod, String bells) {
 		this.name = name;
 		this.type = type;
-		this.method = method.split(",")[0];
-		this.leadEnd = method.split(",")[1];
 		this.bells = Integer.parseInt(bells);
+		this.wholeMethod = wholeMethod;
+		
+		if (wholeMethod.charAt(0) == '&'){
+			System.out.println(wholeMethod.split(",")[0].substring(1,wholeMethod.split(",")[0].length()));
+			this.method = wholeMethod.split(",")[0].substring(1,wholeMethod.split(",")[0].length() );
+			this.leadEnd = wholeMethod.split(",")[1];
+		}
+		else if (wholeMethod.charAt(0) == '+'){
+			this.method = wholeMethod.substring(1, wholeMethod.length());
+			this.leadEnd = "";
+		}
 	}
 	
-	public Method2(String line) {
+	public Method2(String line) {	
 		this.name = line.split("\t")[0];
 		this.type = line.split("\t")[1];
-		this.method = line.split("\t")[2].split(",")[0];
-		this.leadEnd = line.split("\t")[2].split(",")[1];
 		this.bells = Integer.parseInt(line.split("\t")[3]);
+		this.wholeMethod = line.split("\t")[2];
+		
+		if (wholeMethod.charAt(0) == '&'){
+			this.method = wholeMethod.split(",")[0].substring(1,wholeMethod.split(",")[0].length() );
+			this.leadEnd = wholeMethod.split(",")[1];
+		}
+		else if (wholeMethod.charAt(0) == '+'){
+			this.method = wholeMethod.substring(1, wholeMethod.length());
+			this.leadEnd = "";
+		}
 	}
 
 	public void initialize(){
+		
 		//Fill arrayList with correct number of bells
+		methodChanges = new ArrayList<String>();
 		bellNumbering = new ArrayList<String>(bells);
+		
 		for(int i = 0; i < bells; i++)
 			bellNumbering.add(possibleBellNumbering[i] + "");
 
-		methodRep = new ArrayList<String>();
+		//Get the unreversed changes
+		ArrayList<String> unreversedMethod = implementChanges(method);
+		ArrayList<String> unreversedLeadEnd = implementChanges(leadEnd);
 
-		char[] methodCharArray = this.method.toCharArray();
-		String tmp = "";
+		//Reverse the changes
+		unreversedMethod = reverseMethod(unreversedMethod);
+		unreversedLeadEnd = reverseMethod(unreversedLeadEnd);
 
-		//Changes that are required
-		for(char a: methodCharArray){
-
-			if (a == '.'){
-				methodRep.add(tmp);
-				tmp = "";
-			}
-			else if (a == '-'){
-				if (!tmp.equals(""))
-					methodRep.add(tmp);
-				methodRep.add("x");
-				tmp = "";
-			}
-			else if (a == '&' || a == ','){
-				;
-			}
-			else{ 
-				tmp += a;
-			}
-		}
-
-		methodRep.add(tmp);
-
-		//Reverse the method now
-		for(int i = methodRep.size() - 2; i >= 0 ; i--)
-			methodRep.add(methodRep.get(i));
-
-		//Add the leadend
-		methodRep.add(leadEnd);
+		//Add the both
+		methodChanges.addAll(unreversedMethod);
+		methodChanges.addAll(unreversedLeadEnd);
 
 		//Variables for calculating the next bell
 		currentLine = "";
@@ -92,6 +89,59 @@ public class Method2 {
 		for(int i = 0; i < bells; i++)
 			currentLine += bellNumbering.get(i);
 
+	}
+	
+	private ArrayList<String> reverseMethod(ArrayList<String> changes){
+		
+		//If it is of size 1 or less no reversing needs done
+		if (changes.size() <= 1)
+			return changes;
+		
+		 //Reverse method (apart from last) and add to previous ArrayList
+		ArrayList<String> reverse = new ArrayList<String>(changes);
+		Collections.reverse(reverse);
+		reverse.remove(0);
+		changes.addAll(reverse);
+		return changes;
+	}
+	
+	private ArrayList<String> implementChanges(String methodString){
+		
+		ArrayList<String> unreversedMethodChanges = new ArrayList<String>();
+		
+		//If it is an asynchronous method this will be empty
+				if(methodString.equals(""))
+					return unreversedMethodChanges;
+		
+		char[] stringToCharArray = methodString.toCharArray();
+		String changes = "";
+		
+		//Changes that are required
+		for(char a: stringToCharArray){
+			
+			//Dot ends the section of changes - add old changes and ready string for new
+			if (a == '.'){
+				unreversedMethodChanges.add(changes);
+				changes = "";
+			}
+			else if (a == '-'){
+				
+				//Only add if there has been some change - add an x - representing all to switch
+				if (!changes.equals(""))
+					unreversedMethodChanges.add(changes);
+				
+				unreversedMethodChanges.add("x");
+				changes = "";
+			}
+			else{ 
+				changes += a;
+			}
+		}
+		
+		//Add anything that is left
+		unreversedMethodChanges.add(changes);
+		
+		return unreversedMethodChanges;
 	}
 
 	public String start(){
@@ -149,13 +199,13 @@ public class Method2 {
 			if (loops == (bells - 1) && currentMethodSection == bells)
 				return "\r";
 
-			if (currentOperationSection == methodRep.size()){
+			if (currentOperationSection == methodChanges.size()){
 				currentOperationSection = 0;
 				loops++;
 			}			
 
 			if (currentMethodSection == bells || ((currentMethodSection == 0 && currentOperationSection == 0))){
-				currentLine = calcLine(currentLine, methodRep.get(currentOperationSection++));
+				currentLine = calcLine(currentLine, methodChanges.get(currentOperationSection++));
 				currentMethodSection = 0;
 			}
 
@@ -168,21 +218,22 @@ public class Method2 {
 
 		String newLine = lastLine;
 
+		//Swap all if operation is x
 		if (operation.equals("x")){
 			for (int i = 1; i <= bells; i = i + 2)
 				newLine = swap(newLine, i , i+1);
 		}
-
 		else {
-
+			
 			char[] temp = operation.toCharArray();
 			ArrayList<String> copy = new ArrayList<String>(bellNumbering);
 
+			//Mark all positions that do not move as REMOVE and remove them from the arraylist
 			for (int i = 0; i < temp.length; i++)
 				copy.set(bellNumbering.indexOf(temp[i] + ""), "REMOVE");
-
+			
 			copy.removeAll(Collections.singleton("REMOVE"));
-
+			
 			for (int i = 0; i < copy.size(); i = i + 2)
 				newLine = swap(newLine,bellNumbering.indexOf(copy.get(i)) + 1, bellNumbering.indexOf(copy.get(i+1)) + 1);
 
@@ -235,7 +286,8 @@ public class Method2 {
 
 	public void arr(){
 
-		for (String s: methodRep)
+		System.out.println(methodChanges.size());
+		for (String s: methodChanges)
 			System.out.print(s + " " );
 	}
 

@@ -1,0 +1,19 @@
+
+public class ain {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Method2 m = new Method2("Ackhorne\tAlliance\t7\t+3.1.7.1.7.1.7.1.7.3.7.1.5.1");
+		m.initialize();
+
+		int i=0;
+		while (i < 100){
+			i++;
+			System.out.println(m.calcNext());
+		}
+		
+	}
+
+}

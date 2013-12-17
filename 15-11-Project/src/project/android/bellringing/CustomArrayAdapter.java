@@ -15,6 +15,7 @@ public class CustomArrayAdapter<T> extends ArrayAdapter<String> {
 	private ArrayList<Boolean> bitset = new ArrayList<Boolean>();
 	private ArrayList<Integer> selections = new ArrayList<Integer>();
 	private ArrayList<String> names;
+	private ArrayList<CheckedTextView> ctvs = new ArrayList<CheckedTextView>();
 
 	public CustomArrayAdapter(Context context, int textViewResourceId){
 		super(context, textViewResourceId);
@@ -33,6 +34,18 @@ public class CustomArrayAdapter<T> extends ArrayAdapter<String> {
 	
 	public ArrayList<Integer> getMethods(){
 		return selections;
+	}
+
+
+	public void uncheckAll(){
+		
+		for(Integer i: selections){
+			selections.remove(i);
+			bitset.set(i, false);
+		}
+		
+		for(CheckedTextView c: ctvs)
+			c.setChecked(false);
 	}
 
 	@Override
@@ -67,6 +80,7 @@ public class CustomArrayAdapter<T> extends ArrayAdapter<String> {
 				ctv.setChecked(!ctv.isChecked());
 				
 				if (bitset.get(position) == false){
+					ctvs.add(ctv);
 					selections.add((Integer) position);
 					bitset.set(position, true);
 				}

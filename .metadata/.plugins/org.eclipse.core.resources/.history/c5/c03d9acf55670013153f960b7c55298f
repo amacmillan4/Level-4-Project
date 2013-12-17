@@ -1,0 +1,13 @@
+
+public class ain {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Method2 m = new Method2("Ackhorne\tAlliance\t10\t&34-50.14-1250-16.70.58.16-16.70.16-16.90,12");
+		m.arr();
+
+	}
+
+}

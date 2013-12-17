@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 public class MethodSetupStageFragment extends Fragment {
 
+	String[] options = {"Minimus","Doubles","Doubles on 6","Minor","Triples","Major","Caters","Royal","Cinques","Maximus","Sextuples", "14","Septuples","16"};
+
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -22,8 +25,6 @@ public class MethodSetupStageFragment extends Fragment {
 		View view = inflater.inflate(R.layout.fragment_activity_start_stage, parent, false);
 
 		LinearLayout ll = (LinearLayout) view.findViewById(R.id.stageList);
-
-		String[] options = {"Minimus", "Doubles", "Doubles on 6", "Minor", "Triples", "Major", "Caters", "Royal", "Cinques", "Maximus", "Sextuples", "14", "Septuples", "16"};
 
 		for(String s: options){
 			ll.addView(setup(inflater, R.layout.custom_selection, parent, s));
@@ -43,6 +44,8 @@ public class MethodSetupStageFragment extends Fragment {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				MethodLab.get(getActivity()).getSetup().setStage(text);
+				MethodLab.get(getActivity()).loadMethods();
+				MethodLab.get(getActivity()).setChosenMethod(MethodLab.get(getActivity()).getMethods());
 				getActivity().finish();
 				
 			}

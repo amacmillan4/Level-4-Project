@@ -16,6 +16,7 @@
 <fullyQualifiedTypeName name="project.android.bellringing.R.layout"/>
 <fullyQualifiedTypeName name="android.R"/>
 <fullyQualifiedTypeName name="android.R.layout"/>
-<fullyQualifiedTypeName name="project.android.bellringing.R.id"/>
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
+<fullyQualifiedTypeName name="project.android.bellringing.R.id"/>
+<fullyQualifiedTypeName name="project.android.bellringing.R.string"/>
 </qualifiedTypeNameHistroy>

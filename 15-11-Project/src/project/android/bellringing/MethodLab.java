@@ -32,7 +32,6 @@ public class MethodLab {
 
 	public void loadMethods(){
 		try {
-			System.out.println("LOADING " + setup.getStage() );
 			addMethods =  mss.loadData(setup.getStage());
 		} catch (IOException e) {
 			e.printStackTrace();
