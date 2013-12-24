@@ -37,29 +37,30 @@ public class MethodSetupAddMethodFragment extends ListFragment {
 		// Inflate the layout for this fragment
 		View view = inflater.inflate(R.layout.fragment_activity_start_add_method, parent, false);	
 		
+		//Set up
 		mss = new MethodShortlistSerializer(getActivity());
-		
 		ArrayList<String> names = new ArrayList<String>();
 		
+		//Get data passed from previous fragment
 		Intent intent = getActivity().getIntent();
 		String type = intent.getStringExtra("filename");
 		String s = typeToFilenames.get(type) + stageToBells.get(MethodLab.get(getActivity()).getSetup().getStage());
 
-		System.out.println(s);
+		//Load data
 		try{
 			int i = 0;
 			BufferedReader br = null;			
 			br = new BufferedReader(new InputStreamReader(getActivity().getAssets().open("files/" + s)));
 
 			String line;
-			line = br.readLine();
+			line = br.readLine();  //Dont need first line, it is a date
 			line = br.readLine();
 
 			while (line != null) {
 				String[] split = line.split("><");
 
 				try{
-					Method2 m = new Method2(split[0].substring(1,split[0].length()), type , split[3].substring(1,split[3].length()) ,split[2]);
+					Method2 m = new Method2(split[0].substring(1,split[0].length()), type , split[3] ,split[2]);
 
 					map.put(i, m);
 					names.add(i, m.getName());
@@ -68,7 +69,7 @@ public class MethodSetupAddMethodFragment extends ListFragment {
 
 				}catch(Exception e){
 					e.printStackTrace();
-					System.out.println(line);
+					System.out.println("Exception with " + line);
 				}
 
 				line = br.readLine();
@@ -95,7 +96,7 @@ public class MethodSetupAddMethodFragment extends ListFragment {
 				
 				for(Integer i: adapter.getMethods()){
 					a.add(map.get(i));
-					System.out.println(map.get(i).getName());
+					System.out.println("ADDING TO METHOD LAB:" + map.get(i).toString());
 				}
 							
 				MethodLab.get(getActivity()).addMethods(a);

@@ -33,8 +33,8 @@ public class MethodInteractionFragment extends Fragment {
 	DisplayMethod displayMethodThread = new DisplayMethod();
 	boolean isPlaying = false;
 
-	Method method = new Method("Aberafan", "&-36-14-58-16-34-58-56-58,12", 100, 8);
-	Method methodCopy = method;
+	Method2 method = MethodLab.get(getActivity()).getChosenMethod().get(0);
+	Method2 methodCopy = method;
 
 	Button showButton, runButton, helpButton;	
 
@@ -83,6 +83,8 @@ public class MethodInteractionFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
 		v = inflater.inflate(R.layout.fragment_activity_interaction, parent, false);
+		
+		methodCopy.initialize();
 
 		bellAudio = new AudioPlayer(getActivity(), MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
 		images = new ImageId(MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());

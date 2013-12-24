@@ -60,7 +60,7 @@ public class Method2 {
 		}
 	}
 
-	public void initialize(){
+public void initialize(){
 		
 		//Fill arrayList with correct number of bells
 		methodChanges = new ArrayList<String>();
@@ -70,6 +70,9 @@ public class Method2 {
 			bellNumbering.add(possibleBellNumbering[i] + "");
 
 		//Get the unreversed changes
+		System.out.println(method);
+		System.out.println(leadEnd);
+		
 		ArrayList<String> unreversedMethod = implementChanges(method);
 		ArrayList<String> unreversedLeadEnd = implementChanges(leadEnd);
 
@@ -109,6 +112,7 @@ public class Method2 {
 		
 		ArrayList<String> unreversedMethodChanges = new ArrayList<String>();
 		
+		System.out.println(methodString);
 		//If it is an asynchronous method this will be empty
 				if(methodString.equals(""))
 					return unreversedMethodChanges;
@@ -293,7 +297,7 @@ public class Method2 {
 
 	@Override
 	public String toString() {
-		return name + "\t" + type + "\t" + method + "," + leadEnd + "\t" + bells;
+		return name + "\t" + type + "\t" + wholeMethod + "\t" + bells;
 	}
 
 }

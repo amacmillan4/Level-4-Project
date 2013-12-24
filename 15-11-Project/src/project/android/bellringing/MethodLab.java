@@ -33,6 +33,10 @@ public class MethodLab {
 	public void loadMethods(){
 		try {
 			addMethods =  mss.loadData(setup.getStage());
+			
+			for(Method2 m: addMethods)
+				System.out.println("METHODLAB LOADED: " + m.toString());
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -49,6 +53,9 @@ public class MethodLab {
 		try {
 			setup = mData.loadSetupData();
 			arrayMethod = mData.loadSetupMethod();
+
+			
+			
 		} catch (IOException e) {
 			setup = new SetupInstructions();
 			arrayMethod = new ArrayList<Method2>();
@@ -87,6 +94,7 @@ public class MethodLab {
 
 		for(Method2 method: m){
 			addMethods.add(method);
+			System.out.println("ADDING :" + method.toString());
 		}
 
 	}

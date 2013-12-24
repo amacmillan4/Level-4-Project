@@ -23,10 +23,10 @@ public class MethodSetupFragment extends Fragment {
 	public void updateView(){
 		SetupInstructions s = MethodLab.get(getActivity()).getSetup();
 		ArrayList<Method2> m = MethodLab.get(getActivity()).getChosenMethod();
-		
+
 		stage.setText(s.getStage());
 		composition.setText(s.getComposition());
-		
+
 		if (m.size() == 0){
 			method.setText("");
 		}
@@ -54,7 +54,7 @@ public class MethodSetupFragment extends Fragment {
 		super.onResume();
 		updateView();
 	}
-	
+
 	@Override
 	public void onPause(){
 		super.onPause();
@@ -66,7 +66,7 @@ public class MethodSetupFragment extends Fragment {
 		// Inflate the layout for this fragment
 
 		View view = inflater.inflate(R.layout.fragment_activity_start, parent, false);
-		
+
 		//Setup 
 		bellType = (Switch) view.findViewById(R.id.switchBells);
 		bellType.setChecked(MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
@@ -124,7 +124,7 @@ public class MethodSetupFragment extends Fragment {
 
 			}
 		});
-		
+
 		orientationLock = (Switch) view.findViewById(R.id.switchOrientation);
 		scoreSummary = (Switch) view.findViewById(R.id.switchSummary);
 		scoreSummary.setChecked(MethodLab.get(getActivity()).getSetup().isScoreSummary());
@@ -222,8 +222,11 @@ public class MethodSetupFragment extends Fragment {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				updateView();
-				Intent i = new Intent(getActivity(), MethodInteractionActivity.class);
-				getActivity().startActivity(i);
+
+				if (!(MethodLab.get(getActivity()).getChosenMethod().size() == 0)){
+					Intent i = new Intent(getActivity(), MethodInteractionActivity.class);
+					getActivity().startActivity(i);
+				}
 
 			}
 		});
@@ -232,17 +235,17 @@ public class MethodSetupFragment extends Fragment {
 
 		return view;
 	}
-	
+
 	public class WriteChanges extends AsyncTask<Void,Void,Void>{
 
 
 		@Override
 		protected synchronized Void doInBackground(Void... arg0) {
-			
+
 			String text = MethodLab.get(getActivity()).getSetup().toString();
-						
-			
-			
+
+
+
 			return null;
 		}
 

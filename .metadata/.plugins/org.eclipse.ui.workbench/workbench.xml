@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="31" version="2.0">
+<workbench progressCount="28" version="2.0">
 <workbenchAdvisor/>
 <window height="768" maximized="true" width="1024" x="414" y="-12">
 <fastViewData fastViewLocation="1024"/>
@@ -19,7 +19,7 @@
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="99" y="22"/>
 <coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="130" y="22"/>
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="61" y="22"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="190" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
@@ -45,44 +45,60 @@
 <part id="6"/>
 <part id="7"/>
 <part id="8"/>
+<part id="9"/>
+<part id="10"/>
+<part id="11"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MethodSetupAddMethodFragment.java" partName="MethodSetupAddMethodFragment.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/MethodSetupAddMethodFragment.java" title="MethodSetupAddMethodFragment.java" tooltip="15-11-Project/src/project/android/bellringing/MethodSetupAddMethodFragment.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/MethodSetupAddMethodFragment.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3079" selectionTopPixel="266"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ain.java" partName="ain.java" path="C:/Users/Allan/Level-4-Project/Test/src/ain.java" title="ain.java" tooltip="Test/src/ain.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Test/src/ain.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="74" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.ui.DefaultTextEditor" name="P7" partName="P7" path="C:/Users/Allan/Level-4-Project/15-11-Project/assets/files/P7" title="P7" tooltip="15-11-Project/assets/files/P7" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/assets/files/P7"/>
-<editorState selectionHorizontalPixel="0" selectionLength="28" selectionOffset="2211" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3079" selectionTopPixel="345"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MethodInteractionFragment.java" partName="MethodInteractionFragment.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/MethodInteractionFragment.java" title="MethodInteractionFragment.java" tooltip="15-11-Project/src/project/android/bellringing/MethodInteractionFragment.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/MethodInteractionFragment.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="9" selectionOffset="1204" selectionTopPixel="75"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MethodSetupStageFragment.java" partName="MethodSetupStageFragment.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/MethodSetupStageFragment.java" title="MethodSetupStageFragment.java" tooltip="15-11-Project/src/project/android/bellringing/MethodSetupStageFragment.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/MethodSetupStageFragment.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1664" selectionTopPixel="86"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1121" selectionTopPixel="60"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MethodSetupFragment.java" partName="MethodSetupFragment.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/MethodSetupFragment.java" title="MethodSetupFragment.java" tooltip="15-11-Project/src/project/android/bellringing/MethodSetupFragment.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/MethodSetupFragment.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6660" selectionTopPixel="2846"/>
 </editor>
-<editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="fragment_activity_start_add_method.xml" partName="fragment_activity_start_add_method.xml" path="C:/Users/Allan/Level-4-Project/15-11-Project/res/layout/fragment_activity_start_add_method.xml" title="fragment_activity_start_add_method.xml" tooltip="15-11-Project/res/layout/fragment_activity_start_add_method.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/res/layout/fragment_activity_start_add_method.xml"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Method2.java" partName="Method2.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/Method2.java" title="Method2.java" tooltip="15-11-Project/src/project/android/bellringing/Method2.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/Method2.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2193" selectionTopPixel="401"/>
 </editor>
-<editor id="org.eclipse.ui.DefaultTextEditor" name="T16" partName="T16" path="C:/Users/Allan/Level-4-Project/15-11-Project/assets/files/T16" title="T16" tooltip="15-11-Project/assets/files/T16" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/assets/files/T16"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editor id="org.eclipse.ui.DefaultTextEditor" name="P16" partName="P16" path="C:/Users/Allan/Level-4-Project/15-11-Project/assets/files/P16" title="P16" tooltip="15-11-Project/assets/files/P16" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/assets/files/P16"/>
+<editorState selectionHorizontalPixel="0" selectionLength="94" selectionOffset="70" selectionTopPixel="0"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CustomArrayAdapter.java" partName="CustomArrayAdapter.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/CustomArrayAdapter.java" title="CustomArrayAdapter.java" tooltip="15-11-Project/src/project/android/bellringing/CustomArrayAdapter.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/CustomArrayAdapter.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="604" selectionTopPixel="0"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Method2.java" partName="Method2.java" path="C:/Users/Allan/Level-4-Project/Test/src/Method2.java" title="Method2.java" tooltip="Test/src/Method2.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Test/src/Method2.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6804" selectionTopPixel="3566"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ain.java" partName="ain.java" path="C:/Users/Allan/Level-4-Project/Test/src/ain.java" title="ain.java" tooltip="Test/src/ain.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Test/src/ain.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="273" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MethodSetupMethodChoiceFragment.java" partName="MethodSetupMethodChoiceFragment.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/MethodSetupMethodChoiceFragment.java" title="MethodSetupMethodChoiceFragment.java" tooltip="15-11-Project/src/project/android/bellringing/MethodSetupMethodChoiceFragment.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/MethodSetupMethodChoiceFragment.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="930"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MethodDataTxtSerializer.java" partName="MethodDataTxtSerializer.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/MethodDataTxtSerializer.java" title="MethodDataTxtSerializer.java" tooltip="15-11-Project/src/project/android/bellringing/MethodDataTxtSerializer.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/MethodDataTxtSerializer.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2150" selectionTopPixel="986"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MethodLab.java" partName="MethodLab.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/MethodLab.java" title="MethodLab.java" tooltip="15-11-Project/src/project/android/bellringing/MethodLab.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/MethodLab.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1142" selectionTopPixel="165"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MethodShortlistSerializer.java" partName="MethodShortlistSerializer.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/MethodShortlistSerializer.java" title="MethodShortlistSerializer.java" tooltip="15-11-Project/src/project/android/bellringing/MethodShortlistSerializer.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/MethodShortlistSerializer.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="645" selectionTopPixel="165"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AudioPlayer.java" partName="AudioPlayer.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/AudioPlayer.java" title="AudioPlayer.java" tooltip="15-11-Project/src/project/android/bellringing/AudioPlayer.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/AudioPlayer.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="2189" selectionOffset="173" selectionTopPixel="161"/>
 </editor>
 </editors>
 <views>
@@ -92,9 +108,7 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings"/>
-<category IMemento.internal.id="Errors"/>
-<category IMemento.internal.id="Warnings (43 items)"/>
+<category IMemento.internal.id="Warnings (35 items)"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -139,7 +153,7 @@
 <view id="org.eclipse.jdt.ui.SourceView" partName="Declaration"/>
 <view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
 </views>
-<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="org.eclipse.jdt.ui.PackageExplorer" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jdt.internal.ui.JavaPerspectiveFactory" id="org.eclipse.jdt.ui.JavaPerspective" label="Java"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
@@ -210,7 +224,7 @@
 <fastViewBars>
 <fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@12d9d2" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="0">
 <fastViews>
-<view id="org.eclipse.ui.console.ConsoleView" ratio="0.74746007"/>
+<view id="org.eclipse.ui.console.ConsoleView" ratio="0.7470199"/>
 </fastViews>
 </fastViewBar>
 <fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@3b54af" orientation="256" selectedTabId="com.android.ide.eclipse.ddms.views.LogCatView" style="0">
@@ -218,7 +232,7 @@
 <view id="org.eclipse.ui.views.ProblemView" ratio="0.3"/>
 <view id="org.eclipse.jdt.ui.JavadocView" ratio="0.3"/>
 <view id="org.eclipse.jdt.ui.SourceView" ratio="0.3"/>
-<view id="com.android.ide.eclipse.ddms.views.LogCatView" ratio="0.7112583"/>
+<view id="com.android.ide.eclipse.ddms.views.LogCatView" ratio="0.59072846"/>
 </fastViews>
 </fastViewBar>
 </fastViewBars>
@@ -292,153 +306,169 @@
 <workingSets/>
 <navigationHistory>
 <editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/CustomArrayAdapter.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/MethodSetupAddMethodFragment.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/MethodSetupFragment.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/MethodInteractionFragment.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/Method2.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/15-11-Project/assets/files/P16"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Test/src/Method2.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Test/src/ain.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/15-11-Project/assets/files/P7"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/MethodSetupStageFragment.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/MethodLab.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/MethodSetupFragment.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/15-11-Project/res/layout/fragment_activity_start_add_method.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/Method2.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/MethodSetupMethodChoiceFragment.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/MethodDataTxtSerializer.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/15-11-Project/assets/files/TP16"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/15-11-Project/assets/files/D16"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/MethodSetupAddMethodFragment.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/15-11-Project/assets/files/T16"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/15-11-Project/res/layout/fragment_activity_start_method_choice.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/15-11-Project/res/layout/fragment_activity_start_stage.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/15-11-Project/res/layout/fragment_activity_start.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/CustomArrayAdapter.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/MethodLab.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/MethodShortlistSerializer.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/AudioPlayer.java"/>
 </editors>
-<item historyLabel="P7" index="2">
-<position info="not_deleted" x="2211" y="28"/>
+<item historyLabel="CustomArrayAdapter.java" index="0">
+<position info="not_deleted" x="1145" y="0"/>
 </item>
-<item historyLabel="ain.java" index="1">
-<position info="not_deleted" x="74" y="0"/>
-</item>
-<item historyLabel="MethodSetupStageFragment.java" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="MethodSetupStageFragment.java" index="3">
-<position info="not_deleted" x="1557" y="0"/>
-</item>
-<item historyLabel="MethodLab.java" index="4">
-<position info="not_deleted" x="705" y="0"/>
-</item>
-<item historyLabel="MethodSetupStageFragment.java" index="3">
-<position info="not_deleted" x="1557" y="0"/>
-</item>
-<item historyLabel="MethodSetupStageFragment.java" index="3">
-<position info="not_deleted" x="1570" y="0"/>
-</item>
-<item historyLabel="MethodSetupStageFragment.java" index="3">
-<position info="not_deleted" x="1605" y="0"/>
-</item>
-<item historyLabel="MethodSetupStageFragment.java" index="3">
-<position info="not_deleted" x="1650" y="0"/>
-</item>
-<item historyLabel="MethodSetupStageFragment.java" index="3">
-<position info="not_deleted" x="1664" y="0"/>
-</item>
-<item historyLabel="MethodSetupFragment.java" index="5">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="fragment_activity_start_add_method.xml" index="6"/>
-<item historyLabel="MethodSetupFragment.java" index="5">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Method2.java" index="0">
-<position info="not_deleted" x="0" y="7354"/>
-</item>
-<item historyLabel="Method2.java" index="7">
-<position info="not_deleted" x="7390" y="0"/>
-</item>
-<item historyLabel="fragment_activity_start_add_method.xml" index="6"/>
-<item historyLabel="MethodSetupFragment.java" index="5">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="MethodDataTxtSerializer.java" index="8">
-<position info="not_deleted" x="1662" y="0"/>
-</item>
-<item historyLabel="Method2.java" index="7">
-<position info="not_deleted" x="832" y="0"/>
-</item>
-<item historyLabel="TP16" index="9">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="D16" index="10">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="TP16" index="9">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="D16" index="10">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Method2.java" index="7">
-<position info="not_deleted" x="832" y="0"/>
-</item>
-<item historyLabel="MethodSetupFragment.java" index="5">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="MethodSetupAddMethodFragment.java" index="11">
-<position info="not_deleted" x="1605" y="0"/>
-</item>
-<item historyLabel="T16" index="12">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="MethodSetupAddMethodFragment.java" index="11">
-<position info="not_deleted" x="3496" y="0"/>
-</item>
-<item historyLabel="fragment_activity_start_add_method.xml" index="6"/>
-<item historyLabel="fragment_activity_start_method_choice.xml" index="13"/>
-<item historyLabel="fragment_activity_start_stage.xml" index="14"/>
-<item historyLabel="fragment_activity_start.xml" index="15"/>
-<item historyLabel="fragment_activity_start_stage.xml" index="14"/>
-<item historyLabel="fragment_activity_start_method_choice.xml" index="13"/>
-<item historyLabel="fragment_activity_start_add_method.xml" index="6"/>
-<item historyLabel="MethodSetupAddMethodFragment.java" index="11">
-<position info="not_deleted" x="3496" y="0"/>
-</item>
-<item historyLabel="fragment_activity_start_add_method.xml" index="6"/>
-<item historyLabel="MethodSetupAddMethodFragment.java" index="11">
-<position info="not_deleted" x="3222" y="0"/>
-</item>
-<item historyLabel="CustomArrayAdapter.java" index="16">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="CustomArrayAdapter.java" index="16">
-<position info="not_deleted" x="579" y="0"/>
-</item>
-<item historyLabel="CustomArrayAdapter.java" index="16">
-<position info="not_deleted" x="617" y="0"/>
-</item>
-<item historyLabel="CustomArrayAdapter.java" index="16">
-<position info="not_deleted" x="619" y="0"/>
-</item>
-<item historyLabel="CustomArrayAdapter.java" index="16">
-<position info="not_deleted" x="2062" y="0"/>
-</item>
-<item historyLabel="CustomArrayAdapter.java" index="16">
-<position info="not_deleted" x="1110" y="0"/>
-</item>
-<item historyLabel="CustomArrayAdapter.java" index="16">
-<position info="not_deleted" x="1197" y="0"/>
-</item>
-<item historyLabel="CustomArrayAdapter.java" index="16">
-<position info="not_deleted" x="1265" y="0"/>
-</item>
-<item historyLabel="MethodSetupAddMethodFragment.java" index="11">
-<position info="not_deleted" x="3352" y="0"/>
-</item>
-<item historyLabel="CustomArrayAdapter.java" index="16">
-<position info="not_deleted" x="1265" y="0"/>
-</item>
-<item historyLabel="MethodSetupAddMethodFragment.java" index="11">
+<item historyLabel="MethodSetupAddMethodFragment.java" index="1">
 <position info="not_deleted" x="3079" y="0"/>
 </item>
-<item active="true" historyLabel="CustomArrayAdapter.java" index="16">
-<position info="not_deleted" x="1265" y="0"/>
+<item historyLabel="MethodSetupFragment.java" index="2">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="MethodSetupFragment.java" index="2">
+<position info="not_deleted" x="6980" y="0"/>
+</item>
+<item historyLabel="MethodSetupFragment.java" index="2">
+<position info="not_deleted" x="7014" y="0"/>
+</item>
+<item historyLabel="MethodInteractionFragment.java" index="3">
+<position info="not_deleted" x="1204" y="9"/>
+</item>
+<item historyLabel="MethodInteractionFragment.java" index="3">
+<position/>
+</item>
+<item historyLabel="MethodInteractionFragment.java" index="3">
+<position info="not_deleted" x="2932" y="0"/>
+</item>
+<item historyLabel="Method2.java" index="4">
+<position/>
+</item>
+<item historyLabel="MethodInteractionFragment.java" index="3">
+<position info="not_deleted" x="2932" y="0"/>
+</item>
+<item historyLabel="MethodInteractionFragment.java" index="3">
+<position/>
+</item>
+<item historyLabel="MethodInteractionFragment.java" index="3">
+<position info="not_deleted" x="2415" y="0"/>
+</item>
+<item historyLabel="P16" index="5">
+<position info="not_deleted" x="70" y="94"/>
+</item>
+<item historyLabel="Method2.java" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="ain.java" index="7">
+<position info="not_deleted" x="215" y="0"/>
+</item>
+<item historyLabel="MethodInteractionFragment.java" index="3">
+<position/>
+</item>
+<item historyLabel="ain.java" index="7">
+<position info="not_deleted" x="123" y="68"/>
+</item>
+<item historyLabel="MethodInteractionFragment.java" index="3">
+<position info="not_deleted" x="1214" y="0"/>
+</item>
+<item historyLabel="Method2.java" index="4">
+<position/>
+</item>
+<item historyLabel="Method2.java" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="MethodInteractionFragment.java" index="3">
+<position/>
+</item>
+<item historyLabel="Method2.java" index="4">
+<position/>
+</item>
+<item historyLabel="Method2.java" index="6">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Method2.java" index="4">
+<position/>
+</item>
+<item historyLabel="Method2.java" index="6">
+<position info="not_deleted" x="0" y="7354"/>
+</item>
+<item historyLabel="Method2.java" index="4">
+<position info="not_deleted" x="7394" y="0"/>
+</item>
+<item historyLabel="MethodInteractionFragment.java" index="3">
+<position info="not_deleted" x="914" y="0"/>
+</item>
+<item historyLabel="Method2.java" index="4">
+<position info="not_deleted" x="497" y="0"/>
+</item>
+<item historyLabel="MethodInteractionFragment.java" index="3">
+<position info="not_deleted" x="914" y="0"/>
+</item>
+<item historyLabel="MethodInteractionFragment.java" index="3">
+<position/>
+</item>
+<item historyLabel="MethodInteractionFragment.java" index="3">
+<position/>
+</item>
+<item historyLabel="Method2.java" index="6">
+<position info="not_deleted" x="1838" y="889"/>
+</item>
+<item historyLabel="Method2.java" index="4">
+<position info="not_deleted" x="2829" y="0"/>
+</item>
+<item historyLabel="Method2.java" index="6">
+<position info="not_deleted" x="1838" y="889"/>
+</item>
+<item historyLabel="Method2.java" index="4">
+<position info="not_deleted" x="1865" y="0"/>
+</item>
+<item historyLabel="MethodInteractionFragment.java" index="3">
+<position info="not_deleted" x="8812" y="0"/>
+</item>
+<item historyLabel="Method2.java" index="4">
+<position info="not_deleted" x="2231" y="0"/>
+</item>
+<item historyLabel="ain.java" index="7">
+<position info="not_deleted" x="273" y="0"/>
+</item>
+<item historyLabel="Method2.java" index="4">
+<position info="not_deleted" x="2193" y="0"/>
+</item>
+<item historyLabel="MethodSetupMethodChoiceFragment.java" index="8">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="MethodDataTxtSerializer.java" index="9">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="MethodLab.java" index="10">
+<position info="not_deleted" x="1142" y="0"/>
+</item>
+<item historyLabel="MethodDataTxtSerializer.java" index="9">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="MethodDataTxtSerializer.java" index="9">
+<position/>
+</item>
+<item historyLabel="Method2.java" index="6">
+<position info="not_deleted" x="6804" y="0"/>
+</item>
+<item historyLabel="MethodDataTxtSerializer.java" index="9">
+<position info="not_deleted" x="2150" y="0"/>
+</item>
+<item historyLabel="MethodSetupAddMethodFragment.java" index="1">
+<position info="not_deleted" x="3079" y="0"/>
+</item>
+<item historyLabel="MethodShortlistSerializer.java" index="11">
+<position info="not_deleted" x="645" y="0"/>
+</item>
+<item historyLabel="MethodInteractionFragment.java" index="3">
+<position info="not_deleted" x="8812" y="0"/>
+</item>
+<item active="true" historyLabel="AudioPlayer.java" index="12">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -446,9 +476,6 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
-<trimArea IMemento.internal.id="16384">
-<trimItem IMemento.internal.id="left"/>
-</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 <trimItem IMemento.internal.id="org.eclipse.mylyn.tasks.ui.trim.container"/>
@@ -463,6 +490,33 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AudioPlayer.java" tooltip="15-11-Project/src/project/android/bellringing/AudioPlayer.java">
+<persistable path="/15-11-Project/src/project/android/bellringing/AudioPlayer.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MethodShortlistSerializer.java" tooltip="15-11-Project/src/project/android/bellringing/MethodShortlistSerializer.java">
+<persistable path="/15-11-Project/src/project/android/bellringing/MethodShortlistSerializer.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MethodLab.java" tooltip="15-11-Project/src/project/android/bellringing/MethodLab.java">
+<persistable path="/15-11-Project/src/project/android/bellringing/MethodLab.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MethodDataTxtSerializer.java" tooltip="15-11-Project/src/project/android/bellringing/MethodDataTxtSerializer.java">
+<persistable path="/15-11-Project/src/project/android/bellringing/MethodDataTxtSerializer.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MethodSetupMethodChoiceFragment.java" tooltip="15-11-Project/src/project/android/bellringing/MethodSetupMethodChoiceFragment.java">
+<persistable path="/15-11-Project/src/project/android/bellringing/MethodSetupMethodChoiceFragment.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ain.java" tooltip="Test/src/ain.java">
+<persistable path="/Test/src/ain.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Method2.java" tooltip="Test/src/Method2.java">
+<persistable path="/Test/src/Method2.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="P16" tooltip="15-11-Project/assets/files/P16">
+<persistable path="/15-11-Project/assets/files/P16"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Method2.java" tooltip="15-11-Project/src/project/android/bellringing/Method2.java">
+<persistable path="/15-11-Project/src/project/android/bellringing/Method2.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CustomArrayAdapter.java" tooltip="15-11-Project/src/project/android/bellringing/CustomArrayAdapter.java">
 <persistable path="/15-11-Project/src/project/android/bellringing/CustomArrayAdapter.java"/>
 </file>
@@ -480,33 +534,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="D16" tooltip="15-11-Project/assets/files/D16">
 <persistable path="/15-11-Project/assets/files/D16"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="TP16" tooltip="15-11-Project/assets/files/TP16">
-<persistable path="/15-11-Project/assets/files/TP16"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MethodDataTxtSerializer.java" tooltip="15-11-Project/src/project/android/bellringing/MethodDataTxtSerializer.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/MethodDataTxtSerializer.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="fragment_activity_start_add_method.xml" tooltip="15-11-Project/res/layout/fragment_activity_start_add_method.xml">
-<persistable path="/15-11-Project/res/layout/fragment_activity_start_add_method.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MethodSetupFragment.java" tooltip="15-11-Project/src/project/android/bellringing/MethodSetupFragment.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/MethodSetupFragment.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MethodSetupStageFragment.java" tooltip="15-11-Project/src/project/android/bellringing/MethodSetupStageFragment.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/MethodSetupStageFragment.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MethodInteractionFragment.java" tooltip="15-11-Project/src/project/android/bellringing/MethodInteractionFragment.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/MethodInteractionFragment.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="P7" tooltip="15-11-Project/assets/files/P7">
-<persistable path="/15-11-Project/assets/files/P7"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="A7" tooltip="15-11-Project/assets/files/A7">
-<persistable path="/15-11-Project/assets/files/A7"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="DF7" tooltip="15-11-Project/assets/files/DF7">
-<persistable path="/15-11-Project/assets/files/DF7"/>
 </file>
 </mruList>
 </workbench>

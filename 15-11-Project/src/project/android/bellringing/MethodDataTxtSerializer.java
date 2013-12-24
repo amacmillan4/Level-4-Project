@@ -61,6 +61,7 @@ public class MethodDataTxtSerializer {
 			InputStream in = context.openFileInput(filenameMethod);
 			reader = new BufferedReader(new InputStreamReader(in));
 			String line = reader.readLine();
+			System.out.println(line);
 						
 			while (line != null){
 				Method2 m = new Method2(line.trim());
@@ -76,6 +77,7 @@ public class MethodDataTxtSerializer {
 			if (reader != null)
 				reader.close();
 		}
+		
 
 		return a;
 
@@ -106,8 +108,10 @@ public class MethodDataTxtSerializer {
 			OutputStream out = context.openFileOutput(filenameMethod, Context.MODE_PRIVATE);
 			writer = new OutputStreamWriter(out);
 			
-			for(Method2 m: a)
+			for(Method2 m: a){
+				System.out.println("WRITE" + m.toString());
 				writer.write(m.toString() + "\n");
+			}
 
 		} finally {
 			if (writer != null)

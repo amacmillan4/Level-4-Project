@@ -1,6 +1,7 @@
 package project.android.bellringing;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import android.app.Activity;
 import android.content.Context;
@@ -37,10 +38,11 @@ public class CustomArrayAdapter<T> extends ArrayAdapter<String> {
 	}
 
 
-	public void uncheckAll(){
+	public  void uncheckAll(){
 		
-		for(Integer i: selections){
-			selections.remove(i);
+		for(Iterator<Integer> it = selections.iterator(); it.hasNext();){
+			Integer i = it.next();
+			it.remove();
 			bitset.set(i, false);
 		}
 		

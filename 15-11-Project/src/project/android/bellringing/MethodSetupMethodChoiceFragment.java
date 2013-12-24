@@ -46,6 +46,10 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 		//Load Methods from cache
 		MethodLab.get(getActivity()).loadMethods();
 		loadedMethods = MethodLab.get(getActivity()).getMethods();
+		
+		for(Method2 m: loadedMethods){
+			System.out.println("GETTING : " + m.toString());
+		}
 
 		//Variable used to display headings of methods
 		titles = new ArrayList<View>();
@@ -105,6 +109,7 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 				if (selectedMethod.size() != 0){
 					for(Method2 m: loadedMethods){
 						if (((CheckBox) selectedMethod.get(0).findViewById(R.id.MC_checkbox)).getText().equals(m.getName())){
+							System.out.println("CHOSEN " + m.toString());
 							a.add(m);						
 						}
 					}
