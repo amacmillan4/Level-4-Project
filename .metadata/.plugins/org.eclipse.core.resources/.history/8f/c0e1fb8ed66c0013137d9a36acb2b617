@@ -86,6 +86,7 @@ public class MethodInteractionFragment extends Fragment {
 		
 		//Setup
 		status = MethodStatus.STANDING;
+		methodCopy.initialize();
 		bellAudio = new AudioPlayer(getActivity(), MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
 		images = new ImageId(MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
 
@@ -195,7 +196,6 @@ public class MethodInteractionFragment extends Fragment {
 			public void onClick(View view) {
 
 				if(paused){
-					status = MethodStatus.STANDING;
 					paused = false;
 					runButton.setText("Start");
 					helpButton.setText("Help");
@@ -425,10 +425,8 @@ public class MethodInteractionFragment extends Fragment {
 							status = MethodStatus.ROUNDS;
 						}
 						
-						if(status == MethodStatus.GO_TO_PLAYING){
-							method.swapRound();
-							status = MethodStatus.PLAYING;		
-						}
+						if(status == MethodStatus.GO_TO_PLAYING)
+							status = MethodStatus.PLAYING;						
 
 						if(status == MethodStatus.GO_TO_STAND)
 							status = MethodStatus.STANDING;
@@ -440,7 +438,7 @@ public class MethodInteractionFragment extends Fragment {
 					e.printStackTrace();
 				}
 			}
-			
+
 			return null;
 		}
 

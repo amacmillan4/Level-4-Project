@@ -1,0 +1,7 @@
+package project.android.bellringing;
+
+public enum Status {
+	
+	STANDING, GO_TO_ROUNDS, ROUNDS, PAUSED, PLAYING, GO_TO_STAND
+
+}

@@ -86,6 +86,7 @@ public class MethodInteractionFragment extends Fragment {
 		
 		//Setup
 		status = MethodStatus.STANDING;
+		methodCopy.initialize();
 		bellAudio = new AudioPlayer(getActivity(), MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
 		images = new ImageId(MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
 
@@ -440,7 +441,7 @@ public class MethodInteractionFragment extends Fragment {
 					e.printStackTrace();
 				}
 			}
-			
+
 			return null;
 		}
 

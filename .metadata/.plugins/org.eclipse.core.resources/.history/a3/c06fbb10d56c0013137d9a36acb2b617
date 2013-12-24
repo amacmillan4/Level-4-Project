@@ -33,6 +33,7 @@ public class MethodInteractionFragment extends Fragment {
 	ImageId images;
 	AudioPlayer bellAudio;
 	DisplayMethod displayMethodThread = new DisplayMethod();
+	boolean isPlaying = false;
 
 	Method2 method = MethodLab.get(getActivity()).getChosenMethod().get(0);
 	Method2 methodCopy = method;
@@ -41,7 +42,10 @@ public class MethodInteractionFragment extends Fragment {
 
 	Handler mHandler = new Handler();
 	LinesView methodView;
+	boolean rounds = false;
 	boolean paused = false;
+	boolean changed = false;
+	boolean stand = false;
 	boolean waitForMe = true;
 	double pressTime, playTime;
 	TextView txtMethodName, score;
@@ -86,6 +90,7 @@ public class MethodInteractionFragment extends Fragment {
 		
 		//Setup
 		status = MethodStatus.STANDING;
+		methodCopy.initialize();
 		bellAudio = new AudioPlayer(getActivity(), MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
 		images = new ImageId(MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
 
@@ -195,7 +200,7 @@ public class MethodInteractionFragment extends Fragment {
 			public void onClick(View view) {
 
 				if(paused){
-					status = MethodStatus.STANDING;
+					isPlaying = false;
 					paused = false;
 					runButton.setText("Start");
 					helpButton.setText("Help");
@@ -205,7 +210,7 @@ public class MethodInteractionFragment extends Fragment {
 					
 				}else{
 
-					if (status == MethodStatus.STANDING){
+					if (status != MethodStatus.PLAYING){
 						Intent i = new Intent(getActivity(), MethodShowActivity.class);
 						getActivity().startActivity(i);
 					}else{
@@ -424,15 +429,10 @@ public class MethodInteractionFragment extends Fragment {
 							method.swapRound();
 							status = MethodStatus.ROUNDS;
 						}
-						
-						if(status == MethodStatus.GO_TO_PLAYING){
-							method.swapRound();
-							status = MethodStatus.PLAYING;		
-						}
 
-						if(status == MethodStatus.GO_TO_STAND)
+						if(status == MethodStatus.GO_TO_STAND){
 							status = MethodStatus.STANDING;
-						
+						}
 					}
 
 				} catch (InterruptedException e) {
@@ -440,7 +440,7 @@ public class MethodInteractionFragment extends Fragment {
 					e.printStackTrace();
 				}
 			}
-			
+
 			return null;
 		}
 

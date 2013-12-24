@@ -28,11 +28,12 @@ public class MethodInteractionFragment extends Fragment {
 
 	View v;	//Global View
 
-	MethodStatus status;
+	Status status;
 	
 	ImageId images;
 	AudioPlayer bellAudio;
 	DisplayMethod displayMethodThread = new DisplayMethod();
+	boolean isPlaying = false;
 
 	Method2 method = MethodLab.get(getActivity()).getChosenMethod().get(0);
 	Method2 methodCopy = method;
@@ -41,7 +42,10 @@ public class MethodInteractionFragment extends Fragment {
 
 	Handler mHandler = new Handler();
 	LinesView methodView;
+	boolean rounds = false;
 	boolean paused = false;
+	boolean changed = false;
+	boolean stand = false;
 	boolean waitForMe = true;
 	double pressTime, playTime;
 	TextView txtMethodName, score;
@@ -85,7 +89,8 @@ public class MethodInteractionFragment extends Fragment {
 		v = inflater.inflate(R.layout.fragment_activity_interaction, parent, false);
 		
 		//Setup
-		status = MethodStatus.STANDING;
+		status = Status.STANDING;
+		methodCopy.initialize();
 		bellAudio = new AudioPlayer(getActivity(), MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
 		images = new ImageId(MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
 
@@ -97,7 +102,7 @@ public class MethodInteractionFragment extends Fragment {
 			@Override
 			public void onClick(View view) {
 
-				if(status == MethodStatus.PLAYING){
+				if(status == Status.PLAYING){
 
 					pressTime = System.currentTimeMillis();
 
@@ -195,7 +200,7 @@ public class MethodInteractionFragment extends Fragment {
 			public void onClick(View view) {
 
 				if(paused){
-					status = MethodStatus.STANDING;
+					isPlaying = false;
 					paused = false;
 					runButton.setText("Start");
 					helpButton.setText("Help");
@@ -205,12 +210,12 @@ public class MethodInteractionFragment extends Fragment {
 					
 				}else{
 
-					if (status == MethodStatus.STANDING){
+					if (status != Status.PLAYING){
 						Intent i = new Intent(getActivity(), MethodShowActivity.class);
 						getActivity().startActivity(i);
 					}else{
 
-						status = MethodStatus.GO_TO_STAND;
+						status = Status.GO_TO_STAND;
 						runButton.setText("Start");
 						helpButton.setText("Help");
 						showButton.setText("Show");
@@ -237,15 +242,15 @@ public class MethodInteractionFragment extends Fragment {
 					helpButton.setText("Pause");
 					showButton.setText("Stand");
 					
-					if (status == MethodStatus.ROUNDS)
+					if (status == Status.ROUNDS)
 						runButton.setText("Go");
 					else
 						runButton.setText("Rounds");
 
 				}else{
 
-					if(status == MethodStatus.STANDING){
-						status = MethodStatus.ROUNDS;
+					if(status == Status.STANDING){
+						status = Status.ROUNDS;
 						methodCopy.swapRound();
 						
 						runButton.setText("Go");
@@ -256,12 +261,12 @@ public class MethodInteractionFragment extends Fragment {
 						
 					}
 					
-					else if(status == MethodStatus.ROUNDS) {
-						status = MethodStatus.GO_TO_PLAYING;
+					else if(status == Status.ROUNDS) {
+						status = Status.GO_TO_PLAYING;
 						runButton.setText("Rounds");
 						
-					} else if(status == MethodStatus.PLAYING){
-						status = MethodStatus.GO_TO_ROUNDS;
+					} else if(status == Status.PLAYING){
+						status = Status.GO_TO_ROUNDS;
 						runButton.setText("Go");
 						showButton.setText("Stand");
 						helpButton.setText("Pause");
@@ -275,7 +280,7 @@ public class MethodInteractionFragment extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				if (status!= MethodStatus.STANDING){
+				if (status!= Status.STANDING){
 					
 					if(paused){
 						//TODO Open Help page
@@ -345,7 +350,7 @@ public class MethodInteractionFragment extends Fragment {
 			String x = "";
 			int i= 0;
 
-			while (!x.equals("\r") && status != MethodStatus.STANDING){
+			while (!x.equals("\r") && isPlaying){
 
 				//Re-initialise scoring variables
 				pressTime = 0;
@@ -411,7 +416,7 @@ public class MethodInteractionFragment extends Fragment {
 				try {
 					wait(200);
 
-					while(paused)
+					while(paused == true)
 						wait(500);
 
 					if (i % ((methodCopy.getBells()) * 2) == 0 ){
@@ -420,19 +425,15 @@ public class MethodInteractionFragment extends Fragment {
 						if(MethodLab.get(getActivity()).getSetup().isHandstrokeGap())
 							wait(200);
 
-						if(status == MethodStatus.GO_TO_ROUNDS){
+						if(changed == true){
 							method.swapRound();
-							status = MethodStatus.ROUNDS;
-						}
-						
-						if(status == MethodStatus.GO_TO_PLAYING){
-							method.swapRound();
-							status = MethodStatus.PLAYING;		
+							changed = false;
 						}
 
-						if(status == MethodStatus.GO_TO_STAND)
-							status = MethodStatus.STANDING;
-						
+						if(stand == true){
+							stand = false;
+							isPlaying = false;
+						}
 					}
 
 				} catch (InterruptedException e) {
@@ -440,7 +441,7 @@ public class MethodInteractionFragment extends Fragment {
 					e.printStackTrace();
 				}
 			}
-			
+
 			return null;
 		}
 
