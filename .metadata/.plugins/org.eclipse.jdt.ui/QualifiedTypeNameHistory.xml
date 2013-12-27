@@ -19,4 +19,6 @@
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="project.android.bellringing.R.id"/>
 <fullyQualifiedTypeName name="project.android.bellringing.R.string"/>
+<fullyQualifiedTypeName name="project.android.bellringing.Status"/>
+<fullyQualifiedTypeName name="project.android.bellringing.MethodStatus"/>
 </qualifiedTypeNameHistroy>

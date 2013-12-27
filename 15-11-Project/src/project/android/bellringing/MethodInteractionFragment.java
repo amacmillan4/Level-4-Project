@@ -35,7 +35,7 @@ public class MethodInteractionFragment extends Fragment {
 	DisplayMethod displayMethodThread = new DisplayMethod();
 
 	Method2 method = MethodLab.get(getActivity()).getChosenMethod().get(0);
-	Method2 methodCopy = method;
+	Method2 methodCopy;
 
 	Button showButton, runButton, helpButton;	
 
@@ -86,6 +86,7 @@ public class MethodInteractionFragment extends Fragment {
 		
 		//Setup
 		status = MethodStatus.STANDING;
+		methodCopy = method;
 		bellAudio = new AudioPlayer(getActivity(), MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
 		images = new ImageId(MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
 
@@ -111,6 +112,8 @@ public class MethodInteractionFragment extends Fragment {
 		//Get a handle on the layout
 		RelativeLayout relativeLayoutTopScreen = (RelativeLayout) v.findViewById(R.id.l1);
 		relativeLayoutTopScreen.setBackgroundColor(Color.WHITE);
+		relativeLayoutTopScreen.getLayoutParams().height = dpToPx(350);
+		relativeLayoutTopScreen.getLayoutParams().width = dpToPx(350);
 
 		//Find out the Width of the Screen
 		int widthRelLayout = 350;
@@ -149,7 +152,7 @@ public class MethodInteractionFragment extends Fragment {
 			TextView t1 = new TextView(getActivity());
 			t1.setId(20 + (methodCopy.getBells()/2) - i);
 			RelativeLayout.LayoutParams params1 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
-			params1.setMargins((int) a - 5 , (int) (b + scale/2), 0, 0);
+			params1.setMargins((int) a + 2 , (int) (b + scale/2), 0, 0);
 			t1.setLayoutParams(params1);
 			t1.setBackgroundColor(Color.WHITE);
 			t1.setText("" + ((methodCopy.getBells()/2) - i));
@@ -164,7 +167,7 @@ public class MethodInteractionFragment extends Fragment {
 			t2.setId(20 + (methodCopy.getBells()/2) + i + 1);
 			RelativeLayout.LayoutParams params2 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
 			params2.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-			params2.setMargins(0, (int) (b + scale/2), (int) a - 5, 0);
+			params2.setMargins(0, (int) (b + scale/2), (int) a + 2, 0);
 			t2.setLayoutParams(params2);
 			t2.setBackgroundColor(Color.WHITE);
 			t2.setText("" + ((methodCopy.getBells()/2) + i + 1));
@@ -210,6 +213,9 @@ public class MethodInteractionFragment extends Fragment {
 						getActivity().startActivity(i);
 					}else{
 
+						if (status == MethodStatus.ROUNDS)
+							methodCopy.swapRound();
+						
 						status = MethodStatus.GO_TO_STAND;
 						runButton.setText("Start");
 						helpButton.setText("Help");
@@ -245,6 +251,7 @@ public class MethodInteractionFragment extends Fragment {
 				}else{
 
 					if(status == MethodStatus.STANDING){
+						methodCopy.initialize();
 						status = MethodStatus.ROUNDS;
 						methodCopy.swapRound();
 						
@@ -434,13 +441,21 @@ public class MethodInteractionFragment extends Fragment {
 							status = MethodStatus.STANDING;
 						
 					}
+					
+					if (isCancelled()){
+						if (status == MethodStatus.ROUNDS)
+							methodCopy.swapRound();
+						
+						status = MethodStatus.STANDING;
+					}
+						
 
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
-			
+
 			return null;
 		}
 

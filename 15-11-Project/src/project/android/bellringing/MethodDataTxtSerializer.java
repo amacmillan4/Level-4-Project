@@ -61,9 +61,9 @@ public class MethodDataTxtSerializer {
 			InputStream in = context.openFileInput(filenameMethod);
 			reader = new BufferedReader(new InputStreamReader(in));
 			String line = reader.readLine();
-			System.out.println(line);
 						
 			while (line != null){
+				System.out.println(line);
 				Method2 m = new Method2(line.trim());
 				a.add(m);
 				line = reader.readLine();
