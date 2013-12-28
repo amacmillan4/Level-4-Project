@@ -11,7 +11,7 @@ public class LinesView extends TextView {
 
 	String bell = "2";
 	int bells;
-		
+	
 	public boolean lines = false;
 	Paint paint1 = new Paint();
 	Paint paint2 = new Paint();
@@ -92,7 +92,7 @@ public class LinesView extends TextView {
 
 			while (a.length() > bells){
 				
-				a = a.substring(bells + 1, a.length());
+				a = a.substring(9, a.length());
 
 				next2 = a.indexOf(bell);
 				next1 = a.indexOf("1");

@@ -155,7 +155,7 @@ public class MethodInteractionFragment extends Fragment {
 			params1.setMargins((int) a + 2 , (int) (b + scale/2), 0, 0);
 			t1.setLayoutParams(params1);
 			t1.setBackgroundColor(Color.WHITE);
-			t1.setText("" + possibleBellNumbering[((methodCopy.getBells()/2) - i - 1)]);
+			t1.setText("" + ((methodCopy.getBells()/2) - i));
 			bellNumberTextViews.add(t1);
 
 
@@ -170,7 +170,7 @@ public class MethodInteractionFragment extends Fragment {
 			params2.setMargins(0, (int) (b + scale/2), (int) a + 2, 0);
 			t2.setLayoutParams(params2);
 			t2.setBackgroundColor(Color.WHITE);
-			t2.setText("" + possibleBellNumbering[((methodCopy.getBells()/2) + i )]);
+			t2.setText("" + ((methodCopy.getBells()/2) + i + 1));
 			bellNumberTextViews.add(t2);
 		}
 
