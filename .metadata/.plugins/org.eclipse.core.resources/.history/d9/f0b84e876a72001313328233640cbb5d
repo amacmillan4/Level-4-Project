@@ -1,0 +1,26 @@
+package project.android.bellringing;
+
+import java.util.Arrays;
+
+import android.content.Context;
+import android.util.DisplayMetrics;
+
+public class Utils {
+	
+	public static float dpToPx(double dp, Context c) {
+		
+	    DisplayMetrics displayMetrics = c.getResources().getDisplayMetrics();
+	    float px = Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));       
+	    return px;
+	}
+	
+	public static String stageToNumBells(String key){
+		
+		String[] names = {"Minimus", "Doubles", "Doubles on 6", "Minor", "Triples", "Major", "Caters", "Royal", "Cinques", "Maximus", "Sextuples", "14", "Septuples", "16"};
+		String[] numBells = {"4","5","6","6","7","8","9","10","11","12","13","14","15","16"};
+		
+		return numBells[Arrays.binarySearch(names, key)];
+	}
+
+
+}

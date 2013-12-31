@@ -17,10 +17,6 @@ import android.widget.LinearLayout;
 public class MethodSetupMiniMethodChoiceFragment extends Fragment {
 
 	ArrayList<String> list = new ArrayList<String>();
-	HashMap<String, String> typeToFilenames = new HashMap<String, String>();
-	HashMap<String, String> stageToBells = new HashMap<String, String>();
-
-
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -72,12 +68,6 @@ public class MethodSetupMiniMethodChoiceFragment extends Fragment {
 
 	private void setup(){
 
-		String[] names = {"Minimus", "Doubles", "Minor", "Triples", "Major", "Caters", "Royal", "Cinques", "Maximus", "Sextuples", "14", "Septuples", "16"};
-
-		for (int i = 0; i < names.length; i++){
-			stageToBells.put(names[i], (4 + i) + "");
-		}
-
 		try{
 			BufferedReader br = null;			
 			br = new BufferedReader(new InputStreamReader(getActivity().getAssets().open("files/AvailibleOptions")));
@@ -85,10 +75,10 @@ public class MethodSetupMiniMethodChoiceFragment extends Fragment {
 			String line;
 			line = br.readLine();
 
-			System.out.println(stageToBells.get(MethodLab.get(getActivity()).getSetup().getStage()));
+			System.out.println(Utils.stageToNumBells((MethodLab.get(getActivity()).getSetup().getStage())));
 
 			while(line != null){
-				if(line.split("-")[0].equals(stageToBells.get(MethodLab.get(getActivity()).getSetup().getStage()))){
+				if(line.split("-")[0].equals(Utils.stageToNumBells(MethodLab.get(getActivity()).getSetup().getStage()))){
 					for(String s: line.split("-")[1].split(",")){
 						list.add(s);
 						System.out.println(s);

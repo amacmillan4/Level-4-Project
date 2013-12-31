@@ -63,7 +63,7 @@ public class LinesView extends TextView {
 
 	@Override
 	public void onDraw(Canvas canvas){
-
+		
 		if (lines){
 			paint2.setAntiAlias(true);
 			paint2.setStrokeWidth(8f);
@@ -81,14 +81,7 @@ public class LinesView extends TextView {
 			int next2 = 0;
 			int next1 = 0;
 			
-			int startX = 12;
-			int startY = 2;
-			
-			int incrementX = 8;
-			int inmcrementY = 30;
-			
-			
-			int y = 32;
+			float y = Utils.dpToPx(16, getContext());
 
 			while (a.length() > bells){
 				
@@ -98,12 +91,14 @@ public class LinesView extends TextView {
 				next1 = a.indexOf("1");
 				
 				if (next2 != -1)
-					canvas.drawLine(12 + index2 * 25, y-2,12 + next2 * 25, y + 52, paint2);
+					canvas.drawLine(Utils.dpToPx(6, getContext()) + index2 * 25, y - Utils.dpToPx(2, getContext()),
+							Utils.dpToPx(6, getContext()) + next2 * 25, y + Utils.dpToPx(27, getContext()), paint2);
 				
 				if (next1 != -1)
-					canvas.drawLine(12 + index1 * 25, y-2,12 + next1 * 25, y + 52, paint1);
+					canvas.drawLine(Utils.dpToPx(6, getContext()) + index1 * 25, y - Utils.dpToPx(2, getContext()),
+							Utils.dpToPx(6, getContext()) + next1 * 25, y + Utils.dpToPx(27, getContext()), paint1);
 				
-				y = y + 52;
+				y = y + Utils.dpToPx(27.6f, getContext());
 				
 				index2 = next2;
 				index1 = next1;

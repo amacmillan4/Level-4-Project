@@ -1,0 +1,15 @@
+package project.android.bellringing;
+
+import android.app.Activity;
+import android.util.DisplayMetrics;
+
+public class ChangeDisplay {
+	
+	public int dpToPx(int dp, Activity a) {
+		
+	    DisplayMetrics displayMetrics = a.getResources().getDisplayMetrics();
+	    int px = Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));       
+	    return px;
+	}
+
+}

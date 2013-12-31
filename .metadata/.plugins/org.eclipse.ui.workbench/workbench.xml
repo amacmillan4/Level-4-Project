@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="30" version="2.0">
+<workbench progressCount="33" version="2.0">
 <workbenchAdvisor/>
 <window height="768" maximized="true" width="1024" x="414" y="-12">
 <fastViewData fastViewLocation="1024"/>
@@ -76,7 +76,7 @@
 </editor>
 <editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MethodInteractionFragment.java" partName="MethodInteractionFragment.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/MethodInteractionFragment.java" title="MethodInteractionFragment.java" tooltip="15-11-Project/src/project/android/bellringing/MethodInteractionFragment.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/MethodInteractionFragment.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3402" selectionTopPixel="210"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4431" selectionTopPixel="1898"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AudioPlayer.java" partName="AudioPlayer.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/AudioPlayer.java" title="AudioPlayer.java" tooltip="15-11-Project/src/project/android/bellringing/AudioPlayer.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/AudioPlayer.java"/>
@@ -100,7 +100,7 @@
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LinesView.java" partName="LinesView.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/LinesView.java" title="LinesView.java" tooltip="15-11-Project/src/project/android/bellringing/LinesView.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/LinesView.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1552" selectionTopPixel="795"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="320" selectionTopPixel="0"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MethodDataTxtSerializer.java" partName="MethodDataTxtSerializer.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/MethodDataTxtSerializer.java" title="MethodDataTxtSerializer.java" tooltip="15-11-Project/src/project/android/bellringing/MethodDataTxtSerializer.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/MethodDataTxtSerializer.java"/>
@@ -116,6 +116,9 @@
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Warnings (40 items)"/>
+</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -312,13 +315,7 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/AudioPlayer.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/MethodSetupAddMethodFragment.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/MethodShortlistSerializer.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/MethodLab.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/MethodShortlistSerializer.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/Method2.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/MethodSetupMethodChoiceFragment.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/MethodInteractionFragment.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/Status.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/MethodStatus.java"/>
@@ -328,152 +325,153 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/LinesView.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/MethodDataTxtSerializer.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/15-11-Project/res/layout/fragment_activity_interaction.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/LinesView.java"/>
 </editors>
-<item historyLabel="MethodSetupAddMethodFragment.java" index="1">
-<position info="not_deleted" x="3053" y="0"/>
-</item>
-<item historyLabel="MethodShortlistSerializer.java" index="2">
-<position info="not_deleted" x="811" y="0"/>
-</item>
-<item historyLabel="MethodLab.java" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="MethodSetupAddMethodFragment.java" index="1">
-<position info="not_deleted" x="3053" y="0"/>
-</item>
-<item historyLabel="MethodLab.java" index="3">
-<position info="not_deleted" x="2015" y="0"/>
-</item>
-<item historyLabel="MethodSetupAddMethodFragment.java" index="1">
-<position info="not_deleted" x="3053" y="0"/>
-</item>
-<item historyLabel="MethodLab.java" index="3">
-<position info="not_deleted" x="2013" y="0"/>
-</item>
-<item historyLabel="MethodShortlistSerializer.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Method2.java" index="5">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="MethodShortlistSerializer.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="MethodShortlistSerializer.java" index="4">
-<position info="not_deleted" x="1660" y="0"/>
-</item>
-<item historyLabel="MethodLab.java" index="3">
-<position info="not_deleted" x="2013" y="0"/>
-</item>
-<item historyLabel="MethodShortlistSerializer.java" index="4">
-<position info="not_deleted" x="1660" y="0"/>
-</item>
-<item historyLabel="MethodLab.java" index="3">
-<position info="not_deleted" x="2013" y="0"/>
-</item>
-<item historyLabel="MethodSetupMethodChoiceFragment.java" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="MethodLab.java" index="3">
-<position info="not_deleted" x="2013" y="0"/>
-</item>
-<item historyLabel="MethodSetupMethodChoiceFragment.java" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="MethodSetupMethodChoiceFragment.java" index="6">
-<position info="not_deleted" x="971" y="0"/>
-</item>
-<item historyLabel="MethodLab.java" index="3">
-<position info="not_deleted" x="2013" y="0"/>
-</item>
-<item historyLabel="MethodLab.java" index="3">
-<position info="not_deleted" x="473" y="0"/>
-</item>
-<item historyLabel="MethodShortlistSerializer.java" index="4">
-<position info="not_deleted" x="1660" y="0"/>
-</item>
-<item historyLabel="MethodShortlistSerializer.java" index="4">
-<position info="not_deleted" x="1104" y="0"/>
-</item>
-<item historyLabel="Method2.java" index="5">
-<position info="not_deleted" x="6912" y="0"/>
-</item>
-<item historyLabel="MethodInteractionFragment.java" index="7">
-<position info="not_deleted" x="2411" y="0"/>
-</item>
-<item historyLabel="AudioPlayer.java" index="0">
-<position info="not_deleted" x="1163" y="0"/>
-</item>
-<item historyLabel="MethodInteractionFragment.java" index="7">
+<item historyLabel="MethodInteractionFragment.java" index="1">
 <position info="not_deleted" x="754" y="0"/>
 </item>
-<item historyLabel="Status.java" index="8">
+<item historyLabel="Status.java" index="2">
 <position info="not_deleted" x="139" y="0"/>
 </item>
-<item historyLabel="MethodInteractionFragment.java" index="7">
+<item historyLabel="MethodInteractionFragment.java" index="1">
 <position info="not_deleted" x="8306" y="0"/>
 </item>
-<item historyLabel="Status.java" index="8">
+<item historyLabel="Status.java" index="2">
 <position info="not_deleted" x="110" y="0"/>
 </item>
-<item historyLabel="MethodInteractionFragment.java" index="7">
+<item historyLabel="MethodInteractionFragment.java" index="1">
 <position info="not_deleted" x="10211" y="0"/>
 </item>
-<item historyLabel="Status.java" index="8">
+<item historyLabel="Status.java" index="2">
 <position info="not_deleted" x="110" y="0"/>
 </item>
-<item historyLabel="MethodStatus.java" index="9">
+<item historyLabel="MethodStatus.java" index="3">
 <position info="not_deleted" x="58" y="0"/>
 </item>
-<item historyLabel="MethodInteractionFragment.java" index="7">
+<item historyLabel="MethodInteractionFragment.java" index="1">
 <position info="not_deleted" x="10211" y="0"/>
 </item>
-<item historyLabel="MethodInteractionFragment.java" index="7">
+<item historyLabel="MethodInteractionFragment.java" index="1">
 <position info="not_deleted" x="12550" y="0"/>
 </item>
-<item historyLabel="Method2.java" index="5">
+<item historyLabel="Method2.java" index="0">
 <position info="not_deleted" x="6912" y="0"/>
 </item>
-<item historyLabel="MethodInteractionFragment.java" index="7">
+<item historyLabel="MethodInteractionFragment.java" index="1">
 <position info="not_deleted" x="12817" y="0"/>
 </item>
-<item historyLabel="MethodInteractionFragment.java" index="7">
+<item historyLabel="MethodInteractionFragment.java" index="1">
 <position info="not_deleted" x="7102" y="0"/>
 </item>
-<item historyLabel="MethodInteractionFragment.java" index="7">
+<item historyLabel="MethodInteractionFragment.java" index="1">
 <position info="not_deleted" x="10213" y="0"/>
 </item>
-<item historyLabel="MethodShowFragment.java" index="10">
+<item historyLabel="MethodShowFragment.java" index="4">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="MethodSetupMiniMethodChoiceFragment.java" index="11">
+<item historyLabel="MethodSetupMiniMethodChoiceFragment.java" index="5">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="MethodInteractionFragment.java" index="7">
+<item historyLabel="MethodInteractionFragment.java" index="1">
 <position info="not_deleted" x="10213" y="0"/>
 </item>
-<item historyLabel="MethodInteractionFragment.java" index="7">
+<item historyLabel="MethodInteractionFragment.java" index="1">
 <position info="not_deleted" x="12762" y="0"/>
 </item>
-<item historyLabel="ImageId.java" index="12">
+<item historyLabel="ImageId.java" index="6">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="LinesView.java" index="13">
+<item historyLabel="LinesView.java" index="7">
 <position info="not_deleted" x="1552" y="0"/>
 </item>
-<item historyLabel="MethodDataTxtSerializer.java" index="14">
+<item historyLabel="MethodDataTxtSerializer.java" index="8">
 <position info="not_deleted" x="1221" y="0"/>
 </item>
-<item historyLabel="MethodInteractionFragment.java" index="7">
+<item historyLabel="MethodInteractionFragment.java" index="1">
 <position info="not_deleted" x="12772" y="0"/>
 </item>
-<item historyLabel="fragment_activity_interaction.xml" index="15"/>
-<item historyLabel="MethodInteractionFragment.java" index="7">
+<item historyLabel="fragment_activity_interaction.xml" index="9"/>
+<item historyLabel="MethodInteractionFragment.java" index="1">
 <position info="not_deleted" x="3094" y="0"/>
 </item>
-<item historyLabel="fragment_activity_interaction.xml" index="15"/>
-<item active="true" historyLabel="MethodInteractionFragment.java" index="7">
+<item historyLabel="fragment_activity_interaction.xml" index="9"/>
+<item historyLabel="MethodInteractionFragment.java" index="1">
 <position info="not_deleted" x="3094" y="0"/>
+</item>
+<item historyLabel="LinesView.java" index="10">
+<position/>
+</item>
+<item historyLabel="MethodInteractionFragment.java" index="1">
+<position info="not_deleted" x="5961" y="0"/>
+</item>
+<item historyLabel="LinesView.java" index="10">
+<position/>
+</item>
+<item historyLabel="LinesView.java" index="10">
+<position/>
+</item>
+<item historyLabel="LinesView.java" index="10">
+<position/>
+</item>
+<item historyLabel="LinesView.java" index="10">
+<position/>
+</item>
+<item historyLabel="LinesView.java" index="10">
+<position/>
+</item>
+<item historyLabel="LinesView.java" index="10">
+<position/>
+</item>
+<item historyLabel="LinesView.java" index="10">
+<position/>
+</item>
+<item historyLabel="LinesView.java" index="10">
+<position/>
+</item>
+<item historyLabel="LinesView.java" index="10">
+<position/>
+</item>
+<item historyLabel="LinesView.java" index="10">
+<position/>
+</item>
+<item historyLabel="LinesView.java" index="10">
+<position/>
+</item>
+<item historyLabel="LinesView.java" index="10">
+<position/>
+</item>
+<item historyLabel="LinesView.java" index="10">
+<position/>
+</item>
+<item historyLabel="LinesView.java" index="10">
+<position/>
+</item>
+<item historyLabel="LinesView.java" index="10">
+<position/>
+</item>
+<item historyLabel="LinesView.java" index="10">
+<position/>
+</item>
+<item historyLabel="LinesView.java" index="10">
+<position/>
+</item>
+<item historyLabel="LinesView.java" index="10">
+<position/>
+</item>
+<item historyLabel="LinesView.java" index="10">
+<position/>
+</item>
+<item historyLabel="LinesView.java" index="10">
+<position/>
+</item>
+<item historyLabel="LinesView.java" index="10">
+<position info="not_deleted" x="320" y="0"/>
+</item>
+<item historyLabel="MethodInteractionFragment.java" index="1">
+<position info="not_deleted" x="5961" y="0"/>
+</item>
+<item active="true" historyLabel="MethodInteractionFragment.java" index="1">
+<position info="not_deleted" x="5733" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>

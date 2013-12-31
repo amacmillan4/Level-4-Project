@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 
 public class MethodShowFragment extends Fragment {
 
-	Method method = new Method("Aberafan", "&-36-14-58-16-34-58-56-58,12", 100, 8);
+	Method2 method = MethodLab.get(getActivity()).getChosenMethod().get(0);
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -24,28 +24,51 @@ public class MethodShowFragment extends Fragment {
 
 		LinearLayout linLayout = (LinearLayout) v.findViewById(R.id.methodShowLinLayout);
 
-		String a = method.calcNext() + "";
+		method.initialize();
+		
+		String a = "\n";
+		String b = "";
+		
+		method.swapRound();
+				
+		for(int i = 0; i < method.getBells(); i++)
+			method.calcNext();
+		
+		for(int i = 0; i < method.getBells(); i++)
+			b = b + method.calcNext();
+				
+		method.swapRound();
+		
+		System.out.println(b);
 
 		int x = 0;
-		while (x < 16){
+		while (x < 2 * (method.getBells() - 1)){
 			
-			int i = 1;
+			int i = 0;
 	
 			LinesView displayMethod = new LinesView(getActivity());
-			if (x == 0)
-				displayMethod.setText("12345678\n");
-		
 			displayMethod.setTextColor(Color.BLACK);
 			displayMethod.setBackgroundColor(Color.WHITE);
 			displayMethod.setTextSize(24);
+			displayMethod.setNumberOfBells(method.getBells());
 			
 			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-			params.setMargins(10, 50,10, 0);
+			params.setMargins(10,20,10, 0);
 			displayMethod.setLayoutParams(params);
 			
+			if (x == 0){
+				displayMethod.setText(b + "\n");
+				i = b.length();
+			}
 			
-			while (i < ((method.getBells() + 1) * 13) + 4){
+			a = method.calcNext();
+			i++;
+			
+			while (i < ((method.getBells()) * 16)){
+				
 				displayMethod.append(a);
+				displayMethod.drawLines(true);
+
 				if(i % method.getBells() == 0){
 					displayMethod.append("\n");
 				}
@@ -53,19 +76,9 @@ public class MethodShowFragment extends Fragment {
 				a = method.calcNext() + "";
 			}
 			
-			if (x != 0){
-				i = 1;
-				while (i < (method.getBells() + 1)){
-					displayMethod.append(a);
-					if(i % method.getBells() == 0){
-						displayMethod.append("\n");
-					}
-					i++;
-					a = method.calcNext() + "";
-				}
-			}
+			displayMethod.append(a);
+			
 			x++;
-			displayMethod.drawLines(true);
 			linLayout.addView(displayMethod);
 		}
 
