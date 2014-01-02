@@ -91,12 +91,12 @@ public class LinesView extends TextView {
 				next1 = a.indexOf("1");
 				
 				if (next2 != -1)
-					canvas.drawLine(Utils.dpToPx(6, getContext()) + index2 * 25, y - Utils.dpToPx(2, getContext()),
-							Utils.dpToPx(6, getContext()) + next2 * 25, y + Utils.dpToPx(27, getContext()), paint2);
+					canvas.drawLine(Utils.dpToPx(6f, getContext()) + index2 * 26.8f, y - Utils.dpToPx(2, getContext()),
+							Utils.dpToPx(6f, getContext()) + next2 * 26.8f, y + Utils.dpToPx(27, getContext()), paint2);
 				
 				if (next1 != -1)
-					canvas.drawLine(Utils.dpToPx(6, getContext()) + index1 * 25, y - Utils.dpToPx(2, getContext()),
-							Utils.dpToPx(6, getContext()) + next1 * 25, y + Utils.dpToPx(27, getContext()), paint1);
+					canvas.drawLine(Utils.dpToPx(6f, getContext()) + index1 * 26.8f, y - Utils.dpToPx(2, getContext()),
+							 Utils.dpToPx(6f, getContext()) + next1 * 26.8f, y + Utils.dpToPx(27, getContext()), paint1);
 				
 				y = y + Utils.dpToPx(27.6f, getContext());
 				

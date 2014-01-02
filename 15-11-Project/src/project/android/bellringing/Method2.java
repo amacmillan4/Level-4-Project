@@ -10,6 +10,7 @@ public class Method2 {
 	private String method;
 	private String leadEnd;
 	private int bells;
+	private int playingOnBells;
 
 	private final char[] possibleBellNumbering = {'1','2','3','4','5','6','7','8','9','0','E','T','A','B','C','D'};
 	private ArrayList<String> bellNumbering;
@@ -60,15 +61,18 @@ public class Method2 {
 		}
 	}
 
-public void initialize(){
+public void initialize(int playOn){
 		
+	
+		playingOnBells = playOn;
+	
 		//Fill arrayList with correct number of bells
 		methodChanges = new ArrayList<String>();
-		bellNumbering = new ArrayList<String>(bells);
+		bellNumbering = new ArrayList<String>(playingOnBells);
 		
-		for(int i = 0; i < bells; i++)
+		for(int i = 0; i < playingOnBells; i++)
 			bellNumbering.add(possibleBellNumbering[i] + "");
-
+		
 		//Get the unreversed changes
 		System.out.println(method);
 		System.out.println(leadEnd);
@@ -83,7 +87,17 @@ public void initialize(){
 		//Add the both
 		methodChanges.addAll(unreversedMethod);
 		methodChanges.addAll(unreversedLeadEnd);
-
+		
+		if (playingOnBells != bells){
+			for(int i = 0; i < methodChanges.size(); i++){
+				String s = methodChanges.get(i);
+				
+				if(!s.equals("x"))
+					methodChanges.set(i, s + playingOnBells);
+				
+			}
+		}
+		
 		//Variables for calculating the next bell
 		currentLine = "";
 		currentMethodSection = 0;
@@ -177,9 +191,9 @@ public void initialize(){
 
 	public void restartMethod(){
 
-		bellNumbering = new ArrayList<String>(bells);
+		bellNumbering = new ArrayList<String>(playingOnBells);
 
-		for(int i = 0; i < bells; i++)
+		for(int i = 0; i < playingOnBells; i++)
 			bellNumbering.add(possibleBellNumbering[i] + "");
 
 		loops = 0;
@@ -187,10 +201,10 @@ public void initialize(){
 		currentOperationSection = 0;
 
 		currentLine = "";
-		for(int i = 0; i < bells; i++)
+		for(int i = 0; i < playingOnBells; i++)
 			currentLine += bellNumbering.get(i);
 
-		System.out.println("RESTART "+currentLine);
+		System.out.println("RESTART "+ currentLine);
 	}
 
 	public String calcNext(){
@@ -200,7 +214,7 @@ public void initialize(){
 		}
 		else{
 
-			if (loops == (bells - 1) && currentMethodSection == bells)
+			if (loops == (playingOnBells - 1) && currentMethodSection == playingOnBells)
 				return "\r";
 
 			if (currentOperationSection == methodChanges.size()){
@@ -208,7 +222,7 @@ public void initialize(){
 				loops++;
 			}			
 
-			if (currentMethodSection == bells || ((currentMethodSection == 0 && currentOperationSection == 0))){
+			if (currentMethodSection == playingOnBells || ((currentMethodSection == 0 && currentOperationSection == 0))){
 				currentLine = calcLine(currentLine, methodChanges.get(currentOperationSection++));
 				currentMethodSection = 0;
 			}
@@ -238,10 +252,14 @@ public void initialize(){
 			
 			copy.removeAll(Collections.singleton("REMOVE"));
 			
+			System.out.println(operation);
+			
 			for (int i = 0; i < copy.size(); i = i + 2)
 				newLine = swap(newLine,bellNumbering.indexOf(copy.get(i)) + 1, bellNumbering.indexOf(copy.get(i+1)) + 1);
 
 		}
+		
+		System.out.println(newLine);
 
 		return newLine;
 	}
@@ -270,6 +288,10 @@ public void initialize(){
 
 	public int getBells() {
 		return bells;
+	}
+	
+	public int getPlayingOn(){
+		return playingOnBells;
 	}
 
 	public void setBells(int bells) {

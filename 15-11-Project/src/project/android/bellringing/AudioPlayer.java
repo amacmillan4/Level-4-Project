@@ -27,7 +27,7 @@ public class AudioPlayer {
 			sounds.put("E",sPool.load(c, R.raw.bell62,1));	//l
 			sounds.put("T",sPool.load(c, R.raw.bell60,1));	//s
 			sounds.put("A",sPool.load(c, R.raw.bell58,1));	//f
-			sounds.put("C",sPool.load(c, R.raw.bell57,1));	//m
+			sounds.put("B",sPool.load(c, R.raw.bell57,1));	//m
 			sounds.put("C",sPool.load(c, R.raw.bell55,1));	//r
 			sounds.put("D",sPool.load(c, R.raw.bell53,1));	//d
 		}

@@ -24,7 +24,9 @@ public class MethodShowFragment extends Fragment {
 
 		LinearLayout linLayout = (LinearLayout) v.findViewById(R.id.methodShowLinLayout);
 
-		method.initialize();
+		System.out.println(method.getBells());
+		
+		method.initialize(Integer.parseInt(Utils.stageToNumBells(MethodLab.get(getActivity()).getSetup().getStage())));
 		
 		String a = "\n";
 		String b = "";
@@ -80,6 +82,9 @@ public class MethodShowFragment extends Fragment {
 			
 			x++;
 			linLayout.addView(displayMethod);
+			
+			if (a.equals("\r"))
+				break;
 		}
 
 		return v;
