@@ -1,7 +1,10 @@
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Method2 {
 	private String name;
@@ -10,6 +13,10 @@ public class Method2 {
 	private String method;
 	private String leadEnd;
 	private int bells;
+	private int playingOnBells;
+
+	private String bob;
+	private String single;
 
 	private final char[] possibleBellNumbering = {'1','2','3','4','5','6','7','8','9','0','E','T','A','B','C','D'};
 	private ArrayList<String> bellNumbering;
@@ -32,9 +39,8 @@ public class Method2 {
 		this.type = type;
 		this.bells = Integer.parseInt(bells);
 		this.wholeMethod = wholeMethod;
-		
+
 		if (wholeMethod.charAt(0) == '&'){
-			System.out.println(wholeMethod.split(",")[0].substring(1,wholeMethod.split(",")[0].length()));
 			this.method = wholeMethod.split(",")[0].substring(1,wholeMethod.split(",")[0].length() );
 			this.leadEnd = wholeMethod.split(",")[1];
 		}
@@ -43,13 +49,13 @@ public class Method2 {
 			this.leadEnd = "";
 		}
 	}
-	
+
 	public Method2(String line) {	
 		this.name = line.split("\t")[0];
 		this.type = line.split("\t")[1];
-		this.bells = Integer.parseInt(line.split("\t")[2]);
-		this.wholeMethod = line.split("\t")[3];
-		
+		this.bells = Integer.parseInt(line.split("\t")[3]);
+		this.wholeMethod = line.split("\t")[2];
+
 		if (wholeMethod.charAt(0) == '&'){
 			this.method = wholeMethod.split(",")[0].substring(1,wholeMethod.split(",")[0].length() );
 			this.leadEnd = wholeMethod.split(",")[1];
@@ -60,26 +66,46 @@ public class Method2 {
 		}
 	}
 
-	public void initialize(){
-		
+	public void initialize(int playOn, Composition composition){
+
+		playingOnBells = playOn;
+
 		//Fill arrayList with correct number of bells
 		methodChanges = new ArrayList<String>();
-		bellNumbering = new ArrayList<String>(bells);
-		
-		for(int i = 0; i < bells; i++)
+		bellNumbering = new ArrayList<String>(playingOnBells);
+
+		for(int i = 0; i < playingOnBells; i++)
 			bellNumbering.add(possibleBellNumbering[i] + "");
 
-		//Get the unreversed changes
-		ArrayList<String> unreversedMethod = implementChanges(method);
-		ArrayList<String> unreversedLeadEnd = implementChanges(leadEnd);
+
+		ArrayList<String> mMethod = implementChanges(method);
+		mMethod = reverseMethod(mMethod);
+		methodChanges.addAll(mMethod);
+
+
+		ArrayList<String> mLeadEnd = implementChanges(leadEnd);
+		ArrayList<String> mBob = implementChanges(calcBob());
+		ArrayList<String> mSingle = implementChanges(calcSingle());
 
 		//Reverse the changes
-		unreversedMethod = reverseMethod(unreversedMethod);
-		unreversedLeadEnd = reverseMethod(unreversedLeadEnd);
+
+		mLeadEnd = reverseMethod(mLeadEnd);
+		mBob = reverseMethod(mLeadEnd);
+		mSingle = reverseMethod(mLeadEnd);
 
 		//Add the both
-		methodChanges.addAll(unreversedMethod);
-		methodChanges.addAll(unreversedLeadEnd);
+
+		methodChanges.addAll(mLeadEnd);
+
+		if (playingOnBells != bells){
+			for(int i = 0; i < methodChanges.size(); i++){
+				String s = methodChanges.get(i);
+
+				if(!s.equals("x"))
+					methodChanges.set(i, s + playingOnBells);
+
+			}
+		}
 
 		//Variables for calculating the next bell
 		currentLine = "";
@@ -90,46 +116,47 @@ public class Method2 {
 			currentLine += bellNumbering.get(i);
 
 	}
-	
+
 	private ArrayList<String> reverseMethod(ArrayList<String> changes){
-		
+
 		//If it is of size 1 or less no reversing needs done
 		if (changes.size() <= 1)
 			return changes;
-		
-		 //Reverse method (apart from last) and add to previous ArrayList
+
+		//Reverse method (apart from last) and add to previous ArrayList
 		ArrayList<String> reverse = new ArrayList<String>(changes);
 		Collections.reverse(reverse);
 		reverse.remove(0);
 		changes.addAll(reverse);
 		return changes;
 	}
-	
+
 	private ArrayList<String> implementChanges(String methodString){
-		
+
 		ArrayList<String> unreversedMethodChanges = new ArrayList<String>();
-		
+
+		System.out.println(methodString);
 		//If it is an asynchronous method this will be empty
-				if(methodString.equals(""))
-					return unreversedMethodChanges;
-		
+		if(methodString.equals(""))
+			return unreversedMethodChanges;
+
 		char[] stringToCharArray = methodString.toCharArray();
 		String changes = "";
-		
+
 		//Changes that are required
 		for(char a: stringToCharArray){
-			
+
 			//Dot ends the section of changes - add old changes and ready string for new
 			if (a == '.'){
 				unreversedMethodChanges.add(changes);
 				changes = "";
 			}
 			else if (a == '-'){
-				
+
 				//Only add if there has been some change - add an x - representing all to switch
 				if (!changes.equals(""))
 					unreversedMethodChanges.add(changes);
-				
+
 				unreversedMethodChanges.add("x");
 				changes = "";
 			}
@@ -137,11 +164,33 @@ public class Method2 {
 				changes += a;
 			}
 		}
-		
+
 		//Add anything that is left
 		unreversedMethodChanges.add(changes);
-		
+
 		return unreversedMethodChanges;
+	}
+
+	public String getBobSingle(){
+
+		final Set<String> type1 = new HashSet<String>(Arrays.asList("Alliance Methods", "Plain Methods", "Surprise Methods", "Treble Bob Methods", "Delight Methods")); 
+
+		if (bells % 2 == 0){
+
+			if(type1.contains(type)){
+
+				if(leadEnd.equals("12")){
+					bob = "12";
+					single = "1234";
+				}
+				else if(leadEnd.equals("1" + Utils.bellsToBellNumber(Integer.toString(bells)))){
+					
+				}
+
+			}
+		}
+
+		return "";
 	}
 
 	public String start(){
@@ -173,9 +222,9 @@ public class Method2 {
 
 	public void restartMethod(){
 
-		bellNumbering = new ArrayList<String>(bells);
+		bellNumbering = new ArrayList<String>(playingOnBells);
 
-		for(int i = 0; i < bells; i++)
+		for(int i = 0; i < playingOnBells; i++)
 			bellNumbering.add(possibleBellNumbering[i] + "");
 
 		loops = 0;
@@ -183,10 +232,10 @@ public class Method2 {
 		currentOperationSection = 0;
 
 		currentLine = "";
-		for(int i = 0; i < bells; i++)
+		for(int i = 0; i < playingOnBells; i++)
 			currentLine += bellNumbering.get(i);
 
-		System.out.println("RESTART "+currentLine);
+		System.out.println("RESTART "+ currentLine);
 	}
 
 	public String calcNext(){
@@ -196,7 +245,7 @@ public class Method2 {
 		}
 		else{
 
-			if (loops == (bells - 1) && currentMethodSection == bells)
+			if (loops == (playingOnBells - 1) && currentMethodSection == playingOnBells)
 				return "\r";
 
 			if (currentOperationSection == methodChanges.size()){
@@ -204,7 +253,7 @@ public class Method2 {
 				loops++;
 			}			
 
-			if (currentMethodSection == bells || ((currentMethodSection == 0 && currentOperationSection == 0))){
+			if (currentMethodSection == playingOnBells || ((currentMethodSection == 0 && currentOperationSection == 0))){
 				currentLine = calcLine(currentLine, methodChanges.get(currentOperationSection++));
 				currentMethodSection = 0;
 			}
@@ -224,20 +273,24 @@ public class Method2 {
 				newLine = swap(newLine, i , i+1);
 		}
 		else {
-			
+
 			char[] temp = operation.toCharArray();
 			ArrayList<String> copy = new ArrayList<String>(bellNumbering);
 
 			//Mark all positions that do not move as REMOVE and remove them from the arraylist
 			for (int i = 0; i < temp.length; i++)
 				copy.set(bellNumbering.indexOf(temp[i] + ""), "REMOVE");
-			
+
 			copy.removeAll(Collections.singleton("REMOVE"));
-			
+
+			System.out.println(operation);
+
 			for (int i = 0; i < copy.size(); i = i + 2)
 				newLine = swap(newLine,bellNumbering.indexOf(copy.get(i)) + 1, bellNumbering.indexOf(copy.get(i+1)) + 1);
 
 		}
+
+		System.out.println(newLine);
 
 		return newLine;
 	}
@@ -268,6 +321,10 @@ public class Method2 {
 		return bells;
 	}
 
+	public int getPlayingOn(){
+		return playingOnBells;
+	}
+
 	public void setBells(int bells) {
 		this.bells = bells;
 	}
@@ -275,11 +332,11 @@ public class Method2 {
 	public String getName() {
 		return name;
 	}
-	
+
 	public String getType() {
 		return type;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -293,7 +350,7 @@ public class Method2 {
 
 	@Override
 	public String toString() {
-		return name + "\t" + type + "\t" + method + "," + leadEnd + "\t" + bells;
+		return name + "\t" + type + "\t" + wholeMethod + "\t" + bells;
 	}
 
 }
