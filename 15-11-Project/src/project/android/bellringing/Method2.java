@@ -3,7 +3,7 @@ package project.android.bellringing;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Method2 {
+public class Method2 implements Cloneable{
 	private String name;
 	private String type;
 	private String wholeMethod;
@@ -28,6 +28,10 @@ public class Method2 {
 
 	boolean rounds = false;
 
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
+    }
+	
 	public Method2(String name, String type, String wholeMethod, String bells) {
 		this.name = name;
 		this.type = type;
@@ -282,6 +286,9 @@ public void initialize(int playOn){
 		return leadEnd;
 	}
 
+	public String getWholeMethod(){
+		return wholeMethod;
+	}
 	public void setLeadEnd(String leadEnd) {
 		this.leadEnd = leadEnd;
 	}

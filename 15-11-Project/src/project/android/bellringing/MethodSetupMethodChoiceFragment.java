@@ -30,7 +30,7 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 	}
 	
 	@Override
-	public void onPause(){
+	public void onResume(){
 		super.onPause();
 		//MethodLab.get(getActivity()).setMethods(loadedMethods);
 		//MethodLab.get(getActivity()).saveMethodData();

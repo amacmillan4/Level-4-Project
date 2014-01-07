@@ -48,8 +48,9 @@ public class MethodSetupMiniMethodChoiceFragment extends Fragment {
 
 		test.setClickable(true);
 		final CheckBox title = (CheckBox) test.findViewById(R.id.MC_checkbox);
-		test.setOnClickListener(new View.OnClickListener() {
+		title.setClickable(false);
 
+		test.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -74,8 +75,6 @@ public class MethodSetupMiniMethodChoiceFragment extends Fragment {
 
 			String line;
 			line = br.readLine();
-
-			System.out.println(Utils.stageToNumBells((MethodLab.get(getActivity()).getSetup().getStage())));
 
 			while(line != null){
 				if(line.split("-")[0].equals(Utils.stageToNumBells(MethodLab.get(getActivity()).getSetup().getStage()))){

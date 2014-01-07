@@ -34,7 +34,6 @@ public class MethodInteractionFragment extends Fragment {
 	AudioPlayer bellAudio;
 	DisplayMethod displayMethodThread = new DisplayMethod();
 
-	private Method2 method = MethodLab.get(getActivity()).getChosenMethod().get(0);
 	private Method2 methodCopy;
 
 	Button showButton, runButton, helpButton;	
@@ -61,12 +60,6 @@ public class MethodInteractionFragment extends Fragment {
 	}
 
 	@Override
-	public void onDetach() {
-		displayMethodThread.cancel(true);
-		super.onDetach();
-	}
-
-	@Override
 	public void onPause() {
 		displayMethodThread.cancel(true);
 		super.onPause();
@@ -86,8 +79,13 @@ public class MethodInteractionFragment extends Fragment {
 
 		//Setup
 		status = MethodStatus.STANDING;
-		methodCopy = method;
-
+		try {
+			methodCopy = (Method2) MethodLab.get(getActivity()).getChosenMethod().get(0).clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		
+		
 		int numOfBells = Integer.parseInt(Utils.stageToNumBells(MethodLab.get(getActivity()).getSetup().getStage()));
 		if (numOfBells % 2 == 1 && (!MethodLab.get(getActivity()).getSetup().getStage().equals("Doubles"))){
 			numOfBells = numOfBells + 1;
@@ -118,16 +116,17 @@ public class MethodInteractionFragment extends Fragment {
 				}
 			}
 		});
+		
+		//Find out the Width of the Screen
+		int widthRelLayout = 350;
+		widthRelLayout = (int) Utils.dpToPx(widthRelLayout, v.getContext());
+
 
 		//Get a handle on the layout
 		RelativeLayout relativeLayoutTopScreen = (RelativeLayout) v.findViewById(R.id.l1);
 		relativeLayoutTopScreen.setBackgroundColor(Color.WHITE);
-		relativeLayoutTopScreen.getLayoutParams().height = (int) Utils.dpToPx(350,v.getContext());
-		relativeLayoutTopScreen.getLayoutParams().width = (int) Utils.dpToPx(350,v.getContext());
-
-		//Find out the Width of the Screen
-		int widthRelLayout = 350;
-		widthRelLayout = (int) Utils.dpToPx(widthRelLayout, v.getContext());
+		relativeLayoutTopScreen.getLayoutParams().height = widthRelLayout;
+		relativeLayoutTopScreen.getLayoutParams().width = widthRelLayout;
 
 		int heightRelLayout = widthRelLayout;
 		int scale = (int) (heightRelLayout/ ((int) (methodCopy.getPlayingOn() + 1)/2)) - 20;
@@ -186,7 +185,7 @@ public class MethodInteractionFragment extends Fragment {
 
 		//Set up TextView to display the method
 		methodView = (LinesView) v.findViewById(R.id.MC_title);
-		methodView.setNumberOfBells(method.getPlayingOn());
+		methodView.setNumberOfBells(methodCopy.getPlayingOn());
 		methodView.setTextSize(24);
 		methodView.setText("           ");
 		methodView.setTextColor(Color.BLACK);
@@ -200,7 +199,7 @@ public class MethodInteractionFragment extends Fragment {
 		params1.addRule(RelativeLayout.CENTER_VERTICAL);
 		txtMethodName.setLayoutParams(params1);
 		txtMethodName.setBackgroundColor(Color.WHITE);
-		txtMethodName.setText(method.getName());
+		txtMethodName.setText(methodCopy.getName());
 
 		showButton = (Button) v.findViewById(R.id.btnStop);
 		showButton.setOnClickListener(new View.OnClickListener() {
@@ -211,9 +210,6 @@ public class MethodInteractionFragment extends Fragment {
 				if(paused){
 					status = MethodStatus.STANDING;
 					paused = false;
-					runButton.setText("Start");
-					helpButton.setText("Help");
-					showButton.setText("Show");
 					methodView.clearText();
 
 				}else{
@@ -227,15 +223,15 @@ public class MethodInteractionFragment extends Fragment {
 							methodCopy.swapRound();
 
 						status = MethodStatus.GO_TO_STAND;
-						runButton.setText("Start");
-						helpButton.setText("Help");
-						showButton.setText("Show");
 
 						for (BellImageView b: bellImageViews)
 							b.setClickable(true);
 
 					}
 				}
+				
+				updateButtonText(status, paused);
+				
 			}
 		});
 
@@ -249,24 +245,13 @@ public class MethodInteractionFragment extends Fragment {
 
 				if(paused){
 					paused = false;
-
-					helpButton.setText("Pause");
-					showButton.setText("Stand");
-
-					if (status == MethodStatus.ROUNDS)
-						runButton.setText("Go");
-					else
-						runButton.setText("Rounds");
-
+		
 				}else{
 
 					if(status == MethodStatus.STANDING){
 						status = MethodStatus.ROUNDS;
 						methodCopy.swapRound();
 
-						runButton.setText("Go");
-						showButton.setText("Stand");
-						helpButton.setText("Pause");
 						displayMethodThread = new DisplayMethod();
 						displayMethodThread.execute();
 
@@ -274,15 +259,13 @@ public class MethodInteractionFragment extends Fragment {
 
 					else if(status == MethodStatus.ROUNDS) {
 						status = MethodStatus.GO_TO_PLAYING;
-						runButton.setText("Rounds");
 
 					} else if(status == MethodStatus.PLAYING){
 						status = MethodStatus.GO_TO_ROUNDS;
-						runButton.setText("Go");
-						showButton.setText("Stand");
-						helpButton.setText("Pause");
 					}
 				}
+				
+				updateButtonText(status, paused);
 			}
 		});
 
@@ -298,16 +281,16 @@ public class MethodInteractionFragment extends Fragment {
 					}
 					else{
 						paused = true;
-						runButton.setText("Continue");
-						helpButton.setText("Help");
-						showButton.setText("Stop");
 
 					}
 				}
 				else{
 					//TODO Open Help page
 				}
+				updateButtonText(status, paused);
 			}
+			
+			
 		});
 
 
@@ -351,17 +334,17 @@ public class MethodInteractionFragment extends Fragment {
 		else if (s == MethodStatus.GO_TO_PLAYING){
 			runButton.setText("");
 			helpButton.setText("Pause");
-			showButton.setText("Stop");
+			showButton.setText("Stand");
 		}
 		else if (s == MethodStatus.GO_TO_ROUNDS){
 			runButton.setText("");
 			helpButton.setText("Pause");
-			showButton.setText("Stop");
+			showButton.setText("Stand");
 		}
 		else if (s == MethodStatus.GO_TO_STAND){
-			runButton.setText("Continue");
-			helpButton.setText("Help");
-			showButton.setText("Stop");
+			runButton.setText("");
+			helpButton.setText("");
+			showButton.setText("");
 		}
 
 	}
@@ -474,19 +457,28 @@ public class DisplayMethod extends AsyncTask<Void,Void,Void>{
 						wait(200);
 
 					if(status == MethodStatus.GO_TO_ROUNDS){
-						method.swapRound();
+						methodCopy.swapRound();
 						status = MethodStatus.ROUNDS;
 					}
 
 					if(status == MethodStatus.GO_TO_PLAYING){
-						method.swapRound();
+						methodCopy.swapRound();
 						status = MethodStatus.PLAYING;		
 					}
 
 					if(status == MethodStatus.GO_TO_STAND){
 						status = MethodStatus.STANDING;
-						methodCopy = method;
+						methodCopy = (Method2) MethodLab.get(getActivity()).getChosenMethod().get(0).clone();
+
 					}
+					
+					mHandler.post(new Runnable() {
+						@Override
+						public void run() {
+							
+							updateButtonText(status, paused);
+						}
+					}); 
 
 				}
 
@@ -501,6 +493,9 @@ public class DisplayMethod extends AsyncTask<Void,Void,Void>{
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			} catch (CloneNotSupportedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 
@@ -510,7 +505,7 @@ public class DisplayMethod extends AsyncTask<Void,Void,Void>{
 }
 private void swap_TextView(){
 
-	for(int i = 0; i < method.getPlayingOn(); i++){
+	for(int i = 0; i < methodCopy.getPlayingOn(); i++){
 		TextView a =  bellNumberTextViews.get(i);
 		a.setText("" + possibleBellNumbering[bellImageViews.get(i).getId()-1]);			
 	}

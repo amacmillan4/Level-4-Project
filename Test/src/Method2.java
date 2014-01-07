@@ -175,7 +175,11 @@ public class Method2 {
 
 		final Set<String> type1 = new HashSet<String>(Arrays.asList("Alliance Methods", "Plain Methods", "Surprise Methods", "Treble Bob Methods", "Delight Methods")); 
 
-		if (bells % 2 == 0){
+		if (name.equals("Grandsire")){
+		
+			
+		}
+		else if (bells % 2 == 0){
 
 			if(type1.contains(type)){
 
@@ -184,10 +188,26 @@ public class Method2 {
 					single = "1234";
 				}
 				else if(leadEnd.equals("1" + Utils.bellsToBellNumber(Integer.toString(bells)))){
-					
+					bob = "1" + Utils.bellsToBellNumber(Integer.toString(bells - 2));
+					single = "1" + Utils.bellsToBellNumber(Integer.toString(bells - 2)) 
+							+ Utils.bellsToBellNumber(Integer.toString(bells - 1)) + Utils.bellsToBellNumber(Integer.toString(bells));
 				}
 
 			}
+		}
+		else{
+			
+			if(type1.contains(type)){
+
+				if(leadEnd.equals("12" + Utils.bellsToBellNumber(Integer.toString(bells)))){
+					bob = "14" + Utils.bellsToBellNumber(Integer.toString(bells));
+					single = "1234" + Utils.bellsToBellNumber(Integer.toString(bells));
+				}
+				else if(leadEnd.equals("1")){
+					bob = "1" + Utils.bellsToBellNumber(Integer.toString(bells - 1)) + Utils.bellsToBellNumber(Integer.toString(bells));
+					single = "1" + Utils.bellsToBellNumber(Integer.toString(bells - 3)) + Utils.bellsToBellNumber(Integer.toString(bells - 2))
+							+ Utils.bellsToBellNumber(Integer.toString(bells - 1)) + Utils.bellsToBellNumber(Integer.toString(bells));
+				}
 		}
 
 		return "";

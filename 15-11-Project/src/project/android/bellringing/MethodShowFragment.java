@@ -1,5 +1,7 @@
 package project.android.bellringing;
 
+import java.util.ArrayList;
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,6 +13,8 @@ import android.widget.LinearLayout;
 public class MethodShowFragment extends Fragment {
 
 	private Method2 method = MethodLab.get(getActivity()).getChosenMethod().get(0);
+	private ArrayList<LinesView> linesview = new ArrayList<LinesView>();
+
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
@@ -23,8 +27,15 @@ public class MethodShowFragment extends Fragment {
 		View v = inflater.inflate(R.layout.fragment_activity_show, parent, false);
 
 		LinearLayout linLayout = (LinearLayout) v.findViewById(R.id.methodShowLinLayout);
-
-		System.out.println(method.getBells());
+		
+		linLayout.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				for (LinesView l: linesview)
+					l.setTextColor(Color.TRANSPARENT);
+			}
+		});
 		
 		method.initialize(Integer.parseInt(Utils.stageToNumBells(MethodLab.get(getActivity()).getSetup().getStage())));
 		
@@ -41,8 +52,6 @@ public class MethodShowFragment extends Fragment {
 				
 		method.swapRound();
 		
-		System.out.println(b);
-
 		int x = 0;
 		while (x < 2 * (method.getBells() - 1)){
 			
@@ -50,6 +59,7 @@ public class MethodShowFragment extends Fragment {
 	
 			LinesView displayMethod = new LinesView(getActivity());
 			displayMethod.setTextColor(Color.BLACK);
+			displayMethod.setClickable(false);
 			displayMethod.setBackgroundColor(Color.WHITE);
 			displayMethod.setTextSize(24);
 			displayMethod.setNumberOfBells(method.getBells());
@@ -81,6 +91,7 @@ public class MethodShowFragment extends Fragment {
 			displayMethod.append(a);
 			
 			x++;
+			linesview.add(displayMethod);
 			linLayout.addView(displayMethod);
 			
 			if (a.equals("\r"))
