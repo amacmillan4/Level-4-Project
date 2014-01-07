@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
 public class MethodShowFragment extends Fragment {
 
 	private Method2 method = MethodLab.get(getActivity()).getChosenMethod().get(0);
-	private ArrayList<LinesView> linesview = new ArrayList<LinesView>();
+	private ArrayList<ShowView> ShowView = new ArrayList<ShowView>();
 
 
 	@Override
@@ -32,8 +32,8 @@ public class MethodShowFragment extends Fragment {
 			
 			@Override
 			public void onClick(View v) {
-				for (LinesView l: linesview)
-					l.setTextColor(Color.TRANSPARENT);
+				for (ShowView l: ShowView)
+					l.changeDisplay();
 			}
 		});
 		
@@ -53,15 +53,15 @@ public class MethodShowFragment extends Fragment {
 		method.swapRound();
 		
 		int x = 0;
-		while (x < 2 * (method.getBells() - 1)){
+		while (x < (method.getBells() - 1)){
 			
 			int i = 0;
 	
-			LinesView displayMethod = new LinesView(getActivity());
+			ShowView displayMethod = new ShowView(getActivity());
 			displayMethod.setTextColor(Color.BLACK);
 			displayMethod.setClickable(false);
 			displayMethod.setBackgroundColor(Color.WHITE);
-			displayMethod.setTextSize(24);
+			displayMethod.setTextSize(14);
 			displayMethod.setNumberOfBells(method.getBells());
 			
 			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -76,7 +76,10 @@ public class MethodShowFragment extends Fragment {
 			a = method.calcNext();
 			i++;
 			
-			while (i < ((method.getBells()) * 16)){
+			while (i < ((method.getBells()) * 32)){
+				
+				if (a.equals("\r"))
+					break;
 				
 				displayMethod.append(a);
 				displayMethod.drawLines(true);
@@ -88,14 +91,18 @@ public class MethodShowFragment extends Fragment {
 				a = method.calcNext() + "";
 			}
 			
+			if (!a.equals("\r")){
+				ShowView.add(displayMethod);
+				linLayout.addView(displayMethod);
+				break;
+			}
+			
 			displayMethod.append(a);
 			
 			x++;
-			linesview.add(displayMethod);
+			ShowView.add(displayMethod);
 			linLayout.addView(displayMethod);
 			
-			if (a.equals("\r"))
-				break;
 		}
 
 		return v;
