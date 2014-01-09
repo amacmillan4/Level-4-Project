@@ -45,6 +45,7 @@ public final class R {
         public static final int MC_Scroll=0x7f09002b;
         public static final int MC_Select=0x7f09002a;
         public static final int MC_checkbox=0x7f090038;
+        public static final int MC_imgBtn=0x7f090039;
         public static final int MC_listLL=0x7f09002c;
         public static final int MC_title=0x7f090007;
         public static final int StageListView=0x7f090035;
@@ -55,7 +56,7 @@ public final class R {
         public static final int TxtScore=0x7f09001c;
         public static final int TxtSummary=0x7f09001e;
         public static final int TxtWait=0x7f090019;
-        public static final int action_settings=0x7f090039;
+        public static final int action_settings=0x7f09003b;
         public static final int addMenu=0x7f09000c;
         public static final int addMenu_deselectAll=0x7f090023;
         public static final int addMenu_save=0x7f090024;
@@ -73,6 +74,7 @@ public final class R {
         public static final int methodSelectFragment=0x7f090002;
         public static final int methodShowFragment=0x7f090001;
         public static final int methodShowLinLayout=0x7f09000d;
+        public static final int miniMC_checkbox=0x7f09003a;
         public static final int mini_MC_Scroll=0x7f09002d;
         public static final int mini_MC_listLL=0x7f09002e;
         public static final int minutes=0x7f090033;
@@ -116,6 +118,7 @@ public final class R {
         public static final int listview_top_3=0x7f030013;
         public static final int method_choice_item=0x7f030014;
         public static final int method_choice_title=0x7f030015;
+        public static final int mini_method_choice_item=0x7f030016;
     }
     public static final class menu {
         public static final int main=0x7f080000;

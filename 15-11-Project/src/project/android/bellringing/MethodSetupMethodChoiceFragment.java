@@ -9,7 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
@@ -77,7 +79,23 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 
 			//Add Method to list
 			View item = inflater.inflate(R.layout.method_choice_item, parent);
-			item = setupCheckBox(m.getName(), item);
+			item = setupCheckBox(m.getMethodName(), item);
+			
+			final ImageButton im = (ImageButton) item.findViewById(R.id.MC_imgBtn);
+			im.setOnClickListener(new View.OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					
+					RelativeLayout rl = (RelativeLayout) im.getParent();
+					System.out.println(((CheckBox)rl.findViewById(R.id.MC_checkbox)).getText());
+					
+					//Intent i = new Intent(getActivity(), MethodSetupMiniMethodChoiceActivity.class);
+					//getActivity().startActivity(i);	
+					//getActivity().finish();
+				}
+			});
+			
 			item.setTag(R.string.View, test);
 			item.setTag(R.string.Method, m);
 			ll.addView(item);
@@ -86,7 +104,7 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 
 
 		}
-
+		
 		Button b = (Button) view.findViewById(R.id.MC_Add);
 		b.setOnClickListener(new View.OnClickListener() {
 
@@ -108,7 +126,7 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 
 				if (selectedMethod.size() != 0){
 					for(Method2 m: loadedMethods){
-						if (((CheckBox) selectedMethod.get(0).findViewById(R.id.MC_checkbox)).getText().equals(m.getName())){
+						if (((CheckBox) selectedMethod.get(0).findViewById(R.id.MC_checkbox)).getText().equals(m.getMethodName())){
 							System.out.println("CHOSEN " + m.toString());
 							a.add(m);						
 						}

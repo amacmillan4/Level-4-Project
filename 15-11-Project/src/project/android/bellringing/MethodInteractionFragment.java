@@ -36,7 +36,8 @@ public class MethodInteractionFragment extends Fragment {
 
 	private Method2 methodCopy;
 
-	Button showButton, runButton, helpButton;	
+	Button showButton, runButton, helpButton;
+	int numOfBells;
 
 	Handler mHandler = new Handler();
 	LinesView methodView;
@@ -86,7 +87,7 @@ public class MethodInteractionFragment extends Fragment {
 		}
 		
 		
-		int numOfBells = Integer.parseInt(Utils.stageToNumBells(MethodLab.get(getActivity()).getSetup().getStage()));
+		numOfBells = Integer.parseInt(Utils.stageToNumBells(MethodLab.get(getActivity()).getSetup().getStage()));
 		if (numOfBells % 2 == 1 && (!MethodLab.get(getActivity()).getSetup().getStage().equals("Doubles"))){
 			numOfBells = numOfBells + 1;
 		}
@@ -202,7 +203,7 @@ public class MethodInteractionFragment extends Fragment {
 		params1.addRule(RelativeLayout.CENTER_VERTICAL);
 		txtMethodName.setLayoutParams(params1);
 		txtMethodName.setBackgroundColor(Color.WHITE);
-		txtMethodName.setText(methodCopy.getName());
+		txtMethodName.setText(methodCopy.getMethodName());
 
 		showButton = (Button) v.findViewById(R.id.btnStop);
 		showButton.setOnClickListener(new View.OnClickListener() {
@@ -392,8 +393,6 @@ public class DisplayMethod extends AsyncTask<Void,Void,Void>{
 
 			String n = methodCopy.calcNext();
 			
-			System.out.println(n);
-
 			final String next = n;
 
 			x = next;
@@ -405,9 +404,9 @@ public class DisplayMethod extends AsyncTask<Void,Void,Void>{
 				currentText += "\n";
 
 			//Add the next letter to the current text
+			System.out.println("Got given " + x);
 			currentText += x;
-			
-			System.out.println(currentText);
+		
 			
 			final String cText = currentText;
 
@@ -477,6 +476,8 @@ public class DisplayMethod extends AsyncTask<Void,Void,Void>{
 					if(status == MethodStatus.GO_TO_STAND){
 						status = MethodStatus.STANDING;
 						methodCopy = (Method2) MethodLab.get(getActivity()).getChosenMethod().get(0).clone();
+						methodCopy.initialize(numOfBells, Composition.PLAIN_COURSE);
+
 
 					}
 					

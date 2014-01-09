@@ -8,21 +8,25 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Method2  implements Cloneable{
-	private String name;
-	private String type;
+	
+	private final char[] possibleBellNumbering = {'1','2','3','4','5','6','7','8','9','0','E','T','A','B','C','D'};
+	
+	//Constructor Variables
+	private String methodName;
+	private String methodType;
 	private String wholeMethod;
 	private String method;
 	private String leadEnd;
 	private int bells;
-	private int playingOnBells;
-
-	private String bob = "";
-	private String single = "";
-	private String compositionStatus = "";
-
-	String line = "";
 	
-	private final char[] possibleBellNumbering = {'1','2','3','4','5','6','7','8','9','0','E','T','A','B','C','D'};
+	//Initialization variables
+	private int playingOnBells;
+	private Composition composition;
+
+	//Display Variable
+	private String line = "";
+	
+	//Method Changes Variables
 	private ArrayList<String> bellNumbering;
 
 	private ArrayList<String> methodChanges = new ArrayList<String>();
@@ -30,25 +34,21 @@ public class Method2  implements Cloneable{
 	private ArrayList<String> methodBob= new ArrayList<String>();
 	private ArrayList<String> methodSingle= new ArrayList<String>();
 
+	private String bob = "";
+	private String single = "";
+	private String compositionStatus = "";
+	
+	//Variables used while method playing
 	private String currentLine;
-
-	private String next;
-
 	private int currentMethodSection;
 	private int currentOperationSection = 0;
-
 	private int currentStart = 0;
 	private boolean handStroke = true;
+	private boolean rounds = false;
 
-	boolean rounds = false;
-
-	public Object clone() throws CloneNotSupportedException {
-		return super.clone();
-	}
-
-	public Method2(String name, String type, String wholeMethod, String bells) {
-		this.name = name;
-		this.type = type;
+	public Method2(String methodName, String methodType, String wholeMethod, String bells) {
+		this.methodName = methodName;
+		this.methodType = methodType;
 		this.bells = Integer.parseInt(bells);
 		this.wholeMethod = wholeMethod;
 
@@ -63,8 +63,8 @@ public class Method2  implements Cloneable{
 	}
 
 	public Method2(String line) {	
-		this.name = line.split("\t")[0];
-		this.type = line.split("\t")[1];
+		this.methodName = line.split("\t")[0];
+		this.methodType = line.split("\t")[1];
 		this.bells = Integer.parseInt(line.split("\t")[3]);
 		this.wholeMethod = line.split("\t")[2];
 
@@ -78,9 +78,14 @@ public class Method2  implements Cloneable{
 		}
 	}
 
-	public void initialize(int playOn, Composition composition){
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
+	
+	public void initialize(int playingOnBells, Composition composition){
 
-		playingOnBells = playOn;
+		this.composition = composition;
+		this.playingOnBells = playingOnBells;
 
 		//Fill arrayList with correct number of bells
 		bellNumbering = new ArrayList<String>(playingOnBells);
@@ -88,6 +93,7 @@ public class Method2  implements Cloneable{
 		for(int i = 0; i < playingOnBells; i++)
 			bellNumbering.add(possibleBellNumbering[i] + "");
 
+		//Calculate Bobs and Singles
 		getBobSingle();
 
 		//First set always plain course
@@ -96,18 +102,19 @@ public class Method2  implements Cloneable{
 		ArrayList<String> mBob = implementChanges(bob);
 		ArrayList<String> mSingle = implementChanges(single);
 
+		//Reverse method if synchronous
 		if (wholeMethod.charAt(0) == '&'){
-			//Reverse the changes
 			mMethod = reverseMethod(mMethod);
 			mLeadEnd = reverseMethod(mLeadEnd);
 			mBob = reverseMethod(mBob);
 			mSingle = reverseMethod(mSingle);
 		}
 		
+		//Lead End Changes
 		methodLeadEnd.addAll(mMethod);
 		methodLeadEnd.addAll(mLeadEnd);
 
-
+		//Bob Changes
 		methodBob.addAll(mMethod);
 		methodBob.addAll(mLeadEnd);
 
@@ -116,7 +123,7 @@ public class Method2  implements Cloneable{
 
 		methodBob.addAll(mBob);
 
-
+		//Single Changes
 		methodSingle.addAll(mMethod);
 		methodSingle.addAll(mLeadEnd);
 
@@ -125,6 +132,7 @@ public class Method2  implements Cloneable{
 
 		methodSingle.addAll(mSingle);
 
+		//Decide whether next is Plain Course, Bob or Single
 		calculateNextBobSingle();
 
 		//Variables for calculating the next bell
@@ -197,13 +205,13 @@ public class Method2  implements Cloneable{
 
 		final Set<String> type1 = new HashSet<String>(Arrays.asList("Alliance Methods", "Plain Methods", "Surprise Methods", "Treble Bob Methods", "Delight Methods")); 
 
-		if (name.equals("Grandsire")){
+		if (methodName.equals("Grandsire")){
 
 
 		}
 		else if (bells % 2 == 0){
 
-			if(type1.contains(type)){
+			if(type1.contains(methodType)){
 
 				if(leadEnd.equals("12")){
 					bob = "12";
@@ -223,7 +231,7 @@ public class Method2  implements Cloneable{
 		}
 		else{
 
-			if(type1.contains(type)){
+			if(type1.contains(methodType)){
 
 				if(leadEnd.equals("12" + Utils.bellsToBellNumber(Integer.toString(bells)))){
 					bob = "14" + Utils.bellsToBellNumber(Integer.toString(bells));
@@ -244,15 +252,15 @@ public class Method2  implements Cloneable{
 
 	private void calculateNextBobSingle(){
 
-		Composition a = Composition.PLAIN_COURSE;
-
+		compositionStatus = "";
 		methodChanges.clear();
 
 		int random = (int) (Math.random() * 600);
 
-		if (a == Composition.PLAIN_COURSE)
+		if (composition == Composition.PLAIN_COURSE){
 			methodChanges.addAll(methodLeadEnd);
-		else if (a == Composition.TOUCH_WITH_BOBS){
+		}
+		else if (composition == Composition.TOUCH_WITH_BOBS){
 			if(random % 2 == 0){
 				methodChanges.addAll(methodBob);
 				compositionStatus = "Bob";
@@ -262,7 +270,7 @@ public class Method2  implements Cloneable{
 				compositionStatus = "";
 			}
 		}
-		else if (a == Composition.TOUCH_WITH_SINGLES){
+		else if (composition == Composition.TOUCH_WITH_SINGLES){
 			if(random % 2 == 0){
 				methodChanges.addAll(methodSingle);
 				compositionStatus = "Single";
@@ -272,7 +280,7 @@ public class Method2  implements Cloneable{
 				compositionStatus = "";
 			}
 		}
-		else if (a == Composition.TOUCH_WITH_BOBS_AND_SINGLES){
+		else if (composition == Composition.TOUCH_WITH_BOBS_AND_SINGLES){
 			if(random % 3 == 0){
 				methodChanges.addAll(methodBob);
 				compositionStatus = "Bob";
@@ -439,6 +447,10 @@ public class Method2  implements Cloneable{
 
 	}
 
+	public String getCompositionStatus(){
+		return compositionStatus;
+	}
+	
 	public String getLeadEnd() {
 		return leadEnd;
 	}
@@ -459,16 +471,16 @@ public class Method2  implements Cloneable{
 		this.bells = bells;
 	}
 
-	public String getName() {
-		return name;
+	public String getMethodName() {
+		return methodName;
 	}
 
 	public String getType() {
-		return type;
+		return methodType;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String methodName) {
+		this.methodName = methodName;
 	}
 
 	public void arr(){
@@ -480,7 +492,7 @@ public class Method2  implements Cloneable{
 
 	@Override
 	public String toString() {
-		return name + "\t" + type + "\t" + wholeMethod + "\t" + bells;
+		return methodName + "\t" + methodType + "\t" + wholeMethod + "\t" + bells;
 	}
 
 }

@@ -31,7 +31,7 @@ public class MethodSetupFragment extends Fragment {
 			method.setText("");
 		}
 		else{
-			method.setText(m.get(0).getName());
+			method.setText(m.get(0).getMethodName());
 		}
 		peal.setText(s.getPealTime());
 		bellType.setChecked(s.getHandbellsOrNot());

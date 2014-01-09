@@ -35,7 +35,7 @@ public class MethodSetupMiniMethodChoiceFragment extends Fragment {
 
 		for (int i = 0; i < list.size(); i++){
 
-			View test = inflater.inflate(R.layout.method_choice_item, parent);
+			View test = inflater.inflate(R.layout.mini_method_choice_item, parent);
 			ll.addView(setupCheckBox(list.get(i),test));
 
 		}
@@ -47,7 +47,7 @@ public class MethodSetupMiniMethodChoiceFragment extends Fragment {
 
 
 		test.setClickable(true);
-		final CheckBox title = (CheckBox) test.findViewById(R.id.MC_checkbox);
+		final CheckBox title = (CheckBox) test.findViewById(R.id.miniMC_checkbox);
 		title.setClickable(false);
 
 		test.setOnClickListener(new View.OnClickListener() {

@@ -63,7 +63,7 @@ public class MethodSetupAddMethodFragment extends ListFragment {
 					Method2 m = new Method2(split[0].substring(1,split[0].length()), type , split[3] ,split[2]);
 
 					map.put(i, m);
-					names.add(i, m.getName());
+					names.add(i, m.getMethodName());
 
 					i++;
 
