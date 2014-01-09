@@ -93,7 +93,7 @@ public class MethodInteractionFragment extends Fragment {
 		
 		System.out.println(numOfBells);
 
-		methodCopy.initialize(numOfBells);
+		methodCopy.initialize(numOfBells, Composition.PLAIN_COURSE);
 
 		bellAudio = new AudioPlayer(getActivity(), MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
 		images = new ImageId(MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
@@ -391,6 +391,8 @@ public class DisplayMethod extends AsyncTask<Void,Void,Void>{
 			playTime = 0;
 
 			String n = methodCopy.calcNext();
+			
+			System.out.println(n);
 
 			final String next = n;
 
@@ -404,6 +406,9 @@ public class DisplayMethod extends AsyncTask<Void,Void,Void>{
 
 			//Add the next letter to the current text
 			currentText += x;
+			
+			System.out.println(currentText);
+			
 			final String cText = currentText;
 
 

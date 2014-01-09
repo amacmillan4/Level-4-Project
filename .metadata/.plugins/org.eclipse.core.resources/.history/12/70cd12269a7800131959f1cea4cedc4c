@@ -1,0 +1,80 @@
+package project.android.bellringing;
+
+import java.util.ArrayList;
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+
+public class MethodShowFragment extends Fragment {
+
+	private Method2 method = MethodLab.get(getActivity()).getChosenMethod().get(0);
+	private ArrayList<ShowView> ShowView = new ArrayList<ShowView>();
+
+
+	@Override
+	public void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		setRetainInstance(true);
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
+		View v = inflater.inflate(R.layout.fragment_activity_show, parent, false);
+
+		LinearLayout linLayout = (LinearLayout) v.findViewById(R.id.methodShowLinLayout);
+		
+		linLayout.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				for (ShowView l: ShowView)
+					l.changeDisplay();
+			}
+		});
+		
+		method.initialize(Integer.parseInt(Utils.stageToNumBells(MethodLab.get(getActivity()).getSetup().getStage())), Composition.PLAIN_COURSE);
+		
+		boolean finished = false;
+		while (finished == false){
+	
+			ShowView displayMethod = new ShowView(getActivity());
+			displayMethod.setTextColor(Color.BLACK);
+			displayMethod.setClickable(false);
+			displayMethod.setBackgroundColor(Color.WHITE);
+			displayMethod.setTextSize(14);
+			displayMethod.setNumberOfBells(method.getBells());
+			
+			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+			params.setMargins(10,20,10, 0);
+			displayMethod.setLayoutParams(params);
+			
+			int i = 0;
+			
+			while (i < 32){
+					
+				String x = method.getNextLine();
+				
+				if (x.equals("")){
+					finished = true;
+					break;
+				}
+			
+				displayMethod.append(x + "\n");
+				displayMethod.drawLines(true);
+			}
+			ShowView.add(displayMethod);
+			linLayout.addView(displayMethod);
+			
+		}
+
+		return v;
+
+	}
+
+
+}

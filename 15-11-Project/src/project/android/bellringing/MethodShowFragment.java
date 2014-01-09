@@ -3,6 +3,7 @@ package project.android.bellringing;
 import java.util.ArrayList;
 
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,7 +13,7 @@ import android.widget.LinearLayout;
 
 public class MethodShowFragment extends Fragment {
 
-	private Method2 method = MethodLab.get(getActivity()).getChosenMethod().get(0);
+	private Method2 method;
 	private ArrayList<ShowView> ShowView = new ArrayList<ShowView>();
 
 
@@ -26,8 +27,13 @@ public class MethodShowFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
 		View v = inflater.inflate(R.layout.fragment_activity_show, parent, false);
 
-		LinearLayout linLayout = (LinearLayout) v.findViewById(R.id.methodShowLinLayout);
+		try {
+			method = (Method2) MethodLab.get(getActivity()).getChosenMethod().get(0).clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
 		
+		LinearLayout linLayout = (LinearLayout) v.findViewById(R.id.methodShowLinLayout);	
 		linLayout.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -37,25 +43,12 @@ public class MethodShowFragment extends Fragment {
 			}
 		});
 		
-		method.initialize(Integer.parseInt(Utils.stageToNumBells(MethodLab.get(getActivity()).getSetup().getStage())));
+		method.initialize(Integer.parseInt(Utils.stageToNumBells(MethodLab.get(getActivity()).getSetup().getStage())), Composition.PLAIN_COURSE);
 		
-		String a = "\n";
-		String b = "";
+		boolean finished = false;
+		boolean start = true;
 		
-		method.swapRound();
-				
-		for(int i = 0; i < method.getBells(); i++)
-			method.calcNext();
-		
-		for(int i = 0; i < method.getBells(); i++)
-			b = b + method.calcNext();
-				
-		method.swapRound();
-		
-		int x = 0;
-		while (x < (method.getBells() - 1)){
-			
-			int i = 0;
+		while (finished == false){
 	
 			ShowView displayMethod = new ShowView(getActivity());
 			displayMethod.setTextColor(Color.BLACK);
@@ -63,43 +56,44 @@ public class MethodShowFragment extends Fragment {
 			displayMethod.setBackgroundColor(Color.WHITE);
 			displayMethod.setTextSize(14);
 			displayMethod.setNumberOfBells(method.getBells());
+			displayMethod.setTypeface(Typeface.MONOSPACE);  
 			
 			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 			params.setMargins(10,20,10, 0);
 			displayMethod.setLayoutParams(params);
 			
-			if (x == 0){
-				displayMethod.setText(b + "\n");
-				i = b.length();
+			int i = 0;
+			
+			if (start){
+				start = false;
+				i = 1;
 			}
 			
-			a = method.calcNext();
-			i++;
+			String x = "BLANK";
 			
-			while (i < ((method.getBells()) * 32)){
-				
-				if (a.equals("\r"))
+			while (true){
+					
+				if (x.charAt(0) == '1' && i > 2)
 					break;
 				
-				displayMethod.append(a);
-				displayMethod.drawLines(true);
-
-				if(i % method.getBells() == 0){
-					displayMethod.append("\n");
+				x = method.getNextLine();
+				
+				if (x.equals("")){
+					finished = true;
+					break;
 				}
+			
+				displayMethod.append(x + "\n");
+				displayMethod.drawLines(true);
+				
 				i++;
-				a = method.calcNext() + "";
 			}
 			
-			if (!a.equals("\r")){
-				ShowView.add(displayMethod);
-				linLayout.addView(displayMethod);
-				break;
-			}
+			if (finished)
+				displayMethod.append(x + "\n");
 			
-			displayMethod.append(a);
+			displayMethod.setText(displayMethod.getText().toString().substring(0, displayMethod.getText().toString().length() - 1));
 			
-			x++;
 			ShowView.add(displayMethod);
 			linLayout.addView(displayMethod);
 			

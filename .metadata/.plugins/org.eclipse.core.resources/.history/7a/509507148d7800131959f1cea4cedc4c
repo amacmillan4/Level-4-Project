@@ -1,0 +1,117 @@
+package project.android.bellringing;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import android.content.Context;
+
+public class MethodLab {
+	private ArrayList<Method3> arrayMethod;
+	private SetupInstructions setup;
+
+	private static MethodLab methodLab;
+	private static Context mAppContext;
+
+	private MethodDataTxtSerializer mData;
+	private MethodShortlistSerializer mss;
+
+	private ArrayList<Method3> addMethods;
+
+	public void saveData(){
+		try {
+			mData.saveSetupData(setup);
+			mData.saveSetupMethod(arrayMethod);
+		} catch (IOException e){
+			e.printStackTrace();
+		}
+	}
+
+	public void saveMethodData(){
+		mss.saveData(addMethods, setup.getStage());
+	}
+
+	public void loadMethods(){
+		try {
+			addMethods =  mss.loadData(setup.getStage());
+			
+			for(Method3 m: addMethods)
+				System.out.println("METHODLAB LOADED: " + m.toString());
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+
+	public MethodLab(Context appContext) {
+		setmAppContext(appContext);
+
+		mData = new MethodDataTxtSerializer(mAppContext, "setup.txt", "method.txt");
+		mss = new MethodShortlistSerializer(mAppContext);
+		addMethods = new ArrayList<Method3>();
+
+		try {
+			setup = mData.loadSetupData();
+			arrayMethod = mData.loadSetupMethod();
+
+			
+			
+		} catch (IOException e) {
+			setup = new SetupInstructions();
+			arrayMethod = new ArrayList<Method3>();
+		}
+	}
+
+
+	public static MethodLab get(Context c) {
+		if (methodLab == null) {
+			methodLab = new MethodLab(c.getApplicationContext());
+		}
+		return methodLab;
+	}
+
+	public void setChosenMethod(ArrayList<Method3> m){
+		arrayMethod = m;
+	}
+	
+	public ArrayList<Method3> getChosenMethod(){
+		return arrayMethod;
+	}
+
+	public SetupInstructions getSetup(){
+		return setup;
+	}
+
+	public void updateSetup(SetupInstructions s){
+		setup = s;
+	}
+
+	public void setMethods(ArrayList<Method3> m){
+		addMethods = m;
+	}
+
+	public void addMethods(ArrayList<Method3> m){
+
+		for(Method3 method: m){
+			addMethods.add(method);
+			System.out.println("ADDING :" + method.toString());
+		}
+
+	}
+
+	public ArrayList<Method3> getMethods(){
+		return addMethods;
+	}
+
+	public Context getmAppContext() {
+		return mAppContext;
+	}
+
+
+	public void setmAppContext(Context mAppContext) {
+		MethodLab.mAppContext = mAppContext;
+	}
+
+
+}
+

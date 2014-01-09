@@ -88,9 +88,7 @@ public class ShowView extends TextView {
 			float y = Utils.dpToPx(11, getContext());
 			
 			float pos = getWidth()/(bells * 2);
-			
-			for (float i = 0; i < getWidth(); i = i + pos)
-				canvas.drawLine(i, 10, i, 200, p);
+		
 
 			while (a.length() > bells){
 				
@@ -120,14 +118,15 @@ public class ShowView extends TextView {
 				p.setStrokeWidth(2f);
 				p.setColor(Color.BLACK);
 
+				int numberOfLines = getText().length() - getText().toString().replace("\n", "").length();
 				
-				for(float i = 0; i < getHeight(); i = i + getHeight()/32 ){
+				for(float i = 0; i < getHeight() - getHeight()/numberOfLines; i = i + getHeight()/numberOfLines ){
 					
 					for(float j = 0; j < bells/2; j++){
 						
-						float distance = getWidth()/(bells);
+						float distance = getWidth()/((bells)*2);
 						
-						canvas.drawLine(distance + j * 4f * distance, 10 + i, distance + j * 4f * distance, 10 + i + 12, p);
+						canvas.drawLine(distance * 2 + j * 4 * distance, 10 + i, distance * 2 + j * 4 * distance, 10 + i + getHeight()/numberOfLines/2  , p);
 						
 					}
 										

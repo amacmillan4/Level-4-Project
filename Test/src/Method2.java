@@ -15,16 +15,21 @@ public class Method2 {
 	private int bells;
 	private int playingOnBells;
 
-	private String bob;
-	private String single;
+	private String bob = "";
+	private String single = "";
+	private String compositionStatus = "";
 
 	private final char[] possibleBellNumbering = {'1','2','3','4','5','6','7','8','9','0','E','T','A','B','C','D'};
 	private ArrayList<String> bellNumbering;
 
-	private ArrayList<String> methodChanges;
-	private int loops;
+	private ArrayList<String> methodChanges = new ArrayList<String>();
+	private ArrayList<String> methodLeadEnd = new ArrayList<String>();
+	private ArrayList<String> methodBob= new ArrayList<String>();
+	private ArrayList<String> methodSingle= new ArrayList<String>();
 
 	private String currentLine;
+
+	private String next;
 
 	private int currentMethodSection;
 	private int currentOperationSection = 0;
@@ -71,51 +76,58 @@ public class Method2 {
 		playingOnBells = playOn;
 
 		//Fill arrayList with correct number of bells
-		methodChanges = new ArrayList<String>();
 		bellNumbering = new ArrayList<String>(playingOnBells);
 
 		for(int i = 0; i < playingOnBells; i++)
 			bellNumbering.add(possibleBellNumbering[i] + "");
 
+		getBobSingle();
 
+		//First set always plain course
 		ArrayList<String> mMethod = implementChanges(method);
-		mMethod = reverseMethod(mMethod);
-		methodChanges.addAll(mMethod);
-
-
 		ArrayList<String> mLeadEnd = implementChanges(leadEnd);
-		ArrayList<String> mBob = implementChanges(calcBob());
-		ArrayList<String> mSingle = implementChanges(calcSingle());
+		ArrayList<String> mBob = implementChanges(bob);
+		ArrayList<String> mSingle = implementChanges(single);
 
 		//Reverse the changes
-
+		mMethod = reverseMethod(mMethod);
 		mLeadEnd = reverseMethod(mLeadEnd);
-		mBob = reverseMethod(mLeadEnd);
-		mSingle = reverseMethod(mLeadEnd);
+		mBob = reverseMethod(mBob);
+		mSingle = reverseMethod(mSingle);
 
-		//Add the both
+		methodLeadEnd.addAll(mMethod);
+		methodLeadEnd.addAll(mLeadEnd);
 
-		methodChanges.addAll(mLeadEnd);
 
-		if (playingOnBells != bells){
-			for(int i = 0; i < methodChanges.size(); i++){
-				String s = methodChanges.get(i);
+		methodBob.addAll(mMethod);
+		methodBob.addAll(mLeadEnd);
 
-				if(!s.equals("x"))
-					methodChanges.set(i, s + playingOnBells);
+		for(int i = 0; i < mBob.size(); i++)
+			methodBob.remove(methodBob.size());
 
-			}
-		}
+		methodBob.addAll(mBob);
+
+
+		methodSingle.addAll(mMethod);
+		methodSingle.addAll(mLeadEnd);
+
+		for(int i = 0; i < mBob.size(); i++)
+			methodSingle.remove(methodSingle.size());
+
+		methodSingle.addAll(mSingle);
+
+		calculateNextBobSingle();
 
 		//Variables for calculating the next bell
 		currentLine = "";
 		currentMethodSection = 0;
 		currentOperationSection = 0;
 
-		for(int i = 0; i < bells; i++)
+		for(int i = 0; i < playingOnBells; i++)
 			currentLine += bellNumbering.get(i);
 
 	}
+
 
 	private ArrayList<String> reverseMethod(ArrayList<String> changes){
 
@@ -135,7 +147,6 @@ public class Method2 {
 
 		ArrayList<String> unreversedMethodChanges = new ArrayList<String>();
 
-		System.out.println(methodString);
 		//If it is an asynchronous method this will be empty
 		if(methodString.equals(""))
 			return unreversedMethodChanges;
@@ -171,13 +182,13 @@ public class Method2 {
 		return unreversedMethodChanges;
 	}
 
-	public String getBobSingle(){
+	private void getBobSingle(){
 
 		final Set<String> type1 = new HashSet<String>(Arrays.asList("Alliance Methods", "Plain Methods", "Surprise Methods", "Treble Bob Methods", "Delight Methods")); 
 
 		if (name.equals("Grandsire")){
-		
-			
+
+
 		}
 		else if (bells % 2 == 0){
 
@@ -192,11 +203,15 @@ public class Method2 {
 					single = "1" + Utils.bellsToBellNumber(Integer.toString(bells - 2)) 
 							+ Utils.bellsToBellNumber(Integer.toString(bells - 1)) + Utils.bellsToBellNumber(Integer.toString(bells));
 				}
+				else{
+					bob = "";
+					single = "";
+				}
 
 			}
 		}
 		else{
-			
+
 			if(type1.contains(type)){
 
 				if(leadEnd.equals("12" + Utils.bellsToBellNumber(Integer.toString(bells)))){
@@ -208,9 +223,70 @@ public class Method2 {
 					single = "1" + Utils.bellsToBellNumber(Integer.toString(bells - 3)) + Utils.bellsToBellNumber(Integer.toString(bells - 2))
 							+ Utils.bellsToBellNumber(Integer.toString(bells - 1)) + Utils.bellsToBellNumber(Integer.toString(bells));
 				}
+				else{
+					bob = "";
+					single = "";
+				}
+			}
+		}
+	}
+
+	private void calculateNextBobSingle(){
+
+		Composition a = Composition.PLAIN_COURSE;
+
+		methodChanges.clear();
+
+		int random = (int) (Math.random() * 600);
+
+		if (a == Composition.PLAIN_COURSE)
+			methodChanges.addAll(methodLeadEnd);
+		else if (a == Composition.TOUCH_WITH_BOBS){
+			if(random % 2 == 0){
+				methodChanges.addAll(methodBob);
+				compositionStatus = "Bob";
+			}
+			else{
+				methodChanges.addAll(methodLeadEnd);
+				compositionStatus = "";
+			}
+		}
+		else if (a == Composition.TOUCH_WITH_SINGLES){
+			if(random % 2 == 0){
+				methodChanges.addAll(methodSingle);
+				compositionStatus = "Single";
+			}
+			else{
+				methodChanges.addAll(methodLeadEnd);
+				compositionStatus = "";
+			}
+		}
+		else if (a == Composition.TOUCH_WITH_BOBS_AND_SINGLES){
+			if(random % 3 == 0){
+				methodChanges.addAll(methodBob);
+				compositionStatus = "Bob";
+			}
+			else if(random % 3 == 1) {
+				methodChanges.addAll(methodLeadEnd);
+				compositionStatus = "";
+			}
+			else {
+				methodChanges.addAll(methodSingle);
+				compositionStatus = "Single";
+			}
 		}
 
-		return "";
+
+		if (playingOnBells != bells){
+			for(int i = 0; i < methodChanges.size(); i++){
+				String s = methodChanges.get(i);
+
+				if(!s.equals("x"))
+					methodChanges.set(i, s + playingOnBells);
+
+			}
+		}
+
 	}
 
 	public String start(){
@@ -240,14 +316,13 @@ public class Method2 {
 		}
 	}
 
-	public void restartMethod(){
+	private void restartMethod(){
 
 		bellNumbering = new ArrayList<String>(playingOnBells);
 
 		for(int i = 0; i < playingOnBells; i++)
 			bellNumbering.add(possibleBellNumbering[i] + "");
 
-		loops = 0;
 		currentMethodSection = 0;
 		currentOperationSection = 0;
 
@@ -255,7 +330,6 @@ public class Method2 {
 		for(int i = 0; i < playingOnBells; i++)
 			currentLine += bellNumbering.get(i);
 
-		System.out.println("RESTART "+ currentLine);
 	}
 
 	public String calcNext(){
@@ -265,12 +339,9 @@ public class Method2 {
 		}
 		else{
 
-			if (loops == (playingOnBells - 1) && currentMethodSection == playingOnBells)
-				return "\r";
-
 			if (currentOperationSection == methodChanges.size()){
+				calculateNextBobSingle();
 				currentOperationSection = 0;
-				loops++;
 			}			
 
 			if (currentMethodSection == playingOnBells || ((currentMethodSection == 0 && currentOperationSection == 0))){
@@ -283,7 +354,7 @@ public class Method2 {
 
 	}
 
-	public String calcLine(String lastLine, String operation){
+	private String calcLine(String lastLine, String operation){
 
 		String newLine = lastLine;
 
@@ -303,16 +374,34 @@ public class Method2 {
 
 			copy.removeAll(Collections.singleton("REMOVE"));
 
-			System.out.println(operation);
 
 			for (int i = 0; i < copy.size(); i = i + 2)
 				newLine = swap(newLine,bellNumbering.indexOf(copy.get(i)) + 1, bellNumbering.indexOf(copy.get(i+1)) + 1);
 
 		}
 
-		System.out.println(newLine);
-
 		return newLine;
+	}
+
+	public String getNextLine(){
+
+		String line = "";
+		String finishOn = "";
+		
+		for(int i = 0; i < playingOnBells; i++)
+			finishOn += bellNumbering.get(i);
+		
+		if(line.equals(finishOn))
+			return "";
+
+		for(int k = 0; k < playingOnBells; k++)
+			line = line + calcNext();
+		
+		return line;
+
+
+
+
 	}
 
 	private String swap(String b, int pos1, int pos2){
