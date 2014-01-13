@@ -60,6 +60,28 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 		String currentType = "";
 		View test = null;
 
+		final Button select = (Button) view.findViewById(R.id.MC_Select);
+		select.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+				ArrayList<Method2> a = new ArrayList<Method2>();
+
+				if (selectedMethod.size() != 0){
+					for(Method2 m: loadedMethods){
+						if (((CheckBox) selectedMethod.get(0).findViewById(R.id.MC_checkbox)).getText().equals(m.getMethodName())){
+							System.out.println("CHOSEN " + m.toString());
+							a.add(m);						
+						}
+					}
+				}
+
+				MethodLab.get(getActivity()).setChosenMethod(a);
+				getActivity().finish();
+			}
+		});
+		
 		//Display the titles and methods
 		for(Method2 m: loadedMethods){
 
@@ -78,8 +100,36 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 			}
 
 			//Add Method to list
-			View item = inflater.inflate(R.layout.method_choice_item, parent);
-			item = setupCheckBox(m.getMethodName(), item);
+			final View item = inflater.inflate(R.layout.method_choice_item, parent);
+			
+			item.setClickable(true);
+			final CheckBox title = (CheckBox) item.findViewById(R.id.MC_checkbox);
+			title.setClickable(false);
+			title.setText(m.getMethodName());
+
+			item.setOnClickListener(new View.OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+
+					//If checked then uncheck and remove
+					if(title.isChecked()){
+						title.setChecked(false);
+						selectedMethod.remove(item); 
+					}
+
+					//Else check it, remove any other checked methods and add 
+					else{
+						title.setChecked(true);
+
+						if(selectedMethod.size() > 0)
+							((CheckBox) allViews.get(allViews.indexOf(selectedMethod.remove(0))).findViewById(R.id.MC_checkbox)).setChecked(false);
+
+						selectedMethod.add(item);
+
+					}
+				}
+			});
 			
 			final ImageButton im = (ImageButton) item.findViewById(R.id.MC_imgBtn);
 			im.setOnClickListener(new View.OnClickListener() {
@@ -88,11 +138,23 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 				public void onClick(View v) {
 					
 					RelativeLayout rl = (RelativeLayout) im.getParent();
-					System.out.println(((CheckBox)rl.findViewById(R.id.MC_checkbox)).getText());
-					
-					//Intent i = new Intent(getActivity(), MethodSetupMiniMethodChoiceActivity.class);
-					//getActivity().startActivity(i);	
-					//getActivity().finish();
+					item.performClick();
+
+					ArrayList<Method2> a = new ArrayList<Method2>();
+
+					if (selectedMethod.size() != 0){
+						for(Method2 m: loadedMethods){
+							if (((CheckBox) selectedMethod.get(0).findViewById(R.id.MC_checkbox)).getText().equals(m.getMethodName())){
+								System.out.println("CHOSEN " + m.toString());
+								a.add(m);						
+							}
+						}
+					}
+
+					MethodLab.get(getActivity()).setChosenMethod(a);
+					Intent i = new Intent(getActivity(), MethodShowActivity.class);
+					getActivity().startActivity(i);	
+
 				}
 			});
 			
@@ -116,28 +178,7 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 			}
 		});
 
-		Button select = (Button) view.findViewById(R.id.MC_Select);
-		select.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-
-				ArrayList<Method2> a = new ArrayList<Method2>();
-
-				if (selectedMethod.size() != 0){
-					for(Method2 m: loadedMethods){
-						if (((CheckBox) selectedMethod.get(0).findViewById(R.id.MC_checkbox)).getText().equals(m.getMethodName())){
-							System.out.println("CHOSEN " + m.toString());
-							a.add(m);						
-						}
-					}
-				}
-
-				MethodLab.get(getActivity()).setChosenMethod(a);
-				getActivity().finish();
-			}
-		});
-
+		
 		Button remove = (Button) view.findViewById(R.id.MC_Delete);
 		remove.setOnClickListener(new View.OnClickListener() {
 
@@ -170,39 +211,5 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 
 
 		return view;
-	}
-
-	private View setupCheckBox(String name, final View test){
-
-		test.setClickable(true);
-		final CheckBox title = (CheckBox) test.findViewById(R.id.MC_checkbox);
-		title.setClickable(false);
-		title.setText(name);
-
-		test.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-
-				//If checked then uncheck and remove
-				if(title.isChecked()){
-					title.setChecked(false);
-					selectedMethod.remove(test); 
-				}
-
-				//Else check it, remove any other checked methods and add 
-				else{
-					title.setChecked(true);
-
-					if(selectedMethod.size() > 0)
-						((CheckBox) allViews.get(allViews.indexOf(selectedMethod.remove(0))).findViewById(R.id.MC_checkbox)).setChecked(false);
-
-					selectedMethod.add(test);
-
-				}
-			}
-		});
-
-		return test;
 	}
 }

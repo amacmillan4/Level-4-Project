@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,13 +27,9 @@ public class MethodShowFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
 		View v = inflater.inflate(R.layout.fragment_activity_show, parent, false);
+ 
+		method  = new Method2(MethodLab.get(getActivity()).getChosenMethod().get(0));
 
-		try {
-			method = (Method2) MethodLab.get(getActivity()).getChosenMethod().get(0).clone();
-		} catch (CloneNotSupportedException e) {
-			e.printStackTrace();
-		}
-		
 		LinearLayout linLayout = (LinearLayout) v.findViewById(R.id.methodShowLinLayout);	
 		linLayout.setOnClickListener(new View.OnClickListener() {
 			
@@ -47,6 +44,11 @@ public class MethodShowFragment extends Fragment {
 		
 		boolean finished = false;
 		boolean start = true;
+		int size = method.getMethodLeadEndLength();
+		
+		System.out.println("SIZE " + size);
+		
+		String x = "";
 		
 		while (finished == false){
 	
@@ -55,11 +57,11 @@ public class MethodShowFragment extends Fragment {
 			displayMethod.setClickable(false);
 			displayMethod.setBackgroundColor(Color.WHITE);
 			displayMethod.setTextSize(14);
-			displayMethod.setNumberOfBells(method.getBells());
+			displayMethod.setNumberOfBells(method.getPlayingOn());
 			displayMethod.setTypeface(Typeface.MONOSPACE);  
 			
 			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-			params.setMargins(10,20,10, 0);
+			params.setMargins(20,20,20, 0);
 			displayMethod.setLayoutParams(params);
 			
 			int i = 0;
@@ -67,35 +69,34 @@ public class MethodShowFragment extends Fragment {
 			if (start){
 				start = false;
 				i = 1;
+				x = method.getNextLine();
+
 			}
 			
-			String x = "BLANK";
-			
-			while (true){
-					
-				if (x.charAt(0) == '1' && i > 2)
-					break;
-				
-				x = method.getNextLine();
-				
-				if (x.equals("")){
-					finished = true;
-					break;
-				}
+
+			while (i < size/4){
 			
 				displayMethod.append(x + "\n");
 				displayMethod.drawLines(true);
 				
+				x = method.getNextLine();
+				
 				i++;
+				
+				if (x.equals("1234567890ETABCD".substring(0, method.getPlayingOn()))){
+					finished = true;
+					break;
+				}
 			}
 			
 			if (finished)
 				displayMethod.append(x + "\n");
-			
+					
 			displayMethod.setText(displayMethod.getText().toString().substring(0, displayMethod.getText().toString().length() - 1));
 			
 			ShowView.add(displayMethod);
 			linLayout.addView(displayMethod);
+			
 			
 		}
 

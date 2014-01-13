@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -44,7 +45,8 @@ public class MethodInteractionFragment extends Fragment {
 	boolean paused = false;
 	boolean waitForMe = true;
 	double pressTime, playTime;
-	TextView txtMethodName, score;
+	TextView txtMethodName, txtscore;
+	final Score score = new Score();
 
 
 
@@ -80,18 +82,14 @@ public class MethodInteractionFragment extends Fragment {
 
 		//Setup
 		status = MethodStatus.STANDING;
-		try {
-			methodCopy = (Method2) MethodLab.get(getActivity()).getChosenMethod().get(0).clone();
-		} catch (CloneNotSupportedException e) {
-			e.printStackTrace();
-		}
-		
-		
+
+		methodCopy = new Method2(MethodLab.get(getActivity()).getChosenMethod().get(0));
+
 		numOfBells = Integer.parseInt(Utils.stageToNumBells(MethodLab.get(getActivity()).getSetup().getStage()));
 		if (numOfBells % 2 == 1 && (!MethodLab.get(getActivity()).getSetup().getStage().equals("Doubles"))){
 			numOfBells = numOfBells + 1;
 		}
-		
+
 		System.out.println(numOfBells);
 
 		methodCopy.initialize(numOfBells, Composition.PLAIN_COURSE);
@@ -111,13 +109,11 @@ public class MethodInteractionFragment extends Fragment {
 
 					pressTime = System.currentTimeMillis();
 
-					if (playTime != 0){
-						score.setText(Math.abs(playTime - pressTime) + "");
-					}
+
 				}
 			}
 		});
-		
+
 		//Find out the Width of the Screen
 		int widthRelLayout = 350;
 		widthRelLayout = (int) Utils.dpToPx(widthRelLayout, v.getContext());
@@ -131,7 +127,7 @@ public class MethodInteractionFragment extends Fragment {
 
 		int heightRelLayout = widthRelLayout;
 		int scale = (int) (heightRelLayout/ ((int) (methodCopy.getPlayingOn() + 1)/2)) - 20;
-		
+
 		//Starting positions
 		int pos = ((int) (widthRelLayout/2 - scale*1.2));
 		int posX = (int) (heightRelLayout/2 - scale * 0.6);
@@ -139,7 +135,7 @@ public class MethodInteractionFragment extends Fragment {
 		if (methodCopy.getPlayingOn() <= 6){
 			scale = (int) (scale * 0.6);
 		}
-		
+
 		//When there are 4 bells the positions need tweaked
 		if (methodCopy.getPlayingOn() == 4){
 			pos = (int) Utils.dpToPx(25, v.getContext());
@@ -191,6 +187,7 @@ public class MethodInteractionFragment extends Fragment {
 		methodView = (LinesView) v.findViewById(R.id.MC_title);
 		methodView.setNumberOfBells(methodCopy.getPlayingOn());
 		methodView.setTextSize(24);
+		methodView.setTypeface(Typeface.MONOSPACE);
 		methodView.setText("           ");
 		methodView.setTextColor(Color.BLACK);
 		methodView.setBackgroundColor(Color.WHITE);
@@ -233,9 +230,9 @@ public class MethodInteractionFragment extends Fragment {
 
 					}
 				}
-				
+
 				updateButtonText(status, paused);
-				
+
 			}
 		});
 
@@ -249,7 +246,7 @@ public class MethodInteractionFragment extends Fragment {
 
 				if(paused){
 					paused = false;
-		
+
 				}else{
 
 					if(status == MethodStatus.STANDING){
@@ -268,7 +265,7 @@ public class MethodInteractionFragment extends Fragment {
 						status = MethodStatus.GO_TO_ROUNDS;
 					}
 				}
-				
+
 				updateButtonText(status, paused);
 			}
 		});
@@ -293,12 +290,12 @@ public class MethodInteractionFragment extends Fragment {
 				}
 				updateButtonText(status, paused);
 			}
-			
-			
+
+
 		});
 
 
-		score = (TextView) v.findViewById(R.id.textView2);
+		txtscore = (TextView) v.findViewById(R.id.textView2);
 
 		for(BellImageView i : bellImageViews){
 			relativeLayoutTopScreen.addView(i);
@@ -355,284 +352,303 @@ public class MethodInteractionFragment extends Fragment {
 
 
 
-public class DisplayMethod extends AsyncTask<Void,Void,Void>{
+	public class DisplayMethod extends AsyncTask<Void,Void,Void>{
 
 
-	@Override
-	protected synchronized Void doInBackground(Void... arg0) {
+		@Override
+		protected synchronized Void doInBackground(Void... arg0) {
 
-		final ArrayList<String> bells = new ArrayList<String>();
-
-		//Set up bells to be rung
-		for (char a: possibleBellNumbering){
-			bells.add(a + "");
-		}
-
-		mHandler.post(new Runnable() {
-			@Override
-			public void run() {
-
-				methodView.clearText();
-
-				//Nullify listeners while playing
-				for (BellImageView b: bellImageViews)
-					b.setClickable(false);
-
-			}
-		}); 
-
-		String currentText = "";
-		String x = "";
-		int i= 0;
-
-		while (!x.equals("\r") && status != MethodStatus.STANDING){
-
-			//Re-initialise scoring variables
-			pressTime = 0;
-			playTime = 0;
-
-			String n = methodCopy.calcNext();
-			
-			final String next = n;
-
-			x = next;
-
-			final String copyX = x;
-
-			//If text reaches the length of the number of bells then it is due a new line character
-			if ((currentText.length() - methodCopy.getPlayingOn()) % ((methodCopy.getPlayingOn()) + 1) == 0 && currentText.length() >= methodCopy.getPlayingOn())
-				currentText += "\n";
-
-			//Add the next letter to the current text
-			System.out.println("Got given " + x);
-			currentText += x;
-		
-			
-			final String cText = currentText;
+			final ArrayList<String> bells = new ArrayList<String>();
 
 
-
-			//Waits for user
-			if (MethodLab.get(getActivity()).getSetup().isWaitForMe()){
-				while (pressTime == 0 && bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(copyX)){
-					try {
-						wait(250);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
+			//Set up bells to be rung
+			for (char a: possibleBellNumbering){
+				bells.add(a + "");
 			}
 
 			mHandler.post(new Runnable() {
 				@Override
 				public void run() {
-					//Record the play time and play the bell
-					playTime = System.currentTimeMillis();
-					bellAudio.play(getActivity(),next);
 
-					//TODO Calculate Score
-					if (pressTime != 0)
-						score.setText(Math.abs(playTime - pressTime) + "");
+					methodView.clearText();
 
-					//Ensures the view draws the lines
-					methodView.drawLines(true);
+					//Nullify listeners while playing
+					for (BellImageView b: bellImageViews)
+						b.setClickable(false);
 
-					//Sets which bell the user is playing
-					methodView.setBell(bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString());
-
-					//Displays the correct amount of text on screen
-					methodView.setLimitingText(methodCopy.getPlayingOn(), cText, 6);
-
-					//Switch the bell position
-					BellImageView b = (BellImageView)v.findViewById(bells.indexOf(copyX) + 1);
-					b.switchImage((Integer) b.getTag(), images);
 				}
 			}); 
 
-			i++;
+			String currentText = "";
+			String x = "";
+			int i= 0;
 
-			try {
-				wait(200);
+			while (!x.equals("\r") && status != MethodStatus.STANDING){
 
-				while(paused)
-					wait(500);
+				//Re-initialise scoring variables
+				pressTime = 0;
+				playTime = 0;
 
-				if (i % ((methodCopy.getPlayingOn()) * 2) == 0 ){
+				String n = methodCopy.calcNext();
 
-					//Enabling the handstroke gap
-					if(MethodLab.get(getActivity()).getSetup().isHandstrokeGap())
-						wait(200);
+				final String next = n;
 
-					if(status == MethodStatus.GO_TO_ROUNDS){
-						methodCopy.swapRound();
-						status = MethodStatus.ROUNDS;
-					}
+				x = next;
 
-					if(status == MethodStatus.GO_TO_PLAYING){
-						methodCopy.swapRound();
-						status = MethodStatus.PLAYING;		
-					}
+				final String copyX = x;
 
-					if(status == MethodStatus.GO_TO_STAND){
-						status = MethodStatus.STANDING;
-						methodCopy = (Method2) MethodLab.get(getActivity()).getChosenMethod().get(0).clone();
-						methodCopy.initialize(numOfBells, Composition.PLAIN_COURSE);
+				//If text reaches the length of the number of bells then it is due a new line character
+				if ((currentText.length() - methodCopy.getPlayingOn()) % ((methodCopy.getPlayingOn()) + 1) == 0 && currentText.length() >= methodCopy.getPlayingOn())
+					currentText += "\n";
+
+				//Add the next letter to the current text
+				currentText += x;
 
 
-					}
-					
-					mHandler.post(new Runnable() {
-						@Override
-						public void run() {
-							
-							updateButtonText(status, paused);
+				final String cText = currentText;
+
+
+
+				//Waits for user
+				if (MethodLab.get(getActivity()).getSetup().isWaitForMe()){
+					while (pressTime == 0 && bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(copyX)){
+						try {
+							wait(250);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
 						}
-					}); 
-
+					}
 				}
 
-				if (isCancelled()){
-					if (status == MethodStatus.ROUNDS)
-						methodCopy.swapRound();
+				//Record the play time and play the bell
+				if (bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next))
+					playTime = System.currentTimeMillis();
+				
+				bellAudio.play(getActivity(),next);
 
-					status = MethodStatus.STANDING;
+				mHandler.post(new Runnable() {
+					@Override
+					public void run() {
+
+						//TODO Calculate Score
+						if (pressTime != 0 && bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next))
+							txtscore.setText(score.calculateScore(playTime, pressTime, 250) + "");
+
+						//Ensures the view draws the lines
+						methodView.drawLines(true);
+
+						//Sets which bell the user is playing
+						methodView.setBell(bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString());
+
+						//Displays the correct amount of text on screen
+						methodView.setLimitingText(methodCopy.getPlayingOn(), cText, 6);
+
+						//Switch the bell position
+						BellImageView b = (BellImageView)v.findViewById(bells.indexOf(copyX) + 1);
+						b.switchImage((Integer) b.getTag(), images);
+					}
+				}); 
+
+				i++;
+
+				try {
+					wait(250);
+
+					if(playTime + 750 > System.currentTimeMillis()){
+						mHandler.post(new Runnable() {
+							@Override
+							public void run() {
+
+								System.out.println("PRESSTIME = " + pressTime);
+
+								if (pressTime != 0)
+									txtscore.setText(score.calculateScore(playTime, pressTime, 400) + "");
+								else
+									txtscore.setText(score.calculateScore(playTime, System.currentTimeMillis(), 400) + "");
+
+								pressTime = 0;
+								playTime = 0;
+
+							}});
+					}
+
+
+					while(paused)
+						wait(500);
+
+					if (i % ((methodCopy.getPlayingOn()) * 2) == 0 ){
+
+						//Enabling the handstroke gap
+						if(MethodLab.get(getActivity()).getSetup().isHandstrokeGap())
+							wait(200);
+
+						if(status == MethodStatus.GO_TO_ROUNDS){
+							methodCopy.swapRound();
+							status = MethodStatus.ROUNDS;
+						}
+
+						if(status == MethodStatus.GO_TO_PLAYING){
+							methodCopy.swapRound();
+							status = MethodStatus.PLAYING;		
+						}
+
+						if(status == MethodStatus.GO_TO_STAND){
+							status = MethodStatus.STANDING;
+							methodCopy = new Method2((Method2) MethodLab.get(getActivity()).getChosenMethod().get(0));
+							methodCopy.initialize(numOfBells, Composition.PLAIN_COURSE);
+
+
+						}
+
+						mHandler.post(new Runnable() {
+							@Override
+							public void run() {
+
+								updateButtonText(status, paused);
+							}
+						}); 
+
+					}
+
+					if (isCancelled()){
+						if (status == MethodStatus.ROUNDS)
+							methodCopy.swapRound();
+
+						status = MethodStatus.STANDING;
+					}
+
+
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
-
-
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (CloneNotSupportedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			}
+
+			return null;
 		}
 
-		return null;
+	}
+	private void swap_TextView(){
+
+		for(int i = 0; i < methodCopy.getPlayingOn(); i++){
+			TextView a =  bellNumberTextViews.get(i);
+			a.setText("" + possibleBellNumbering[bellImageViews.get(i).getId()-1]);			
+		}
 	}
 
-}
-private void swap_TextView(){
+	//Method to swap the location of ImageViews based on where the user clicks
+	private void swap_ImageView(int a){
 
-	for(int i = 0; i < methodCopy.getPlayingOn(); i++){
-		TextView a =  bellNumberTextViews.get(i);
-		a.setText("" + possibleBellNumbering[bellImageViews.get(i).getId()-1]);			
-	}
-}
+		//Creates 2 copies of the original data
+		ArrayList<BellImageView> copy = new ArrayList<BellImageView>(bellImageViews);
+		ArrayList<BellImageView> tmp = new ArrayList<BellImageView>(bellImageViews);
 
-//Method to swap the location of ImageViews based on where the user clicks
-private void swap_ImageView(int a){
+		//Keeps switching positions until id is last in the ArrayList (Last means selected bell - BOTTOM RIGHT)
+		while (copy.get(copy.size() - 1).getId() != a){
 
-	//Creates 2 copies of the original data
-	ArrayList<BellImageView> copy = new ArrayList<BellImageView>(bellImageViews);
-	ArrayList<BellImageView> tmp = new ArrayList<BellImageView>(bellImageViews);
+			for(int i = 0; i < tmp.size(); i++){
 
-	//Keeps switching positions until id is last in the ArrayList (Last means selected bell - BOTTOM RIGHT)
-	while (copy.get(copy.size() - 1).getId() != a){
-
-		for(int i = 0; i < tmp.size(); i++){
-
-			if (i == 1){
-				copy.set(i, tmp.get(0));
+				if (i == 1){
+					copy.set(i, tmp.get(0));
+				}
+				else if ( i == tmp.size() - 2){
+					copy.set(i, tmp.get(tmp.size() - 1));
+				}
+				else if(i % 2 == 0){
+					copy.set(i, tmp.get(i + 2));
+				}
+				else if(i % 2 == 1){
+					copy.set(i, tmp.get(i - 2));
+				}
 			}
-			else if ( i == tmp.size() - 2){
-				copy.set(i, tmp.get(tmp.size() - 1));
-			}
-			else if(i % 2 == 0){
-				copy.set(i, tmp.get(i + 2));
-			}
-			else if(i % 2 == 1){
-				copy.set(i, tmp.get(i - 2));
-			}
+
+			tmp =  new ArrayList<BellImageView>(copy);
+
 		}
 
-		tmp =  new ArrayList<BellImageView>(copy);
+		//Temporary Stores for each margin
+		ArrayList<Integer> left = new ArrayList<Integer>();
+		ArrayList<Integer> right = new ArrayList<Integer>();
+		ArrayList<Integer> top = new ArrayList<Integer>();
+
+		//Stores the margins of the originals in the ArrayList
+		for(int i = 0; i < bellImageViews.size(); i++){
+			BellImageView x1 = (BellImageView) (bellImageViews.get(i));
+			LayoutParams params = (LayoutParams) x1.getLayoutParams();
+
+			left.add(params.leftMargin);
+			right.add(params.rightMargin);
+			top.add(params.topMargin);		
+		}
+
+		//Updates the ImageViews with their new positions based on the margins
+		for(int i = 0; i < bellImageViews.size();i++){
+			BellImageView x1 = (BellImageView) (copy.get(i));
+			LayoutParams params = (LayoutParams) x1.getLayoutParams();
+
+			LayoutParams params1 =  new LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
+
+			params1.leftMargin = left.remove(0);
+			params1.rightMargin = right.remove(0);
+			params1.topMargin = top.remove(0);
+
+			//If an ImageView has changed side, update image with bell for correct side
+			if(params1.rightMargin == 0){
+				params1.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+				x1.setImageResource(images.getLeftDown());
+			}
+			else{
+				params1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+				x1.setImageResource(images.getRightDown());
+			}
+
+			params1.height = params.height;
+			params1.width = params.height;
+
+			x1.setLayoutParams(params1);
+		}
+
+		//Save the changes
+		bellImageViews = copy;
 
 	}
 
-	//Temporary Stores for each margin
-	ArrayList<Integer> left = new ArrayList<Integer>();
-	ArrayList<Integer> right = new ArrayList<Integer>();
-	ArrayList<Integer> top = new ArrayList<Integer>();
 
-	//Stores the margins of the originals in the ArrayList
-	for(int i = 0; i < bellImageViews.size(); i++){
-		BellImageView x1 = (BellImageView) (bellImageViews.get(i));
-		LayoutParams params = (LayoutParams) x1.getLayoutParams();
+	//Method to create the ImageViews and TextViews based on the users input
+	private BellImageView initializeImgViews(Activity a,final int id,final int imageResource1,int layoutFeature1,int marginLeft,int marginRight,int marginTop,int height){
 
-		left.add(params.leftMargin);
-		right.add(params.rightMargin);
-		top.add(params.topMargin);		
+		//Create new BellImageView
+		final BellImageView im = new BellImageView(a);
+
+		//Set id & image source
+		im.setId(id);
+		im.setImageResource(imageResource1);
+
+		//Set out Layout
+		RelativeLayout.LayoutParams params1 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
+		params1.addRule(layoutFeature1);	
+		params1.setMargins(marginLeft,marginTop,marginRight,10);
+		im.setLayoutParams(params1);
+
+		//Edit Image Height & Width
+		im.getLayoutParams().height = height;
+		im.getLayoutParams().width = height;
+
+		//Set up Listener
+		im.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+
+				swap_ImageView(id);
+				swap_TextView();
+
+
+			}
+		});
+
+		return im;
 	}
-
-	//Updates the ImageViews with their new positions based on the margins
-	for(int i = 0; i < bellImageViews.size();i++){
-		BellImageView x1 = (BellImageView) (copy.get(i));
-		LayoutParams params = (LayoutParams) x1.getLayoutParams();
-
-		LayoutParams params1 =  new LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
-
-		params1.leftMargin = left.remove(0);
-		params1.rightMargin = right.remove(0);
-		params1.topMargin = top.remove(0);
-
-		//If an ImageView has changed side, update image with bell for correct side
-		if(params1.rightMargin == 0){
-			params1.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-			x1.setImageResource(images.getLeftDown());
-		}
-		else{
-			params1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-			x1.setImageResource(images.getRightDown());
-		}
-
-		params1.height = params.height;
-		params1.width = params.height;
-
-		x1.setLayoutParams(params1);
-	}
-
-	//Save the changes
-	bellImageViews = copy;
-
-}
-
-
-//Method to create the ImageViews and TextViews based on the users input
-private BellImageView initializeImgViews(Activity a,final int id,final int imageResource1,int layoutFeature1,int marginLeft,int marginRight,int marginTop,int height){
-
-	//Create new BellImageView
-	final BellImageView im = new BellImageView(a);
-
-	//Set id & image source
-	im.setId(id);
-	im.setImageResource(imageResource1);
-
-	//Set out Layout
-	RelativeLayout.LayoutParams params1 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
-	params1.addRule(layoutFeature1);	
-	params1.setMargins(marginLeft,marginTop,marginRight,10);
-	im.setLayoutParams(params1);
-
-	//Edit Image Height & Width
-	im.getLayoutParams().height = height;
-	im.getLayoutParams().width = height;
-
-	//Set up Listener
-	im.setOnClickListener(new View.OnClickListener() {
-
-		@Override
-		public void onClick(View view) {
-
-			swap_ImageView(id);
-			swap_TextView();
-
-
-		}
-	});
-
-	return im;
-}
 
 
 }

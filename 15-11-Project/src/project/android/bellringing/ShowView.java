@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.util.AttributeSet;
 import android.widget.TextView;
 
 public class ShowView extends TextView {
@@ -21,6 +22,14 @@ public class ShowView extends TextView {
 		super(context);
 	}
 
+	public ShowView(Context context, AttributeSet attrs) {
+		super(context, attrs);
+	}
+
+	public ShowView(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
+	}
+	
 	public void setBell(String bell){
 		this.bell = bell;
 	}

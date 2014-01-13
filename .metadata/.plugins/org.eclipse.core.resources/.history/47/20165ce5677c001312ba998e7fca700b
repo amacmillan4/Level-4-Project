@@ -1,0 +1,28 @@
+package project.android.bellringing;
+
+public class Score {
+	
+	int total;
+	
+	
+	public Score(){
+		total = 0;
+	}
+	
+	public int calculateScore(double playTime, double hitTime, double pealTime){
+		
+		
+		
+		double ring = pealTime/10;
+		
+		double score = Math.ceil(Math.abs((playTime - hitTime) / ring));
+		
+		total += score;		
+		
+		System.out.println(playTime + "     " +  hitTime + "     scote      " + score);
+		
+		return (int) score; 
+		
+	}
+
+}

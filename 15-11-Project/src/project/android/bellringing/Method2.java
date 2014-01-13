@@ -33,7 +33,7 @@ public class Method2  implements Cloneable{
 	private ArrayList<String> methodLeadEnd = new ArrayList<String>();
 	private ArrayList<String> methodBob= new ArrayList<String>();
 	private ArrayList<String> methodSingle= new ArrayList<String>();
-
+	
 	private String bob = "";
 	private String single = "";
 	private String compositionStatus = "";
@@ -76,11 +76,27 @@ public class Method2  implements Cloneable{
 			this.method = wholeMethod.substring(1, wholeMethod.length());
 			this.leadEnd = "";
 		}
+	} 
+	
+	public Method2(Method2 m){
+		this.methodName = m.getMethodName();
+		this.methodType = m.getType();
+		this.bells = m.getBells();
+		this.wholeMethod = m.getWholeMethod();
+
+		if (wholeMethod.charAt(0) == '&'){
+			this.method = wholeMethod.split(",")[0].substring(1,wholeMethod.split(",")[0].length() );
+			this.leadEnd = wholeMethod.split(",")[1];
+		}
+		else if (wholeMethod.charAt(0) == '+'){
+			this.method = wholeMethod.substring(1, wholeMethod.length());
+			this.leadEnd = "";
+		}
 	}
 
-	public Object clone() throws CloneNotSupportedException {
-		return super.clone();
-	}
+//	public Object clone() throws CloneNotSupportedException {
+//		return super.clone();
+//	}
 	
 	public void initialize(int playingOnBells, Composition composition){
 
@@ -119,7 +135,7 @@ public class Method2  implements Cloneable{
 		methodBob.addAll(mLeadEnd);
 
 		for(int i = 0; i < mBob.size(); i++)
-			methodBob.remove(methodBob.size());
+			methodBob.remove(methodBob.size() - 1);
 
 		methodBob.addAll(mBob);
 
@@ -128,7 +144,7 @@ public class Method2  implements Cloneable{
 		methodSingle.addAll(mLeadEnd);
 
 		for(int i = 0; i < mBob.size(); i++)
-			methodSingle.remove(methodSingle.size());
+			methodSingle.remove(methodSingle.size() - 1);
 
 		methodSingle.addAll(mSingle);
 
@@ -295,6 +311,8 @@ public class Method2  implements Cloneable{
 			}
 		}
 
+		
+		
 
 		if (playingOnBells != bells){
 			for(int i = 0; i < methodChanges.size(); i++){
@@ -322,6 +340,13 @@ public class Method2  implements Cloneable{
 
 		return bellNumbering.get(currentStart++);
 
+	}
+	
+	public void abc(){
+		for(String s: methodChanges){
+			System.out.print(s + " ");
+		}
+		System.out.println();
 	}
 
 	public void swapRound(){
@@ -394,14 +419,10 @@ public class Method2  implements Cloneable{
 
 			copy.removeAll(Collections.singleton("REMOVE"));
 
-			System.out.println(operation);
-
 			for (int i = 0; i < copy.size(); i = i + 2)
 				newLine = swap(newLine,bellNumbering.indexOf(copy.get(i)) + 1, bellNumbering.indexOf(copy.get(i+1)) + 1);
 
 		}
-
-		System.out.println(newLine);
 
 		return newLine;
 	}
@@ -446,6 +467,10 @@ public class Method2  implements Cloneable{
 		return c;
 
 	}
+	
+	public int getMethodLeadEndLength(){
+		return methodLeadEnd.size();
+	}
 
 	public String getCompositionStatus(){
 		return compositionStatus;
@@ -482,12 +507,9 @@ public class Method2  implements Cloneable{
 	public void setName(String methodName) {
 		this.methodName = methodName;
 	}
-
-	public void arr(){
-
-		System.out.println(methodChanges.size());
-		for (String s: methodChanges)
-			System.out.print(s + " " );
+	
+	public String getWholeMethod(){
+		return wholeMethod;
 	}
 
 	@Override
