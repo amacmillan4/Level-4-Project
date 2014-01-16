@@ -495,7 +495,7 @@ public class MethodInteractionFragment extends Fragment {
 						if(status == MethodStatus.GO_TO_STAND){
 							status = MethodStatus.STANDING;
 							methodCopy = new Method2((Method2) MethodLab.get(getActivity()).getChosenMethod().get(0));
-							methodCopy.initialize(numOfBells, Utils.getComposition(MethodLab.get(getActivity()).getSetup().getComposition()));
+							methodCopy.initialize(numOfBells, Composition.PLAIN_COURSE);
 
 
 						}

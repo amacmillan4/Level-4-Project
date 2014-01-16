@@ -159,21 +159,6 @@ public class Method2  implements Cloneable{
 
 		for(int i = 0; i < playingOnBells; i++)
 			currentLine += bellNumbering.get(i);
-		
-		for(String s: methodLeadEnd)
-			System.out.print(s+" ");
-		
-		System.out.println();
-		
-		for(String s: methodBob)
-			System.out.print(s+" ");
-		
-		System.out.println();
-		
-		for(String s: methodSingle)
-			System.out.print(s+" ");
-		
-		System.out.println();
 
 	}
 
@@ -245,7 +230,7 @@ public class Method2  implements Cloneable{
 			if(type1.contains(methodType)){
 
 				if(leadEnd.equals("12")){
-					bob = "14";
+					bob = "12";
 					single = "1234";
 				}
 				else if(leadEnd.equals("1" + Utils.bellsToBellNumber(Integer.toString(bells)))){
@@ -279,8 +264,6 @@ public class Method2  implements Cloneable{
 				}
 			}
 		}
-		
-		System.out.println("Bob: " + bob + "    Single: " + single );
 	}
 
 	private void calculateNextBobSingle(){
@@ -329,7 +312,7 @@ public class Method2  implements Cloneable{
 		}
 
 		
-		System.out.println(compositionStatus);
+		
 
 		if (playingOnBells != bells){
 			for(int i = 0; i < methodChanges.size(); i++){

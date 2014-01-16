@@ -245,7 +245,7 @@ public class Method2  implements Cloneable{
 			if(type1.contains(methodType)){
 
 				if(leadEnd.equals("12")){
-					bob = "14";
+					bob = "12";
 					single = "1234";
 				}
 				else if(leadEnd.equals("1" + Utils.bellsToBellNumber(Integer.toString(bells)))){

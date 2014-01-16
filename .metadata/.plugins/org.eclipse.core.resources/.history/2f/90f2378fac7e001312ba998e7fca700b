@@ -28,14 +28,6 @@ public class Utils {
 		
 		return bellNumber[Arrays.asList(bells).indexOf(bell)];
 	}
-	
-	public static Composition getComposition(String s){
-		String[] options = {"Plain Course", "Touch with Bobs", "Touch with Singles", "Touch with Bobs & Singles", "Touch of Spliced"};
-		Composition[] comps = {Composition.PLAIN_COURSE, Composition.TOUCH_WITH_BOBS, Composition.TOUCH_WITH_SINGLES, Composition.TOUCH_WITH_BOBS_AND_SINGLES, Composition.PLAIN_COURSE};
-		
-		return comps[Arrays.asList(options).indexOf(s)];
-		
-	}
 
 
 }
