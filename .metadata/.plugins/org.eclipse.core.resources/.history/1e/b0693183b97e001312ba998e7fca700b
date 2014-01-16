@@ -220,9 +220,9 @@ public class MethodInteractionFragment extends Fragment {
 					}else if(status == MethodStatus.ROUNDS || status == MethodStatus.PLAYING) {
 
 						if (status == MethodStatus.ROUNDS)
-							status = MethodStatus.GO_TO_STAND_FROM_ROUNDS;
-						else
-							status = MethodStatus.GO_TO_STAND;
+							methodCopy.swapRound();
+
+						status = MethodStatus.GO_TO_STAND;
 
 						for (BellImageView b: bellImageViews)
 							b.setClickable(true);
@@ -422,7 +422,7 @@ public class MethodInteractionFragment extends Fragment {
 				//Record the play time and play the bell
 				if (bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next))
 					playTime = System.currentTimeMillis();
-
+				
 				bellAudio.play(getActivity(),next);
 
 				mHandler.post(new Runnable() {
@@ -492,10 +492,10 @@ public class MethodInteractionFragment extends Fragment {
 						}
 
 						if(status == MethodStatus.GO_TO_STAND || status == MethodStatus.GO_TO_STAND_FROM_ROUNDS){
-
+							
 							if (status == MethodStatus.GO_TO_STAND_FROM_ROUNDS)
 								methodCopy.swapRound();
-
+							
 							status = MethodStatus.STANDING;
 							methodCopy = new Method2((Method2) MethodLab.get(getActivity()).getChosenMethod().get(0));
 							methodCopy.initialize(numOfBells, Utils.getComposition(MethodLab.get(getActivity()).getSetup().getComposition()));

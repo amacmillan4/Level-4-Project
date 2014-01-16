@@ -159,6 +159,21 @@ public class Method2  implements Cloneable{
 
 		for(int i = 0; i < playingOnBells; i++)
 			currentLine += bellNumbering.get(i);
+		
+		for(String s: methodLeadEnd)
+			System.out.print(s+" ");
+		
+		System.out.println();
+		
+		for(String s: methodBob)
+			System.out.print(s+" ");
+		
+		System.out.println();
+		
+		for(String s: methodSingle)
+			System.out.print(s+" ");
+		
+		System.out.println();
 
 	}
 
@@ -339,9 +354,16 @@ public class Method2  implements Cloneable{
 			currentStart = 0;
 			handStroke = false;
 		}
-		
+
 		return bellNumbering.get(currentStart++);
 
+	}
+	
+	public void abc(){
+		for(String s: methodChanges){
+			System.out.print(s + " ");
+		}
+		System.out.println();
 	}
 
 	public void swapRound(){

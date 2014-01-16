@@ -339,7 +339,7 @@ public class Method2  implements Cloneable{
 			currentStart = 0;
 			handStroke = false;
 		}
-		
+
 		return bellNumbering.get(currentStart++);
 
 	}

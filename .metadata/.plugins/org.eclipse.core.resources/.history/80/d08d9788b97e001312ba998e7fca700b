@@ -340,6 +340,8 @@ public class Method2  implements Cloneable{
 			handStroke = false;
 		}
 		
+		System.out.println(bellNumbering.get(currentStart++));
+
 		return bellNumbering.get(currentStart++);
 
 	}
