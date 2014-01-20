@@ -1,45 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/globalView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="fill_parent"
     android:background="@android:color/white"
-    android:orientation="vertical"
-    android:id="@+id/globalView" >
-    
-    <RelativeLayout 
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content">
-    	
-        <RelativeLayout 
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-        android:layout_centerInParent="true" 
-    	android:id="@+id/l1">
-    	
-	</RelativeLayout>
-        
-	</RelativeLayout>
+    android:orientation="vertical" >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
+        <RelativeLayout
+            android:id="@+id/l1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" >
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp" >
+
         <project.android.bellringing.LinesView
             android:id="@+id/MC_title"
             android:layout_width="wrap_content"
-            android:layout_height="160dp"
-            android:layout_centerInParent="true"
-            android:scrollbars="vertical" />
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true" />
 
-        <TextView
-            android:id="@+id/textView2"
+        <RelativeLayout
+            android:id="@+id/ScoreLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="22dp" />
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp" >
 
+            <TextView
+                android:id="@+id/ScoreTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true" 
+                android:text="SCORE"
+                android:textColor="#FFFFFF"
+                android:background="#325C74"/>
+            
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ScoreTitle"
+                android:layout_centerHorizontal="true"
+                 />
+            
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="15dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="22dp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -52,7 +76,7 @@
             android:layout_height="35dp"
             android:layout_alignParentBottom="true"
             android:layout_toRightOf="@+id/btnHelp"
-            android:text="Show"/>
+            android:text="Show" />
 
         <Button
             android:id="@+id/btnRun"
@@ -71,8 +95,6 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:text="Help" />
-
     </RelativeLayout>
 
 </LinearLayout>
-

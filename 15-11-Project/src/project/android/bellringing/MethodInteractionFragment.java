@@ -96,6 +96,13 @@ public class MethodInteractionFragment extends Fragment {
 		bellAudio = new AudioPlayer(getActivity(), MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
 		images = new ImageId(MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
 
+		RelativeLayout scoreLayout = (RelativeLayout) v.findViewById(R.id.ScoreLayout);
+		
+		if(MethodLab.get(getActivity()).getSetup().isScoreBlows())
+			scoreLayout.setVisibility(View.VISIBLE);
+		else
+			scoreLayout.setVisibility(View.INVISIBLE);
+		
 		//Get handle on LinearLayout to display bells
 		LinearLayout globalLinearLayout = (LinearLayout) v.findViewById(R.id.globalView);
 		globalLinearLayout.setOnClickListener(new View.OnClickListener() {
@@ -381,13 +388,13 @@ public class MethodInteractionFragment extends Fragment {
 			String currentText = "";
 			String x = "";
 			int i= 0;
+			
+			pressTime = 0;
+			playTime = 0;
 
 			while (status != MethodStatus.STANDING){
 
 				//Re-initialise scoring variables
-				pressTime = 0;
-				playTime = 0;
-
 				String n = methodCopy.calcNext();
 
 				final String next = n;
@@ -431,7 +438,7 @@ public class MethodInteractionFragment extends Fragment {
 
 						//TODO Calculate Score
 						if (pressTime != 0 && bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next))
-							txtscore.setText(score.calculateScore(playTime, pressTime, 250) + "");
+							txtscore.setText(score.calculateScore(playTime, pressTime) + "");
 
 						//Ensures the view draws the lines
 						methodView.drawLines(true);
@@ -453,7 +460,7 @@ public class MethodInteractionFragment extends Fragment {
 				try {
 					wait(250);
 
-					if(playTime + 750 > System.currentTimeMillis()){
+					if(playTime + 500 > System.currentTimeMillis()){
 						mHandler.post(new Runnable() {
 							@Override
 							public void run() {
@@ -461,9 +468,9 @@ public class MethodInteractionFragment extends Fragment {
 								System.out.println("PRESSTIME = " + pressTime);
 
 								if (pressTime != 0)
-									txtscore.setText(score.calculateScore(playTime, pressTime, 400) + "");
+									txtscore.setText(score.calculateScore(playTime, pressTime) + "");
 								else
-									txtscore.setText(score.calculateScore(playTime, System.currentTimeMillis(), 400) + "");
+									txtscore.setText(score.calculateScore(playTime, 0) + "");
 
 								pressTime = 0;
 								playTime = 0;

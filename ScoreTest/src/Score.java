@@ -1,0 +1,45 @@
+
+
+public class Score {
+
+	int total;
+
+
+	public Score(){
+		total = 0;
+	}
+
+	public int calculateScore(double playTime, double hitTime, double pealTime){
+
+
+
+		double ring = pealTime;
+
+		double score = Math.ceil(Math.abs((playTime - hitTime) / ring));
+
+		score = 11 - score;
+		
+		if (score == 11){
+			score = 10;
+		}
+		
+		if(score < 0)
+			score = 0;
+
+		total += score;		
+
+		System.out.println(Math.abs((playTime - hitTime)) + "     scote      " + score);
+
+		return (int) score; 
+
+	}
+
+
+
+	public static void main(String[] args){
+		
+		Score s = new Score();
+		System.out.println(s.calculateScore(100, 200, 20));
+	}
+
+}
