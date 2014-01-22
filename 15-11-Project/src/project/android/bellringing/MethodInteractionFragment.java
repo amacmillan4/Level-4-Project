@@ -72,7 +72,7 @@ public class MethodInteractionFragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		setRetainInstance(true);
+		setRetainInstance(false);
 	}
 
 	@Override
@@ -121,7 +121,7 @@ public class MethodInteractionFragment extends Fragment {
 		});
 
 		//Find out the Width of the Screen
-		int widthRelLayout = 350;
+		int widthRelLayout = 350 - 50;
 		widthRelLayout = (int) Utils.dpToPx(widthRelLayout, v.getContext());
 
 
