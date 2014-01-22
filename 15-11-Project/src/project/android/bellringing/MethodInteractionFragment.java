@@ -159,22 +159,39 @@ public class MethodInteractionFragment extends Fragment {
 			a = pos - pos * Math.sin(Math.toRadians((i) * 180/ (int) ((methodCopy.getPlayingOn() - 1 )/ 2)));
 			b = posX - posX * Math.cos(Math.toRadians((i) * 180/ (int) ((methodCopy.getPlayingOn() - 1 )/ 2)));
 
-
-			bellImageViews.add(initializeImgViews(getActivity(),(methodCopy.getPlayingOn()/2) - i,images.getLeftDown(),RelativeLayout.ALIGN_PARENT_LEFT,
+			if(methodCopy.getPlayingOn() == 5 && i == 0){
+				a = widthRelLayout/2 - scale/2;
+				b = 2;
+				
+				bellImageViews.add(initializeImgViews(getActivity(),((methodCopy.getPlayingOn()+1)/2) - i,images.getLeftDown(),RelativeLayout.ALIGN_PARENT_LEFT,
+						(int) a,0,(int) b,scale - (i)));
+				TextView t1 = new TextView(getActivity());
+				t1.setId(20 + (methodCopy.getPlayingOn()+1/2));
+				RelativeLayout.LayoutParams params1 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
+				params1.setMargins((int) a + 2 , (int) (b + scale/2), 0, 0);
+				t1.setLayoutParams(params1);
+				t1.setBackgroundColor(Color.WHITE);
+				t1.setText(Utils.bellsToBellNumber("" + ((methodCopy.getPlayingOn() + 1)/2)));
+				bellNumberTextViews.add(t1);
+				
+				continue;
+			}
+			
+			bellImageViews.add(initializeImgViews(getActivity(),((methodCopy.getPlayingOn()+1)/2) - i,images.getLeftDown(),RelativeLayout.ALIGN_PARENT_LEFT,
 					(int) a,0,(int) b,scale - (i)));
 
 			//Add textView with same id as ImageView + 20
 			TextView t1 = new TextView(getActivity());
-			t1.setId(20 + (methodCopy.getPlayingOn()/2) - i);
+			t1.setId(20 + (methodCopy.getPlayingOn()+1/2) - i);
 			RelativeLayout.LayoutParams params1 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
 			params1.setMargins((int) a + 2 , (int) (b + scale/2), 0, 0);
 			t1.setLayoutParams(params1);
 			t1.setBackgroundColor(Color.WHITE);
-			t1.setText("" + possibleBellNumbering[((methodCopy.getPlayingOn()/2) - i - 1)]);
+			t1.setText(Utils.bellsToBellNumber("" + ((methodCopy.getPlayingOn()+1)/2 - i)));
 			bellNumberTextViews.add(t1);
 
 
-			bellImageViews.add(initializeImgViews(getActivity(),((methodCopy.getPlayingOn()+1)/2) + i + 1,images.getRightDown(),RelativeLayout.ALIGN_PARENT_RIGHT,
+			bellImageViews.add(initializeImgViews(getActivity(),((methodCopy.getPlayingOn())/2) + i + 1,images.getRightDown(),RelativeLayout.ALIGN_PARENT_RIGHT,
 					0,(int) a,(int) b,scale + ((i + 1))));
 
 			//Add textView with same id as ImageView + 20
@@ -185,7 +202,7 @@ public class MethodInteractionFragment extends Fragment {
 			params2.setMargins(0, (int) (b + scale/2), (int) a + 2, 0);
 			t2.setLayoutParams(params2);
 			t2.setBackgroundColor(Color.WHITE);
-			t2.setText("" + possibleBellNumbering[((methodCopy.getPlayingOn()/2) + i )]);
+			t2.setText(Utils.bellsToBellNumber("" + ((methodCopy.getPlayingOn())/2 + i + 1)));
 			bellNumberTextViews.add(t2);
 		}
 

@@ -23,8 +23,8 @@ public class Utils {
 	}
 	
 	public static String bellsToBellNumber(String bell){
-		String[] bells = {"4","5","6","7","8","9","10","11","12","13","14","15","16"};
-		String[] bellNumber = {"4","5","6","6","7","8","9","0","E","T","A","B","C","D"};
+		String[] bells = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"};
+		String[] bellNumber = {"1","2","3","4","5","6","6","7","8","9","0","E","T","A","B","C","D"};
 		
 		return bellNumber[Arrays.asList(bells).indexOf(bell)];
 	}
