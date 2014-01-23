@@ -36,6 +36,12 @@ public class Utils {
 		return comps[Arrays.asList(options).indexOf(s)];
 		
 	}
+	
+	public static String typeToFileName(String type){
+		String[] types = {"Alliance Methods", "Delight Methods", "Differential Methods", "Half Methods", "Plain Methods", "Principles", "Surprise Methods", "Treble Place Methods", "Treble Bob Methods"};
+		String[] fileNames = {"A", "D", "DF", "H", "P", "PR", "S", "TP", "T"};
 
-
+		return fileNames[Arrays.asList(types).indexOf(type)];
+	}
+	
 }

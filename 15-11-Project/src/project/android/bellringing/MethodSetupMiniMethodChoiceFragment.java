@@ -54,7 +54,7 @@ public class MethodSetupMiniMethodChoiceFragment extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				Intent i = new Intent(getActivity(), MethodSetupAddMethodActivity.class);
+				Intent i = new Intent(getActivity(), ActivityAddMethodsFromFile.class);
 				i.putExtra("filename", name);
 				getActivity().startActivity(i);		
 				getActivity().finish();
