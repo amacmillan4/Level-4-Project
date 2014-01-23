@@ -37,12 +37,12 @@ public class Top3CustomAdapter<T> extends ArrayAdapter<String[]> {
 		if (v == null) {
 
 			LayoutInflater vi = LayoutInflater.from(getContext());
-			v = vi.inflate(R.layout.listview_top_3, null);
+			v = vi.inflate(R.layout.setup_top_3, null);
 
 		}
 
-		TextView title = (TextView) v.findViewById(R.id.Title);
-		TextView choice = (TextView) v.findViewById(R.id.Choice);
+		TextView title = (TextView) v.findViewById(R.id.txvTitle);
+		TextView choice = (TextView) v.findViewById(R.id.txvChoice);
 
 		
 		title.setText(entries.get(position)[0] + "");

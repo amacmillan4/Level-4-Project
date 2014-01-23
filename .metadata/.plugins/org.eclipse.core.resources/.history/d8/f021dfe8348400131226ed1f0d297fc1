@@ -1,0 +1,289 @@
+package project.android.bellringing;
+
+import java.util.ArrayList;
+
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.LinearLayout;
+import android.widget.Switch;
+import android.widget.TextView;
+
+public class FragmentSetup extends Fragment {
+
+	//Variables
+	TextView txvStage, txvComposition, txvMethod, txvPealTime;
+	Switch swiBellType, swiStopAtRounds, swiHandstrokeGap, swiWaitForMe, swiScoreBlows, swiScoreSummary, swiOrientationLock;
+
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		setRetainInstance(true);
+	}
+
+	@Override
+	public void onResume(){
+		super.onResume();
+		updateView();
+	}
+
+	@Override
+	public void onPause(){
+		super.onPause();
+		MethodLab.get(getActivity()).saveData();
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
+		
+		// Inflate the layout for this fragment
+		View view = inflater.inflate(R.layout.fragment_activity_start, parent, false);
+		
+		//Lock Orientation or Not
+		if (MethodLab.get(getActivity()).getSetup().isOrientationLock())
+			getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+		else
+			getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+
+		//Set up Switch to choose what bells the user will play the method on 
+		swiBellType = (Switch) view.findViewById(R.id.switchBells);
+		swiBellType.setChecked(MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
+		swiBellType.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				MethodLab.get(getActivity()).getSetup().setHandbellsOrNot(isChecked);
+
+			}
+		});
+		
+		//Set up Switch to choose whether the User will stop at Rounds
+		swiStopAtRounds = (Switch) view.findViewById(R.id.switchRounds);
+		swiStopAtRounds.setChecked(MethodLab.get(getActivity()).getSetup().isStopAtRounds());
+		swiStopAtRounds.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				MethodLab.get(getActivity()).getSetup().setStopAtRounds(isChecked);
+
+			}
+		});
+
+		///Set up Switch to control Handstroke Gap
+		swiHandstrokeGap = (Switch) view.findViewById(R.id.switchGap);
+		swiHandstrokeGap.setChecked(MethodLab.get(getActivity()).getSetup().isHandstrokeGap());
+		swiHandstrokeGap.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				MethodLab.get(getActivity()).getSetup().setHandstrokeGap(isChecked);
+
+			}
+		});
+
+		//Set up Switch to control whether the system should wait for the User
+		swiWaitForMe = (Switch) view.findViewById(R.id.switchWait);
+		swiWaitForMe.setChecked(MethodLab.get(getActivity()).getSetup().isWaitForMe());
+		swiWaitForMe.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				MethodLab.get(getActivity()).getSetup().setWaitForMe(isChecked);
+
+			}
+		});
+
+		//Setup up Switch to choose whether the system will display a score for Bell timing
+		swiScoreBlows = (Switch) view.findViewById(R.id.switchScore);
+		swiScoreBlows.setChecked(MethodLab.get(getActivity()).getSetup().isScoreBlows());
+		swiScoreBlows.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				MethodLab.get(getActivity()).getSetup().setScoreBlows(isChecked);
+
+			}
+		});
+
+
+		//Setup up Switch to choose whether the Orientation of the App will be locked in Portrait
+		swiOrientationLock = (Switch) view.findViewById(R.id.switchOrientation);
+		swiOrientationLock.setChecked(MethodLab.get(getActivity()).getSetup().isOrientationLock());
+		swiOrientationLock.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				MethodLab.get(getActivity()).getSetup().setOrientationLock(isChecked);
+
+
+				if (isChecked)
+					getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+				else
+					getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+
+			}
+		});
+
+		
+		//TODO
+		swiScoreSummary = (Switch) view.findViewById(R.id.switchSummary);
+		swiScoreSummary.setChecked(MethodLab.get(getActivity()).getSetup().isScoreSummary());
+		swiScoreSummary.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				MethodLab.get(getActivity()).getSetup().setScoreSummary(isChecked);
+
+			}
+		});
+
+		LinearLayout ll = (LinearLayout) view.findViewById(R.id.setupllFirstThree);
+
+		View v1 = inflater.inflate(R.layout.listview_top_3, parent);
+		TextView title = (TextView) v1.findViewById(R.id.Title);
+		txvStage = (TextView) v1.findViewById(R.id.Choice);
+		v1.setClickable(true);
+		v1.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+
+				Intent i = new Intent(getActivity(), MethodSetupStageActivity.class);
+				getActivity().startActivity(i);
+
+			}
+		});
+
+		title.setText("Stage");
+		ll.addView(v1);
+
+		View v2 = inflater.inflate(R.layout.listview_top_3, parent);
+		v2.setClickable(true);
+		title = (TextView) v2.findViewById(R.id.Title);
+		txvComposition = (TextView) v2.findViewById(R.id.Choice);
+
+		v2.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+
+				Intent i = new Intent(getActivity(), MethodSetupCompositionActivity.class);
+				getActivity().startActivity(i);
+
+			}
+		});
+
+		title.setText("Composition");
+		ll.addView(v2);
+
+		View v3 = inflater.inflate(R.layout.listview_top_3, parent);
+		v3.setClickable(true);
+		title = (TextView) v3.findViewById(R.id.Title);
+		txvMethod = (TextView) v3.findViewById(R.id.Choice);
+
+		v3.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+				Intent i = new Intent(getActivity(), MethodSetupMethodChoiceActivity.class);
+				getActivity().startActivity(i);
+
+			}
+		});
+
+		title.setText("Method");
+		ll.addView(v3);
+
+		LinearLayout ll2 = (LinearLayout) view.findViewById(R.id.pealTime);
+
+		View v4 = inflater.inflate(R.layout.listview_top_3, parent);
+		v4.setClickable(true);
+		title = (TextView) v4.findViewById(R.id.Title);
+		txvPealTime = (TextView) v4.findViewById(R.id.Choice);
+
+		v4.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View view) {
+
+				Intent i = new Intent(getActivity(), MethodSetupPealTimeActivity.class);
+				getActivity().startActivity(i);
+
+			}
+		});
+
+		title.setText("Peal Time");
+		ll2.addView(v4);
+
+		Button run = (Button) view.findViewById(R.id.btnStartRun);
+		run.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				updateView();
+
+				if (!(MethodLab.get(getActivity()).getChosenMethod().size() == 0)){
+					Intent i = new Intent(getActivity(), MethodInteractionActivity.class);
+					getActivity().startActivity(i);
+				}
+
+			}
+		});
+
+		updateView();
+
+		return view;
+	}
+
+	public void updateView(){
+
+		//Retrieve Data from Singleton class
+		SetupInstructions s = MethodLab.get(getActivity()).getSetup();
+		ArrayList<Method2> m = MethodLab.get(getActivity()).getChosenMethod();
+
+		//Update TextViews and Switches
+		txvStage.setText(s.getStage());
+		txvComposition.setText(s.getComposition());
+
+		if (m.size() == 0)
+			txvMethod.setText("");
+		else
+			txvMethod.setText(m.get(0).getMethodName());
+
+		txvPealTime.setText(s.getPealTime());
+		swiBellType.setChecked(s.getHandbellsOrNot());
+		swiStopAtRounds.setChecked(s.isStopAtRounds());
+		swiHandstrokeGap.setChecked(s.isHandstrokeGap());
+		swiWaitForMe.setChecked(s.isWaitForMe());
+		swiScoreBlows.setChecked(s.isScoreBlows());
+		swiScoreSummary.setChecked(s.isScoreSummary());
+		swiOrientationLock.setChecked(s.isOrientationLock());
+	}
+
+	public class WriteChanges extends AsyncTask<Void,Void,Void>{
+
+
+		@Override
+		protected synchronized Void doInBackground(Void... arg0) {
+
+			String text = MethodLab.get(getActivity()).getSetup().toString();
+
+
+
+			return null;
+		}
+
+	}
+
+
+
+}
