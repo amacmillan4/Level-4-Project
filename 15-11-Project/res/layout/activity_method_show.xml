@@ -3,6 +3,6 @@
     android:id="@+id/methodShowFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:name="project.android.bellringing.MethodShowFragment">
+    android:name="project.android.bellringing.all.MethodShowFragment">
     
 </fragment>

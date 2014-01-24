@@ -12,66 +12,56 @@
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
-       
+        android:theme="@style/AppTheme" >
         <activity
-            android:name="project.android.bellringing.ActivitySetup"
-            android:label="@string/app_name" 
-            android:theme="@android:style/Theme.Holo.Light">
-            
+            android:name="project.android.bellringing.activities.ActivitySetup"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Holo.Light" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity
-            android:name="project.android.bellringing.MethodShowActivity"
+            android:name="project.android.bellringing.all.MethodShowActivity"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Holo.Light" >
         </activity>
-        
         <activity
-            android:name="project.android.bellringing.MethodSetupMethodChoiceActivity"
+            android:name="project.android.bellringing.activities.ActivityChooseMethod"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Holo.Light" >
         </activity>
-        
-         <activity
-            android:name="project.android.bellringing.MethodSetupMiniMethodChoiceActivity"
+        <activity
+            android:name="project.android.bellringing.all.MethodSetupMiniMethodChoiceActivity"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Holo.Light" >
         </activity>
-        
         <activity
-            android:name="project.android.bellringing.ActivityAddMethodsFromFile"
+            android:name="project.android.bellringing.activities.ActivityAddMethodsFromFile"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Holo.Light" >
         </activity>
-        
         <activity
-            android:name="project.android.bellringing.MethodSetupStageActivity"
+            android:name="project.android.bellringing.all.MethodSetupStageActivity"
             android:label="@string/app_name"
-             android:theme="@android:style/Theme.Holo.Light" >
+            android:theme="@android:style/Theme.Holo.Light" >
         </activity>
-        
-         <activity
-            android:name="project.android.bellringing.MethodSetupCompositionActivity"
-            android:label="@string/app_name"
-            android:theme="@android:style/Theme.Holo.Light">
-        </activity>
-        
-         <activity
-            android:name="project.android.bellringing.MethodSetupPealTimeActivity"
-            android:label="@string/app_name"
-             android:theme="@android:style/Theme.Holo.Light">
-        </activity>
-        
         <activity
-            android:name="project.android.bellringing.MethodInteractionActivity"
-            android:label="@string/app_name" 
-            android:theme="@android:style/Theme.Holo.Light">
+            android:name="project.android.bellringing.activities.ActivityChooseComposition"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Holo.Light" >
+        </activity>
+        <activity
+            android:name="project.android.bellringing.all.MethodSetupPealTimeActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Holo.Light" >
+        </activity>
+        <activity
+            android:name="project.android.bellringing.all.MethodInteractionActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Holo.Light" >
         </activity>
     </application>
 

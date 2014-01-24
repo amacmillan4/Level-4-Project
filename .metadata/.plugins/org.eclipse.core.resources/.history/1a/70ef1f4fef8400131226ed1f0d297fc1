@@ -1,0 +1,94 @@
+package project.android.bellringing;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.CheckedTextView;
+
+public class CustomArrayAdapter<T> extends ArrayAdapter<String> {
+
+	private ArrayList<Boolean> bitset = new ArrayList<Boolean>();
+	private ArrayList<Integer> selections = new ArrayList<Integer>();
+	private ArrayList<String> namesOfMethods;
+	private ArrayList<CheckedTextView> checkedchkdTxtViews = new ArrayList<CheckedTextView>();
+
+	public CustomArrayAdapter(Context context, int textViewResourceId){
+		super(context, textViewResourceId);
+	}
+
+	
+	public CustomArrayAdapter(Activity a, int textViewResourceId, ArrayList<String> entries) {		
+		super(a, textViewResourceId, entries);
+		
+		//Initialise bitset - list of whether an item has been chosen
+		for (int i = 0; i < entries.size(); i++){
+			bitset.add(i, false);
+		}
+		
+		namesOfMethods = new ArrayList<String>(entries);
+	}
+	
+
+
+
+	public  void uncheckAll(){
+		
+		for(Iterator<Integer> it = selections.iterator(); it.hasNext();){
+			Integer i = it.next();
+			it.remove();
+			bitset.set(i, false);
+		}
+		
+		for(CheckedTextView c: checkedchkdTxtViews)
+			c.setChecked(false);
+	}
+
+	@Override
+	public View getView(final int position, View convertView, ViewGroup parent) {
+
+		final CheckedTextView ctvMethodName;
+		
+		//Inflate a new item if one doesn't exist
+		if (convertView == null) 
+			ctvMethodName = (CheckedTextView) LayoutInflater.from(getContext()).inflate(android.R.layout.simple_list_item_multiple_choice, null);
+		else
+			ctvMethodName = (CheckedTextView) convertView;
+		
+		ctvMethodName.setText(namesOfMethods.get(position));
+		ctvMethodName.setFocusable(false);
+
+		//Views are re-used so must check bitset to see if it has been previously checked
+		if (bitset.get(position) == false)
+			ctvMethodName.setChecked(false);
+		else
+			ctvMethodName.setChecked(true);
+		
+		ctvMethodName.setOnClickListener(new View.OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				ctvMethodName.setChecked(!ctvMethodName.isChecked());
+				
+				if (bitset.get(position) == false){
+					checkedchkdTxtViews.add(ctvMethodName);
+					selections.add((Integer) position);
+					bitset.set(position, true);
+				}
+				else{
+					bitset.set(position, false);
+					selections.remove((Integer) position);
+				}
+			}
+			
+		});
+
+
+		return ctvMethodName;
+	}
+}
