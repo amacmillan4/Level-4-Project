@@ -13,12 +13,15 @@
 <fullyQualifiedTypeName name="project.android.bellringing.ShortlistedMethods"/>
 <fullyQualifiedTypeName name="project.android.bellringing.MethodLab"/>
 <fullyQualifiedTypeName name="project.android.bellringing.R.layout"/>
-<fullyQualifiedTypeName name="android.R"/>
 <fullyQualifiedTypeName name="android.R.layout"/>
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
-<fullyQualifiedTypeName name="project.android.bellringing.R.id"/>
 <fullyQualifiedTypeName name="project.android.bellringing.R.string"/>
 <fullyQualifiedTypeName name="project.android.bellringing.Status"/>
 <fullyQualifiedTypeName name="project.android.bellringing.MethodStatus"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="android.widget.RelativeLayout.LayoutParams"/>
+<fullyQualifiedTypeName name="android.content.pm.ActivityInfo"/>
+<fullyQualifiedTypeName name="project.android.bellringing.R.id"/>
+<fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="project.android.bellringing.R"/>
 </qualifiedTypeNameHistroy>

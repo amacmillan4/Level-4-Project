@@ -2,6 +2,7 @@ package project.android.bellringing.all;
 import java.util.ArrayList;
 
 import project.android.bellringing.R;
+import project.android.bellringing.activities.ActivityLoadMethodTypes;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -178,7 +179,7 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				Intent i = new Intent(getActivity(), MethodSetupMiniMethodChoiceActivity.class);
+				Intent i = new Intent(getActivity(), ActivityLoadMethodTypes.class);
 				getActivity().startActivity(i);	
 				getActivity().finish();
 			}

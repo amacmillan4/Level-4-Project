@@ -1,8 +1,6 @@
 
 package project.android.bellringing.fragments;
 import project.android.bellringing.R;
-import project.android.bellringing.R.id;
-import project.android.bellringing.R.layout;
 import project.android.bellringing.all.MethodLab;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

@@ -3,8 +3,6 @@ package project.android.bellringing.fragments;
 import java.util.ArrayList;
 
 import project.android.bellringing.R;
-import project.android.bellringing.R.id;
-import project.android.bellringing.R.layout;
 import project.android.bellringing.activities.ActivityChooseComposition;
 import project.android.bellringing.activities.ActivityChooseMethod;
 import project.android.bellringing.all.Method2;
@@ -13,7 +11,6 @@ import project.android.bellringing.all.MethodLab;
 import project.android.bellringing.all.MethodSetupPealTimeActivity;
 import project.android.bellringing.all.MethodSetupStageActivity;
 import project.android.bellringing.all.SetupInstructions;
-
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;

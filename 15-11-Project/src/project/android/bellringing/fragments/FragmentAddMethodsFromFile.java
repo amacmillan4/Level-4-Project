@@ -4,15 +4,12 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import project.android.bellringing.R;
-import project.android.bellringing.R.id;
-import project.android.bellringing.R.layout;
 import project.android.bellringing.activities.ActivityChooseMethod;
 import project.android.bellringing.all.AddMethodsArrayAdapter;
 import project.android.bellringing.all.Method2;
 import project.android.bellringing.all.MethodLab;
 import project.android.bellringing.all.MethodShortlistSerializer;
 import project.android.bellringing.all.Utils;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
