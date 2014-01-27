@@ -46,7 +46,8 @@ public class MethodInteractionFragment extends Fragment {
 	LinesView methodView;
 	boolean paused = false;
 	boolean waitForMe = true;
-	double pressTime, playTime;
+	boolean updatedScore = false;
+	long pressTime, playTime;
 	TextView txtMethodName, txtscore;
 	final Score score = new Score();
 
@@ -99,12 +100,12 @@ public class MethodInteractionFragment extends Fragment {
 		images = new ImageId(MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
 
 		RelativeLayout scoreLayout = (RelativeLayout) v.findViewById(R.id.ScoreLayout);
-		
+
 		if(MethodLab.get(getActivity()).getSetup().isScoreBlows())
 			scoreLayout.setVisibility(View.VISIBLE);
 		else
 			scoreLayout.setVisibility(View.INVISIBLE);
-		
+
 		//Get handle on LinearLayout to display bells
 		LinearLayout globalLinearLayout = (LinearLayout) v.findViewById(R.id.globalView);
 		globalLinearLayout.setOnClickListener(new View.OnClickListener() {
@@ -115,7 +116,9 @@ public class MethodInteractionFragment extends Fragment {
 
 				if(status == MethodStatus.PLAYING){
 
+					System.out.println("PRESS---------------------------------");
 					pressTime = System.currentTimeMillis();
+
 
 
 				}
@@ -164,7 +167,7 @@ public class MethodInteractionFragment extends Fragment {
 			if(methodCopy.getPlayingOn() == 5 && i == 0){
 				a = widthRelLayout/2 - scale/2;
 				b = 2;
-				
+
 				bellImageViews.add(initializeImgViews(getActivity(),((methodCopy.getPlayingOn()+1)/2) - i,images.getLeftDown(),RelativeLayout.ALIGN_PARENT_LEFT,
 						(int) a,0,(int) b,scale - (i)));
 				TextView t1 = new TextView(getActivity());
@@ -175,10 +178,10 @@ public class MethodInteractionFragment extends Fragment {
 				t1.setBackgroundColor(Color.WHITE);
 				t1.setText(Utils.bellsToBellNumber("" + ((methodCopy.getPlayingOn() + 1)/2)));
 				bellNumberTextViews.add(t1);
-				
+
 				continue;
 			}
-			
+
 			bellImageViews.add(initializeImgViews(getActivity(),((methodCopy.getPlayingOn()+1)/2) - i,images.getLeftDown(),RelativeLayout.ALIGN_PARENT_LEFT,
 					(int) a,0,(int) b,scale - (i)));
 
@@ -407,7 +410,7 @@ public class MethodInteractionFragment extends Fragment {
 			String currentText = "";
 			String x = "";
 			int i= 0;
-			
+
 			pressTime = 0;
 			playTime = 0;
 
@@ -456,8 +459,10 @@ public class MethodInteractionFragment extends Fragment {
 					public void run() {
 
 						//TODO Calculate Score
-						if (pressTime != 0 && bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next))
+						if (pressTime != 0 && bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next) && status == MethodStatus.PLAYING){
+							updatedScore = true;
 							txtscore.setText(score.calculateScore(playTime, pressTime) + "");
+						}
 
 						//Ensures the view draws the lines
 						methodView.drawLines(true);
@@ -479,20 +484,24 @@ public class MethodInteractionFragment extends Fragment {
 				try {
 					wait(250);
 
-					if(playTime + 500 > System.currentTimeMillis()){
+					if(playTime + 500 < System.currentTimeMillis() && playTime != 0 && status == MethodStatus.PLAYING){
+
 						mHandler.post(new Runnable() {
 							@Override
 							public void run() {
 
-								System.out.println("PRESSTIME = " + pressTime);
+								if (!updatedScore){
 
-								if (pressTime != 0)
-									txtscore.setText(score.calculateScore(playTime, pressTime) + "");
-								else
-									txtscore.setText(score.calculateScore(playTime, 0) + "");
+									if (pressTime != 0)
+										txtscore.setText(score.calculateScore(playTime, pressTime) + "");
+									else
+										txtscore.setText(score.calculateScore(playTime, 0) + "");
+
+								}
 
 								pressTime = 0;
 								playTime = 0;
+								updatedScore = false;
 
 							}});
 					}

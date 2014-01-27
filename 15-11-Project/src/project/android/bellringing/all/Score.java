@@ -3,34 +3,34 @@ package project.android.bellringing.all;
 public class Score {
 
 	int total;
+	int timesPressed;
 
 
 	public Score(){
 		total = 0;
+		timesPressed = 0;
 	}
 
-	public int calculateScore(double playTime, double hitTime){
+	public int calculateScore(long playTime, long hitTime){
 
+		long ring = 50;
 
+		double score = 11 - Math.ceil(Math.abs((playTime - hitTime) / ring));
 
-		double ring = 100;
-
-		double score = Math.ceil(Math.abs((playTime - hitTime) / ring));
-
-		score = 11 - score;
-
-		if (score == 11){
+		System.out.println(playTime + "       " + hitTime + "        " + Math.abs((playTime - hitTime) / ring));
+		
+		if (score == 11)
 			score = 10;
-		}
-
-		if(score < 0)
+		else if(score < 0)
 			score = 0;
 
 		total += score;		
 
-		System.out.println("PlayTime: " + playTime/1000 + "    PressTime:: " + hitTime/1000 + " difference: " +  Math.abs((playTime - hitTime)) + "  score  " + score);
-
 		return (int) score; 
 
+	}
+	
+	public int getAverage(){
+		return (int) total/timesPressed;
 	}
 }
