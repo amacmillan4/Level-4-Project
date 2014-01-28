@@ -101,10 +101,16 @@ public class MethodInteractionFragment extends Fragment {
 		boolean handbells = MethodLab.get(getActivity()).getSetup().getHandbellsOrNot();
 		String peal = MethodLab.get(getActivity()).getSetup().getPealTime();
 		
-		if (MethodLab.get(getActivity()).getSetup().isHandstrokeGap())
-			interval = Utils.timeToMilliseconds(Integer.parseInt(peal.split(":")[0]),Integer.parseInt(peal.split(":")[1]))/(2500*(2*methodCopy.getPlayingOn()));
+		if (handbells)
+			interval = Utils.timeToMilliseconds(Integer.parseInt(peal.split(":")[0]),Integer.parseInt(peal.split(":")[1]))/2500*(2*methodCopy.getPlayingOn());
 		else
-			interval = Utils.timeToMilliseconds(Integer.parseInt(peal.split(":")[0]),Integer.parseInt(peal.split(":")[1]))/(2500*(2*methodCopy.getPlayingOn() + 1));
+			interval = Utils.timeToMilliseconds(Integer.parseInt(peal.split(":")[0]),Integer.parseInt(peal.split(":")[1]))/2500*(2*methodCopy.getPlayingOn() + 1);
+
+		System.out.println(Utils.timeToMilliseconds(Integer.parseInt(peal.split(":")[0]),Integer.parseInt(peal.split(":")[1])));
+		System.out.println(interval);
+			
+			
+			
 		
 		bellAudio = new AudioPlayer(getActivity(), handbells);
 		images = new ImageId(MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
@@ -459,7 +465,7 @@ public class MethodInteractionFragment extends Fragment {
 				i++;
 
 				try {
-					wait((long) (interval));
+					wait(250);
 
 					if(playTime + 500 < System.currentTimeMillis() && playTime != 0 && status == MethodStatus.PLAYING){
 
@@ -490,7 +496,7 @@ public class MethodInteractionFragment extends Fragment {
 
 						//Enabling the handstroke gap
 						if(MethodLab.get(getActivity()).getSetup().isHandstrokeGap())
-							wait((long) interval);
+							wait(200);
 
 						if(status == MethodStatus.GO_TO_ROUNDS){
 							methodCopy.swapRound();
