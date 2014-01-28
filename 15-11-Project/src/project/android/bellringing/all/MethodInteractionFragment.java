@@ -47,6 +47,7 @@ public class MethodInteractionFragment extends Fragment {
 	boolean paused = false;
 	boolean waitForMe = true;
 	boolean updatedScore = false;
+	boolean userPlaying = false;
 	long pressTime, playTime;
 	TextView txtMethodName, txtscore;
 	final Score score = new Score();
@@ -113,13 +114,14 @@ public class MethodInteractionFragment extends Fragment {
 			//Used for interacting with the bells
 			@Override
 			public void onClick(View view) {
+				
+				userPlaying = true;
 
 				if(status == MethodStatus.PLAYING){
 
 					System.out.println("PRESS---------------------------------");
+					bellAudio.play(getActivity(), bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString());
 					pressTime = System.currentTimeMillis();
-
-
 
 				}
 			}
@@ -137,7 +139,7 @@ public class MethodInteractionFragment extends Fragment {
 		relativeLayoutTopScreen.getLayoutParams().width = widthRelLayout;
 
 		int heightRelLayout = widthRelLayout;
-		int scale = (int) (heightRelLayout/ ((int) (methodCopy.getPlayingOn() + 1)/2)) - 20;
+		int scale = (int) ((heightRelLayout/ ((methodCopy.getPlayingOn() + 1)/2)) *0.8);
 
 		//Starting positions
 		int pos = ((int) (widthRelLayout/2 - scale*1.2));
@@ -195,6 +197,7 @@ public class MethodInteractionFragment extends Fragment {
 			t1.setText(Utils.bellsToBellNumber("" + ((methodCopy.getPlayingOn()+1)/2 - i)));
 			bellNumberTextViews.add(t1);
 
+			System.out.println(i + "   " + ((methodCopy.getPlayingOn()+1)/2 - i));
 
 			bellImageViews.add(initializeImgViews(getActivity(),((methodCopy.getPlayingOn())/2) + i + 1,images.getRightDown(),RelativeLayout.ALIGN_PARENT_RIGHT,
 					0,(int) a,(int) b,scale + ((i + 1))));
@@ -207,8 +210,10 @@ public class MethodInteractionFragment extends Fragment {
 			params2.setMargins(0, (int) (b + scale/2), (int) a + 2, 0);
 			t2.setLayoutParams(params2);
 			t2.setBackgroundColor(Color.WHITE);
-			t2.setText(Utils.bellsToBellNumber("" + ((methodCopy.getPlayingOn())/2 + i + 1)));
+			t2.setText(Utils.bellsToBellNumber("" + ((methodCopy.getPlayingOn()/2) + i + 1)));
 			bellNumberTextViews.add(t2);
+			
+			System.out.println(i + "   " + ((methodCopy.getPlayingOn()/2) + i + 1));
 		}
 
 		//Set up TextView to display the method
@@ -338,45 +343,6 @@ public class MethodInteractionFragment extends Fragment {
 		return v;
 	}
 
-	private void updateButtonText(MethodStatus s, boolean paused){
-
-		if (paused){
-			runButton.setText("Continue");
-			helpButton.setText("Help");
-			showButton.setText("Stop");
-		}
-		else if (s == MethodStatus.PLAYING){
-			runButton.setText("Rounds");
-			helpButton.setText("Pause");
-			showButton.setText("Stand");
-		}
-		else if (s == MethodStatus.ROUNDS){
-			runButton.setText("Go");
-			helpButton.setText("Pause");
-			showButton.setText("Stand");
-		}
-		else if (s == MethodStatus.STANDING){
-			runButton.setText("Start");
-			helpButton.setText("Help");
-			showButton.setText("Show");
-		}
-		else if (s == MethodStatus.GO_TO_PLAYING){
-			runButton.setText("");
-			helpButton.setText("Pause");
-			showButton.setText("Stand");
-		}
-		else if (s == MethodStatus.GO_TO_ROUNDS){
-			runButton.setText("");
-			helpButton.setText("Pause");
-			showButton.setText("Stand");
-		}
-		else if (s == MethodStatus.GO_TO_STAND){
-			runButton.setText("");
-			helpButton.setText("");
-			showButton.setText("");
-		}
-
-	}
 
 
 
@@ -452,7 +418,8 @@ public class MethodInteractionFragment extends Fragment {
 				if (bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next))
 					playTime = System.currentTimeMillis();
 
-				bellAudio.play(getActivity(),next);
+				if (!userPlaying || (userPlaying && !bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next)))
+					bellAudio.play(getActivity(),next);
 
 				mHandler.post(new Runnable() {
 					@Override
@@ -532,6 +499,7 @@ public class MethodInteractionFragment extends Fragment {
 								methodCopy.swapRound();
 
 							status = MethodStatus.STANDING;
+							userPlaying = false;
 							methodCopy = new Method2((Method2) MethodLab.get(getActivity()).getChosenMethod().get(0));
 							methodCopy.initialize(numOfBells, Utils.getComposition(MethodLab.get(getActivity()).getSetup().getComposition()));
 
@@ -651,6 +619,45 @@ public class MethodInteractionFragment extends Fragment {
 
 	}
 
+	private void updateButtonText(MethodStatus s, boolean paused){
+
+		if (paused){
+			runButton.setText("Continue");
+			helpButton.setText("Help");
+			showButton.setText("Stop");
+		}
+		else if (s == MethodStatus.PLAYING){
+			runButton.setText("Rounds");
+			helpButton.setText("Pause");
+			showButton.setText("Stand");
+		}
+		else if (s == MethodStatus.ROUNDS){
+			runButton.setText("Go");
+			helpButton.setText("Pause");
+			showButton.setText("Stand");
+		}
+		else if (s == MethodStatus.STANDING){
+			runButton.setText("Start");
+			helpButton.setText("Help");
+			showButton.setText("Show");
+		}
+		else if (s == MethodStatus.GO_TO_PLAYING){
+			runButton.setText("");
+			helpButton.setText("Pause");
+			showButton.setText("Stand");
+		}
+		else if (s == MethodStatus.GO_TO_ROUNDS){
+			runButton.setText("");
+			helpButton.setText("Pause");
+			showButton.setText("Stand");
+		}
+		else if (s == MethodStatus.GO_TO_STAND){
+			runButton.setText("");
+			helpButton.setText("");
+			showButton.setText("");
+		}
+
+	}
 
 	//Method to create the ImageViews and TextViews based on the users input
 	private BellImageView initializeImgViews(Activity a,final int id,final int imageResource1,int layoutFeature1,int marginLeft,int marginRight,int marginTop,int height){
