@@ -3,8 +3,8 @@
     android:id="@+id/globalView"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:gravity="center_horizontal"
     android:background="@android:color/white"
+    android:gravity="center_horizontal"
     android:orientation="vertical" >
 
     <RelativeLayout
@@ -32,7 +32,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="160dp" >
 
-                    <project.android.bellringing.all.LinesView
+                    <project.android.bellringing.views.LinesView
                         android:id="@+id/MC_title"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -57,10 +57,36 @@
                             android:textColor="#FFFFFF" />
 
                         <TextView
-                            android:id="@+id/textView2"
+                            android:id="@+id/ScoreTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/ScoreTitle"
+                            android:layout_centerHorizontal="true" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/ScoreSummaryLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp" >
+
+                        <TextView
+                            android:id="@+id/ScoreSummaryTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:background="#325C74"
+                            android:text="AVG"
+                            android:textColor="#FFFFFF" />
+
+                        <TextView
+                            android:id="@+id/ScoreSummaryTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/ScoreSummaryTitle"
                             android:layout_centerHorizontal="true" />
                     </RelativeLayout>
 

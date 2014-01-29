@@ -3,16 +3,16 @@ package project.android.bellringing.fragments;
 import java.util.ArrayList;
 
 import project.android.bellringing.R;
-import project.android.bellringing.all.AudioPlayer;
-import project.android.bellringing.all.BellImageView;
+import project.android.bellringing.activities.ActivityDisplayMethod;
 import project.android.bellringing.all.ImageId;
-import project.android.bellringing.all.LinesView;
-import project.android.bellringing.all.Method2;
-import project.android.bellringing.all.MethodLab;
-import project.android.bellringing.all.MethodShowActivity;
-import project.android.bellringing.all.MethodStatus;
+import project.android.bellringing.all.Method;
+import project.android.bellringing.all.SingletonData;
 import project.android.bellringing.all.Score;
-import project.android.bellringing.all.Utils;
+import project.android.bellringing.utilities.MethodStatus;
+import project.android.bellringing.utilities.Utils;
+import project.android.bellringing.views.AudioPlayer;
+import project.android.bellringing.views.BellImageView;
+import project.android.bellringing.views.LinesView;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -47,7 +47,7 @@ public class FragmentPlayMethod extends Fragment {
 	AudioPlayer bellAudio;
 	DisplayMethod displayMethodThread = new DisplayMethod();
 
-	private Method2 methodCopy;
+	private Method methodCopy;
 
 	Button showButton, runButton, helpButton;
 	int numOfBells;
@@ -99,31 +99,31 @@ public class FragmentPlayMethod extends Fragment {
 		//Setup
 		status = MethodStatus.STANDING;
 
-		methodCopy = new Method2(MethodLab.get(getActivity()).getChosenMethod().get(0));
+		methodCopy = new Method(SingletonData.get(getActivity()).getChosenMethod().get(0));
 
-		numOfBells = Integer.parseInt(Utils.stageToNumBells(MethodLab.get(getActivity()).getSetup().getStage()));
-		if (numOfBells % 2 == 1 && (!MethodLab.get(getActivity()).getSetup().getStage().equals("Doubles"))){
+		numOfBells = Integer.parseInt(Utils.stageToNumBells(SingletonData.get(getActivity()).getSetup().getStage()));
+		if (numOfBells % 2 == 1 && (!SingletonData.get(getActivity()).getSetup().getStage().equals("Doubles"))){
 			numOfBells = numOfBells + 1;
 		}
 
-		methodCopy.initialize(numOfBells, Utils.getComposition(MethodLab.get(getActivity()).getSetup().getComposition()));
+		methodCopy.initialize(numOfBells, Utils.getComposition(SingletonData.get(getActivity()).getSetup().getComposition()));
 
-		boolean handbells = MethodLab.get(getActivity()).getSetup().getHandbellsOrNot();
-		String peal = MethodLab.get(getActivity()).getSetup().getPealTime();
+		boolean handbells = SingletonData.get(getActivity()).getSetup().getHandbellsOrNot();
+		String peal = SingletonData.get(getActivity()).getSetup().getPealTime();
 
-		if (MethodLab.get(getActivity()).getSetup().isHandstrokeGap())
+		if (SingletonData.get(getActivity()).getSetup().isHandstrokeGap())
 			interval = Utils.timeToMilliseconds(Integer.parseInt(peal.split(":")[0]),Integer.parseInt(peal.split(":")[1]))/(2500*(2*methodCopy.getPlayingOn()));
 		else
 			interval = Utils.timeToMilliseconds(Integer.parseInt(peal.split(":")[0]),Integer.parseInt(peal.split(":")[1]))/(2500*(2*methodCopy.getPlayingOn() + 1));
 
 		bellAudio = new AudioPlayer(getActivity(), handbells);
-		images = new ImageId(MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
+		images = new ImageId(SingletonData.get(getActivity()).getSetup().getHandbellsOrNot());
 
 		//Score
 		RelativeLayout scoreLayout = (RelativeLayout) v.findViewById(R.id.ScoreLayout);
 		txtscore = (TextView) v.findViewById(R.id.ScoreTextView);
 
-		if(MethodLab.get(getActivity()).getSetup().isScoreBlows())
+		if(SingletonData.get(getActivity()).getSetup().isScoreBlows())
 			scoreLayout.setVisibility(View.VISIBLE);
 		else
 			scoreLayout.setVisibility(View.INVISIBLE);
@@ -132,7 +132,7 @@ public class FragmentPlayMethod extends Fragment {
 		RelativeLayout scoreSummaryLayout = (RelativeLayout) v.findViewById(R.id.ScoreSummaryLayout);
 		txtScoreSummary = (TextView) v.findViewById(R.id.ScoreSummaryTextView);
 
-		if(MethodLab.get(getActivity()).getSetup().isScoreSummary())
+		if(SingletonData.get(getActivity()).getSetup().isScoreSummary())
 			scoreSummaryLayout.setVisibility(View.VISIBLE);
 		else
 			scoreSummaryLayout.setVisibility(View.INVISIBLE);
@@ -276,7 +276,7 @@ public class FragmentPlayMethod extends Fragment {
 				}else{
 
 					if (status == MethodStatus.STANDING){
-						Intent i = new Intent(getActivity(), MethodShowActivity.class);
+						Intent i = new Intent(getActivity(), ActivityDisplayMethod.class);
 						getActivity().startActivity(i);
 					}else if(status == MethodStatus.ROUNDS || status == MethodStatus.PLAYING) {
 
@@ -428,7 +428,7 @@ public class FragmentPlayMethod extends Fragment {
 					playTime = System.currentTimeMillis();
 
 				//Waits for user
-				if (MethodLab.get(getActivity()).getSetup().isWaitForMe() && bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next) 
+				if (SingletonData.get(getActivity()).getSetup().isWaitForMe() && bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next) 
 						&& (status == MethodStatus.PLAYING || status == MethodStatus.GO_TO_STAND || status == MethodStatus.GO_TO_ROUNDS)){
 					while (pressTime == 0) {
 						try {
@@ -499,7 +499,7 @@ public class FragmentPlayMethod extends Fragment {
 					if (i % ((methodCopy.getPlayingOn()) * 2) == 0 ){
 
 						//Enabling the handstroke gap
-						if(MethodLab.get(getActivity()).getSetup().isHandstrokeGap())
+						if(SingletonData.get(getActivity()).getSetup().isHandstrokeGap())
 							wait((long) interval);
 
 						if(status == MethodStatus.GO_TO_ROUNDS){
@@ -528,8 +528,8 @@ public class FragmentPlayMethod extends Fragment {
 									txtScoreSummary.setText("" + score.getAverage());
 								}});
 							
-							methodCopy = new Method2((Method2) MethodLab.get(getActivity()).getChosenMethod().get(0));
-							methodCopy.initialize(numOfBells, Utils.getComposition(MethodLab.get(getActivity()).getSetup().getComposition()));
+							methodCopy = new Method((Method) SingletonData.get(getActivity()).getChosenMethod().get(0));
+							methodCopy.initialize(numOfBells, Utils.getComposition(SingletonData.get(getActivity()).getSetup().getComposition()));
 
 
 						}

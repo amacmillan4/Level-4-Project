@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 import project.android.bellringing.R;
 import project.android.bellringing.activities.ActivityAddMethodsFromFile;
-import project.android.bellringing.all.MethodLab;
-import project.android.bellringing.all.Utils;
+import project.android.bellringing.all.SingletonData;
+import project.android.bellringing.utilities.Utils;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -70,7 +70,7 @@ public class FragmentLoadMethodTypes extends Fragment {
 			line = br.readLine();
 
 			while(line != null){
-				if(line.split("-")[0].equals(Utils.stageToNumBells(MethodLab.get(getActivity()).getSetup().getStage()))){
+				if(line.split("-")[0].equals(Utils.stageToNumBells(SingletonData.get(getActivity()).getSetup().getStage()))){
 					for(String s: line.split("-")[1].split(",")){
 						list.add(s);
 						System.out.println(s);

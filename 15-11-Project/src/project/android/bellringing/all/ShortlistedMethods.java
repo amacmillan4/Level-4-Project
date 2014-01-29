@@ -7,18 +7,18 @@ import android.util.SparseArray;
 public class ShortlistedMethods {
 
 	ArrayList<String> types;
-	SparseArray<ArrayList<Method2>> map;
+	SparseArray<ArrayList<Method>> map;
 	
 	public ShortlistedMethods(){
 		types = new ArrayList<String>();
-		map = new SparseArray<ArrayList<Method2>>();
+		map = new SparseArray<ArrayList<Method>>();
 	}
 	
-	public void addMethod(Method2 m){
+	public void addMethod(Method m){
 		
 		if (!types.contains(m.getType())){
 			types.add(m.getType());
-			ArrayList<Method2> a = new ArrayList<Method2>();
+			ArrayList<Method> a = new ArrayList<Method>();
 			a.add(m);
 			map.put(m.getType().hashCode(), a);
 		}
@@ -31,7 +31,7 @@ public class ShortlistedMethods {
 		return types;
 	}
 	
-	public SparseArray<ArrayList<Method2>> getMap(){
+	public SparseArray<ArrayList<Method>> getMap(){
 		return map;
 	}
 	

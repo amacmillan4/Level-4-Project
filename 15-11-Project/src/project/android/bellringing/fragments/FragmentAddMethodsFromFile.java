@@ -4,12 +4,12 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import project.android.bellringing.R;
-import project.android.bellringing.activities.ActivityChooseMethod;
-import project.android.bellringing.all.AddMethodsArrayAdapter;
-import project.android.bellringing.all.Method2;
-import project.android.bellringing.all.MethodLab;
+import project.android.bellringing.activities.ActivitySelectMethod;
+import project.android.bellringing.adapters.AddMethodsArrayAdapter;
+import project.android.bellringing.all.Method;
+import project.android.bellringing.all.SingletonData;
 import project.android.bellringing.all.MethodShortlistSerializer;
-import project.android.bellringing.all.Utils;
+import project.android.bellringing.utilities.Utils;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
@@ -22,7 +22,7 @@ import android.widget.Button;
 
 public class FragmentAddMethodsFromFile extends ListFragment {
 
-	SparseArray<Method2> map;
+	SparseArray<Method> map;
 	AddMethodsArrayAdapter<String> adapter;
 	ArrayList<Integer> selections = new ArrayList<Integer>();
 	
@@ -32,7 +32,7 @@ public class FragmentAddMethodsFromFile extends ListFragment {
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setRetainInstance(true);
-		map = new SparseArray<Method2>();
+		map = new SparseArray<Method>();
 	}
 
 	@Override
@@ -47,7 +47,7 @@ public class FragmentAddMethodsFromFile extends ListFragment {
 		//Get filename chosen passed from previous fragment
 		Intent intent = getActivity().getIntent();
 		String type = intent.getStringExtra("filename");
-		String s = Utils.typeToFileName(type) + Utils.stageToNumBells(MethodLab.get(getActivity()).getSetup().getStage());
+		String s = Utils.typeToFileName(type) + Utils.stageToNumBells(SingletonData.get(getActivity()).getSetup().getStage());
 
 		//Load Method Data from File
 		try{
@@ -63,7 +63,7 @@ public class FragmentAddMethodsFromFile extends ListFragment {
 				String[] split = line.split("><");
 
 				try{
-					Method2 m = new Method2(split[0].substring(1,split[0].length()), type , split[3] ,split[2]);
+					Method m = new Method(split[0].substring(1,split[0].length()), type , split[3] ,split[2]);
 
 					map.put(i, m);
 					allMethodNames.add(i, m.getMethodName());
@@ -95,7 +95,7 @@ public class FragmentAddMethodsFromFile extends ListFragment {
 			@Override
 			public void onClick(View v) {
 
-				ArrayList<Method2> selectedMethods = new ArrayList<Method2>();
+				ArrayList<Method> selectedMethods = new ArrayList<Method>();
 				
 				//For every selected method name, add the methods to file
 				for(Integer i: adapter.getPositionsOfMethods()){
@@ -103,11 +103,11 @@ public class FragmentAddMethodsFromFile extends ListFragment {
 					System.out.println("ADDING TO METHOD LAB:" + map.get(i).toString());
 				}
 							
-				MethodLab.get(getActivity()).addMethods(selectedMethods);
-				MethodLab.get(getActivity()).saveMethodData();
+				SingletonData.get(getActivity()).addMethods(selectedMethods);
+				SingletonData.get(getActivity()).saveMethodData();
 				
 				//Close fragment and go back to Method Choice
-				Intent i = new Intent(getActivity(), ActivityChooseMethod.class);
+				Intent i = new Intent(getActivity(), ActivitySelectMethod.class);
 				getActivity().startActivity(i);	
 				getActivity().finish();
 				

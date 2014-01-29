@@ -1,0 +1,39 @@
+package project.android.bellringing.all;
+
+import project.android.bellringing.all.ImageId;
+import android.content.Context;
+import android.util.AttributeSet;
+import android.widget.ImageView;
+
+public class BellImageView extends ImageView {
+
+	public BellImageView(Context context) {
+		super(context);
+	}
+
+	public BellImageView(Context context, AttributeSet attrs) {
+		super(context, attrs);
+	}
+
+	public BellImageView(Context context, AttributeSet attrs, int defStyle) {
+		super(context, attrs, defStyle);
+	}
+	
+	@Override
+	public void setImageResource(int i){
+		super.setImageResource(i);
+		super.setTag(i);
+	}
+
+	public void switchImage(int resourceID, ImageId im){
+
+		if(resourceID == im.getLeftDown())
+			setImageResource(im.getLeftUp());
+		else if(resourceID == im.getRightDown())
+			setImageResource(im.getRightUp());
+		else if(resourceID == im.getRightUp())
+			setImageResource(im.getRightDown());
+		else if(resourceID == im.getLeftUp())
+			setImageResource(im.getLeftDown());
+	}
+}

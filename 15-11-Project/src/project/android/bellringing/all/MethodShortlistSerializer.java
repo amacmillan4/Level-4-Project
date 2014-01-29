@@ -21,10 +21,10 @@ public class MethodShortlistSerializer {
 		context = c;
 	}
 
-	public ArrayList<Method2> loadData(String stage) throws IOException{
+	public ArrayList<Method> loadData(String stage) throws IOException{
 
 		BufferedReader reader = null;
-		ArrayList<Method2> methods = new ArrayList<Method2>();
+		ArrayList<Method> methods = new ArrayList<Method>();
 
 		System.out.println(stage);
 		
@@ -38,7 +38,7 @@ public class MethodShortlistSerializer {
 				String[] split = line.split("\t");
 
 				System.out.println("LOADING: " + line);
-				Method2 method = new Method2(split[0], split[1], split[2], split[3]);
+				Method method = new Method(split[0], split[1], split[2], split[3]);
 				System.out.println("LOADINGGGGGG : " + method.toString());
 				methods.add(method);
 
@@ -57,7 +57,7 @@ public class MethodShortlistSerializer {
 
 	}
 
-	public void saveData(ArrayList<Method2> methods, String filename){
+	public void saveData(ArrayList<Method> methods, String filename){
 
 		//Write file to disk
 		Writer writer = null;
@@ -66,8 +66,8 @@ public class MethodShortlistSerializer {
 			writer = new OutputStreamWriter(out);
 
 			//Sort methods
-			Collections.sort(methods, new Comparator<Method2>() {
-			    public int compare(Method2 a, Method2 b) {
+			Collections.sort(methods, new Comparator<Method>() {
+			    public int compare(Method a, Method b) {
 			        return a.getType().compareTo(b.getType());
 			    }
 			});
@@ -75,7 +75,7 @@ public class MethodShortlistSerializer {
 			String currentType = "";
 			String stringToWrite = "";
 			
-			for (Method2 m: methods){
+			for (Method m: methods){
 				
 				System.out.println("CHECKING:" +  m.toString());
 				

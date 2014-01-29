@@ -51,10 +51,10 @@ public class MethodDataTxtSerializer {
 
 	}
 
-	public ArrayList<Method2> loadSetupMethod() throws IOException{
+	public ArrayList<Method> loadSetupMethod() throws IOException{
 
 		BufferedReader reader = null;
-		ArrayList<Method2> a = new ArrayList<Method2>();
+		ArrayList<Method> a = new ArrayList<Method>();
 
 		try{
 			//Open and read the file 
@@ -64,7 +64,7 @@ public class MethodDataTxtSerializer {
 						
 			while (line != null){
 				System.out.println(line);
-				Method2 m = new Method2(line.trim());
+				Method m = new Method(line.trim());
 				a.add(m);
 				line = reader.readLine();
 			}
@@ -100,7 +100,7 @@ public class MethodDataTxtSerializer {
 
 	}
 	
-	public void saveSetupMethod(ArrayList<Method2> a) throws IOException{
+	public void saveSetupMethod(ArrayList<Method> a) throws IOException{
 
 		//Write file to disk
 		Writer writer = null;
@@ -108,7 +108,7 @@ public class MethodDataTxtSerializer {
 			OutputStream out = context.openFileOutput(filenameMethod, Context.MODE_PRIVATE);
 			writer = new OutputStreamWriter(out);
 			
-			for(Method2 m: a){
+			for(Method m: a){
 				System.out.println("WRITE" + m.toString());
 				writer.write(m.toString() + "\n");
 			}

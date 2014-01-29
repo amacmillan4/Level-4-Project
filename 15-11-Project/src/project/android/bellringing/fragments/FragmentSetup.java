@@ -3,13 +3,13 @@ package project.android.bellringing.fragments;
 import java.util.ArrayList;
 
 import project.android.bellringing.R;
-import project.android.bellringing.activities.ActivityChooseComposition;
-import project.android.bellringing.activities.ActivityChooseMethod;
+import project.android.bellringing.activities.ActivitySelectComposition;
+import project.android.bellringing.activities.ActivitySelectMethod;
 import project.android.bellringing.activities.ActivityPlayMethod;
-import project.android.bellringing.all.Method2;
-import project.android.bellringing.all.MethodLab;
-import project.android.bellringing.all.MethodSetupPealTimeActivity;
-import project.android.bellringing.all.MethodSetupStageActivity;
+import project.android.bellringing.activities.ActivitySelectPealTime;
+import project.android.bellringing.activities.ActivitySelectStage;
+import project.android.bellringing.all.Method;
+import project.android.bellringing.all.SingletonData;
 import project.android.bellringing.all.SetupInstructions;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -48,7 +48,7 @@ public class FragmentSetup extends Fragment {
 	@Override
 	public void onPause(){
 		super.onPause();
-		MethodLab.get(getActivity()).saveData();
+		SingletonData.get(getActivity()).saveData();
 	}
 
 	@Override
@@ -58,67 +58,67 @@ public class FragmentSetup extends Fragment {
 		View view = inflater.inflate(R.layout.fragment_setup, parent, false);
 		
 		//Lock Orientation or Not
-		if (MethodLab.get(getActivity()).getSetup().isOrientationLock())
+		if (SingletonData.get(getActivity()).getSetup().isOrientationLock())
 			getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		else
 			getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
 
 		//Set up Switch to choose what bells the user will play the method on 
 		swiBellType = (Switch) view.findViewById(R.id.setupSwiBellType);
-		swiBellType.setChecked(MethodLab.get(getActivity()).getSetup().getHandbellsOrNot());
+		swiBellType.setChecked(SingletonData.get(getActivity()).getSetup().getHandbellsOrNot());
 		swiBellType.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
 
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				MethodLab.get(getActivity()).getSetup().setHandbellsOrNot(isChecked);
+				SingletonData.get(getActivity()).getSetup().setHandbellsOrNot(isChecked);
 
 			}
 		});
 		
 		//Set up Switch to choose whether the User will stop at Rounds
 		swiStopAtRounds = (Switch) view.findViewById(R.id.setupSwiStopAtRounds);
-		swiStopAtRounds.setChecked(MethodLab.get(getActivity()).getSetup().isStopAtRounds());
+		swiStopAtRounds.setChecked(SingletonData.get(getActivity()).getSetup().isStopAtRounds());
 		swiStopAtRounds.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
 
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				MethodLab.get(getActivity()).getSetup().setStopAtRounds(isChecked);
+				SingletonData.get(getActivity()).getSetup().setStopAtRounds(isChecked);
 
 			}
 		});
 
 		///Set up Switch to control Handstroke Gap
 		swiHandstrokeGap = (Switch) view.findViewById(R.id.setupSwiHandstrokeGap);
-		swiHandstrokeGap.setChecked(MethodLab.get(getActivity()).getSetup().isHandstrokeGap());
+		swiHandstrokeGap.setChecked(SingletonData.get(getActivity()).getSetup().isHandstrokeGap());
 		swiHandstrokeGap.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
 
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				MethodLab.get(getActivity()).getSetup().setHandstrokeGap(isChecked);
+				SingletonData.get(getActivity()).getSetup().setHandstrokeGap(isChecked);
 
 			}
 		});
 
 		//Set up Switch to control whether the system should wait for the User
 		swiWaitForMe = (Switch) view.findViewById(R.id.setupSwihWaitForMe);
-		swiWaitForMe.setChecked(MethodLab.get(getActivity()).getSetup().isWaitForMe());
+		swiWaitForMe.setChecked(SingletonData.get(getActivity()).getSetup().isWaitForMe());
 		swiWaitForMe.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
 
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				MethodLab.get(getActivity()).getSetup().setWaitForMe(isChecked);
+				SingletonData.get(getActivity()).getSetup().setWaitForMe(isChecked);
 
 			}
 		});
 
 		//Setup up Switch to choose whether the system will display a score for Bell timing
 		swiScoreBlows = (Switch) view.findViewById(R.id.setupSwiScoreBlows);
-		swiScoreBlows.setChecked(MethodLab.get(getActivity()).getSetup().isScoreBlows());
+		swiScoreBlows.setChecked(SingletonData.get(getActivity()).getSetup().isScoreBlows());
 		swiScoreBlows.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
 
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				MethodLab.get(getActivity()).getSetup().setScoreBlows(isChecked);
+				SingletonData.get(getActivity()).getSetup().setScoreBlows(isChecked);
 
 			}
 		});
@@ -126,12 +126,12 @@ public class FragmentSetup extends Fragment {
 
 		//Setup up Switch to choose whether the Orientation of the App will be locked in Portrait
 		swiOrientationLock = (Switch) view.findViewById(R.id.setupSwiOrientationLock);
-		swiOrientationLock.setChecked(MethodLab.get(getActivity()).getSetup().isOrientationLock());
+		swiOrientationLock.setChecked(SingletonData.get(getActivity()).getSetup().isOrientationLock());
 		swiOrientationLock.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
 
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				MethodLab.get(getActivity()).getSetup().setOrientationLock(isChecked);
+				SingletonData.get(getActivity()).getSetup().setOrientationLock(isChecked);
 
 
 				if (isChecked)
@@ -145,12 +145,12 @@ public class FragmentSetup extends Fragment {
 		
 		//TODO
 		swiScoreSummary = (Switch) view.findViewById(R.id.setupSwiScoreSummary);
-		swiScoreSummary.setChecked(MethodLab.get(getActivity()).getSetup().isScoreSummary());
+		swiScoreSummary.setChecked(SingletonData.get(getActivity()).getSetup().isScoreSummary());
 		swiScoreSummary.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
 
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				MethodLab.get(getActivity()).getSetup().setScoreSummary(isChecked);
+				SingletonData.get(getActivity()).getSetup().setScoreSummary(isChecked);
 
 			}
 		});
@@ -172,7 +172,7 @@ public class FragmentSetup extends Fragment {
 			public void onClick(View view) {
 
 				//Start new Activity to allow user to select their chosen stage
-				Intent i = new Intent(getActivity(), MethodSetupStageActivity.class);
+				Intent i = new Intent(getActivity(), ActivitySelectStage.class);
 				getActivity().startActivity(i);
 
 			}
@@ -191,7 +191,7 @@ public class FragmentSetup extends Fragment {
 			@Override
 			public void onClick(View view) {
 
-				Intent i = new Intent(getActivity(), ActivityChooseComposition.class);
+				Intent i = new Intent(getActivity(), ActivitySelectComposition.class);
 				getActivity().startActivity(i);
 
 			}
@@ -208,7 +208,7 @@ public class FragmentSetup extends Fragment {
 
 			@Override
 			public void onClick(View view) {
-				Intent i = new Intent(getActivity(), ActivityChooseMethod.class);
+				Intent i = new Intent(getActivity(), ActivitySelectMethod.class);
 				getActivity().startActivity(i);
 
 			}
@@ -228,7 +228,7 @@ public class FragmentSetup extends Fragment {
 
 			@Override
 			public void onClick(View view) {
-				Intent i = new Intent(getActivity(), MethodSetupPealTimeActivity.class);
+				Intent i = new Intent(getActivity(), ActivitySelectPealTime.class);
 				getActivity().startActivity(i);
 
 			}
@@ -244,7 +244,7 @@ public class FragmentSetup extends Fragment {
 				updateView();
 
 				//Do not open next Fragment if the user has not selected a method
-				if (!(MethodLab.get(getActivity()).getChosenMethod().size() == 0)){
+				if (!(SingletonData.get(getActivity()).getChosenMethod().size() == 0)){
 					Intent i = new Intent(getActivity(), ActivityPlayMethod.class);
 					getActivity().startActivity(i);
 				}
@@ -271,8 +271,8 @@ public class FragmentSetup extends Fragment {
 	public void updateView(){
 
 		//Retrieve Data from Singleton class
-		SetupInstructions s = MethodLab.get(getActivity()).getSetup();
-		ArrayList<Method2> m = MethodLab.get(getActivity()).getChosenMethod();
+		SetupInstructions s = SingletonData.get(getActivity()).getSetup();
+		ArrayList<Method> m = SingletonData.get(getActivity()).getChosenMethod();
 
 		//Update TextViews and Switches
 		txvStage.setText(s.getStage());
