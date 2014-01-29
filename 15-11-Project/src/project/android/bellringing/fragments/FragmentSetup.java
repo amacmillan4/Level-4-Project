@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import project.android.bellringing.R;
 import project.android.bellringing.activities.ActivityChooseComposition;
 import project.android.bellringing.activities.ActivityChooseMethod;
+import project.android.bellringing.activities.ActivityPlayMethod;
 import project.android.bellringing.all.Method2;
-import project.android.bellringing.all.MethodInteractionActivity;
 import project.android.bellringing.all.MethodLab;
 import project.android.bellringing.all.MethodSetupPealTimeActivity;
 import project.android.bellringing.all.MethodSetupStageActivity;
@@ -245,7 +245,7 @@ public class FragmentSetup extends Fragment {
 
 				//Do not open next Fragment if the user has not selected a method
 				if (!(MethodLab.get(getActivity()).getChosenMethod().size() == 0)){
-					Intent i = new Intent(getActivity(), MethodInteractionActivity.class);
+					Intent i = new Intent(getActivity(), ActivityPlayMethod.class);
 					getActivity().startActivity(i);
 				}
 				else

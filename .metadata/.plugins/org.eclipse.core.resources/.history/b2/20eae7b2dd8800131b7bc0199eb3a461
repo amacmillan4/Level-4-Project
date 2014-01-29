@@ -1,0 +1,36 @@
+package project.android.bellringing.all;
+
+public class Score {
+
+	int total;
+	int timesPressed;
+
+
+	public Score(){
+		total = 0;
+		timesPressed = 0;
+	}
+
+	public int calculateScore(long playTime, long hitTime){
+
+		long ring = 50;
+
+		double score = 11 - Math.ceil(Math.abs((playTime - hitTime) / ring));
+
+		System.out.println(playTime + "       " + hitTime + "        " + Math.abs((playTime - hitTime) / ring));
+		
+		if (score == 11)
+			score = 10;
+		else if(score < 0)
+			score = 0;
+
+		total += score;		
+
+		return (int) score; 
+
+	}
+	
+	public int getAverage(){
+		return (int) total/timesPressed;
+	}
+}

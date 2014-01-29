@@ -10,7 +10,7 @@ public class ActivityChooseComposition extends FragmentActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_choose_composition);
+		setContentView(R.layout.activity_select_composition);
 	}
 
 	@Override

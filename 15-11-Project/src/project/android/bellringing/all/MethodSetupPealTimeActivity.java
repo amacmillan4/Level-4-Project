@@ -10,7 +10,7 @@ public class MethodSetupPealTimeActivity extends FragmentActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_method_start_pealtime);
+		setContentView(R.layout.activity_select_pealtime);
 	}
 
 	@Override

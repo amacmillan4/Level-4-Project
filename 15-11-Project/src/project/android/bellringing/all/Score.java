@@ -24,13 +24,18 @@ public class Score {
 		else if(score < 0)
 			score = 0;
 
-		total += score;		
+		total += score;	
+		timesPressed++;
 
 		return (int) score; 
 
 	}
 	
 	public int getAverage(){
+		
+		if (timesPressed == 0)
+			return 0;
+		
 		return (int) total/timesPressed;
 	}
 }

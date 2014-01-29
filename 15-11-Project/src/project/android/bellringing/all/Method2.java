@@ -93,10 +93,6 @@ public class Method2{
 			this.leadEnd = "";
 		}
 	}
-
-//	public Object clone() throws CloneNotSupportedException {
-//		return super.clone();
-//	}
 	
 	public void initialize(int playingOnBells, Composition composition){
 

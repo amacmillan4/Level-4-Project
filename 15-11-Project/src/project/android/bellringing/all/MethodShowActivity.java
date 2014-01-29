@@ -10,7 +10,7 @@ public class MethodShowActivity extends FragmentActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_method_show);
+		setContentView(R.layout.activity_display_method);
 	}
 
 	@Override

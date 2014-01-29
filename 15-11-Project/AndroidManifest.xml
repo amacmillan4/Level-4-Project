@@ -59,7 +59,7 @@
             android:theme="@android:style/Theme.Holo.Light" >
         </activity>
         <activity
-            android:name="project.android.bellringing.all.MethodInteractionActivity"
+            android:name="project.android.bellringing.activities.ActivityPlayMethod"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Holo.Light" >
         </activity>

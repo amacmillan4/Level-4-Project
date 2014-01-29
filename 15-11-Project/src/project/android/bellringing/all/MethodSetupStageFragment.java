@@ -23,7 +23,7 @@ public class MethodSetupStageFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
 		// Inflate the layout for this fragment
-		View view = inflater.inflate(R.layout.fragment_activity_start_stage, parent, false);
+		View view = inflater.inflate(R.layout.fragment_select_stage, parent, false);
 		
 	    // Get ListView object from xml
         final ListView listView = (ListView) view.findViewById(R.id.StageListView);

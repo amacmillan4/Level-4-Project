@@ -10,7 +10,7 @@ public class ActivityChooseMethod extends FragmentActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_choose_method);
+		setContentView(R.layout.activity_select_method);
 	}
 
 	@Override

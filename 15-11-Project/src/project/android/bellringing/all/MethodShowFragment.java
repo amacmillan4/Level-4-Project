@@ -27,7 +27,7 @@ public class MethodShowFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
-		View v = inflater.inflate(R.layout.fragment_activity_show, parent, false);
+		View v = inflater.inflate(R.layout.fragment_display_method, parent, false);
  
 		method  = new Method2(MethodLab.get(getActivity()).getChosenMethod().get(0));
 

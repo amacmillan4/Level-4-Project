@@ -45,7 +45,7 @@ public class MethodSetupMethodChoiceFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
 		
 		// Inflate the layout for this fragment
-		View view = inflater.inflate(R.layout.fragment_choose_method, parent, false);
+		View view = inflater.inflate(R.layout.fragment_select_method, parent, false);
 		llMethodList = (LinearLayout) view.findViewById(R.id.MC_listLL);
 
 		//Load Methods from cache (file)

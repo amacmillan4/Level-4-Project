@@ -10,7 +10,7 @@ public class MethodSetupStageActivity extends FragmentActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_method_start_stage);
+		setContentView(R.layout.activity_select_stage);
 	}
 
 	@Override

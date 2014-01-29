@@ -25,7 +25,7 @@ public class FragmentChooseComposition extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
 		// Inflate the layout for this fragment
-		View view = inflater.inflate(R.layout.fragment_choose_composition, parent, false);
+		View view = inflater.inflate(R.layout.fragment_select_composition, parent, false);
 
 		// Get Handle on ListView object
 		final ListView listView = (ListView) view.findViewById(R.id.CompositionListView);
