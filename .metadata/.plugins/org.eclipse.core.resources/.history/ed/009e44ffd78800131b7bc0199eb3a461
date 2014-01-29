@@ -427,7 +427,7 @@ public class MethodInteractionFragment extends Fragment {
 					}
 				}
 
-				if (status == MethodStatus.ROUNDS || !userPlaying || (userPlaying && !bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next)))
+				if (!userPlaying || (userPlaying && !bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next)))
 					bellAudio.play(getActivity(),next);
 
 				mHandler.post(new Runnable() {

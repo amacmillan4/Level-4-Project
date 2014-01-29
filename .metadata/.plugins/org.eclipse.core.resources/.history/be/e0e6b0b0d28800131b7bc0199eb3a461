@@ -411,13 +411,10 @@ public class MethodInteractionFragment extends Fragment {
 
 				final String cText = currentText;
 
-				//Record the play time and play the bell
-				if (bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next))
-					playTime = System.currentTimeMillis();
+
 
 				//Waits for user
-				if (MethodLab.get(getActivity()).getSetup().isWaitForMe() && bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next) 
-						&& (status == MethodStatus.PLAYING || status == MethodStatus.GO_TO_STAND || status == MethodStatus.GO_TO_ROUNDS)){
+				if (MethodLab.get(getActivity()).getSetup().isWaitForMe() && bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(mext)){
 					while (pressTime == 0) {
 						try {
 							wait(250);
@@ -427,7 +424,11 @@ public class MethodInteractionFragment extends Fragment {
 					}
 				}
 
-				if (status == MethodStatus.ROUNDS || !userPlaying || (userPlaying && !bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next)))
+				//Record the play time and play the bell
+				if (bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next))
+					playTime = System.currentTimeMillis();
+
+				if (!userPlaying || (userPlaying && !bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next)))
 					bellAudio.play(getActivity(),next);
 
 				mHandler.post(new Runnable() {
