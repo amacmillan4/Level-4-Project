@@ -2,10 +2,8 @@ package project.android.bellringing.activities;
 
 import project.android.bellringing.R;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.view.Menu;
 
-public class ActivitySetup extends FragmentActivity {
+public class ActivitySetup extends AbstractActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -13,11 +11,4 @@ public class ActivitySetup extends FragmentActivity {
 		setContentView(R.layout.activity_setup);
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
-	
 }

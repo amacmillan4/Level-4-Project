@@ -160,7 +160,19 @@ public class Method{
 			currentLine += bellNumbering.get(i);
 
 	}
+	public String textBobSinglePlain(){
+		
+		if (currentOperationSection + 3 >= methodChanges.size()){
+			System.out.println(compositionStatus);
+			return compositionStatus;
 
+		}
+		else{
+			System.out.println("NOPE");
+			return "";
+		}
+		
+	}
 
 	private ArrayList<String> reverseMethod(ArrayList<String> changes){
 

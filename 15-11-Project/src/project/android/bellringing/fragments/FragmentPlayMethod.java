@@ -60,9 +60,8 @@ public class FragmentPlayMethod extends Fragment {
 	boolean userPlaying = false;
 	double interval;
 	long pressTime, playTime;
-	TextView txtMethodName, txtscore, txtScoreSummary;
+	TextView txtMethodName, txtscore, txtScoreSummary, txtRound;
 	final Score score = new Score();
-
 
 
 	@Override
@@ -73,7 +72,6 @@ public class FragmentPlayMethod extends Fragment {
 
 	@Override
 	public void onStop() {
-		displayMethodThread.cancel(true);
 		super.onStop();
 	}
 
@@ -82,6 +80,11 @@ public class FragmentPlayMethod extends Fragment {
 		paused = true;
 		updateButtonText(status, paused);	
 		super.onPause();
+	}
+
+	@Override
+	public void onResume(){
+		super.onResume();	
 	}
 
 	@Override
@@ -255,12 +258,22 @@ public class FragmentPlayMethod extends Fragment {
 
 		//Set up TextView to display the method name
 		txtMethodName = new TextView(getActivity());
+		txtMethodName.setId(999);
 		RelativeLayout.LayoutParams params1 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
 		params1.addRule(RelativeLayout.CENTER_HORIZONTAL);
 		params1.addRule(RelativeLayout.CENTER_VERTICAL);
 		txtMethodName.setLayoutParams(params1);
 		txtMethodName.setBackgroundColor(Color.WHITE);
 		txtMethodName.setText(methodCopy.getMethodName());
+
+		//Set up TextView to display the method name
+		txtRound = new TextView(getActivity());
+		RelativeLayout.LayoutParams params2 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
+		params2.addRule(RelativeLayout.ABOVE, txtMethodName.getId());
+		params2.addRule(RelativeLayout.CENTER_HORIZONTAL);
+		txtRound.setLayoutParams(params2);
+		txtRound.setBackgroundColor(Color.WHITE);
+
 
 		showButton = (Button) v.findViewById(R.id.btnStop);
 		showButton.setOnClickListener(new View.OnClickListener() {
@@ -361,6 +374,7 @@ public class FragmentPlayMethod extends Fragment {
 		}
 
 		relativeLayoutTopScreen.addView(txtMethodName);
+		relativeLayoutTopScreen.addView(txtRound);
 
 		return v;
 	}
@@ -461,6 +475,10 @@ public class FragmentPlayMethod extends Fragment {
 						//Displays the correct amount of text on screen
 						methodView.setLimitingText(methodCopy.getPlayingOn(), cText, 6);
 
+						txtRound.setText(methodCopy.textBobSinglePlain());
+						//						if (cText.contains("\n"))
+						//							txtMethodName.setText("" + (Integer.parseInt(txtMethodName.getText().toString())+1));
+
 						//Switch the bell position
 						BellImageView b = (BellImageView)v.findViewById(bells.indexOf(copyX) + 1);
 						b.switchImage((Integer) b.getTag(), images);
@@ -522,12 +540,12 @@ public class FragmentPlayMethod extends Fragment {
 							userPlaying = false;
 
 							mHandler.post(new Runnable() {
-								
+
 								@Override
 								public void run() {
 									txtScoreSummary.setText("" + score.getAverage());
 								}});
-							
+
 							methodCopy = new Method((Method) SingletonData.get(getActivity()).getChosenMethod().get(0));
 							methodCopy.initialize(numOfBells, Utils.getComposition(SingletonData.get(getActivity()).getSetup().getComposition()));
 
@@ -544,7 +562,7 @@ public class FragmentPlayMethod extends Fragment {
 
 					}
 
-					while(paused)
+					while(paused && !isCancelled())
 						wait(500);
 
 					if (isCancelled()){

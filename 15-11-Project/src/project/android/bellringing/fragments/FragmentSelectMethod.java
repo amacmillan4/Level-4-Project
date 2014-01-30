@@ -35,14 +35,6 @@ public class FragmentSelectMethod extends Fragment {
 		super.onCreate(savedInstanceState);
 		setRetainInstance(true);
 	}
-	
-	@Override
-	public void onResume(){
-		super.onResume();
-		//MethodLab.get(getActivity()).setMethods(loadedMethods);
-		//MethodLab.get(getActivity()).saveMethodData();
-	}
-
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){

@@ -52,8 +52,9 @@ public class FragmentDisplayMethod extends Fragment {
 		boolean start = true;
 		int size = method.getMethodLeadEndLength();
 		
-		System.out.println("SIZE " + size);
-		
+		while (size > 20)
+			size = size/2;
+				
 		String x = "";
 		
 		while (finished == false){
@@ -80,7 +81,7 @@ public class FragmentDisplayMethod extends Fragment {
 			}
 			
 
-			while (i < size/4){
+			while (i < size){
 			
 				displayMethod.append(x + "\n");
 				displayMethod.drawLines(true);
