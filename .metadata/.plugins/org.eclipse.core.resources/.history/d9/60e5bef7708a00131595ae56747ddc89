@@ -71,6 +71,11 @@ public class FragmentPlayMethod extends Fragment {
 	}
 
 	@Override
+	public void onStop() {
+		super.onStop();
+	}
+
+	@Override
 	public void onPause() {
 		paused = true;
 		updateButtonText(status, paused);	

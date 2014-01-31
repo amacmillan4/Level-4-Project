@@ -6,13 +6,14 @@ import project.android.bellringing.R;
 import project.android.bellringing.activities.ActivityDisplayMethod;
 import project.android.bellringing.all.ImageId;
 import project.android.bellringing.all.Method;
-import project.android.bellringing.all.Score;
 import project.android.bellringing.all.SingletonData;
+import project.android.bellringing.all.Score;
 import project.android.bellringing.utilities.MethodStatus;
 import project.android.bellringing.utilities.Utils;
 import project.android.bellringing.views.AudioPlayer;
 import project.android.bellringing.views.BellImageView;
 import project.android.bellringing.views.LinesView;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -66,8 +67,12 @@ public class FragmentPlayMethod extends Fragment {
 	@Override
 	public void onDestroy() {
 		displayMethodThread.cancel(true);
-		methodView.clearText();
 		super.onDestroy();
+	}
+
+	@Override
+	public void onStop() {
+		super.onStop();
 	}
 
 	@Override
