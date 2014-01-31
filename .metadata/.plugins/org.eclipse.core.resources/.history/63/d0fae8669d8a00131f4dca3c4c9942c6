@@ -116,7 +116,7 @@ public class FragmentDisplayMethod extends Fragment {
 		method = new Method((Method) SingletonData.get(getActivity()).getChosenMethod().get(0));
 		method.initialize(Integer.parseInt(Utils.stageToNumBells(SingletonData.get(getActivity()).getSetup().getStage())), Composition.TOUCH_WITH_BOBS_AND_SINGLES, 3);
 
-		displayMethod.setText(method.displayBob("bob").trim());  
+		displayMethod.setText(method.displayBob("bob"));  
 
 		
 		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -136,7 +136,7 @@ public class FragmentDisplayMethod extends Fragment {
 		method = new Method((Method) SingletonData.get(getActivity()).getChosenMethod().get(0));
 		method.initialize(Integer.parseInt(Utils.stageToNumBells(SingletonData.get(getActivity()).getSetup().getStage())), Composition.TOUCH_WITH_BOBS_AND_SINGLES, 5);
 
-		displayMethod2.setText(method.displayBob("single").trim());  
+		displayMethod2.setText(method.displayBob("single"));  
 
 		
 		LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);

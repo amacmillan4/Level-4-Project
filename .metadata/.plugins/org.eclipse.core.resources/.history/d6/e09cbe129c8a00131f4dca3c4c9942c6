@@ -182,7 +182,7 @@ public class Method{
 		String a = "";
 		while (i < methodLeadEnd.size() * 2 * getPlayingOn()){
 
-			if(i > (methodLeadEnd.size() - 6) * getPlayingOn() && i < (methodLeadEnd.size() + 4) * getPlayingOn() + 1){
+			if(i > (methodLeadEnd.size() - 4) * getPlayingOn() && i < (methodLeadEnd.size() + 2) * getPlayingOn() + 1){
 				a += calcNext();
 				if (i % getPlayingOn() == 0)
 					a += "\n";

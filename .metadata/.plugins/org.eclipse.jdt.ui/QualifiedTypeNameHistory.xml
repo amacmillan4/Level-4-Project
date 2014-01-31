@@ -27,4 +27,6 @@
 <fullyQualifiedTypeName name="project.android.bellringing.all.MethodStatus"/>
 <fullyQualifiedTypeName name="java.math.BigDecimal"/>
 <fullyQualifiedTypeName name="project.android.bellringing.R.id"/>
+<fullyQualifiedTypeName name="project.android.bellringing.utilities.MethodStatus"/>
+<fullyQualifiedTypeName name="project.android.bellringing.utilities.Composition"/>
 </qualifiedTypeNameHistroy>
