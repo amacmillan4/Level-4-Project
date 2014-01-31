@@ -104,7 +104,7 @@ public class FragmentPlayMethod extends Fragment {
 			numOfBells = numOfBells + 1;
 		}
 
-		methodCopy.initialize(numOfBells, Utils.getComposition(SingletonData.get(getActivity()).getSetup().getComposition()));
+		methodCopy.initialize(numOfBells, Utils.getComposition(SingletonData.get(getActivity()).getSetup().getComposition()), 0);
 
 		boolean handbells = SingletonData.get(getActivity()).getSetup().getHandbellsOrNot();
 		String peal = SingletonData.get(getActivity()).getSetup().getPealTime();
@@ -545,7 +545,7 @@ public class FragmentPlayMethod extends Fragment {
 								}});
 
 							methodCopy = new Method((Method) SingletonData.get(getActivity()).getChosenMethod().get(0));
-							methodCopy.initialize(numOfBells, Utils.getComposition(SingletonData.get(getActivity()).getSetup().getComposition()));
+							methodCopy.initialize(numOfBells, Utils.getComposition(SingletonData.get(getActivity()).getSetup().getComposition()), 0);
 
 
 						}

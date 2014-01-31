@@ -11,9 +11,9 @@ import project.android.bellringing.utilities.Composition;
 import project.android.bellringing.utilities.Utils;
 
 public class Method{
-	
+
 	private final char[] possibleBellNumbering = {'1','2','3','4','5','6','7','8','9','0','E','T','A','B','C','D'};
-	
+
 	//Constructor Variables
 	private String methodName;
 	private String methodType;
@@ -21,14 +21,14 @@ public class Method{
 	private String method;
 	private String leadEnd;
 	private int bells;
-	
+
 	//Initialization variables
 	private int playingOnBells;
 	private Composition composition;
 
 	//Display Variable
 	private String line = "";
-	
+
 	//Method Changes Variables
 	private ArrayList<String> bellNumbering;
 
@@ -36,11 +36,12 @@ public class Method{
 	private ArrayList<String> methodLeadEnd = new ArrayList<String>();
 	private ArrayList<String> methodBob= new ArrayList<String>();
 	private ArrayList<String> methodSingle= new ArrayList<String>();
-	
+
 	private String bob = "";
 	private String single = "";
 	private String compositionStatus = "";
-	
+	private int overrideBobSingle = 0;
+
 	//Variables used while method playing
 	private String currentLine;
 	private int currentMethodSection;
@@ -80,7 +81,7 @@ public class Method{
 			this.leadEnd = "";
 		}
 	} 
-	
+
 	public Method(Method m){
 		this.methodName = m.getMethodName();
 		this.methodType = m.getType();
@@ -96,8 +97,8 @@ public class Method{
 			this.leadEnd = "";
 		}
 	}
-	
-	public void initialize(int playingOnBells, Composition composition){
+
+	public void initialize(int playingOnBells, Composition composition, int x){
 
 		this.composition = composition;
 		this.playingOnBells = playingOnBells;
@@ -124,7 +125,7 @@ public class Method{
 			mBob = reverseMethod(mBob);
 			mSingle = reverseMethod(mSingle);
 		}
-		
+
 		//Lead End Changes
 		methodLeadEnd.addAll(mMethod);
 		methodLeadEnd.addAll(mLeadEnd);
@@ -148,6 +149,7 @@ public class Method{
 		methodSingle.addAll(mSingle);
 
 		//Decide whether next is Plain Course, Bob or Single
+		overrideBobSingle = x;
 		calculateNextBobSingle();
 
 		//Variables for calculating the next bell
@@ -161,7 +163,7 @@ public class Method{
 
 	}
 	public String textBobSinglePlain(){
-		
+
 		if (currentOperationSection + 3 >= methodChanges.size()){
 			System.out.println(compositionStatus);
 			return compositionStatus;
@@ -171,7 +173,29 @@ public class Method{
 			System.out.println("NOPE");
 			return "";
 		}
-		
+
+	}
+
+	public String displayBob(String s){
+
+		int i = 1;
+		String a = "";
+		while (i < methodLeadEnd.size() * 2 * getPlayingOn()){
+
+			if(i > (methodLeadEnd.size() - 4) * getPlayingOn() && i < (methodLeadEnd.size() + 2) * getPlayingOn() + 1){
+				a += calcNext();
+				if (i % getPlayingOn() == 0)
+					a += "\n";
+			}
+			else
+				calcNext();
+
+			i++;
+		}
+
+		return a;
+
+
 	}
 
 	private ArrayList<String> reverseMethod(ArrayList<String> changes){
@@ -274,7 +298,7 @@ public class Method{
 				}
 			}
 		}
-		
+
 		System.out.println("Bob: " + bob + "    Single: " + single );
 	}
 
@@ -282,8 +306,16 @@ public class Method{
 
 		compositionStatus = "";
 		methodChanges.clear();
+		int random;
 
-		int random = (int) (Math.random() * 600);
+		System.out.println("OVERRIDING WITH" + overrideBobSingle);
+		
+		if (overrideBobSingle == 0)
+			random = (int) (Math.random() * 600);
+		else 
+			random = overrideBobSingle;
+
+		overrideBobSingle = 0;
 
 		if (composition == Composition.PLAIN_COURSE){
 			methodChanges.addAll(methodLeadEnd);
@@ -310,6 +342,7 @@ public class Method{
 		}
 		else if (composition == Composition.TOUCH_WITH_BOBS_AND_SINGLES){
 			if(random % 3 == 0){
+				System.out.println("ADDING BOBS");
 				methodChanges.addAll(methodBob);
 				compositionStatus = "Bob";
 			}
@@ -318,12 +351,13 @@ public class Method{
 				compositionStatus = "";
 			}
 			else {
+				System.out.println("ADDING SINGLES");
 				methodChanges.addAll(methodSingle);
 				compositionStatus = "Single";
 			}
 		}
 
-		
+
 		System.out.println(compositionStatus);
 
 		if (playingOnBells != bells){
@@ -349,7 +383,7 @@ public class Method{
 			currentStart = 0;
 			handStroke = false;
 		}
-		
+
 		return bellNumbering.get(currentStart++);
 
 	}
@@ -447,7 +481,7 @@ public class Method{
 		else{
 			line = "";
 		}
-		
+
 		for(int k = 0; k < playingOnBells; k++)
 			line = line + calcNext();
 
@@ -471,7 +505,7 @@ public class Method{
 		return c;
 
 	}
-	
+
 	public int getMethodLeadEndLength(){
 		return methodLeadEnd.size();
 	}
@@ -479,7 +513,7 @@ public class Method{
 	public String getCompositionStatus(){
 		return compositionStatus;
 	}
-	
+
 	public String getLeadEnd() {
 		return leadEnd;
 	}
@@ -511,7 +545,7 @@ public class Method{
 	public void setName(String methodName) {
 		this.methodName = methodName;
 	}
-	
+
 	public String getWholeMethod(){
 		return wholeMethod;
 	}

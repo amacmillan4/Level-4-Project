@@ -46,8 +46,7 @@ public class FragmentDisplayMethod extends Fragment {
 			}
 		});
 		
-		method.initialize(Integer.parseInt(Utils.stageToNumBells(SingletonData.get(getActivity()).getSetup().getStage())), Composition.PLAIN_COURSE);
-		
+		method.initialize(Integer.parseInt(Utils.stageToNumBells(SingletonData.get(getActivity()).getSetup().getStage())), Composition.PLAIN_COURSE, 0);
 		boolean finished = false;
 		boolean start = true;
 		int size = method.getMethodLeadEndLength();
@@ -104,8 +103,47 @@ public class FragmentDisplayMethod extends Fragment {
 			ShowView.add(displayMethod);
 			linLayout.addView(displayMethod);
 			
-			
 		}
+		ShowView displayMethod = new ShowView(getActivity());
+		displayMethod.setTextColor(Color.BLACK);
+		displayMethod.setClickable(false);
+		displayMethod.setBackgroundColor(Color.WHITE);
+		displayMethod.setTextSize(14);
+		displayMethod.setNumberOfBells(method.getPlayingOn());
+		displayMethod.setTypeface(Typeface.MONOSPACE); 
+		
+		method = new Method((Method) SingletonData.get(getActivity()).getChosenMethod().get(0));
+		method.initialize(Integer.parseInt(Utils.stageToNumBells(SingletonData.get(getActivity()).getSetup().getStage())), Composition.TOUCH_WITH_BOBS_AND_SINGLES, 3);
+
+		displayMethod.setText(method.displayBob("bob"));  
+
+		
+		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+		params.setMargins(20,20,20, 0);
+		displayMethod.setLayoutParams(params);
+		
+		linLayout.addView(displayMethod);
+		
+		ShowView displayMethod2 = new ShowView(getActivity());
+		displayMethod2.setTextColor(Color.BLACK);
+		displayMethod2.setClickable(false);
+		displayMethod2.setBackgroundColor(Color.WHITE);
+		displayMethod2.setTextSize(14);
+		displayMethod2.setNumberOfBells(method.getPlayingOn());
+		displayMethod2.setTypeface(Typeface.MONOSPACE); 
+		
+		method = new Method((Method) SingletonData.get(getActivity()).getChosenMethod().get(0));
+		method.initialize(Integer.parseInt(Utils.stageToNumBells(SingletonData.get(getActivity()).getSetup().getStage())), Composition.TOUCH_WITH_BOBS_AND_SINGLES, 5);
+
+		displayMethod2.setText(method.displayBob("single"));  
+
+		
+		LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+		params2.setMargins(20,20,20, 0);
+		displayMethod2.setLayoutParams(params2);
+		
+		linLayout.addView(displayMethod2);
+
 
 		return v;
 

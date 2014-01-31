@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:background="#325C74"
-                android:text="AVG"
+                android:text="SCORE"
                 android:textColor="#FFFFFF" />
 
             <TextView
