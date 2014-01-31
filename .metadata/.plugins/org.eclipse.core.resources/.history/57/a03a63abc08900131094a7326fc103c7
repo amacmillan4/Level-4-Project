@@ -192,6 +192,7 @@ public class Method{
 
 		ArrayList<String> unreversedMethodChanges = new ArrayList<String>();
 
+		System.out.println(methodString);
 		//If it is an asynchronous method this will be empty
 		if(methodString.equals(""))
 			return unreversedMethodChanges;
@@ -394,6 +395,7 @@ public class Method{
 			}			
 
 			if (currentMethodSection == playingOnBells || ((currentMethodSection == 0 && currentOperationSection == 0))){
+				System.out.println(currentLine);
 				currentLine = calcLine(currentLine, methodChanges.get(currentOperationSection++));
 				currentMethodSection = 0;
 			}

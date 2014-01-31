@@ -409,34 +409,17 @@ public class FragmentPlayMethod extends Fragment {
 					//Nullify listeners while playing
 					for (BellImageView b: bellImageViews)
 						b.setClickable(false);
-					
-					//Ensures the view draws the lines
-					methodView.drawLines(true);
-
-					//Sets which bell the user is playing
-					methodView.setBell(bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString());
-
 
 				}
 			}); 
-			
-			
+
+
+
 			while (status != MethodStatus.STANDING){
 
-				
-				if (i % methodCopy.getPlayingOn() == 0 && (status == MethodStatus.PLAYING || status == MethodStatus.GO_TO_STAND || status == MethodStatus.GO_TO_ROUNDS)){
-					round = round + 1;
-					final int temp = round;
-					mHandler.post(new Runnable() {
-						@Override
-						public void run() {
-							txtMethodName.setText("" + temp);
-						}
-					}); 
-				}
-				
 				//Re-initialise scoring variables
 				final String next = methodCopy.calcNext();
+
 
 				//If text reaches the length of the number of bells then it is due a new line character
 				if ((currentText.length() - methodCopy.getPlayingOn()) % ((methodCopy.getPlayingOn()) + 1) == 0 && currentText.length() >= methodCopy.getPlayingOn())
@@ -475,6 +458,13 @@ public class FragmentPlayMethod extends Fragment {
 							updatedScore = true;
 							txtscore.setText(score.calculateScore(playTime, pressTime) + "");
 						}
+
+						//Ensures the view draws the lines
+						methodView.drawLines(true);
+
+						//Sets which bell the user is playing
+						methodView.setBell(bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString());
+
 						//Displays the correct amount of text on screen
 						methodView.setLimitingText(methodCopy.getPlayingOn(), cText, 6);
 
@@ -486,7 +476,16 @@ public class FragmentPlayMethod extends Fragment {
 					}
 				}); 
 
-				
+				if (i % methodCopy.getPlayingOn() == 0){
+					round = round + 1;
+					final int temp = round;
+					mHandler.post(new Runnable() {
+						@Override
+						public void run() {
+							txtMethodName.setText("" + temp);
+						}
+					}); 
+				}
 
 				i++;
 

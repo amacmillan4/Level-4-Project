@@ -409,18 +409,16 @@ public class FragmentPlayMethod extends Fragment {
 					//Nullify listeners while playing
 					for (BellImageView b: bellImageViews)
 						b.setClickable(false);
-					
-					//Ensures the view draws the lines
-					methodView.drawLines(true);
-
-					//Sets which bell the user is playing
-					methodView.setBell(bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString());
-
 
 				}
 			}); 
 			
-			
+			//Ensures the view draws the lines
+			methodView.drawLines(true);
+
+			//Sets which bell the user is playing
+			methodView.setBell(bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString());
+
 			while (status != MethodStatus.STANDING){
 
 				

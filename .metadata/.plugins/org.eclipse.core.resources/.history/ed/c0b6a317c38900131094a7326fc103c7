@@ -36,8 +36,6 @@ public class FragmentSelectMethod extends Fragment {
 		setRetainInstance(true);
 	}
 
-
-
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
 		

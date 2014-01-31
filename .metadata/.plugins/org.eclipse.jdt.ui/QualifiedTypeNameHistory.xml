@@ -21,10 +21,10 @@
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="android.widget.RelativeLayout.LayoutParams"/>
 <fullyQualifiedTypeName name="android.content.pm.ActivityInfo"/>
-<fullyQualifiedTypeName name="project.android.bellringing.R.id"/>
 <fullyQualifiedTypeName name="android.R"/>
 <fullyQualifiedTypeName name="project.android.bellringing.R"/>
 <fullyQualifiedTypeName name="android.os.AsyncTask.Status"/>
 <fullyQualifiedTypeName name="project.android.bellringing.all.MethodStatus"/>
 <fullyQualifiedTypeName name="java.math.BigDecimal"/>
+<fullyQualifiedTypeName name="project.android.bellringing.R.id"/>
 </qualifiedTypeNameHistroy>

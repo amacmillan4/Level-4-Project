@@ -388,14 +388,10 @@ public class FragmentPlayMethod extends Fragment {
 		@Override
 		protected synchronized Void doInBackground(Void... arg0) {
 
-			//Variables
 			final ArrayList<String> bells = new ArrayList<String>();
-			String currentText = "";
-			int i = 0;
-			int round = 0;
-			pressTime = 0;
-			playTime = 0;
 
+
+			//Set up bells to be rung
 			for (char a: possibleBellNumbering){
 				bells.add(a + "");
 			}
@@ -409,41 +405,35 @@ public class FragmentPlayMethod extends Fragment {
 					//Nullify listeners while playing
 					for (BellImageView b: bellImageViews)
 						b.setClickable(false);
-					
-					//Ensures the view draws the lines
-					methodView.drawLines(true);
-
-					//Sets which bell the user is playing
-					methodView.setBell(bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString());
-
 
 				}
 			}); 
-			
-			
+
+			String currentText = "";
+			String x = "";
+			int i= 0;
+
+			pressTime = 0;
+			playTime = 0;
+
 			while (status != MethodStatus.STANDING){
 
-				
-				if (i % methodCopy.getPlayingOn() == 0 && (status == MethodStatus.PLAYING || status == MethodStatus.GO_TO_STAND || status == MethodStatus.GO_TO_ROUNDS)){
-					round = round + 1;
-					final int temp = round;
-					mHandler.post(new Runnable() {
-						@Override
-						public void run() {
-							txtMethodName.setText("" + temp);
-						}
-					}); 
-				}
-				
 				//Re-initialise scoring variables
-				final String next = methodCopy.calcNext();
+				String n = methodCopy.calcNext();
+
+				final String next = n;
+
+				x = next;
+
+				final String copyX = x;
 
 				//If text reaches the length of the number of bells then it is due a new line character
 				if ((currentText.length() - methodCopy.getPlayingOn()) % ((methodCopy.getPlayingOn()) + 1) == 0 && currentText.length() >= methodCopy.getPlayingOn())
 					currentText += "\n";
 
 				//Add the next letter to the current text
-				currentText += next;
+				currentText += x;
+
 
 				final String cText = currentText;
 
@@ -475,18 +465,25 @@ public class FragmentPlayMethod extends Fragment {
 							updatedScore = true;
 							txtscore.setText(score.calculateScore(playTime, pressTime) + "");
 						}
+
+						//Ensures the view draws the lines
+						methodView.drawLines(true);
+
+						//Sets which bell the user is playing
+						methodView.setBell(bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString());
+
 						//Displays the correct amount of text on screen
 						methodView.setLimitingText(methodCopy.getPlayingOn(), cText, 6);
 
 						txtRound.setText(methodCopy.textBobSinglePlain());
+						//						if (cText.contains("\n"))
+						//							txtMethodName.setText("" + (Integer.parseInt(txtMethodName.getText().toString())+1));
 
 						//Switch the bell position
-						BellImageView b = (BellImageView)v.findViewById(bells.indexOf(next) + 1);
+						BellImageView b = (BellImageView)v.findViewById(bells.indexOf(copyX) + 1);
 						b.switchImage((Integer) b.getTag(), images);
 					}
 				}); 
-
-				
 
 				i++;
 

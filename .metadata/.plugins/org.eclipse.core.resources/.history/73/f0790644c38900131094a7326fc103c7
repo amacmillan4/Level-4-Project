@@ -141,6 +141,11 @@ public class FragmentSelectMethod extends Fragment {
 					
 					if (selectedMethod.size() == 0)
 						item.performClick();
+					else{
+						item.performClick();
+						item.performClick();
+					}
+						
 
 					ArrayList<Method> a = new ArrayList<Method>();
 

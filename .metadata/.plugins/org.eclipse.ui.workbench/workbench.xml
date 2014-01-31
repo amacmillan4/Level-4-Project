@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="31" version="2.0">
+<workbench progressCount="26" version="2.0">
 <workbenchAdvisor/>
 <window height="768" maximized="true" width="1024" x="624" y="-16">
 <fastViewData fastViewLocation="1024"/>
@@ -25,8 +25,8 @@
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="org.eclipse.ui.browser.editor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="com.android.ide.eclipse.editors.CommonXmlEditor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="com.android.ide.eclipse.editors.CommonXmlEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
@@ -35,10 +35,94 @@
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
+<part id="7"/>
+<part id="8"/>
+<part id="9"/>
+<part id="10"/>
+<part id="11"/>
+<part id="12"/>
+<part id="13"/>
+<part id="14"/>
+<part id="15"/>
+<part id="16"/>
+</presentation>
 </folder>
 </info>
 </editorArea>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Method.java" partName="Method.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/all/Method.java" title="Method.java" tooltip="15-11-Project/src/project/android/bellringing/all/Method.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/all/Method.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="10547" selectionTopPixel="4995"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FragmentPlayMethod.java" partName="FragmentPlayMethod.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/fragments/FragmentPlayMethod.java" title="FragmentPlayMethod.java" tooltip="15-11-Project/src/project/android/bellringing/fragments/FragmentPlayMethod.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/fragments/FragmentPlayMethod.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="12593" selectionTopPixel="4139"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FragmentSetup.java" partName="FragmentSetup.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/fragments/FragmentSetup.java" title="FragmentSetup.java" tooltip="15-11-Project/src/project/android/bellringing/fragments/FragmentSetup.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/fragments/FragmentSetup.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="285" selectionOffset="5205" selectionTopPixel="1440"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivityAddMethodsFromFile.java" partName="ActivityAddMethodsFromFile.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/activities/ActivityAddMethodsFromFile.java" title="ActivityAddMethodsFromFile.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivityAddMethodsFromFile.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/activities/ActivityAddMethodsFromFile.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="356" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AbstractActivity.java" partName="AbstractActivity.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/activities/AbstractActivity.java" title="AbstractActivity.java" tooltip="15-11-Project/src/project/android/bellringing/activities/AbstractActivity.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/activities/AbstractActivity.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="467" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivityDisplayMethod.java" partName="ActivityDisplayMethod.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/activities/ActivityDisplayMethod.java" title="ActivityDisplayMethod.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivityDisplayMethod.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/activities/ActivityDisplayMethod.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="178" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivityLoadMethodTypes.java" partName="ActivityLoadMethodTypes.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/activities/ActivityLoadMethodTypes.java" title="ActivityLoadMethodTypes.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivityLoadMethodTypes.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/activities/ActivityLoadMethodTypes.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="180" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivityPlayMethod.java" partName="ActivityPlayMethod.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/activities/ActivityPlayMethod.java" title="ActivityPlayMethod.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivityPlayMethod.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/activities/ActivityPlayMethod.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="175" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivitySelectMethod.java" partName="ActivitySelectMethod.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/activities/ActivitySelectMethod.java" title="ActivitySelectMethod.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivitySelectMethod.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/activities/ActivitySelectMethod.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="177" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivitySelectPealTime.java" partName="ActivitySelectPealTime.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/activities/ActivitySelectPealTime.java" title="ActivitySelectPealTime.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivitySelectPealTime.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/activities/ActivitySelectPealTime.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="179" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivitySelectStage.java" partName="ActivitySelectStage.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/activities/ActivitySelectStage.java" title="ActivitySelectStage.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivitySelectStage.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/activities/ActivitySelectStage.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="176" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivitySetup.java" partName="ActivitySetup.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/activities/ActivitySetup.java" title="ActivitySetup.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivitySetup.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/activities/ActivitySetup.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="16" selectionOffset="154" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivitySelectComposition.java" partName="ActivitySelectComposition.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/activities/ActivitySelectComposition.java" title="ActivitySelectComposition.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivitySelectComposition.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/activities/ActivitySelectComposition.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="182" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FragmentDisplayMethod.java" partName="FragmentDisplayMethod.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/fragments/FragmentDisplayMethod.java" title="FragmentDisplayMethod.java" tooltip="15-11-Project/src/project/android/bellringing/fragments/FragmentDisplayMethod.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/fragments/FragmentDisplayMethod.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1753" selectionTopPixel="251"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FragmentSelectMethod.java" partName="FragmentSelectMethod.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/fragments/FragmentSelectMethod.java" title="FragmentSelectMethod.java" tooltip="15-11-Project/src/project/android/bellringing/fragments/FragmentSelectMethod.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/fragments/FragmentSelectMethod.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4350" selectionTopPixel="1654"/>
+</editor>
+<editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="method_choice_title.xml" partName="method_choice_title.xml" path="C:/Users/Allan/Level-4-Project/15-11-Project/res/layout/method_choice_title.xml" title="method_choice_title.xml" tooltip="15-11-Project/res/layout/method_choice_title.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/res/layout/method_choice_title.xml"/>
+</editor>
+<editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="method_choice_item.xml" partName="method_choice_item.xml" path="C:/Users/Allan/Level-4-Project/15-11-Project/res/layout/method_choice_item.xml" title="method_choice_item.xml" tooltip="15-11-Project/res/layout/method_choice_item.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/res/layout/method_choice_item.xml"/>
+</editor>
 </editors>
 <views>
 <view id="com.android.ide.eclipse.ddms.views.LogCatView" partName="LogCat">
@@ -47,8 +131,8 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (8 items)"/>
 <category IMemento.internal.id="Errors"/>
+<category IMemento.internal.id="Warnings (20 items)"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -95,7 +179,7 @@
 </view>
 <view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
 </views>
-<perspectives activePart="org.eclipse.jdt.ui.PackageExplorer" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jdt.internal.ui.JavaPerspectiveFactory" id="org.eclipse.jdt.ui.JavaPerspective" label="Java"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
@@ -246,7 +330,172 @@
 </perspective>
 </perspectives>
 <workingSets/>
-<navigationHistory/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/all/Method.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/fragments/FragmentPlayMethod.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/fragments/FragmentSetup.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/activities/ActivityAddMethodsFromFile.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/activities/AbstractActivity.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/activities/ActivityDisplayMethod.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/activities/ActivityLoadMethodTypes.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/activities/ActivityPlayMethod.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/activities/ActivitySelectMethod.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/activities/ActivitySelectPealTime.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/activities/ActivitySelectStage.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/activities/ActivitySetup.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/activities/ActivitySelectComposition.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/fragments/FragmentDisplayMethod.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/fragments/FragmentSelectMethod.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/15-11-Project/res/layout/fragment_select_method.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/15-11-Project/res/layout/method_choice_title.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/15-11-Project/res/layout/method_choice_item.xml"/>
+</editors>
+<item historyLabel="Method.java" index="0">
+<position info="not_deleted" x="4806" y="0"/>
+</item>
+<item historyLabel="FragmentPlayMethod.java" index="1">
+<position info="not_deleted" x="15197" y="0"/>
+</item>
+<item historyLabel="Method.java" index="0">
+<position info="not_deleted" x="4941" y="0"/>
+</item>
+<item historyLabel="FragmentPlayMethod.java" index="1">
+<position info="not_deleted" x="15197" y="0"/>
+</item>
+<item historyLabel="FragmentPlayMethod.java" index="1">
+<position info="not_deleted" x="12949" y="0"/>
+</item>
+<item historyLabel="FragmentPlayMethod.java" index="1">
+<position info="not_deleted" x="15924" y="0"/>
+</item>
+<item historyLabel="FragmentPlayMethod.java" index="1">
+<position info="not_deleted" x="12593" y="0"/>
+</item>
+<item historyLabel="FragmentSetup.java" index="2">
+<position info="not_deleted" x="5205" y="285"/>
+</item>
+<item historyLabel="ActivityAddMethodsFromFile.java" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="AbstractActivity.java" index="4">
+<position info="not_deleted" x="306" y="0"/>
+</item>
+<item historyLabel="ActivityAddMethodsFromFile.java" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="AbstractActivity.java" index="4">
+<position info="not_deleted" x="354" y="0"/>
+</item>
+<item historyLabel="ActivityAddMethodsFromFile.java" index="3">
+<position info="not_deleted" x="190" y="166"/>
+</item>
+<item historyLabel="AbstractActivity.java" index="4">
+<position info="not_deleted" x="687" y="0"/>
+</item>
+<item historyLabel="FragmentSetup.java" index="2">
+<position info="not_deleted" x="5205" y="285"/>
+</item>
+<item historyLabel="AbstractActivity.java" index="4">
+<position info="not_deleted" x="313" y="16"/>
+</item>
+<item historyLabel="ActivityAddMethodsFromFile.java" index="3">
+<position info="not_deleted" x="356" y="0"/>
+</item>
+<item historyLabel="ActivityDisplayMethod.java" index="5">
+<position info="not_deleted" x="345" y="0"/>
+</item>
+<item historyLabel="ActivityLoadMethodTypes.java" index="6">
+<position info="not_deleted" x="350" y="0"/>
+</item>
+<item historyLabel="ActivityPlayMethod.java" index="7">
+<position info="not_deleted" x="339" y="0"/>
+</item>
+<item historyLabel="ActivityLoadMethodTypes.java" index="6">
+<position info="not_deleted" x="350" y="0"/>
+</item>
+<item historyLabel="ActivityDisplayMethod.java" index="5">
+<position info="not_deleted" x="345" y="0"/>
+</item>
+<item historyLabel="ActivityAddMethodsFromFile.java" index="3">
+<position info="not_deleted" x="356" y="0"/>
+</item>
+<item historyLabel="ActivityPlayMethod.java" index="7">
+<position info="not_deleted" x="339" y="0"/>
+</item>
+<item historyLabel="ActivitySelectMethod.java" index="8">
+<position info="not_deleted" x="345" y="0"/>
+</item>
+<item historyLabel="ActivitySelectPealTime.java" index="9">
+<position info="not_deleted" x="347" y="0"/>
+</item>
+<item historyLabel="ActivitySelectStage.java" index="10">
+<position info="not_deleted" x="344" y="0"/>
+</item>
+<item historyLabel="ActivitySetup.java" index="11">
+<position info="not_deleted" x="154" y="16"/>
+</item>
+<item historyLabel="ActivitySelectStage.java" index="10">
+<position info="not_deleted" x="176" y="0"/>
+</item>
+<item historyLabel="ActivitySelectPealTime.java" index="9">
+<position info="not_deleted" x="179" y="0"/>
+</item>
+<item historyLabel="ActivitySelectMethod.java" index="8">
+<position info="not_deleted" x="177" y="0"/>
+</item>
+<item historyLabel="ActivitySelectComposition.java" index="12">
+<position info="not_deleted" x="182" y="0"/>
+</item>
+<item historyLabel="ActivityPlayMethod.java" index="7">
+<position info="not_deleted" x="175" y="0"/>
+</item>
+<item historyLabel="ActivityLoadMethodTypes.java" index="6">
+<position info="not_deleted" x="180" y="0"/>
+</item>
+<item historyLabel="ActivityDisplayMethod.java" index="5">
+<position info="not_deleted" x="178" y="0"/>
+</item>
+<item historyLabel="ActivityAddMethodsFromFile.java" index="3">
+<position info="not_deleted" x="356" y="0"/>
+</item>
+<item historyLabel="ActivityDisplayMethod.java" index="5">
+<position info="not_deleted" x="178" y="0"/>
+</item>
+<item historyLabel="AbstractActivity.java" index="4">
+<position info="not_deleted" x="467" y="0"/>
+</item>
+<item historyLabel="FragmentDisplayMethod.java" index="13">
+<position info="not_deleted" x="1817" y="0"/>
+</item>
+<item historyLabel="FragmentSelectMethod.java" index="14">
+<position info="not_deleted" x="4225" y="0"/>
+</item>
+<item historyLabel="FragmentDisplayMethod.java" index="13">
+<position info="not_deleted" x="1753" y="0"/>
+</item>
+<item historyLabel="FragmentSelectMethod.java" index="14">
+<position info="not_deleted" x="4617" y="6"/>
+</item>
+<item historyLabel="Method.java" index="0">
+<position info="not_deleted" x="10547" y="0"/>
+</item>
+<item historyLabel="FragmentSelectMethod.java" index="14">
+<position info="not_deleted" x="4352" y="0"/>
+</item>
+<item historyLabel="fragment_select_method.xml" index="15"/>
+<item historyLabel="FragmentSelectMethod.java" index="14">
+<position info="not_deleted" x="4352" y="0"/>
+</item>
+<item historyLabel="method_choice_title.xml" index="16"/>
+<item historyLabel="FragmentSelectMethod.java" index="14">
+<position info="not_deleted" x="4352" y="0"/>
+</item>
+<item historyLabel="method_choice_item.xml" index="17"/>
+<item active="true" historyLabel="FragmentSelectMethod.java" index="14">
+<position info="not_deleted" x="4352" y="0"/>
+</item>
+</navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
@@ -266,50 +515,50 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Composition.java" tooltip="15-11-Project/src/project/android/bellringing/all/Composition.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/all/Composition.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="method_choice_item.xml" tooltip="15-11-Project/res/layout/method_choice_item.xml">
+<persistable path="/15-11-Project/res/layout/method_choice_item.xml"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ImageId.java" tooltip="15-11-Project/src/project/android/bellringing/all/ImageId.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/all/ImageId.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="method_choice_title.xml" tooltip="15-11-Project/res/layout/method_choice_title.xml">
+<persistable path="/15-11-Project/res/layout/method_choice_title.xml"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="fragment_play_method.xml" tooltip="15-11-Project/res/layout-land/fragment_play_method.xml">
-<persistable path="/15-11-Project/res/layout-land/fragment_play_method.xml"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="fragment_select_method.xml" tooltip="15-11-Project/res/layout/fragment_select_method.xml">
+<persistable path="/15-11-Project/res/layout/fragment_select_method.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FragmentSelectMethod.java" tooltip="15-11-Project/src/project/android/bellringing/fragments/FragmentSelectMethod.java">
+<persistable path="/15-11-Project/src/project/android/bellringing/fragments/FragmentSelectMethod.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FragmentDisplayMethod.java" tooltip="15-11-Project/src/project/android/bellringing/fragments/FragmentDisplayMethod.java">
+<persistable path="/15-11-Project/src/project/android/bellringing/fragments/FragmentDisplayMethod.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivitySelectComposition.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivitySelectComposition.java">
+<persistable path="/15-11-Project/src/project/android/bellringing/activities/ActivitySelectComposition.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivitySetup.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivitySetup.java">
+<persistable path="/15-11-Project/src/project/android/bellringing/activities/ActivitySetup.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivitySelectStage.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivitySelectStage.java">
+<persistable path="/15-11-Project/src/project/android/bellringing/activities/ActivitySelectStage.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivitySelectPealTime.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivitySelectPealTime.java">
+<persistable path="/15-11-Project/src/project/android/bellringing/activities/ActivitySelectPealTime.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivitySelectMethod.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivitySelectMethod.java">
+<persistable path="/15-11-Project/src/project/android/bellringing/activities/ActivitySelectMethod.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivityPlayMethod.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivityPlayMethod.java">
 <persistable path="/15-11-Project/src/project/android/bellringing/activities/ActivityPlayMethod.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LinesView.java" tooltip="15-11-Project/src/project/android/bellringing/all/LinesView.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/all/LinesView.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivityLoadMethodTypes.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivityLoadMethodTypes.java">
+<persistable path="/15-11-Project/src/project/android/bellringing/activities/ActivityLoadMethodTypes.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ShowView.java" tooltip="15-11-Project/src/project/android/bellringing/all/ShowView.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/all/ShowView.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivityDisplayMethod.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivityDisplayMethod.java">
+<persistable path="/15-11-Project/src/project/android/bellringing/activities/ActivityDisplayMethod.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="fragment_play_method.xml" tooltip="15-11-Project/res/layout/fragment_play_method.xml">
-<persistable path="/15-11-Project/res/layout/fragment_play_method.xml"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AbstractActivity.java" tooltip="15-11-Project/src/project/android/bellringing/activities/AbstractActivity.java">
+<persistable path="/15-11-Project/src/project/android/bellringing/activities/AbstractActivity.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FragmentPlayMethod.java" tooltip="15-11-Project/src/project/android/bellringing/fragments/FragmentPlayMethod.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/fragments/FragmentPlayMethod.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="fragment_activity_interaction.xml" tooltip="15-11-Project/res/layout/fragment_activity_interaction.xml">
-<persistable path="/15-11-Project/res/layout/fragment_activity_interaction.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ain.java" tooltip="Test/src/ain.java">
-<persistable path="/Test/src/ain.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Method2.java" tooltip="15-11-Project/src/project/android/bellringing/all/Method2.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/all/Method2.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Time.java" tooltip="15-11-Project/src/project/android/bellringing/all/Time.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/all/Time.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Utils.java" tooltip="15-11-Project/src/project/android/bellringing/all/Utils.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/all/Utils.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BellImageView.java" tooltip="15-11-Project/src/project/android/bellringing/all/BellImageView.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/all/BellImageView.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MethodInteractionFragment.java" tooltip="15-11-Project/src/project/android/bellringing/all/MethodInteractionFragment.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/all/MethodInteractionFragment.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivityAddMethodsFromFile.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivityAddMethodsFromFile.java">
+<persistable path="/15-11-Project/src/project/android/bellringing/activities/ActivityAddMethodsFromFile.java"/>
 </file>
 </mruList>
 </workbench>
