@@ -2,10 +2,12 @@ package project.android.bellringing.activities;
 
 import project.android.bellringing.R;
 import project.android.bellringing.all.SingletonData;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
+import android.view.MenuItem;
 
 public abstract class AbstractActivity extends FragmentActivity{
 
@@ -25,6 +27,23 @@ public abstract class AbstractActivity extends FragmentActivity{
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle presses on the action bar items
+		
+		System.out.println("ALLAN");
+	    switch (item.getItemId()) {
+	        case R.id.help_button:
+	        	Intent i = new Intent(this, ActivityHelp.class);
+				startActivity(i); 
+	            return true;
+	        case R.id.action_settings:
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
 	}
 	
 	

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="project.android.bellringing"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="project.android.bellringing.activities.ActivitySetup"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Holo.Light" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="project.android.bellringing.activities.ActivityDisplayMethod"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Holo.Light" >
+        </activity>
+        <activity
+            android:name="project.android.bellringing.activities.ActivitySelectMethod"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Holo.Light" >
+        </activity>
+        <activity
+            android:name="project.android.bellringing.activities.ActivityLoadMethodTypes"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Holo.Light" >
+        </activity>
+        <activity
+            android:name="project.android.bellringing.activities.ActivityAddMethodsFromFile"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Holo.Light" >
+        </activity>
+        <activity
+            android:name="project.android.bellringing.activities.ActivitySelectStage"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Holo.Light" >
+        </activity>
+        <activity
+            android:name="project.android.bellringing.activities.ActivitySelectComposition"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Holo.Light" >
+        </activity>
+        <activity
+            android:name="project.android.bellringing.activities.ActivitySelectPealTime"
+            android:label="@string/app_name"
+            android:parentActivityName="com.example.myfirstapp.MainActivity"
+            android:theme="@android:style/Theme.Holo.Light" >
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="project.android.bellringing.activities.ActivitySetup"
+                android:value="project.android.bellringing.activities.ActivitySetup" >
+            </meta-data>
+        </activity>
+        <activity
+            android:name="project.android.bellringing.activities.ActivityPlayMethod"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Holo.Light" >
+        </activity>
+        <activity
+            android:name="project.android.bellringing.activities.ActivityHelp"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Holo.Light" >
+        </activity>
+    </application>
+
+</manifest>

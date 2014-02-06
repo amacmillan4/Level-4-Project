@@ -3,14 +3,14 @@ package project.android.bellringing.fragments;
 import java.util.ArrayList;
 
 import project.android.bellringing.R;
+import project.android.bellringing.activities.ActivityPlayMethod;
 import project.android.bellringing.activities.ActivitySelectComposition;
 import project.android.bellringing.activities.ActivitySelectMethod;
-import project.android.bellringing.activities.ActivityPlayMethod;
 import project.android.bellringing.activities.ActivitySelectPealTime;
 import project.android.bellringing.activities.ActivitySelectStage;
 import project.android.bellringing.all.Method;
-import project.android.bellringing.all.SingletonData;
 import project.android.bellringing.all.SetupInstructions;
+import project.android.bellringing.all.SingletonData;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;
