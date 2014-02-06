@@ -52,7 +52,7 @@ public class FragmentDisplayMethod extends Fragment {
 		boolean start = true;
 		int size = method.getMethodLeadEndLength();
 		
-		while (size > 20)
+		while (size > 34)
 			size = size/2;
 				
 		String x = "";

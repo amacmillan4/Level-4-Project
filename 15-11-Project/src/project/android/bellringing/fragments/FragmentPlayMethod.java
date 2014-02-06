@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import project.android.bellringing.R;
 import project.android.bellringing.activities.ActivityDisplayMethod;
+import project.android.bellringing.activities.ActivityHelp;
 import project.android.bellringing.all.ImageId;
 import project.android.bellringing.all.Method;
 import project.android.bellringing.all.Score;
@@ -147,7 +148,7 @@ public class FragmentPlayMethod extends Fragment {
 
 				pressTime = System.currentTimeMillis();
 
-				if(status == MethodStatus.PLAYING){
+				if(status != MethodStatus.GO_TO_STAND_FROM_ROUNDS){
 					bellAudio.play(getActivity(), bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString());
 					System.out.println("PRESS---------------------------------");
 
@@ -344,14 +345,16 @@ public class FragmentPlayMethod extends Fragment {
 			public void onClick(View v) {
 				if (status!= MethodStatus.STANDING){
 
-					if(paused)
-						//TODO Open Help page
-						;
+					if(paused){
+						Intent i = new Intent(getActivity(), ActivityHelp.class);
+						getActivity().startActivity(i); 
+					}
 					else
 						paused = true;
 				}
 				else{
-					//TODO Open Help page
+					Intent i = new Intent(getActivity(), ActivityHelp.class);
+					getActivity().startActivity(i); 
 				}
 
 				updateButtonText(status, paused);
@@ -404,7 +407,7 @@ public class FragmentPlayMethod extends Fragment {
 					//Nullify listeners while playing
 					for (BellImageView b: bellImageViews)
 						b.setClickable(false);
-					
+
 					//Ensures the view draws the lines
 					methodView.drawLines(true);
 
@@ -414,11 +417,11 @@ public class FragmentPlayMethod extends Fragment {
 
 				}
 			}); 
-			
-			
+
+
 			while (status != MethodStatus.STANDING){
 
-				
+
 				if (i % methodCopy.getPlayingOn() == 0 && (status == MethodStatus.PLAYING || status == MethodStatus.GO_TO_STAND || status == MethodStatus.GO_TO_ROUNDS)){
 					round = round + 1;
 					final int temp = round;
@@ -429,7 +432,7 @@ public class FragmentPlayMethod extends Fragment {
 						}
 					}); 
 				}
-				
+
 				//Re-initialise scoring variables
 				final String next = methodCopy.calcNext();
 
@@ -458,9 +461,6 @@ public class FragmentPlayMethod extends Fragment {
 					}
 				}
 
-				if (status == MethodStatus.ROUNDS || !userPlaying || (userPlaying && !bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next)))
-					bellAudio.play(getActivity(),next);
-
 				mHandler.post(new Runnable() {
 					@Override
 					public void run() {
@@ -481,7 +481,12 @@ public class FragmentPlayMethod extends Fragment {
 					}
 				}); 
 
-				
+
+				if (!userPlaying || (userPlaying && !bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next)))
+					bellAudio.play(getActivity(),next);
+
+
+
 
 				i++;
 
