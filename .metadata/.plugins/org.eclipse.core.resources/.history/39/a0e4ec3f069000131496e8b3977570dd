@@ -165,7 +165,7 @@ public class FragmentPlayMethod extends Fragment {
 					pressTimeLeft = System.currentTimeMillis();
 
 					if(status != MethodStatus.GO_TO_STAND_FROM_ROUNDS){
-						bellAudio.play(getActivity(), bellNumberTextViews.get(bellNumberTextViews.size() - 2).getText().toString());
+						bellAudio.play(getActivity(), bellNumberTextViews.get(0).getText().toString());
 					}
 
 

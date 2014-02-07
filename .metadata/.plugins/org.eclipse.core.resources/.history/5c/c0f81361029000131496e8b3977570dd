@@ -165,7 +165,7 @@ public class FragmentPlayMethod extends Fragment {
 					pressTimeLeft = System.currentTimeMillis();
 
 					if(status != MethodStatus.GO_TO_STAND_FROM_ROUNDS){
-						bellAudio.play(getActivity(), bellNumberTextViews.get(bellNumberTextViews.size() - 2).getText().toString());
+						bellAudio.play(getActivity(), bellNumberTextViews.get(0).getText().toString());
 					}
 
 
@@ -469,8 +469,7 @@ public class FragmentPlayMethod extends Fragment {
 				//Record the play time and play the bell
 				if (bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next))
 					playTimeRight = System.currentTimeMillis();
-				
-				else if(bellNumberTextViews.get(bellNumberTextViews.size() - 2).getText().toString().equals(next))
+				else if(bellNumberTextViews.get(0).getText().toString().equals(next))
 					playTimeLeft = System.currentTimeMillis();
 
 				//Waits for user
@@ -489,7 +488,7 @@ public class FragmentPlayMethod extends Fragment {
 				
 				//Waits for user
 				if (SingletonData.get(getActivity()).getSetup().isWaitForMe() 
-						&& bellNumberTextViews.get(bellNumberTextViews.size() - 2).getText().toString().equals(next) 
+						&& bellNumberTextViews.get(0).getText().toString().equals(next) 
 						&& (status == MethodStatus.PLAYING || status == MethodStatus.GO_TO_STAND || status == MethodStatus.GO_TO_ROUNDS)){
 
 					while (pressTimeLeft == 0) {
@@ -511,7 +510,7 @@ public class FragmentPlayMethod extends Fragment {
 							txvScoreRight.setText(scoreRight.calculateScore(playTimeRight, pressTimeRight) + "");
 						}
 
-						if (pressTimeLeft != 0 && bellNumberTextViews.get(bellNumberTextViews.size() - 2).getText().toString().equals(next) && status == MethodStatus.PLAYING){
+						if (pressTimeLeft != 0 && bellNumberTextViews.get(0).getText().toString().equals(next) && status == MethodStatus.PLAYING){
 							updatedScoreLeft = true;
 							txvScoreLeft.setText(scoreRight.calculateScore(playTimeLeft, pressTimeLeft) + "");
 						}
@@ -527,13 +526,12 @@ public class FragmentPlayMethod extends Fragment {
 					}
 				}); 
 
-	
-				
-				if ((userPlayingRight && bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next))
-						|| (userPlayingLeft && bellNumberTextViews.get(bellNumberTextViews.size() - 2).getText().toString().equals(next))){
-					//DO NOT PLAY
-				}
-				else
+
+				if (!userPlayingRight || (userPlayingRight && !bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next)))
+					bellAudio.play(getActivity(),next);
+
+
+				if (!userPlayingLeft || (userPlayingLeft && !bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next)))
 					bellAudio.play(getActivity(),next);
 
 				i++;

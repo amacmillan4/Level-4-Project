@@ -165,7 +165,7 @@ public class FragmentPlayMethod extends Fragment {
 					pressTimeLeft = System.currentTimeMillis();
 
 					if(status != MethodStatus.GO_TO_STAND_FROM_ROUNDS){
-						bellAudio.play(getActivity(), bellNumberTextViews.get(bellNumberTextViews.size() - 2).getText().toString());
+						bellAudio.play(getActivity(), bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString());
 					}
 
 
@@ -469,8 +469,7 @@ public class FragmentPlayMethod extends Fragment {
 				//Record the play time and play the bell
 				if (bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next))
 					playTimeRight = System.currentTimeMillis();
-				
-				else if(bellNumberTextViews.get(bellNumberTextViews.size() - 2).getText().toString().equals(next))
+				else if(bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next))
 					playTimeLeft = System.currentTimeMillis();
 
 				//Waits for user
@@ -486,20 +485,6 @@ public class FragmentPlayMethod extends Fragment {
 						}
 					}
 				}
-				
-				//Waits for user
-				if (SingletonData.get(getActivity()).getSetup().isWaitForMe() 
-						&& bellNumberTextViews.get(bellNumberTextViews.size() - 2).getText().toString().equals(next) 
-						&& (status == MethodStatus.PLAYING || status == MethodStatus.GO_TO_STAND || status == MethodStatus.GO_TO_ROUNDS)){
-
-					while (pressTimeLeft == 0) {
-						try {
-							wait(250);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-					}
-				}
 
 				mHandler.post(new Runnable() {
 					@Override
@@ -508,12 +493,12 @@ public class FragmentPlayMethod extends Fragment {
 						//TODO Calculate Score
 						if (pressTimeRight != 0 && bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next) && status == MethodStatus.PLAYING){
 							updatedScoreRight = true;
-							txvScoreRight.setText(scoreRight.calculateScore(playTimeRight, pressTimeRight) + "");
+							txvScoreRight.setText(score.calculateScore(playTimeRight, pressTimeRight) + "");
 						}
 
-						if (pressTimeLeft != 0 && bellNumberTextViews.get(bellNumberTextViews.size() - 2).getText().toString().equals(next) && status == MethodStatus.PLAYING){
+						if (pressTimeLeft != 0 && bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next) && status == MethodStatus.PLAYING){
 							updatedScoreLeft = true;
-							txvScoreLeft.setText(scoreRight.calculateScore(playTimeLeft, pressTimeLeft) + "");
+							txvScoreLeft.setText(score.calculateScore(playTimeLeft, pressTimeLeft) + "");
 						}
 
 						//Displays the correct amount of text on screen
@@ -527,13 +512,12 @@ public class FragmentPlayMethod extends Fragment {
 					}
 				}); 
 
-	
-				
-				if ((userPlayingRight && bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next))
-						|| (userPlayingLeft && bellNumberTextViews.get(bellNumberTextViews.size() - 2).getText().toString().equals(next))){
-					//DO NOT PLAY
-				}
-				else
+
+				if (!userPlayingRight || (userPlayingRight && !bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next)))
+					bellAudio.play(getActivity(),next);
+
+
+				if (!userPlayingLeft || (userPlayingLeft && !bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next)))
 					bellAudio.play(getActivity(),next);
 
 				i++;
@@ -550,9 +534,9 @@ public class FragmentPlayMethod extends Fragment {
 								if (!updatedScoreLeft){
 
 									if (pressTimeLeft != 0)
-										txvScoreLeft.setText(scoreLeft.calculateScore(playTimeLeft, pressTimeLeft) + "");
+										txvScoreLeft.setText(score.calculateScore(playTimeLeft, pressTimeLeft) + "");
 									else
-										txvScoreLeft.setText(scoreLeft.calculateScore(playTimeLeft, 0) + "");
+										txvScoreLeft.setText(score.calculateScore(playTimeLeft, 0) + "");
 
 								}
 								pressTimeLeft = 0;
@@ -571,9 +555,9 @@ public class FragmentPlayMethod extends Fragment {
 								if (!updatedScoreRight){
 
 									if (pressTimeRight != 0)
-										txvScoreRight.setText(scoreRight.calculateScore(playTimeRight, pressTimeRight) + "");
+										txvScoreRight.setText(score.calculateScore(playTimeRight, pressTimeRight) + "");
 									else
-										txvScoreRight.setText(scoreRight.calculateScore(playTimeRight, 0) + "");
+										txvScoreRight.setText(score.calculateScore(playTimeRight, 0) + "");
 
 								}
 								pressTimeRight = 0;
@@ -615,8 +599,8 @@ public class FragmentPlayMethod extends Fragment {
 
 								@Override
 								public void run() {
-									txvScoreLeft.setText("" + scoreLeft.getAverage());
-									txvScoreRight.setText("" + scoreRight.getAverage());
+									txvScoreLeft.setText("" + score.getAverage());
+									txvScoreRight.setText("" + score.getAverage());
 								}});
 
 							method = new Method((Method) SingletonData.get(getActivity()).getChosenMethod().get(0));
