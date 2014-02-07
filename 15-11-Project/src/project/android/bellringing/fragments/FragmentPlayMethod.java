@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import project.android.bellringing.R;
 import project.android.bellringing.activities.ActivityDisplayMethod;
 import project.android.bellringing.activities.ActivityHelp;
+import project.android.bellringing.all.AudioPlayer;
 import project.android.bellringing.all.ImageId;
 import project.android.bellringing.all.Method;
 import project.android.bellringing.all.Score;
 import project.android.bellringing.all.SingletonData;
 import project.android.bellringing.utilities.MethodStatus;
 import project.android.bellringing.utilities.Utils;
-import project.android.bellringing.views.AudioPlayer;
 import project.android.bellringing.views.BellImageView;
 import project.android.bellringing.views.LinesView;
 import android.app.Activity;
@@ -23,6 +23,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -47,7 +48,7 @@ public class FragmentPlayMethod extends Fragment {
 	AudioPlayer bellAudio;
 	DisplayMethod displayMethodThread = new DisplayMethod();
 
-	private Method methodCopy;
+	private Method method;
 
 	Button showButton, runButton, helpButton;
 	int numOfBells;
@@ -79,11 +80,6 @@ public class FragmentPlayMethod extends Fragment {
 	}
 
 	@Override
-	public void onResume(){
-		super.onResume();	
-	}
-
-	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setRetainInstance(false);
@@ -98,22 +94,22 @@ public class FragmentPlayMethod extends Fragment {
 		//Setup
 		status = MethodStatus.STANDING;
 
-		methodCopy = new Method(SingletonData.get(getActivity()).getChosenMethod().get(0));
+		method = new Method(SingletonData.get(getActivity()).getChosenMethod().get(0));
 
 		numOfBells = Integer.parseInt(Utils.stageToNumBells(SingletonData.get(getActivity()).getSetup().getStage()));
 		if (numOfBells % 2 == 1 && (!SingletonData.get(getActivity()).getSetup().getStage().equals("Doubles"))){
 			numOfBells = numOfBells + 1;
 		}
 
-		methodCopy.initialize(numOfBells, Utils.getComposition(SingletonData.get(getActivity()).getSetup().getComposition()), 0);
+		method.initialize(numOfBells, Utils.getComposition(SingletonData.get(getActivity()).getSetup().getComposition()), 0);
 
 		boolean handbells = SingletonData.get(getActivity()).getSetup().getHandbellsOrNot();
 		String peal = SingletonData.get(getActivity()).getSetup().getPealTime();
 
 		if (SingletonData.get(getActivity()).getSetup().isHandstrokeGap())
-			interval = Utils.timeToMilliseconds(Integer.parseInt(peal.split(":")[0]),Integer.parseInt(peal.split(":")[1]))/(2500*(2*methodCopy.getPlayingOn()));
+			interval = Utils.timeToMilliseconds(Integer.parseInt(peal.split(":")[0]),Integer.parseInt(peal.split(":")[1]))/(2500*(2*method.getPlayingOn()));
 		else
-			interval = Utils.timeToMilliseconds(Integer.parseInt(peal.split(":")[0]),Integer.parseInt(peal.split(":")[1]))/(2500*(2*methodCopy.getPlayingOn() + 1));
+			interval = Utils.timeToMilliseconds(Integer.parseInt(peal.split(":")[0]),Integer.parseInt(peal.split(":")[1]))/(2500*(2*method.getPlayingOn() + 1));
 
 		bellAudio = new AudioPlayer(getActivity(), handbells);
 		images = new ImageId(SingletonData.get(getActivity()).getSetup().getHandbellsOrNot());
@@ -138,12 +134,10 @@ public class FragmentPlayMethod extends Fragment {
 
 		//Get handle on LinearLayout to display bells
 		LinearLayout globalLinearLayout = (LinearLayout) v.findViewById(R.id.globalView);
-		globalLinearLayout.setOnClickListener(new View.OnClickListener() {
+		globalLinearLayout.setOnTouchListener(new View.OnTouchListener() {
 
-			//Used for interacting with the bells
 			@Override
-			public void onClick(View view) {
-
+			public boolean onTouch(View v, MotionEvent event) {
 				userPlaying = true;
 
 				pressTime = System.currentTimeMillis();
@@ -153,6 +147,7 @@ public class FragmentPlayMethod extends Fragment {
 					System.out.println("PRESS---------------------------------");
 
 				}
+				return false;
 			}
 		});
 
@@ -168,18 +163,18 @@ public class FragmentPlayMethod extends Fragment {
 		relativeLayoutTopScreen.getLayoutParams().width = widthRelLayout;
 
 		int heightRelLayout = widthRelLayout;
-		int scale = (int) ((heightRelLayout/ ((methodCopy.getPlayingOn() + 1)/2)) *0.8);
+		int scale = (int) ((heightRelLayout/ ((method.getPlayingOn() + 1)/2)) *0.8);
 
 		//Starting positions
 		int pos = ((int) (widthRelLayout/2 - scale*1.2));
 		int posX = (int) (heightRelLayout/2 - scale * 0.6);
 
-		if (methodCopy.getPlayingOn() <= 6){
+		if (method.getPlayingOn() <= 6){
 			scale = (int) (scale * 0.6);
 		}
 
 		//When there are 4 bells the positions need tweaked
-		if (methodCopy.getPlayingOn() == 4){
+		if (method.getPlayingOn() == 4){
 			pos = (int) Utils.dpToPx(25, v.getContext());
 			posX = (int) Utils.dpToPx(110, v.getContext());
 		}
@@ -189,62 +184,62 @@ public class FragmentPlayMethod extends Fragment {
 		double b = 0;
 
 		//Display the IMAGEviews
-		for (int i = 0; bellImageViews.size() < methodCopy.getPlayingOn();  i++ ){
+		for (int i = 0; bellImageViews.size() < method.getPlayingOn();  i++ ){
 
 			//Use cos and sin to create circle of ImageViews
-			a = pos - pos * Math.sin(Math.toRadians((i) * 180/ (int) ((methodCopy.getPlayingOn() - 1 )/ 2)));
-			b = posX - posX * Math.cos(Math.toRadians((i) * 180/ (int) ((methodCopy.getPlayingOn() - 1 )/ 2)));
+			a = pos - pos * Math.sin(Math.toRadians((i) * 180/ (int) ((method.getPlayingOn() - 1 )/ 2)));
+			b = posX - posX * Math.cos(Math.toRadians((i) * 180/ (int) ((method.getPlayingOn() - 1 )/ 2)));
 
-			if(methodCopy.getPlayingOn() == 5 && i == 0){
+			if(method.getPlayingOn() == 5 && i == 0){
 				a = widthRelLayout/2 - scale/2;
 				b = 2;
 
-				bellImageViews.add(initializeImgViews(getActivity(),((methodCopy.getPlayingOn()+1)/2) - i,images.getLeftDown(),RelativeLayout.ALIGN_PARENT_LEFT,
+				bellImageViews.add(initializeImgViews(getActivity(),((method.getPlayingOn()+1)/2) - i,images.getLeftDown(),RelativeLayout.ALIGN_PARENT_LEFT,
 						(int) a,0,(int) b,scale - (i)));
 				TextView t1 = new TextView(getActivity());
-				t1.setId(20 + (methodCopy.getPlayingOn()+1/2));
+				t1.setId(20 + (method.getPlayingOn()+1/2));
 				RelativeLayout.LayoutParams params1 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
 				params1.setMargins((int) a + 2 , (int) (b + scale/2), 0, 0);
 				t1.setLayoutParams(params1);
 				t1.setBackgroundColor(Color.WHITE);
-				t1.setText(Utils.bellsToBellNumber("" + ((methodCopy.getPlayingOn() + 1)/2)));
+				t1.setText(Utils.bellsToBellNumber("" + ((method.getPlayingOn() + 1)/2)));
 				bellNumberTextViews.add(t1);
 
 				continue;
 			}
 
-			bellImageViews.add(initializeImgViews(getActivity(),((methodCopy.getPlayingOn()+1)/2) - i,images.getLeftDown(),RelativeLayout.ALIGN_PARENT_LEFT,
+			bellImageViews.add(initializeImgViews(getActivity(),((method.getPlayingOn()+1)/2) - i,images.getLeftDown(),RelativeLayout.ALIGN_PARENT_LEFT,
 					(int) a,0,(int) b,scale - (i)));
 
 			//Add textView with same id as ImageView + 20
 			TextView t1 = new TextView(getActivity());
-			t1.setId(20 + (methodCopy.getPlayingOn()+1/2) - i);
+			t1.setId(20 + (method.getPlayingOn()+1/2) - i);
 			RelativeLayout.LayoutParams params1 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
 			params1.setMargins((int) a + 2 , (int) (b + scale/2), 0, 0);
 			t1.setLayoutParams(params1);
 			t1.setBackgroundColor(Color.WHITE);
-			t1.setText(Utils.bellsToBellNumber("" + ((methodCopy.getPlayingOn()+1)/2 - i)));
+			t1.setText(Utils.bellsToBellNumber("" + ((method.getPlayingOn()+1)/2 - i)));
 			bellNumberTextViews.add(t1);
 
-			bellImageViews.add(initializeImgViews(getActivity(),((methodCopy.getPlayingOn())/2) + i + 1,images.getRightDown(),RelativeLayout.ALIGN_PARENT_RIGHT,
+			bellImageViews.add(initializeImgViews(getActivity(),((method.getPlayingOn())/2) + i + 1,images.getRightDown(),RelativeLayout.ALIGN_PARENT_RIGHT,
 					0,(int) a,(int) b,scale + ((i + 1))));
 
 			//Add textView with same id as ImageView + 20
 			TextView t2 = new TextView(getActivity());
-			t2.setId(20 + (methodCopy.getPlayingOn()/2) + i + 1);
+			t2.setId(20 + (method.getPlayingOn()/2) + i + 1);
 			RelativeLayout.LayoutParams params2 = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
 			params2.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
 			params2.setMargins(0, (int) (b + scale/2), (int) a + 2, 0);
 			t2.setLayoutParams(params2);
 			t2.setBackgroundColor(Color.WHITE);
-			t2.setText(Utils.bellsToBellNumber("" + ((methodCopy.getPlayingOn()/2) + i + 1)));
+			t2.setText(Utils.bellsToBellNumber("" + ((method.getPlayingOn()/2) + i + 1)));
 			bellNumberTextViews.add(t2);
 
 		}
 
 		//Set up TextView to display the method
 		methodView = (LinesView) v.findViewById(R.id.MC_title);
-		methodView.setNumberOfBells(methodCopy.getPlayingOn());
+		methodView.setNumberOfBells(method.getPlayingOn());
 		methodView.setTextSize(24);
 		methodView.setTypeface(Typeface.MONOSPACE);
 		methodView.setText("           ");
@@ -260,7 +255,7 @@ public class FragmentPlayMethod extends Fragment {
 		params1.addRule(RelativeLayout.CENTER_VERTICAL);
 		txtMethodName.setLayoutParams(params1);
 		txtMethodName.setBackgroundColor(Color.WHITE);
-		txtMethodName.setText(methodCopy.getMethodName());
+		txtMethodName.setText(method.getMethodName());
 
 		//Set up TextView to display the method name
 		txtRound = new TextView(getActivity());
@@ -320,7 +315,7 @@ public class FragmentPlayMethod extends Fragment {
 
 					if(status == MethodStatus.STANDING){
 						status = MethodStatus.ROUNDS;
-						methodCopy.swapRound();
+						method.swapRound();
 
 						displayMethodThread = new DisplayMethod();
 						displayMethodThread.execute();
@@ -422,7 +417,7 @@ public class FragmentPlayMethod extends Fragment {
 			while (status != MethodStatus.STANDING){
 
 
-				if (i % methodCopy.getPlayingOn() == 0 && (status == MethodStatus.PLAYING || status == MethodStatus.GO_TO_STAND || status == MethodStatus.GO_TO_ROUNDS)){
+				if (i % method.getPlayingOn() == 0 && (status == MethodStatus.PLAYING || status == MethodStatus.GO_TO_STAND || status == MethodStatus.GO_TO_ROUNDS)){
 					round = round + 1;
 					final int temp = round;
 					mHandler.post(new Runnable() {
@@ -434,10 +429,10 @@ public class FragmentPlayMethod extends Fragment {
 				}
 
 				//Re-initialise scoring variables
-				final String next = methodCopy.calcNext();
+				final String next = method.calcNext();
 
 				//If text reaches the length of the number of bells then it is due a new line character
-				if ((currentText.length() - methodCopy.getPlayingOn()) % ((methodCopy.getPlayingOn()) + 1) == 0 && currentText.length() >= methodCopy.getPlayingOn())
+				if ((currentText.length() - method.getPlayingOn()) % ((method.getPlayingOn()) + 1) == 0 && currentText.length() >= method.getPlayingOn())
 					currentText += "\n";
 
 				//Add the next letter to the current text
@@ -471,9 +466,9 @@ public class FragmentPlayMethod extends Fragment {
 							txtscore.setText(score.calculateScore(playTime, pressTime) + "");
 						}
 						//Displays the correct amount of text on screen
-						methodView.setLimitingText(methodCopy.getPlayingOn(), cText, 6);
+						methodView.setLimitingText(method.getPlayingOn(), cText, 6);
 
-						txtRound.setText(methodCopy.textBobSinglePlain());
+						txtRound.setText(method.textBobSinglePlain());
 
 						//Switch the bell position
 						BellImageView b = (BellImageView)v.findViewById(bells.indexOf(next) + 1);
@@ -517,26 +512,26 @@ public class FragmentPlayMethod extends Fragment {
 
 
 
-					if (i % ((methodCopy.getPlayingOn()) * 2) == 0 ){
+					if (i % ((method.getPlayingOn()) * 2) == 0 ){
 
 						//Enabling the handstroke gap
 						if(SingletonData.get(getActivity()).getSetup().isHandstrokeGap())
 							wait((long) interval);
 
 						if(status == MethodStatus.GO_TO_ROUNDS){
-							methodCopy.swapRound();
+							method.swapRound();
 							status = MethodStatus.ROUNDS;
 						}
 
 						if(status == MethodStatus.GO_TO_PLAYING){
-							methodCopy.swapRound();
+							method.swapRound();
 							status = MethodStatus.PLAYING;		
 						}
 
 						if(status == MethodStatus.GO_TO_STAND || status == MethodStatus.GO_TO_STAND_FROM_ROUNDS){
 
 							if (status == MethodStatus.GO_TO_STAND_FROM_ROUNDS)
-								methodCopy.swapRound();
+								method.swapRound();
 
 							status = MethodStatus.STANDING;
 
@@ -549,8 +544,8 @@ public class FragmentPlayMethod extends Fragment {
 									txtScoreSummary.setText("" + score.getAverage());
 								}});
 
-							methodCopy = new Method((Method) SingletonData.get(getActivity()).getChosenMethod().get(0));
-							methodCopy.initialize(numOfBells, Utils.getComposition(SingletonData.get(getActivity()).getSetup().getComposition()), 0);
+							method = new Method((Method) SingletonData.get(getActivity()).getChosenMethod().get(0));
+							method.initialize(numOfBells, Utils.getComposition(SingletonData.get(getActivity()).getSetup().getComposition()), 0);
 
 
 						}
@@ -570,7 +565,7 @@ public class FragmentPlayMethod extends Fragment {
 
 					if (isCancelled()){
 						if (status == MethodStatus.ROUNDS)
-							methodCopy.swapRound();
+							method.swapRound();
 
 						status = MethodStatus.STANDING;
 					}
@@ -588,7 +583,7 @@ public class FragmentPlayMethod extends Fragment {
 	}
 	private void swap_TextView(){
 
-		for(int i = 0; i < methodCopy.getPlayingOn(); i++){
+		for(int i = 0; i < method.getPlayingOn(); i++){
 			TextView a =  bellNumberTextViews.get(i);
 			a.setText("" + possibleBellNumbering[bellImageViews.get(i).getId()-1]);			
 		}

@@ -56,7 +56,8 @@ public final class R {
         public static final int ScoreTextView=0x7f090011;
         public static final int ScoreTitle=0x7f090010;
         public static final int StageListView=0x7f090027;
-        public static final int action_settings=0x7f09003d;
+        public static final int action_settings=0x7f09003f;
+        public static final int action_settings_help=0x7f09003d;
         public static final int addBtnDeselectAll=0x7f090007;
         public static final int addBtnSave=0x7f090008;
         public static final int addMenu=0x7f090006;
@@ -128,7 +129,8 @@ public final class R {
         public static final int setup_top_3=0x7f030018;
     }
     public static final class menu {
-        public static final int main=0x7f080000;
+        public static final int main_with_help=0x7f080000;
+        public static final int main_without_help=0x7f080001;
     }
     public static final class raw {
         public static final int bell53=0x7f040000;

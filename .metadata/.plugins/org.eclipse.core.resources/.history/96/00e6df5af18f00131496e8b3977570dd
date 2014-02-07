@@ -1,0 +1,75 @@
+package project.android.bellringing.all;
+
+import java.util.HashMap;
+
+import project.android.bellringing.R;
+import android.content.Context;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.SoundPool;
+
+public class AudioPlayer2 {
+
+	private HashMap<String, MediaPlayer> sounds = new HashMap<String, MediaPlayer>();
+
+	public AudioPlayer2(Context c, boolean handbells){
+		
+		
+		
+		if (handbells){
+			
+			sounds.put("1",setup(c, R.raw.bell79));	//r
+			sounds.put("2",setup(c, R.raw.bell77));	//d
+			sounds.put("3",setup(c, R.raw.bell76));	//t
+			sounds.put("4",setup(c, R.raw.bell74));	//l	
+			sounds.put("5",setup(c, R.raw.bell72));	//s	
+			sounds.put("6",setup(c, R.raw.bell70));	//f
+			sounds.put("7",setup(c, R.raw.bell69));	//m
+			sounds.put("8",setup(c, R.raw.bell67));	//r
+			sounds.put("9",setup(c, R.raw.bell65));	//d
+			sounds.put("0",setup(c, R.raw.bell64));	//t
+			sounds.put("E",setup(c, R.raw.bell62));	//l
+			sounds.put("T",setup(c, R.raw.bell60));	//s
+			sounds.put("A",setup(c, R.raw.bell58));	//f
+			sounds.put("B",setup(c, R.raw.bell57));	//m
+			sounds.put("C",setup(c, R.raw.bell55));	//r
+			sounds.put("D",setup(c, R.raw.bell53));	//d
+		}
+//		else{
+//			sounds.put("1",sPool.load(c, R.raw.tbell74,1));	//r
+//			sounds.put("2",sPool.load(c, R.raw.tbell72,1));	//d
+//			sounds.put("3",sPool.load(c, R.raw.tbell71,1));	//t
+//			sounds.put("4",sPool.load(c, R.raw.tbell69,1));	//l	
+//			sounds.put("5",sPool.load(c, R.raw.tbell67,1));	//s	
+//			sounds.put("6",sPool.load(c, R.raw.tbell65,1));	//f
+//			sounds.put("7",sPool.load(c, R.raw.tbell64,1));	//m
+//			sounds.put("8",sPool.load(c, R.raw.tbell62,1));	//r
+//			sounds.put("9",sPool.load(c, R.raw.tbell60,1));	//d
+//			sounds.put("0",sPool.load(c, R.raw.tbell59,1));	//t
+//			sounds.put("E",sPool.load(c, R.raw.tbell57,1));	//l
+//			sounds.put("T",sPool.load(c, R.raw.tbell55,1));	//s
+//			sounds.put("A",sPool.load(c, R.raw.tbell53,1));	//f
+//			sounds.put("B",sPool.load(c, R.raw.tbell52,1));	//m
+//			sounds.put("C",sPool.load(c, R.raw.tbell50,1));	//r
+//			sounds.put("D",sPool.load(c, R.raw.tbell48,1));	//d
+//		}
+		
+	}
+	
+	public MediaPlayer setup(Context c, int i){
+		MediaPlayer mp = new MediaPlayer();
+		mp = MediaPlayer.create(c, i);
+		return mp;
+	}
+
+	public void play(Context c, final String bell) {
+		sounds.get(bell).start();
+		sounds.get(bell).setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+			@Override
+			public void onCompletion(MediaPlayer mp) {
+				sounds.get(bell).release();	
+			}
+		});
+	}
+
+}

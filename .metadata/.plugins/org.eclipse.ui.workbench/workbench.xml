@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="39" version="2.0">
+<workbench progressCount="41" version="2.0">
 <workbenchAdvisor/>
 <window height="860" maximized="true" width="800" x="682" y="-15">
 <fastViewData fastViewLocation="1024"/>
@@ -38,15 +38,44 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
+<part id="7"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" partName="15-11-Project Manifest" path="C:/Users/Allan/Level-4-Project/15-11-Project/AndroidManifest.xml" title="15-11-Project Manifest" tooltip="15-11-Project/AndroidManifest.xml" workbook="DefaultEditorWorkbook">
+<editor id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" partName="15-11-Project Manifest" path="C:/Users/Allan/Level-4-Project/15-11-Project/AndroidManifest.xml" title="15-11-Project Manifest" tooltip="15-11-Project/AndroidManifest.xml" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/AndroidManifest.xml"/>
 </editor>
-<editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="main.xml" partName="main.xml" path="C:/Users/Allan/Level-4-Project/15-11-Project/res/menu/main.xml" title="main.xml" tooltip="15-11-Project/res/menu/main.xml" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/res/menu/main.xml"/>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AbstractActivity.java" partName="AbstractActivity.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/activities/AbstractActivity.java" title="AbstractActivity.java" tooltip="15-11-Project/src/project/android/bellringing/activities/AbstractActivity.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/activities/AbstractActivity.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1342" selectionTopPixel="105"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivitySetup.java" partName="ActivitySetup.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/activities/ActivitySetup.java" title="ActivitySetup.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivitySetup.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/activities/ActivitySetup.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FragmentSetup.java" partName="FragmentSetup.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/fragments/FragmentSetup.java" title="FragmentSetup.java" tooltip="15-11-Project/src/project/android/bellringing/fragments/FragmentSetup.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/fragments/FragmentSetup.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1487" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FragmentPlayMethod.java" partName="FragmentPlayMethod.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/fragments/FragmentPlayMethod.java" title="FragmentPlayMethod.java" tooltip="15-11-Project/src/project/android/bellringing/fragments/FragmentPlayMethod.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/fragments/FragmentPlayMethod.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="97" selectionOffset="12528" selectionTopPixel="4590"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivityHelp.java" partName="ActivityHelp.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/activities/ActivityHelp.java" title="ActivityHelp.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivityHelp.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/activities/ActivityHelp.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="536" selectionTopPixel="0"/>
+</editor>
+<editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="main_with_help.xml" partName="main_with_help.xml" path="C:/Users/Allan/Level-4-Project/15-11-Project/res/menu/main_with_help.xml" title="main_with_help.xml" tooltip="15-11-Project/res/menu/main_with_help.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/res/menu/main_with_help.xml"/>
+</editor>
+<editor id="com.android.ide.eclipse.editors.CommonXmlEditor" name="main_without_help.xml" partName="main_without_help.xml" path="C:/Users/Allan/Level-4-Project/15-11-Project/res/menu/main_without_help.xml" title="main_without_help.xml" tooltip="15-11-Project/res/menu/main_without_help.xml" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/res/menu/main_without_help.xml"/>
 </editor>
 </editors>
 <views>
@@ -55,6 +84,9 @@
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Warnings (6 items)"/>
+</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="601"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -99,7 +131,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="com.android.ide.eclipse.editors.manifest.ManifestEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jdt.internal.ui.JavaPerspectiveFactory" id="org.eclipse.jdt.ui.JavaPerspective" label="Java"/>
 <alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
@@ -169,15 +201,15 @@
 <view id="org.eclipse.jdt.ui.PackageExplorer"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
 <fastViewBars>
+<fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@14694b2" orientation="256" selectedTabId="com.android.ide.eclipse.ddms.views.LogCatView" style="0">
+<fastViews>
+<view id="com.android.ide.eclipse.ddms.views.LogCatView" ratio="0.5682119"/>
+</fastViews>
+</fastViewBar>
 <fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@3b54af" orientation="256" selectedTabId="org.eclipse.ui.views.ProblemView" style="0">
 <fastViews>
 <view id="org.eclipse.ui.views.ProblemView" ratio="0.29933774"/>
 <view id="org.eclipse.jdt.ui.SourceView" ratio="0.29933774"/>
-</fastViews>
-</fastViewBar>
-<fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@14694b2" orientation="256" selectedTabId="com.android.ide.eclipse.ddms.views.LogCatView" style="0">
-<fastViews>
-<view id="com.android.ide.eclipse.ddms.views.LogCatView" ratio="0.5690377"/>
 </fastViews>
 </fastViewBar>
 </fastViewBars>
@@ -258,134 +290,116 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/fragments/FragmentPlayMethod.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/15-11-Project/res/layout/activity_help.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/fragments/FragmentHelp.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/all/MethodShortlistSerializer.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/all/MethodDataTxtSerializer.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/all/ShortlistedMethods.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/all/SingletonData.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/fragments/FragmentLoadMethodTypes.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/15-11-Project/res/layout/fragment_play_method.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/15-11-Project/res/menu/main.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" path="/15-11-Project/AndroidManifest.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/activities/ActivityHelp.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/activities/ActivityAddMethodsFromFile.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/activities/AbstractActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/15-11-Project/res/menu/main.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/15-11-Project/res/menu/main.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/15-11-Project/res/menu/menu_with_help.xml"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/activities/AbstractActivity.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/activities/ActivitySetup.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/activities/ActivitySelectStage.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/fragments/FragmentSetup.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/15-11-Project/res/menu/main.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" path="/15-11-Project/AndroidManifest.xml"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" path="/15-11-Project/AndroidManifest.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/fragments/FragmentPlayMethod.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/activities/ActivityHelp.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/15-11-Project/res/menu/main_with_help.xml"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" path="/15-11-Project/res/menu/main_without_help.xml"/>
 </editors>
-<item historyLabel="activity_help.xml" index="1"/>
-<item historyLabel="FragmentHelp.java" index="2">
+<item historyLabel="main.xml" index="0"/>
+<item historyLabel="15-11-Project Manifest" index="1"/>
+<item historyLabel="AbstractActivity.java" index="2">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="MethodShortlistSerializer.java" index="3">
-<position info="not_deleted" x="602" y="777"/>
-</item>
-<item historyLabel="FragmentHelp.java" index="2">
+<item historyLabel="ActivitySetup.java" index="3">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="FragmentHelp.java" index="2">
-<position info="not_deleted" x="454" y="0"/>
-</item>
-<item historyLabel="MethodShortlistSerializer.java" index="3">
-<position info="not_deleted" x="731" y="0"/>
-</item>
-<item historyLabel="FragmentHelp.java" index="2">
-<position info="not_deleted" x="454" y="0"/>
-</item>
-<item historyLabel="MethodDataTxtSerializer.java" index="4">
+<item historyLabel="ActivitySelectStage.java" index="4">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="MethodShortlistSerializer.java" index="3">
-<position info="not_deleted" x="691" y="30"/>
+<item historyLabel="ActivitySetup.java" index="3">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="FragmentHelp.java" index="2">
-<position info="not_deleted" x="454" y="0"/>
+<item historyLabel="FragmentSetup.java" index="5">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="FragmentHelp.java" index="2">
+<item historyLabel="ActivitySetup.java" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="15-11-Project Manifest" index="1"/>
+<item historyLabel="main.xml" index="6"/>
+<item historyLabel="15-11-Project Manifest" index="1"/>
+<item historyLabel="main.xml" index="6"/>
+<item historyLabel="ActivitySetup.java" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="FragmentSetup.java" index="5">
 <position/>
 </item>
-<item historyLabel="FragmentHelp.java" index="2">
+<item historyLabel="main.xml" index="6"/>
+<item historyLabel="FragmentSetup.java" index="5">
 <position/>
 </item>
-<item historyLabel="FragmentHelp.java" index="2">
+<item historyLabel="FragmentPlayMethod.java" index="7">
+<position info="not_deleted" x="12528" y="97"/>
+</item>
+<item historyLabel="FragmentSetup.java" index="5">
 <position/>
 </item>
-<item historyLabel="ShortlistedMethods.java" index="5">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="FragmentSetup.java" index="5">
+<position info="not_deleted" x="1487" y="0"/>
 </item>
-<item historyLabel="SingletonData.java" index="6">
-<position info="not_deleted" x="1806" y="0"/>
+<item historyLabel="AbstractActivity.java" index="2">
+<position info="not_deleted" x="973" y="0"/>
 </item>
-<item historyLabel="FragmentLoadMethodTypes.java" index="7">
-<position info="not_deleted" x="1970" y="503"/>
+<item historyLabel="15-11-Project Manifest" index="1"/>
+<item historyLabel="ActivityHelp.java" index="8">
+<position info="not_deleted" x="567" y="0"/>
 </item>
-<item historyLabel="FragmentHelp.java" index="2">
-<position info="not_deleted" x="1250" y="0"/>
+<item historyLabel="AbstractActivity.java" index="2">
+<position info="not_deleted" x="979" y="478"/>
 </item>
-<item historyLabel="FragmentHelp.java" index="2">
-<position info="not_deleted" x="566" y="0"/>
+<item historyLabel="ActivityHelp.java" index="8">
+<position info="not_deleted" x="567" y="0"/>
 </item>
-<item historyLabel="fragment_play_method.xml" index="8"/>
-<item historyLabel="FragmentHelp.java" index="2">
-<position info="not_deleted" x="566" y="0"/>
+<item historyLabel="AbstractActivity.java" index="2">
+<position info="not_deleted" x="759" y="214"/>
 </item>
-<item historyLabel="FragmentPlayMethod.java" index="0">
-<position info="not_deleted" x="18680" y="31"/>
+<item historyLabel="ActivityHelp.java" index="8">
+<position info="not_deleted" x="564" y="0"/>
 </item>
-<item historyLabel="15-11-Project Manifest" index="9"/>
-<item historyLabel="ActivityHelp.java" index="10">
-<position info="not_deleted" x="332" y="0"/>
+<item historyLabel="main.xml" index="6"/>
+<item historyLabel="ActivityHelp.java" index="8">
+<position info="not_deleted" x="564" y="0"/>
 </item>
-<item historyLabel="FragmentHelp.java" index="2">
-<position info="not_deleted" x="566" y="0"/>
+<item historyLabel="main.xml" index="6"/>
+<item historyLabel="ActivityHelp.java" index="8">
+<position info="not_deleted" x="536" y="0"/>
 </item>
-<item historyLabel="ActivityAddMethodsFromFile.java" index="11">
-<position info="not_deleted" x="356" y="0"/>
+<item historyLabel="AbstractActivity.java" index="2">
+<position info="not_deleted" x="973" y="0"/>
 </item>
-<item historyLabel="FragmentPlayMethod.java" index="0">
-<position info="not_deleted" x="18680" y="31"/>
+<item historyLabel="main.xml" index="6"/>
+<item historyLabel="main_with_help.xml" index="9"/>
+<item historyLabel="AbstractActivity.java" index="2">
+<position info="not_deleted" x="1342" y="0"/>
 </item>
-<item historyLabel="AbstractActivity.java" index="12">
-<position info="not_deleted" x="467" y="0"/>
+<item historyLabel="main_with_help.xml" index="9"/>
+<item historyLabel="main.xml" index="6"/>
+<item historyLabel="main_with_help.xml" index="9"/>
+<item historyLabel="main.xml" index="6"/>
+<item historyLabel="main_with_help.xml" index="9"/>
+<item historyLabel="AbstractActivity.java" index="2">
+<position info="not_deleted" x="1342" y="0"/>
 </item>
-<item historyLabel="main.xml" index="13"/>
-<item historyLabel="15-11-Project Manifest" index="9"/>
-<item historyLabel="main.xml" index="13"/>
-<item historyLabel="15-11-Project Manifest" index="9"/>
-<item historyLabel="AbstractActivity.java" index="12">
-<position info="not_deleted" x="467" y="0"/>
+<item historyLabel="main_with_help.xml" index="9"/>
+<item historyLabel="main.xml" index="6"/>
+<item historyLabel="main_with_help.xml" index="9"/>
+<item historyLabel="main.xml" index="6"/>
+<item historyLabel="main_with_help.xml" index="9"/>
+<item historyLabel="main.xml" index="6"/>
+<item historyLabel="main_with_help.xml" index="9"/>
+<item historyLabel="main_without_help.xml" index="10"/>
+<item historyLabel="main_with_help.xml" index="9"/>
+<item active="true" historyLabel="AbstractActivity.java" index="2">
+<position info="not_deleted" x="1342" y="0"/>
 </item>
-<item historyLabel="15-11-Project Manifest" index="9"/>
-<item historyLabel="main.xml" index="14"/>
-<item historyLabel="menu_with_help.xml" index="15"/>
-<item historyLabel="AbstractActivity.java" index="16">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="menu_with_help.xml" index="15"/>
-<item historyLabel="AbstractActivity.java" index="16">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="menu_with_help.xml" index="15"/>
-<item historyLabel="main.xml" index="14"/>
-<item historyLabel="menu_with_help.xml" index="15"/>
-<item historyLabel="main.xml" index="14"/>
-<item historyLabel="15-11-Project Manifest" index="9"/>
-<item historyLabel="ActivitySetup.java" index="17">
-<position info="not_deleted" x="335" y="0"/>
-</item>
-<item historyLabel="main.xml" index="14"/>
-<item historyLabel="15-11-Project Manifest" index="9"/>
-<item historyLabel="main.xml" index="18"/>
-<item historyLabel="15-11-Project Manifest" index="19"/>
-<item historyLabel="main.xml" index="18"/>
-<item active="true" historyLabel="15-11-Project Manifest" index="20"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -406,20 +420,38 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="main_without_help.xml" tooltip="15-11-Project/res/menu/main_without_help.xml">
+<persistable path="/15-11-Project/res/menu/main_without_help.xml"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="main_with_help.xml" tooltip="15-11-Project/res/menu/main_with_help.xml">
+<persistable path="/15-11-Project/res/menu/main_with_help.xml"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="main.xml" tooltip="15-11-Project/res/menu/main.xml">
 <persistable path="/15-11-Project/res/menu/main.xml"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" tooltip="15-11-Project/AndroidManifest.xml">
-<persistable path="/15-11-Project/AndroidManifest.xml"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivityHelp.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivityHelp.java">
+<persistable path="/15-11-Project/src/project/android/bellringing/activities/ActivityHelp.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FragmentPlayMethod.java" tooltip="15-11-Project/src/project/android/bellringing/fragments/FragmentPlayMethod.java">
+<persistable path="/15-11-Project/src/project/android/bellringing/fragments/FragmentPlayMethod.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FragmentSetup.java" tooltip="15-11-Project/src/project/android/bellringing/fragments/FragmentSetup.java">
+<persistable path="/15-11-Project/src/project/android/bellringing/fragments/FragmentSetup.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivitySelectStage.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivitySelectStage.java">
+<persistable path="/15-11-Project/src/project/android/bellringing/activities/ActivitySelectStage.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivitySetup.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivitySetup.java">
+<persistable path="/15-11-Project/src/project/android/bellringing/activities/ActivitySetup.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AbstractActivity.java" tooltip="15-11-Project/src/project/android/bellringing/activities/AbstractActivity.java">
 <persistable path="/15-11-Project/src/project/android/bellringing/activities/AbstractActivity.java"/>
 </file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.manifest.ManifestEditor" name="AndroidManifest.xml" tooltip="15-11-Project/AndroidManifest.xml">
+<persistable path="/15-11-Project/AndroidManifest.xml"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="menu_with_help.xml" tooltip="15-11-Project/res/menu/menu_with_help.xml">
 <persistable path="/15-11-Project/res/menu/menu_with_help.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivityHelp.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivityHelp.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/activities/ActivityHelp.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FragmentLoadMethodTypes.java" tooltip="15-11-Project/src/project/android/bellringing/fragments/FragmentLoadMethodTypes.java">
 <persistable path="/15-11-Project/src/project/android/bellringing/fragments/FragmentLoadMethodTypes.java"/>
@@ -432,24 +464,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MethodDataTxtSerializer.java" tooltip="15-11-Project/src/project/android/bellringing/all/MethodDataTxtSerializer.java">
 <persistable path="/15-11-Project/src/project/android/bellringing/all/MethodDataTxtSerializer.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MethodShortlistSerializer.java" tooltip="15-11-Project/src/project/android/bellringing/all/MethodShortlistSerializer.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/all/MethodShortlistSerializer.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FragmentHelp.java" tooltip="15-11-Project/src/project/android/bellringing/fragments/FragmentHelp.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/fragments/FragmentHelp.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="activity_help.xml" tooltip="15-11-Project/res/layout/activity_help.xml">
-<persistable path="/15-11-Project/res/layout/activity_help.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="fragment_help.xml" tooltip="15-11-Project/res/layout/fragment_help.xml">
-<persistable path="/15-11-Project/res/layout/fragment_help.xml"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FragmentDisplayMethod.java" tooltip="15-11-Project/src/project/android/bellringing/fragments/FragmentDisplayMethod.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/fragments/FragmentDisplayMethod.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="fragment_play_method.xml" tooltip="15-11-Project/res/layout-land/fragment_play_method.xml">
-<persistable path="/15-11-Project/res/layout-land/fragment_play_method.xml"/>
 </file>
 </mruList>
 </workbench>

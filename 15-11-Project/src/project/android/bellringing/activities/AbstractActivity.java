@@ -25,7 +25,7 @@ public abstract class AbstractActivity extends FragmentActivity{
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.main_with_help, menu);
 		return true;
 	}
 	
@@ -33,7 +33,6 @@ public abstract class AbstractActivity extends FragmentActivity{
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    // Handle presses on the action bar items
 		
-		System.out.println("ALLAN");
 	    switch (item.getItemId()) {
 	        case R.id.help_button:
 	        	Intent i = new Intent(this, ActivityHelp.class);
