@@ -115,7 +115,7 @@ public class FragmentPlayMethod extends Fragment {
 		else
 			interval = Utils.timeToMilliseconds(Integer.parseInt(peal.split(":")[0]),Integer.parseInt(peal.split(":")[1]))/(2500*(2*method.getPlayingOn() + 1));
 
-		bellAudio = new AudioPlayer(getActivity(), handbells, method.getPlayingOn());
+		bellAudio = new AudioPlayer(getActivity(), handbells);
 		images = new ImageId(SingletonData.get(getActivity()).getSetup().getHandbellsOrNot());
 
 		//Score

@@ -26,17 +26,21 @@ public class AudioPlayer {
 		if (handbells){
 			int j = 0;
 
+			System.out.println("WOOOOOOOOOO");
+			System.out.println(bells);
+			
+			
 			if (bells > 8){
-				for (int i = bells; i > 0; i--)
+				for (int i = bells; i < 1; i--)
 					sounds.put(Utils.bellsToBellNumber(i + ""),sPool.load(c,largeScaleHandbells[j++] ,1));
 
 			}
 			else
-			
-				for (int i = bells; i > 0; i--){
+				for (int i = bells; i < 1; i--){
 					System.out.println(Utils.bellsToBellNumber(i + ""));
 					sounds.put(Utils.bellsToBellNumber(i + ""),sPool.load(c,smallScaleHandbells[j++] ,1));
 				}
+
 
 		}
 		else{

@@ -51,7 +51,7 @@ public class Utils {
 		
 		return bells[Arrays.asList(bellNumber).indexOf(bellNum)];
 	}
-		
+	
 	public static double timeToMilliseconds(int hours, int minutes){
 		
 		return ((hours * 60 + minutes) * 60) * 1000;
