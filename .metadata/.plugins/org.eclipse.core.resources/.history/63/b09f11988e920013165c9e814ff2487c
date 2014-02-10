@@ -143,15 +143,15 @@ public class FragmentPlayMethod extends Fragment {
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
 
-				
-				if (event.getX() > globalLinearLayout.getWidth()/2 || SingletonData.get(getActivity()).getSetup().getHandbellsOrNot()){
+				System.out.println(globalLinearLayout.getWidth()/2);
+				if (event.getX() > globalLinearLayout.getWidth()/2){
 					//Right bell
 
 					userPlayingRight = true;
 
 					pressTimeRight = System.currentTimeMillis();
 
-					if(status != MethodStatus.GO_TO_STAND_FROM_ROUNDS || status == MethodStatus.ROUNDS){
+					if(status != MethodStatus.GO_TO_STAND_FROM_ROUNDS){
 						bellAudio.play(getActivity(), bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString());
 					}
 
@@ -164,7 +164,7 @@ public class FragmentPlayMethod extends Fragment {
 
 					pressTimeLeft = System.currentTimeMillis();
 
-					if(status != MethodStatus.GO_TO_STAND_FROM_ROUNDS || status == MethodStatus.ROUNDS){
+					if(status != MethodStatus.GO_TO_STAND_FROM_ROUNDS){
 						bellAudio.play(getActivity(), bellNumberTextViews.get(bellNumberTextViews.size() - 2).getText().toString());
 					}
 

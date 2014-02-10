@@ -22,6 +22,7 @@ public class AudioPlayer {
 			int[] largeScaleHandbells = {R.raw.bell53,R.raw.bell55,R.raw.bell57,R.raw.bell58,R.raw.bell60,R.raw.bell62,R.raw.bell64,
 					R.raw.bell65, R.raw.bell67, R.raw.bell69, R.raw.bell70, R.raw.bell72, R.raw.bell74, R.raw.bell76, R.raw.bell77, R.raw.bell79};
 
+			
 			int j = 0;
 
 			if (bells > 8){
@@ -35,6 +36,7 @@ public class AudioPlayer {
 					System.out.println(Utils.bellsToBellNumber(i + ""));
 					sounds.put(Utils.bellsToBellNumber(i + ""),sPool.load(c,smallScaleHandbells[j++] ,1));
 				}
+
 		}
 		else{
 			

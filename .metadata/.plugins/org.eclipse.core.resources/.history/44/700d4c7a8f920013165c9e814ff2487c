@@ -1,0 +1,69 @@
+package project.android.bellringing.all;
+
+import java.util.HashMap;
+
+import project.android.bellringing.R;
+import project.android.bellringing.utilities.Utils;
+
+import android.content.Context;
+import android.media.AudioManager;
+import android.media.SoundPool;
+
+public class AudioPlayer {
+
+	private HashMap<String, Integer> sounds = new HashMap<String, Integer>();
+	private SoundPool sPool = new SoundPool(Integer.MAX_VALUE, AudioManager.STREAM_MUSIC, 0);
+
+	public AudioPlayer(Context c, boolean handbells, int bells){
+
+		int[] smallScaleHandbells = {R.raw.bell65, R.raw.bell67, R.raw.bell69, R.raw.bell70, R.raw.bell72, R.raw.bell74, R.raw.bell76, R.raw.bell77};
+		int[] largeScaleHandbells = {R.raw.bell53,R.raw.bell55,R.raw.bell57,R.raw.bell58,R.raw.bell60,R.raw.bell62,R.raw.bell64,
+				R.raw.bell65, R.raw.bell67, R.raw.bell69, R.raw.bell70, R.raw.bell72, R.raw.bell74, R.raw.bell76, R.raw.bell77, R.raw.bell79};
+
+
+
+
+		if (handbells){
+			int j = 0;
+
+			if (bells > 8){
+				for (int i = bells; i > 0; i--)
+					sounds.put(Utils.bellsToBellNumber(i + ""),sPool.load(c,largeScaleHandbells[j++] ,1));
+
+			}
+			else
+			
+				for (int i = bells; i > 0; i--){
+					System.out.println(Utils.bellsToBellNumber(i + ""));
+					sounds.put(Utils.bellsToBellNumber(i + ""),sPool.load(c,smallScaleHandbells[j++] ,1));
+				}
+
+		}
+		else{
+			sounds.put("1",sPool.load(c, R.raw.tbell74,1));	//r
+			sounds.put("2",sPool.load(c, R.raw.tbell72,1));	//d
+			sounds.put("3",sPool.load(c, R.raw.tbell71,1));	//t
+			sounds.put("4",sPool.load(c, R.raw.tbell69,1));	//l	
+			sounds.put("5",sPool.load(c, R.raw.tbell67,1));	//s	
+			sounds.put("6",sPool.load(c, R.raw.tbell65,1));	//f
+			sounds.put("7",sPool.load(c, R.raw.tbell64,1));	//m
+			sounds.put("8",sPool.load(c, R.raw.tbell62,1));	//r
+			sounds.put("9",sPool.load(c, R.raw.tbell60,1));	//d
+			sounds.put("0",sPool.load(c, R.raw.tbell59,1));	//t
+			sounds.put("E",sPool.load(c, R.raw.tbell57,1));	//l
+			sounds.put("T",sPool.load(c, R.raw.tbell55,1));	//s
+			sounds.put("A",sPool.load(c, R.raw.tbell53,1));	//f
+			sounds.put("B",sPool.load(c, R.raw.tbell52,1));	//m
+			sounds.put("C",sPool.load(c, R.raw.tbell50,1));	//r
+			sounds.put("D",sPool.load(c, R.raw.tbell48,1));	//d
+		}
+
+	}
+
+	public void play(Context c, String bell) {
+		sPool.play(sounds.get(bell), 1, 1, 1, 0, 1f);
+
+
+	}
+
+}
