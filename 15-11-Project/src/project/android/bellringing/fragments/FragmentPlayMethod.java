@@ -9,6 +9,7 @@ import project.android.bellringing.all.AudioPlayer;
 import project.android.bellringing.all.ImageId;
 import project.android.bellringing.all.Method;
 import project.android.bellringing.all.Score;
+import project.android.bellringing.all.SetupInstructions;
 import project.android.bellringing.all.SingletonData;
 import project.android.bellringing.utilities.MethodStatus;
 import project.android.bellringing.utilities.Utils;
@@ -17,13 +18,11 @@ import project.android.bellringing.views.LinesView;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Point;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -36,36 +35,35 @@ import android.widget.TextView;
 
 public class FragmentPlayMethod extends Fragment {
 
-	private final char[] possibleBellNumbering = {'1','2','3','4','5','6','7','8','9','0','E','T','A','B','C','D'};
-
-	//ArrayLists to hold ImageViews and TextViews
-	ArrayList<BellImageView> bellImageViews = new ArrayList<BellImageView>();
-	ArrayList<TextView> bellNumberTextViews = new ArrayList<TextView>();
-
-	View v;	//Global View
-
-	MethodStatus status;
-
-	ImageId images;
-	AudioPlayer bellAudio;
-	DisplayMethod displayMethodThread = new DisplayMethod();
+	private final char[] possibleBellNumbering = Utils.getBellPossibilities(16).toCharArray();
 
 	private Method method;
+	private SetupInstructions setupInstructions;
 
-	Button showButton, runButton, helpButton;
-	int numOfBells;
+	//ArrayLists to hold ImageViews and TextViews
+	private ArrayList<BellImageView> bellImageViews = new ArrayList<BellImageView>();
+	private ArrayList<TextView> bellNumberTextViews = new ArrayList<TextView>();
 
-	Handler mHandler = new Handler();
-	LinesView methodView;
-	boolean paused = false;
-	boolean waitForMe = true;
-	boolean updatedScoreLeft = false, updatedScoreRight = false;
-	boolean userPlayingLeft = false, userPlayingRight = false;
-	double interval;
-	long pressTimeLeft, pressTimeRight, playTimeLeft, playTimeRight;
-	TextView txtMethodName, txvScoreRight, txvScoreLeft, txtRound;
-	final Score scoreLeft = new Score();
-	final Score scoreRight = new Score();
+	private View v;	//Global View
+
+	private MethodStatus status;
+
+	private ImageId images;
+	private AudioPlayer bellAudio;
+	private DisplayMethod displayMethodThread = new DisplayMethod();
+	private Button showButton, runButton, helpButton;
+	private int numOfBells;
+
+	private Handler mHandler = new Handler();
+	private LinesView methodView;
+	private boolean paused = false;
+	private boolean updatedScoreLeft = false, updatedScoreRight = false;
+	private boolean userPlayingLeft = false, userPlayingRight = false;
+	private double interval;
+	private long pressTimeLeft, pressTimeRight, playTimeLeft, playTimeRight;
+	private TextView txtMethodName, txvScoreRight, txvScoreLeft, txtRound;
+	private final Score scoreLeft = new Score();
+	private final Score scoreRight = new Score();
 
 	@Override
 	public void onDestroy() {
@@ -97,44 +95,39 @@ public class FragmentPlayMethod extends Fragment {
 
 		//Setup
 		status = MethodStatus.STANDING;
-
 		method = new Method(SingletonData.get(getActivity()).getChosenMethod().get(0));
+		setupInstructions = SingletonData.get(getActivity()).getSetup();
 
-		numOfBells = Integer.parseInt(Utils.stageToNumBells(SingletonData.get(getActivity()).getSetup().getStage()));
-		if (numOfBells % 2 == 1 && (!SingletonData.get(getActivity()).getSetup().getStage().equals("Doubles"))){
+
+		numOfBells = Integer.parseInt(Utils.stageToNumBells(setupInstructions.getStage()));
+		if (numOfBells % 2 == 1 && (!setupInstructions.getStage().equals("Doubles")))
 			numOfBells = numOfBells + 1;
-		}
 
-		method.initialize(numOfBells, Utils.getComposition(SingletonData.get(getActivity()).getSetup().getComposition()), 0);
+		method.initialize(numOfBells, Utils.getComposition(setupInstructions.getComposition()), 0);
 
-		boolean handbells = SingletonData.get(getActivity()).getSetup().getHandbellsOrNot();
-		String peal = SingletonData.get(getActivity()).getSetup().getPealTime();
-
-		if (SingletonData.get(getActivity()).getSetup().isHandstrokeGap())
-			interval = Utils.timeToMilliseconds(Integer.parseInt(peal.split(":")[0]),Integer.parseInt(peal.split(":")[1]))/(2500*(2*method.getPlayingOn()));
+		if (setupInstructions.isHandstrokeGap())
+			interval = Utils.timeToMilliseconds(Integer.parseInt(setupInstructions.getPealTime().split(":")[0]),Integer.parseInt(setupInstructions.getPealTime().split(":")[1]))/(2500*(2*method.getPlayingOn()));
 		else
-			interval = Utils.timeToMilliseconds(Integer.parseInt(peal.split(":")[0]),Integer.parseInt(peal.split(":")[1]))/(2500*(2*method.getPlayingOn() + 1));
+			interval = Utils.timeToMilliseconds(Integer.parseInt(setupInstructions.getPealTime().split(":")[0]),Integer.parseInt(setupInstructions.getPealTime().split(":")[1]))/(2500*(2*method.getPlayingOn() + 1));
 
-		bellAudio = new AudioPlayer(getActivity(), handbells, method.getPlayingOn());
-		images = new ImageId(SingletonData.get(getActivity()).getSetup().getHandbellsOrNot());
+		bellAudio = new AudioPlayer(getActivity(), setupInstructions.getHandbellsOrNot(), method.getPlayingOn());
+		images = new ImageId(setupInstructions.getHandbellsOrNot());
 
 		//Score
-		RelativeLayout scoreLayout = (RelativeLayout) v.findViewById(R.id.ScoreLayout);
+		RelativeLayout scoreRightLayout = (RelativeLayout) v.findViewById(R.id.ScoreLayout);
 		txvScoreRight = (TextView) v.findViewById(R.id.ScoreTextView);
 
-		if(SingletonData.get(getActivity()).getSetup().isScoreBlows())
-			scoreLayout.setVisibility(View.VISIBLE);
-		else
-			scoreLayout.setVisibility(View.INVISIBLE);
-
-		//Score Summary
-		RelativeLayout scoreSummaryLayout = (RelativeLayout) v.findViewById(R.id.ScoreSummaryLayout);
+		RelativeLayout scoreLeftLayout = (RelativeLayout) v.findViewById(R.id.ScoreSummaryLayout);
 		txvScoreLeft = (TextView) v.findViewById(R.id.ScoreSummaryTextView);
 
-		if(SingletonData.get(getActivity()).getSetup().isScoreSummary())
-			scoreSummaryLayout.setVisibility(View.VISIBLE);
-		else
-			scoreSummaryLayout.setVisibility(View.INVISIBLE);
+		if(setupInstructions.isScoreBlows()){
+			scoreRightLayout.setVisibility(View.VISIBLE);
+			scoreLeftLayout.setVisibility(View.VISIBLE);
+		}
+		else{
+			scoreRightLayout.setVisibility(View.INVISIBLE);
+			scoreLeftLayout.setVisibility(View.INVISIBLE);
+		}
 
 		//Get handle on LinearLayout to display bells
 		final LinearLayout globalLinearLayout = (LinearLayout) v.findViewById(R.id.globalView);
@@ -143,36 +136,28 @@ public class FragmentPlayMethod extends Fragment {
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
 
-				
-				if (event.getX() > globalLinearLayout.getWidth()/2 || SingletonData.get(getActivity()).getSetup().getHandbellsOrNot()){
-					//Right bell
+				if(status != MethodStatus.STANDING){
+					if (event.getX() > globalLinearLayout.getWidth()/2 || !setupInstructions.getHandbellsOrNot()){
+						userPlayingRight = true;
+						pressTimeRight = System.currentTimeMillis();
 
-					userPlayingRight = true;
-
-					pressTimeRight = System.currentTimeMillis();
-
-					if(status != MethodStatus.GO_TO_STAND_FROM_ROUNDS || status == MethodStatus.ROUNDS){
-						bellAudio.play(getActivity(), bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString());
+						if(status != MethodStatus.GO_TO_STAND_FROM_ROUNDS || status == MethodStatus.ROUNDS){
+							bellAudio.play(getActivity(), bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString());
+						}
 					}
+					else{
 
+						userPlayingLeft = true;
+						pressTimeLeft = System.currentTimeMillis();
 
-
-				}
-				else{
-
-					userPlayingLeft = true;
-
-					pressTimeLeft = System.currentTimeMillis();
-
-					if(status != MethodStatus.GO_TO_STAND_FROM_ROUNDS || status == MethodStatus.ROUNDS){
-						bellAudio.play(getActivity(), bellNumberTextViews.get(bellNumberTextViews.size() - 2).getText().toString());
+						if(status != MethodStatus.GO_TO_STAND_FROM_ROUNDS || status == MethodStatus.ROUNDS){
+							bellAudio.play(getActivity(), bellNumberTextViews.get(bellNumberTextViews.size() - 2).getText().toString());
+						}
 					}
-
-
-
 				}
 				return false;
 			}
+
 		});
 
 		//Find out the Width of the Screen
@@ -187,6 +172,8 @@ public class FragmentPlayMethod extends Fragment {
 		relativeLayoutTopScreen.getLayoutParams().width = widthRelLayout;
 
 		int heightRelLayout = widthRelLayout;
+
+		System.out.println(method.getPlayingOn());
 		int scale = (int) ((heightRelLayout/ ((method.getPlayingOn() + 1)/2)) *0.8);
 
 		//Starting positions
@@ -414,6 +401,8 @@ public class FragmentPlayMethod extends Fragment {
 			pressTimeRight = 0;
 			playTimeLeft = 0;
 			playTimeRight  = 0;
+			String stopAtRoundsString = "";
+			String roundsTest = Utils.getBellPossibilities(method.getPlayingOn());
 
 			for (char a: possibleBellNumbering){
 				bells.add(a + "");
@@ -442,10 +431,11 @@ public class FragmentPlayMethod extends Fragment {
 
 			while (status != MethodStatus.STANDING){
 
-
+				//Display the number of completed rows
 				if (i % method.getPlayingOn() == 0 && (status == MethodStatus.PLAYING || status == MethodStatus.GO_TO_STAND || status == MethodStatus.GO_TO_ROUNDS)){
-					round = round + 1;
+					round++;
 					final int temp = round;
+
 					mHandler.post(new Runnable() {
 						@Override
 						public void run() {
@@ -458,23 +448,36 @@ public class FragmentPlayMethod extends Fragment {
 				final String next = method.calcNext();
 
 				//If text reaches the length of the number of bells then it is due a new line character
-				if ((currentText.length() - method.getPlayingOn()) % ((method.getPlayingOn()) + 1) == 0 && currentText.length() >= method.getPlayingOn())
-					currentText += "\n";
+				if ((currentText.length() - method.getPlayingOn()) % ((method.getPlayingOn()) + 1) == 0 && currentText.length() >= method.getPlayingOn()){
+					currentText += "\n";				
+					stopAtRoundsString += "\n";
+				}
 
 				//Add the next letter to the current text
 				currentText += next;
+
+
+				stopAtRoundsString += next;
+
+				if(stopAtRoundsString.length() > method.getPlayingOn() + 1)
+					stopAtRoundsString = stopAtRoundsString.substring(stopAtRoundsString.length() - (method.getPlayingOn() + 1), stopAtRoundsString.length());
+
+				if(stopAtRoundsString.equals("\n" + roundsTest) && status == MethodStatus.PLAYING)
+					status = MethodStatus.STANDING;
+
+				System.out.println(stopAtRoundsString);
 
 				final String cText = currentText;
 
 				//Record the play time and play the bell
 				if (bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next))
 					playTimeRight = System.currentTimeMillis();
-				
+
 				else if(bellNumberTextViews.get(bellNumberTextViews.size() - 2).getText().toString().equals(next))
 					playTimeLeft = System.currentTimeMillis();
 
 				//Waits for user
-				if (SingletonData.get(getActivity()).getSetup().isWaitForMe() 
+				if (setupInstructions.isWaitForMe() 
 						&& bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next) 
 						&& (status == MethodStatus.PLAYING || status == MethodStatus.GO_TO_STAND || status == MethodStatus.GO_TO_ROUNDS)){
 
@@ -486,9 +489,9 @@ public class FragmentPlayMethod extends Fragment {
 						}
 					}
 				}
-				
+
 				//Waits for user
-				if (SingletonData.get(getActivity()).getSetup().isWaitForMe() 
+				if (setupInstructions.isWaitForMe() 
 						&& bellNumberTextViews.get(bellNumberTextViews.size() - 2).getText().toString().equals(next) 
 						&& (status == MethodStatus.PLAYING || status == MethodStatus.GO_TO_STAND || status == MethodStatus.GO_TO_ROUNDS)){
 
@@ -513,7 +516,7 @@ public class FragmentPlayMethod extends Fragment {
 
 						if (pressTimeLeft != 0 && bellNumberTextViews.get(bellNumberTextViews.size() - 2).getText().toString().equals(next) && status == MethodStatus.PLAYING){
 							updatedScoreLeft = true;
-							txvScoreLeft.setText(scoreRight.calculateScore(playTimeLeft, pressTimeLeft) + "");
+							txvScoreLeft.setText(scoreLeft.calculateScore(playTimeLeft, pressTimeLeft) + "");
 						}
 
 						//Displays the correct amount of text on screen
@@ -527,8 +530,8 @@ public class FragmentPlayMethod extends Fragment {
 					}
 				}); 
 
-	
-				
+
+
 				if ((userPlayingRight && bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next))
 						|| (userPlayingLeft && bellNumberTextViews.get(bellNumberTextViews.size() - 2).getText().toString().equals(next))){
 					//DO NOT PLAY
@@ -588,7 +591,7 @@ public class FragmentPlayMethod extends Fragment {
 					if (i % ((method.getPlayingOn()) * 2) == 0 ){
 
 						//Enabling the handstroke gap
-						if(SingletonData.get(getActivity()).getSetup().isHandstrokeGap())
+						if(setupInstructions.isHandstrokeGap())
 							wait((long) interval);
 
 						if(status == MethodStatus.GO_TO_ROUNDS){
@@ -601,28 +604,28 @@ public class FragmentPlayMethod extends Fragment {
 							status = MethodStatus.PLAYING;		
 						}
 
-						if(status == MethodStatus.GO_TO_STAND || status == MethodStatus.GO_TO_STAND_FROM_ROUNDS){
+						if(status == MethodStatus.GO_TO_STAND || status == MethodStatus.GO_TO_STAND_FROM_ROUNDS || status == MethodStatus.STANDING){
 
 							if (status == MethodStatus.GO_TO_STAND_FROM_ROUNDS)
 								method.swapRound();
 
 							status = MethodStatus.STANDING;
 
-							userPlayingLeft = false;
-							userPlayingRight = false;
-
 							mHandler.post(new Runnable() {
 
 								@Override
 								public void run() {
-									txvScoreLeft.setText("" + scoreLeft.getAverage());
-									txvScoreRight.setText("" + scoreRight.getAverage());
+									if (userPlayingLeft && setupInstructions.isScoreSummary())
+										txvScoreLeft.setText("" + scoreLeft.getAverage());
+									if (userPlayingRight && setupInstructions.isScoreSummary())
+										txvScoreRight.setText("" + scoreRight.getAverage());
 								}});
 
+							userPlayingLeft = false;
+							userPlayingRight = false;
+
 							method = new Method((Method) SingletonData.get(getActivity()).getChosenMethod().get(0));
-							method.initialize(numOfBells, Utils.getComposition(SingletonData.get(getActivity()).getSetup().getComposition()), 0);
-
-
+							method.initialize(numOfBells, Utils.getComposition(setupInstructions.getComposition()), 0);
 						}
 
 						mHandler.post(new Runnable() {

@@ -51,6 +51,17 @@ public class Utils {
 		
 		return bells[Arrays.asList(bellNumber).indexOf(bellNum)];
 	}
+	
+	public static String getBellPossibilities(int bells){
+		String[] bellNumber = {"1","2","3","4","5","6","6","7","8","9","0","E","T","A","B","C","D"};
+		String tmp = "";
+		for (int i = 0; i < bells; i++)
+			tmp += bellNumber[i];
+		
+		return tmp;
+			
+		
+	}
 		
 	public static double timeToMilliseconds(int hours, int minutes){
 		
