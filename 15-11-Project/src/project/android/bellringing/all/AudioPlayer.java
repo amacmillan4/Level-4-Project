@@ -12,7 +12,7 @@ import android.media.SoundPool;
 public class AudioPlayer {
 
 	private HashMap<String, Integer> sounds = new HashMap<String, Integer>();
-	private SoundPool sPool = new SoundPool(100, AudioManager.STREAM_MUSIC, 0);
+	private SoundPool sPool = new SoundPool(100000, AudioManager.STREAM_MUSIC, 0);
 
 	public AudioPlayer(Context c, boolean handbells, int bells){
 

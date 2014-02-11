@@ -13,11 +13,9 @@ public class Score {
 
 	public int calculateScore(long playTime, long hitTime){
 
-		long ring = 50;
+		long ring = 20;
 
 		double score = 11 - Math.ceil(Math.abs((playTime - hitTime) / ring));
-
-		System.out.println(playTime + "       " + hitTime + "        " + Math.abs((playTime - hitTime) / ring));
 		
 		if (score == 11)
 			score = 10;

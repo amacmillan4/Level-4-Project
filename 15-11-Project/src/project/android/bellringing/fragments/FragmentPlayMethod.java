@@ -276,7 +276,6 @@ public class FragmentPlayMethod extends Fragment {
 		txtRound.setLayoutParams(params2);
 		txtRound.setBackgroundColor(Color.WHITE);
 
-
 		showButton = (Button) v.findViewById(R.id.btnStop);
 		showButton.setOnClickListener(new View.OnClickListener() {
 

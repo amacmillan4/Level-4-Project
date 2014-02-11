@@ -8,7 +8,7 @@ import project.android.bellringing.activities.ActivitySelectMethod;
 import project.android.bellringing.adapters.AddMethodsArrayAdapter;
 import project.android.bellringing.all.Method;
 import project.android.bellringing.all.SingletonData;
-import project.android.bellringing.all.MethodShortlistSerializer;
+import project.android.bellringing.fileHandling.MethodShortlistSerializer;
 import project.android.bellringing.utilities.Utils;
 import android.content.Intent;
 import android.os.Bundle;
