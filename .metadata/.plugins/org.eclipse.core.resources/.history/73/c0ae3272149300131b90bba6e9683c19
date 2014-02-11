@@ -39,7 +39,7 @@ public class FragmentSelectMethod extends Fragment {
 	
 	public void onPause(){
 		super.onPause();
-		SingletonData.get(getActivity()).saveMethodData();
+		SingletonData.get(getActivity()).saveData();
 	}
 
 	@Override

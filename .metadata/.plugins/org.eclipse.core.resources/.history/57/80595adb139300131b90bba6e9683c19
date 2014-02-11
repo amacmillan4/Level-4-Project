@@ -98,10 +98,6 @@ public class SingletonData {
 		}
 
 	}
-	
-	public void removeMethods(Method m){
-		addMethods.remove(m);
-	}
 
 	public ArrayList<Method> getMethods(){
 		return addMethods;

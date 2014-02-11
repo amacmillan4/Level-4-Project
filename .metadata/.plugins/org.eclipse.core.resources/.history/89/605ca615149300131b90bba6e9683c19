@@ -35,12 +35,8 @@ public class FragmentSelectMethod extends Fragment {
 		super.onCreate(savedInstanceState);
 		setRetainInstance(true);
 	}
-	
-	
-	public void onPause(){
-		super.onPause();
-		SingletonData.get(getActivity()).saveMethodData();
-	}
+
+
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState){
@@ -197,7 +193,6 @@ public class FragmentSelectMethod extends Fragment {
 					llMethodList.removeView(view);
 					allViews.remove(view);
 					loadedMethods.remove(view.getTag(R.string.Method));
-					SingletonData.get(getActivity()).removeMethods((Method) view.getTag(R.string.Method));
 
 					boolean flag = false;
 
