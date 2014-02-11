@@ -44,7 +44,7 @@ public class FragmentPlayMethod extends Fragment {
 	private ArrayList<BellImageView> bellImageViews = new ArrayList<BellImageView>();
 	private ArrayList<TextView> bellNumberTextViews = new ArrayList<TextView>();
 
-	private View v;	//Global View
+	private View v;
 
 	private MethodStatus status;
 
@@ -143,6 +143,9 @@ public class FragmentPlayMethod extends Fragment {
 
 						if(status != MethodStatus.GO_TO_STAND_FROM_ROUNDS || status == MethodStatus.ROUNDS){
 							bellAudio.play(getActivity(), bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString());
+
+							BellImageView b = (BellImageView)v.findViewById(Integer.parseInt(Utils.bellNumberToBells(bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString())));
+							b.switchImage((Integer) b.getTag(), images);
 						}
 					}
 					else{
@@ -445,6 +448,7 @@ public class FragmentPlayMethod extends Fragment {
 
 				//Re-initialise scoring variables
 				final String next = method.calcNext();
+				System.out.println(method.getWholeMethod());
 
 				//If text reaches the length of the number of bells then it is due a new line character
 				if ((currentText.length() - method.getPlayingOn()) % ((method.getPlayingOn()) + 1) == 0 && currentText.length() >= method.getPlayingOn()){
@@ -455,16 +459,15 @@ public class FragmentPlayMethod extends Fragment {
 				//Add the next letter to the current text
 				currentText += next;
 
+				if (setupInstructions.isStopAtRounds()){
+					stopAtRoundsString += next;
 
-				stopAtRoundsString += next;
+					if(stopAtRoundsString.length() > method.getPlayingOn() + 1)
+						stopAtRoundsString = stopAtRoundsString.substring(stopAtRoundsString.length() - (method.getPlayingOn() + 1), stopAtRoundsString.length());
 
-				if(stopAtRoundsString.length() > method.getPlayingOn() + 1)
-					stopAtRoundsString = stopAtRoundsString.substring(stopAtRoundsString.length() - (method.getPlayingOn() + 1), stopAtRoundsString.length());
-
-				if(stopAtRoundsString.equals("\n" + roundsTest) && status == MethodStatus.PLAYING)
-					status = MethodStatus.STANDING;
-
-				System.out.println(stopAtRoundsString);
+					if(stopAtRoundsString.equals("\n" + roundsTest) && status == MethodStatus.PLAYING)
+						status = MethodStatus.STANDING;
+				}
 
 				final String cText = currentText;
 
@@ -523,9 +526,15 @@ public class FragmentPlayMethod extends Fragment {
 
 						txtRound.setText(method.textBobSinglePlain());
 
-						//Switch the bell position
-						BellImageView b = (BellImageView)v.findViewById(bells.indexOf(next) + 1);
-						b.switchImage((Integer) b.getTag(), images);
+						if (status == MethodStatus.PLAYING && ( (userPlayingLeft && bellNumberTextViews.get(bellNumberTextViews.size() - 2).getText().toString().equals(next)) ||
+								(userPlayingRight && bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next)))){
+							//Do not switch bell
+						}
+						else{
+							//Switch the bell position
+							BellImageView b = (BellImageView)v.findViewById(bells.indexOf(next) + 1);
+							b.switchImage((Integer) b.getTag(), images);
+						}
 					}
 				}); 
 
@@ -565,6 +574,7 @@ public class FragmentPlayMethod extends Fragment {
 					}
 
 					if(playTimeRight + 500 < System.currentTimeMillis() && playTimeRight != 0 && status == MethodStatus.PLAYING){
+
 
 						mHandler.post(new Runnable() {
 							@Override
@@ -611,9 +621,13 @@ public class FragmentPlayMethod extends Fragment {
 							status = MethodStatus.STANDING;
 
 							mHandler.post(new Runnable() {
-
+								
 								@Override
 								public void run() {
+									
+									for( BellImageView b: bellImageViews)
+										b.restart((Integer) b.getTag(), images);
+									
 									if (userPlayingLeft && setupInstructions.isScoreSummary())
 										txvScoreLeft.setText("" + scoreLeft.getAverage());
 									if (userPlayingRight && setupInstructions.isScoreSummary())

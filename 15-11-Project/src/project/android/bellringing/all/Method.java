@@ -364,7 +364,7 @@ public class Method{
 				String s = methodChanges.get(i);
 
 				if(!s.equals("x"))
-					methodChanges.set(i, s + playingOnBells);
+					methodChanges.set(i, s + Utils.bellsToBellNumber(playingOnBells+""));
 
 			}
 		}
@@ -450,11 +450,21 @@ public class Method{
 			char[] temp = operation.toCharArray();
 			ArrayList<String> copy = new ArrayList<String>(bellNumbering);
 
+			System.out.println(operation);
+			
+			for(String s: copy)
+				System.out.print(s+",");
+			System.out.println();
+			
 			//Mark all positions that do not move as REMOVE and remove them from the arraylist
 			for (int i = 0; i < temp.length; i++)
 				copy.set(bellNumbering.indexOf(temp[i] + ""), "REMOVE");
 
 			copy.removeAll(Collections.singleton("REMOVE"));
+			
+			for(String s: copy)
+				System.out.print(s+",");
+			System.out.println();
 
 			for (int i = 0; i < copy.size(); i = i + 2)
 				newLine = swap(newLine,bellNumbering.indexOf(copy.get(i)) + 1, bellNumbering.indexOf(copy.get(i+1)) + 1);
