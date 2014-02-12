@@ -7,7 +7,9 @@
     <TextView
         android:id="@+id/helpTxv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp" >
     </TextView>
 
 </ScrollView>

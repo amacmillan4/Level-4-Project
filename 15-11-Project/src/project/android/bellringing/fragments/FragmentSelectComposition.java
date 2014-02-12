@@ -14,7 +14,7 @@ import android.widget.ListView;
 
 public class FragmentSelectComposition extends Fragment {
 
-	String[] options = {"Plain Course", "Touch with Bobs", "Touch with Singles", "Touch with Bobs & Singles", "Touch of Spliced"};
+	String[] options = {"Plain Course", "Touch with Bobs", "Touch with Singles", "Touch with Bobs & Singles"};
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
