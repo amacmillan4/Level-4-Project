@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="28" version="2.0">
+<workbench progressCount="30" version="2.0">
 <workbenchAdvisor/>
 <window height="860" maximized="true" width="800" x="682" y="-15">
 <fastViewData fastViewLocation="1024"/>
@@ -23,7 +23,8 @@
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="190" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.ui.browser.editor" itemType="typePlaceholder" x="-1" y="-1"/>
 <coolItem id="com.android.ide.eclipse.editors.CommonXmlEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
@@ -41,29 +42,44 @@
 <part id="2"/>
 <part id="3"/>
 <part id="4"/>
+<part id="5"/>
+<part id="6"/>
+<part id="7"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FragmentPlayMethod.java" partName="FragmentPlayMethod.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/fragments/FragmentPlayMethod.java" title="FragmentPlayMethod.java" tooltip="15-11-Project/src/project/android/bellringing/fragments/FragmentPlayMethod.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/fragments/FragmentPlayMethod.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="22696" selectionTopPixel="11468"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Text2Block.java" partName="Text2Block.java" path="C:/Users/Allan/Level-4-Project/CS/src/Text2Block.java" title="Text2Block.java" tooltip="CS/src/Text2Block.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CS/src/Text2Block.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AudioPlayer.java" partName="AudioPlayer.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/all/AudioPlayer.java" title="AudioPlayer.java" tooltip="15-11-Project/src/project/android/bellringing/all/AudioPlayer.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/all/AudioPlayer.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1815" selectionTopPixel="68"/>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BruteForce1.java" partName="BruteForce1.java" path="C:/Users/Allan/Level-4-Project/CS/src/BruteForce1.java" title="BruteForce1.java" tooltip="CS/src/BruteForce1.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CS/src/BruteForce1.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="972" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivityHelp.java" partName="ActivityHelp.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/activities/ActivityHelp.java" title="ActivityHelp.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivityHelp.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/activities/ActivityHelp.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="920" selectionTopPixel="0"/>
+<editor id="org.eclipse.ui.DefaultTextEditor" name="a.txt" partName="a.txt" path="C:/Users/Allan/Level-4-Project/CS/a.txt" title="a.txt" tooltip="CS/a.txt" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CS/a.txt"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AbstractActivity.java" partName="AbstractActivity.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/activities/AbstractActivity.java" title="AbstractActivity.java" tooltip="15-11-Project/src/project/android/bellringing/activities/AbstractActivity.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/activities/AbstractActivity.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="129" selectionOffset="1408" selectionTopPixel="128"/>
+<editor id="org.eclipse.ui.DefaultTextEditor" name="a_b.txt" partName="a_b.txt" path="C:/Users/Allan/Level-4-Project/CS/a_b.txt" title="a_b.txt" tooltip="CS/a_b.txt" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CS/a_b.txt"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="216" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Utils.java" partName="Utils.java" path="C:/Users/Allan/Level-4-Project/15-11-Project/src/project/android/bellringing/utilities/Utils.java" title="Utils.java" tooltip="15-11-Project/src/project/android/bellringing/utilities/Utils.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/15-11-Project/src/project/android/bellringing/utilities/Utils.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2511" selectionTopPixel="368"/>
+<editor id="org.eclipse.ui.DefaultTextEditor" name="ciphertext1.txt" partName="ciphertext1.txt" path="C:/Users/Allan/Level-4-Project/CS/ciphertext1.txt" title="ciphertext1.txt" tooltip="CS/ciphertext1.txt" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CS/ciphertext1.txt"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DecryptAllBlocks.java" partName="DecryptAllBlocks.java" path="C:/Users/Allan/Level-4-Project/CS/src/DecryptAllBlocks.java" title="DecryptAllBlocks.java" tooltip="CS/src/DecryptAllBlocks.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CS/src/DecryptAllBlocks.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Block2Text.java" partName="Block2Text.java" path="C:/Users/Allan/Level-4-Project/CS/src/Block2Text.java" title="Block2Text.java" tooltip="CS/src/Block2Text.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CS/src/Block2Text.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.ui.DefaultTextEditor" name="cipherblock1_t.txt" partName="cipherblock1_t.txt" path="C:/Users/Allan/Level-4-Project/CS/cipherblock1_t.txt" title="cipherblock1_t.txt" tooltip="CS/cipherblock1_t.txt" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CS/cipherblock1_t.txt"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -72,9 +88,6 @@
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>
-<category IMemento.internal.id="Warnings (6 items)"/>
-</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="601"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -187,17 +200,21 @@
 <hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <view id="org.eclipse.jdt.ui.PackageExplorer"/>
-<view id="org.eclipse.ui.console.ConsoleView"/>
 <fastViewBars>
-<fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@14694b2" orientation="256" selectedTabId="com.android.ide.eclipse.ddms.views.LogCatView" style="0">
+<fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@12d9d2" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="0">
 <fastViews>
-<view id="com.android.ide.eclipse.ddms.views.LogCatView" ratio="0.5682119"/>
+<view id="org.eclipse.ui.console.ConsoleView" ratio="0.29933774"/>
 </fastViews>
 </fastViewBar>
 <fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@3b54af" orientation="256" selectedTabId="org.eclipse.ui.views.ProblemView" style="0">
 <fastViews>
 <view id="org.eclipse.ui.views.ProblemView" ratio="0.29933774"/>
 <view id="org.eclipse.jdt.ui.SourceView" ratio="0.29933774"/>
+</fastViews>
+</fastViewBar>
+<fastViewBar fastViewLocation="1024" id="org.eclipse.ui.internal.ViewStack@14694b2" orientation="256" selectedTabId="com.android.ide.eclipse.ddms.views.LogCatView" style="0">
+<fastViews>
+<view id="com.android.ide.eclipse.ddms.views.LogCatView" ratio="0.5682119"/>
 </fastViews>
 </fastViewBar>
 </fastViewBars>
@@ -257,15 +274,13 @@
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@12d9d2" ratio="0.7496689" ratioLeft="566" ratioRight="189" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
-<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@14694b2" ratio="0.30053192" ratioLeft="226" ratioRight="526" relationship="4" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="0">
+<folder appearance="2" expanded="2">
 <page content="com.android.ide.eclipse.ddms.views.LogCatView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
@@ -278,167 +293,171 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/fragments/FragmentPlayMethod.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/all/AudioPlayer.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/all/AudioPlayer2.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/activities/ActivityHelp.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/activities/AbstractActivity.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/all/Score.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/all/Method.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/activities/ActivityHelp.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/all/AudioPlayer.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/utilities/Utils.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/15-11-Project/src/project/android/bellringing/all/Method.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CS/src/Text2Block.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CS/src/EncryptAllBlocks.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CS/src/DecryptAllBlocks.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/CS/aaaa.txt"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CS/src/Block2Text.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CS/src/BruteForce1.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/CS/check.txt"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/CS/a.txt"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/CS/a_b.txt"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CS/src/DecryptAllBlocks.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CS/src/EncryptAllBlocks.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/CS/aaaa.txt"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/CS/ciphertext1.txt"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/CS/src/Block2Text.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/CS/cipherblock1_t.txt"/>
 </editors>
-<item historyLabel="AudioPlayer2.java" index="2">
-<position info="not_deleted" x="1503" y="0"/>
+<item historyLabel="DecryptAllBlocks.java" index="2">
+<position info="not_deleted" x="378" y="0"/>
 </item>
-<item historyLabel="FragmentPlayMethod.java" index="0">
-<position info="not_deleted" x="5224" y="0"/>
+<item historyLabel="BruteForce1.java" index="5">
+<position info="not_deleted" x="206" y="0"/>
 </item>
-<item historyLabel="AudioPlayer.java" index="1">
-<position info="not_deleted" x="414" y="0"/>
+<item historyLabel="DecryptAllBlocks.java" index="2">
+<position info="not_deleted" x="645" y="515"/>
 </item>
-<item historyLabel="FragmentPlayMethod.java" index="0">
-<position info="not_deleted" x="4162" y="9"/>
-</item>
-<item historyLabel="ActivityHelp.java" index="3">
+<item historyLabel="Block2Text.java" index="4">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="AbstractActivity.java" index="4">
-<position info="not_deleted" x="1337" y="0"/>
+<item historyLabel="BruteForce1.java" index="5">
+<position info="not_deleted" x="206" y="0"/>
 </item>
-<item historyLabel="ActivityHelp.java" index="3">
-<position info="not_deleted" x="1190" y="0"/>
+<item historyLabel="BruteForce1.java" index="5">
+<position info="not_deleted" x="276" y="0"/>
 </item>
-<item historyLabel="AbstractActivity.java" index="4">
-<position info="not_deleted" x="1337" y="0"/>
+<item historyLabel="BruteForce1.java" index="5">
+<position info="not_deleted" x="701" y="0"/>
 </item>
-<item historyLabel="ActivityHelp.java" index="3">
-<position info="not_deleted" x="537" y="0"/>
+<item historyLabel="DecryptAllBlocks.java" index="2">
+<position info="not_deleted" x="645" y="515"/>
 </item>
-<item historyLabel="AbstractActivity.java" index="4">
-<position info="not_deleted" x="1337" y="0"/>
+<item historyLabel="BruteForce1.java" index="5">
+<position info="not_deleted" x="701" y="0"/>
 </item>
-<item historyLabel="ActivityHelp.java" index="3">
-<position/>
+<item historyLabel="BruteForce1.java" index="5">
+<position info="not_deleted" x="672" y="0"/>
 </item>
-<item historyLabel="AbstractActivity.java" index="4">
-<position info="not_deleted" x="1337" y="0"/>
+<item historyLabel="Block2Text.java" index="4">
+<position info="not_deleted" x="580" y="394"/>
 </item>
-<item historyLabel="ActivityHelp.java" index="3">
-<position info="not_deleted" x="807" y="0"/>
+<item historyLabel="BruteForce1.java" index="5">
+<position info="not_deleted" x="672" y="0"/>
 </item>
-<item historyLabel="AbstractActivity.java" index="4">
-<position info="not_deleted" x="1337" y="0"/>
+<item historyLabel="BruteForce1.java" index="5">
+<position info="not_deleted" x="957" y="0"/>
 </item>
-<item historyLabel="ActivityHelp.java" index="3">
-<position info="not_deleted" x="867" y="0"/>
+<item historyLabel="Block2Text.java" index="4">
+<position info="not_deleted" x="580" y="394"/>
 </item>
-<item historyLabel="AbstractActivity.java" index="4">
-<position info="not_deleted" x="1408" y="129"/>
-</item>
-<item historyLabel="ActivityHelp.java" index="3">
-<position info="not_deleted" x="1028" y="0"/>
-</item>
-<item historyLabel="AbstractActivity.java" index="4">
-<position info="not_deleted" x="1408" y="129"/>
-</item>
-<item historyLabel="ActivityHelp.java" index="3">
-<position info="not_deleted" x="863" y="0"/>
-</item>
-<item historyLabel="FragmentPlayMethod.java" index="0">
-<position info="not_deleted" x="4162" y="9"/>
-</item>
-<item historyLabel="FragmentPlayMethod.java" index="0">
-<position info="not_deleted" x="15597" y="0"/>
-</item>
-<item historyLabel="FragmentPlayMethod.java" index="0">
-<position info="not_deleted" x="17868" y="0"/>
-</item>
-<item historyLabel="Score.java" index="5">
+<item historyLabel="aaaa.txt" index="3">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="FragmentPlayMethod.java" index="0">
-<position info="not_deleted" x="17868" y="0"/>
-</item>
-<item historyLabel="Method.java" index="6">
-<position info="not_deleted" x="5049" y="0"/>
-</item>
-<item historyLabel="FragmentPlayMethod.java" index="0">
-<position info="not_deleted" x="17868" y="0"/>
-</item>
-<item historyLabel="FragmentPlayMethod.java" index="0">
-<position info="not_deleted" x="17868" y="0"/>
-</item>
-<item historyLabel="FragmentPlayMethod.java" index="0">
-<position/>
-</item>
-<item historyLabel="ActivityHelp.java" index="7">
-<position info="not_deleted" x="920" y="0"/>
-</item>
-<item historyLabel="FragmentPlayMethod.java" index="0">
-<position info="not_deleted" x="5976" y="0"/>
-</item>
-<item historyLabel="FragmentPlayMethod.java" index="0">
-<position/>
-</item>
-<item historyLabel="AudioPlayer.java" index="8">
-<position info="not_deleted" x="1815" y="0"/>
-</item>
-<item historyLabel="FragmentPlayMethod.java" index="0">
-<position info="not_deleted" x="6032" y="0"/>
-</item>
-<item historyLabel="Utils.java" index="9">
+<item historyLabel="check.txt" index="6">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Utils.java" index="9">
-<position info="not_deleted" x="2313" y="0"/>
+<item historyLabel="BruteForce1.java" index="5">
+<position info="not_deleted" x="957" y="0"/>
 </item>
-<item historyLabel="Utils.java" index="9">
-<position info="not_deleted" x="2429" y="0"/>
+<item historyLabel="BruteForce1.java" index="5">
+<position/>
 </item>
-<item historyLabel="Utils.java" index="9">
-<position info="not_deleted" x="2511" y="0"/>
+<item historyLabel="BruteForce1.java" index="5">
+<position info="not_deleted" x="1488" y="0"/>
 </item>
-<item historyLabel="FragmentPlayMethod.java" index="0">
-<position info="not_deleted" x="6032" y="0"/>
+<item historyLabel="a.txt" index="7">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="FragmentPlayMethod.java" index="0">
-<position info="not_deleted" x="1509" y="0"/>
+<item historyLabel="BruteForce1.java" index="5">
+<position info="not_deleted" x="1409" y="0"/>
 </item>
-<item historyLabel="FragmentPlayMethod.java" index="0">
-<position info="not_deleted" x="14173" y="0"/>
+<item historyLabel="Text2Block.java" index="0">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="FragmentPlayMethod.java" index="0">
-<position info="not_deleted" x="14250" y="0"/>
+<item historyLabel="EncryptAllBlocks.java" index="1">
+<position info="not_deleted" x="682" y="38"/>
 </item>
-<item historyLabel="FragmentPlayMethod.java" index="0">
-<position info="not_deleted" x="15629" y="0"/>
+<item historyLabel="BruteForce1.java" index="5">
+<position info="not_deleted" x="1564" y="0"/>
 </item>
-<item historyLabel="FragmentPlayMethod.java" index="0">
-<position info="not_deleted" x="16137" y="0"/>
+<item historyLabel="aaaa.txt" index="3">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="FragmentPlayMethod.java" index="0">
-<position info="not_deleted" x="15930" y="0"/>
+<item historyLabel="aaaa.txt" index="3">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="FragmentPlayMethod.java" index="0">
-<position info="not_deleted" x="16137" y="0"/>
+<item historyLabel="BruteForce1.java" index="5">
+<position info="not_deleted" x="1564" y="0"/>
 </item>
-<item historyLabel="FragmentPlayMethod.java" index="0">
-<position info="not_deleted" x="1688" y="0"/>
+<item historyLabel="BruteForce1.java" index="5">
+<position info="not_deleted" x="354" y="0"/>
 </item>
-<item historyLabel="FragmentPlayMethod.java" index="0">
-<position info="not_deleted" x="21070" y="0"/>
+<item historyLabel="Text2Block.java" index="0">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Method.java" index="10">
-<position info="not_deleted" x="5049" y="0"/>
+<item historyLabel="EncryptAllBlocks.java" index="1">
+<position info="not_deleted" x="682" y="38"/>
 </item>
-<item historyLabel="FragmentPlayMethod.java" index="0">
-<position info="not_deleted" x="6083" y="0"/>
+<item historyLabel="BruteForce1.java" index="5">
+<position info="not_deleted" x="354" y="0"/>
 </item>
-<item active="true" historyLabel="FragmentPlayMethod.java" index="0">
-<position info="not_deleted" x="5303" y="0"/>
+<item historyLabel="a_b.txt" index="8">
+<position info="not_deleted" x="216" y="0"/>
+</item>
+<item historyLabel="BruteForce1.java" index="5">
+<position info="not_deleted" x="1072" y="0"/>
+</item>
+<item historyLabel="DecryptAllBlocks.java" index="9">
+<position info="not_deleted" x="645" y="515"/>
+</item>
+<item historyLabel="BruteForce1.java" index="5">
+<position/>
+</item>
+<item historyLabel="EncryptAllBlocks.java" index="10">
+<position info="not_deleted" x="825" y="0"/>
+</item>
+<item historyLabel="BruteForce1.java" index="5">
+<position info="not_deleted" x="1054" y="0"/>
+</item>
+<item historyLabel="BruteForce1.java" index="5">
+<position info="not_deleted" x="1056" y="0"/>
+</item>
+<item historyLabel="aaaa.txt" index="11">
+<position info="not_deleted" x="217" y="0"/>
+</item>
+<item historyLabel="aaaa.txt" index="11">
+<position info="not_deleted" x="216" y="0"/>
+</item>
+<item historyLabel="BruteForce1.java" index="5">
+<position info="not_deleted" x="498" y="1"/>
+</item>
+<item historyLabel="ciphertext1.txt" index="12">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="BruteForce1.java" index="5">
+<position info="not_deleted" x="763" y="0"/>
+</item>
+<item historyLabel="ciphertext1.txt" index="12">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="BruteForce1.java" index="5">
+<position info="not_deleted" x="972" y="0"/>
+</item>
+<item historyLabel="DecryptAllBlocks.java" index="9">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="BruteForce1.java" index="5">
+<position info="not_deleted" x="972" y="0"/>
+</item>
+<item historyLabel="Block2Text.java" index="13">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="cipherblock1_t.txt" index="14">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item active="true" historyLabel="BruteForce1.java" index="5">
+<position info="not_deleted" x="972" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -456,54 +475,55 @@
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@3b54af"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@14694b2"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@12d9d2"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Utils.java" tooltip="15-11-Project/src/project/android/bellringing/utilities/Utils.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/utilities/Utils.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="cipherblock1_t.txt" tooltip="CS/cipherblock1_t.txt">
+<persistable path="/CS/cipherblock1_t.txt"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Method.java" tooltip="15-11-Project/src/project/android/bellringing/all/Method.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/all/Method.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Block2Text.java" tooltip="CS/src/Block2Text.java">
+<persistable path="/CS/src/Block2Text.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Score.java" tooltip="15-11-Project/src/project/android/bellringing/all/Score.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/all/Score.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DecryptAllBlocks.java" tooltip="CS/src/DecryptAllBlocks.java">
+<persistable path="/CS/src/DecryptAllBlocks.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AbstractActivity.java" tooltip="15-11-Project/src/project/android/bellringing/activities/AbstractActivity.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/activities/AbstractActivity.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="ciphertext1.txt" tooltip="CS/ciphertext1.txt">
+<persistable path="/CS/ciphertext1.txt"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivityHelp.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivityHelp.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/activities/ActivityHelp.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="a_b.txt" tooltip="CS/a_b.txt">
+<persistable path="/CS/a_b.txt"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AudioPlayer2.java" tooltip="15-11-Project/src/project/android/bellringing/all/AudioPlayer2.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/all/AudioPlayer2.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="a.txt" tooltip="CS/a.txt">
+<persistable path="/CS/a.txt"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AudioPlayer.java" tooltip="15-11-Project/src/project/android/bellringing/all/AudioPlayer.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/all/AudioPlayer.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="check.txt" tooltip="CS/check.txt">
+<persistable path="/CS/check.txt"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="fragment_play_method.xml" tooltip="15-11-Project/res/layout/fragment_play_method.xml">
-<persistable path="/15-11-Project/res/layout/fragment_play_method.xml"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BruteForce1.java" tooltip="CS/src/BruteForce1.java">
+<persistable path="/CS/src/BruteForce1.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FragmentPlayMethod.java" tooltip="15-11-Project/src/project/android/bellringing/fragments/FragmentPlayMethod.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/fragments/FragmentPlayMethod.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="aaaa_t.txt" tooltip="CS/aaaa_t.txt">
+<persistable path="/CS/aaaa_t.txt"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivityPlayMethod.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivityPlayMethod.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/activities/ActivityPlayMethod.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="aaaa.txt" tooltip="CS/aaaa.txt">
+<persistable path="/CS/aaaa.txt"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="main_without_help.xml" tooltip="15-11-Project/res/menu/main_without_help.xml">
-<persistable path="/15-11-Project/res/menu/main_without_help.xml"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="#abc.txt" tooltip="CS/#abc.txt">
+<persistable path="/CS/#abc.txt"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="main_with_help.xml" tooltip="15-11-Project/res/menu/main_with_help.xml">
-<persistable path="/15-11-Project/res/menu/main_with_help.xml"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Hex16.java" tooltip="CS/src/Hex16.java">
+<persistable path="/CS/src/Hex16.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.android.ide.eclipse.editors.CommonXmlEditor" name="main.xml" tooltip="15-11-Project/res/menu/main.xml">
-<persistable path="/15-11-Project/res/menu/main.xml"/>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="Coder.class" tooltip="Coder">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=CS/src\/cls&lt;(Coder.class"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FragmentSetup.java" tooltip="15-11-Project/src/project/android/bellringing/fragments/FragmentSetup.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/fragments/FragmentSetup.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="EncryptAllBlocks.java" tooltip="CS/src/EncryptAllBlocks.java">
+<persistable path="/CS/src/EncryptAllBlocks.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ActivitySelectStage.java" tooltip="15-11-Project/src/project/android/bellringing/activities/ActivitySelectStage.java">
-<persistable path="/15-11-Project/src/project/android/bellringing/activities/ActivitySelectStage.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Text2Block.java" tooltip="CS/src/Text2Block.java">
+<persistable path="/CS/src/Text2Block.java"/>
 </file>
 </mruList>
 </workbench>

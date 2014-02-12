@@ -1,0 +1,72 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import FormatIO.EofX;
+import FormatIO.FileIn;
+import FormatIO.FileOut;
+
+
+public class BruteForce1 {
+
+	public static void main(String args[]) throws IOException{
+
+
+		System.out.println(unicityDistance(4));
+
+		ArrayList<Integer> a = new ArrayList<Integer>();
+		String key_string;
+
+		// open files
+		FileIn	fin  = new FileIn("ciphertext1.txt");
+
+		try{
+
+			String	s = fin.readWord();
+			a.add(Hex16.convert(s));
+
+		}
+		catch (EofX x){}
+
+
+		for (int q = 0; q < 65536; q++){
+
+			key_string = String.format("0x%04X", q);
+			
+			System.out.println("Trying key : " + key_string);
+
+			int key = Hex16.convert(key_string);
+
+			for (Integer x: a){
+				int	p = Coder.decrypt(key, x);
+				String	out = String.format("0x%04x", p);
+				System.out.println(out);
+				if (out.contains("0xFF")){
+					System.out.println("Key = " + key_string);
+					break;
+					q = 100000;
+				}
+				
+			}			
+		}		
+	}
+
+	private static double unicityDistance(int blockLength){
+
+		//Key Length H(K) = 16^4 = 65536 = 2^16
+		//Absolute Rate = log(26) = 4.7
+		//Take r = 1.5
+		//Redundancy D = 3.2
+
+
+		double unicity, entropy = 16, redundancy = 3.2;
+
+		unicity = entropy/redundancy;
+
+		return unicity;
+	}
+
+
+}

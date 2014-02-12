@@ -1,0 +1,176 @@
+what,kind,bundleId,bundleVersion,description,time
+error,log,,,"Error in JDT Core during AST creation",1392134425885
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1392134427161
+error,log,,,"Error in JDT Core during AST creation",1392134427169
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1392134428356
+error,log,,,"Error in JDT Core during AST creation",1392134428364
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1392134432592
+error,log,,,"Error in JDT Core during AST creation",1392134432601
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1392134435848
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134438623
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134440358
+executed,command,org.eclipse.ui.ide,3.7.0.v20110928-1505,"org.eclipse.ui.project.cleanAction",1392134440372
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134441067
+error,log,,,"Exception occurred during problem detection:\r\n----------------------------------- SOURCE BEGIN -------------------------------------\r\npackage all;\r\n\r\n/**\r\n * Encrypts a file containing blocks as hex numbers\r\n * Output is another file containing blocks\r\n * (c) Ron Poet\r\n */\r\n\r\nimport FormatIO.Console;\r\nimport FormatIO.EofX;\r\nimport FormatIO.FileIn;\r\nimport FormatIO.FileOut;\r\nimport Coder;\r\n\r\npublic class EncryptAllBlocks \r\n{\r\n\tpublic\tstatic\tvoid\tmain(String[] arg)\r\n\t{\r\n\t\t// create a Console for IO\r\n\t\tConsole\tcon = new Console(""EncryptAllBlocks"");\r\n\t\t\r\n\t\t\t// get file names\r\n\t\tcon.print(""Enter input  file name: "");\r\n\t\tString\tname_in = con.readWord();\r\n\t\tcon.print(""Enter output file name: "");\r\n\t\tString\tname_out = con.readWord();\r\n\t\t\r\n\t\t\t// get key\r\n\t\tcon.print(""Enter key as hexadecimal number: "");\r\n\t\tString\tkey_string = con.readWord();\r\n\t\tint\tkey = Hex16.convert(key_string);\r\n\t\t\r\n\t\t\t// open files\r\n\t\tFileIn\tfin  = new FileIn(name_in);\r\n\t\tFileOut fout = new FileOut(name_out);\r\n\t\t\r\n\t\t// read blocks, encrypt and output blocks\r\n\t\ttry\r\n\t\t{\r\n\t\t\tfor (;;)\r\n\t\t\t{\r\n\t\t\t\tString\ts = fin.readWord();\r\n\t\t\t\tint\tp = Hex16.convert(s);\r\n\t\t\t\tint\tc = Coder.encrypt(key, p);\r\n\t\t\t\tString\tout = String.format(""0x%04x"", c);\r\n\t\t\t\tfout.println(out);\r\n\t\t\t}\r\n\t\t}\r\n\t\tcatch (EofX x)\r\n\t\t{\r\n\t\t}\r\n\t\tfout.close();\r\n\t\tcon.println(""-- Finished --"");\r\n\t}\r\n\r\n}\r\n\r\n----------------------------------- SOURCE END -------------------------------------",1392134442128
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1392134442197
+error,log,,,"Error in JDT Core during reconcile",1392134442222
+started,bundle,org.eclipse.wst.sse.core,1.1.602.v201112071516,"org.eclipse.wst.sse.core",1392134442303
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134446954
+error,log,,,"Exception occurred during problem detection:\r\n----------------------------------- SOURCE BEGIN -------------------------------------\r\npackage all;\r\n\r\n/**\r\n * Encrypts a file containing blocks as hex numbers\r\n * Output is another file containing blocks\r\n * (c) Ron Poet\r\n */\r\n\r\nimport FormatIO.Console;\r\nimport FormatIO.EofX;\r\nimport FormatIO.FileIn;\r\nimport FormatIO.FileOut;\r\nimport Coder;\r\n\r\npublic class EncryptAllBlocks \r\n{\r\n\tpublic\tstatic\tvoid\tmain(String[] arg)\r\n\t{\r\n\t\t// create a Console for IO\r\n\t\tConsole\tcon = new Console(""EncryptAllBlocks"");\r\n\t\t\r\n\t\t\t// get file names\r\n\t\tcon.print(""Enter input  file name: "");\r\n\t\tString\tname_in = con.readWord();\r\n\t\tcon.print(""Enter output file name: "");\r\n\t\tString\tname_out = con.readWord();\r\n\t\t\r\n\t\t\t// get key\r\n\t\tcon.print(""Enter key as hexadecimal number: "");\r\n\t\tString\tkey_string = con.readWord();\r\n\t\tint\tkey = Hex16.convert(key_string);\r\n\t\t\r\n\t\t\t// open files\r\n\t\tFileIn\tfin  = new FileIn(name_in);\r\n\t\tFileOut fout = new FileOut(name_out);\r\n\t\t\r\n\t\t// read blocks, encrypt and output blocks\r\n\t\ttry\r\n\t\t{\r\n\t\t\tfor (;;)\r\n\t\t\t{\r\n\t\t\t\tString\ts = fin.readWord();\r\n\t\t\t\tint\tp = Hex16.convert(s);\r\n\t\t\t\tint\tc = Coder.encrypt(key, p);\r\n\t\t\t\tString\tout = String.format(""0x%04x"", c);\r\n\t\t\t\tfout.println(out);\r\n\t\t\t}\r\n\t\t}\r\n\t\tcatch (EofX x)\r\n\t\t{\r\n\t\t}\r\n\t\tfout.close();\r\n\t\tcon.println(""-- Finished --"");\r\n\t}\r\n\r\n}\r\n\r\n----------------------------------- SOURCE END -------------------------------------",1392134447743
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1392134447753
+error,log,,,"Error in JDT Core during reconcile",1392134447761
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392134450191
+error,log,,,"Exception occurred during problem detection:\r\n----------------------------------- SOURCE BEGIN -------------------------------------\r\npackage all;\r\n\r\n/**\r\n * Encrypts a file containing blocks as hex numbers\r\n * Output is another file containing blocks\r\n * (c) Ron Poet\r\n */\r\n\r\nimport FormatIO.Console;\r\nimport FormatIO.EofX;\r\nimport FormatIO.FileIn;\r\nimport FormatIO.FileOut;\r\nimport Coder;\r\n\r\npublic class EncryptAllBlocks \r\n{\r\n\tpublic\tstatic\tvoid\tmain(String[] arg)\r\n\t{\r\n\t\t// create a Console for IO\r\n\t\tConsole\tcon = new Console(""EncryptAllBlocks"");\r\n\t\t\r\n\t\t\t// get file names\r\n\t\tcon.print(""Enter input  file name: "");\r\n\t\tString\tname_in = con.readWord();\r\n\t\tcon.print(""Enter output file name: "");\r\n\t\tString\tname_out = con.readWord();\r\n\t\t\r\n\t\t\t// get key\r\n\t\tcon.print(""Enter key as hexadecimal number: "");\r\n\t\tString\tkey_string = con.readWord();\r\n\t\tint\tkey = Hex16.convert(key_string);\r\n\t\t\r\n\t\t\t// open files\r\n\t\tFileIn\tfin  = new FileIn(name_in);\r\n\t\tFileOut fout = new FileOut(name_out);\r\n\t\t\r\n\t\t// read blocks, encrypt and output blocks\r\n\t\ttry\r\n\t\t{\r\n\t\t\tfor (;;)\r\n\t\t\t{\r\n\t\t\t\tString\ts = fin.readWord();\r\n\t\t\t\tint\tp = Hex16.convert(s);\r\n\t\t\t\tint\tc = Coder.encrypt(key, p);\r\n\t\t\t\tString\tout = String.format(""0x%04x"", c);\r\n\t\t\t\tfout.println(out);\r\n\t\t\t}\r\n\t\t}\r\n\t\tcatch (EofX x)\r\n\t\t{\r\n\t\t}\r\n\t\tfout.close();\r\n\t\tcon.println(""-- Finished --"");\r\n\t}\r\n\r\n}\r\n\r\n----------------------------------- SOURCE END -------------------------------------",1392134450782
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1392134450791
+error,log,,,"Error in JDT Core during reconcile",1392134450799
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1392134450826
+error,log,,,"Error in JDT Core during AST creation",1392134450838
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1392134453922
+error,log,,,"Error in JDT Core during AST creation",1392134453930
+error,log,,,"Unhandled event loop exception",1392134453953
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1392134456325
+error,log,,,"Error in JDT Core during AST creation",1392134456337
+error,log,,,"Unhandled event loop exception",1392134456360
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134460016
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134538256
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1392134540742
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134542830
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134575067
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.properties",1392134575093
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392134581175
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134582299
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134612384
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1392134612420
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134614639
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134656404
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.properties",1392134656462
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134666145
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134698235
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.properties",1392134698255
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.refresh",1392134701812
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134708516
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134719429
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134719478
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134721797
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134728351
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134736860
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134739742
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134744128
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134744190
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134745591
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392134749936
+started,bundle,org.eclipse.mylyn.ide.ui,3.6.0.v20110608-1400,"org.eclipse.mylyn.ide.ui",1392134755458
+started,bundle,org.eclipse.mylyn.java.ui,3.6.0.v20110608-1400,"org.eclipse.mylyn.java.ui",1392134755498
+error,log,,,"Exception occurred during problem detection:\r\n----------------------------------- SOURCE BEGIN -------------------------------------\r\npackage all;\r\n\r\n/**\r\n * Encrypts a file containing blocks as hex numbers\r\n * Output is another file containing blocks\r\n * (c) Ron Poet\r\n */\r\n\r\nimport FormatIO.Console;\r\nimport FormatIO.EofX;\r\nimport FormatIO.FileIn;\r\nimport FormatIO.FileOut;\r\nimport class_file.Coder;\r\n\r\npublic class EncryptAllBlocks \r\n{\r\n\tpublic\tstatic\tvoid\tmain(String[] arg)\r\n\t{\r\n\t\t// create a Console for IO\r\n\t\tConsole\tcon = new Console(""EncryptAllBlocks"");\r\n\t\t\r\n\t\t\t// get file names\r\n\t\tcon.print(""Enter input  file name: "");\r\n\t\tString\tname_in = con.readWord();\r\n\t\tcon.print(""Enter output file name: "");\r\n\t\tString\tname_out = con.readWord();\r\n\t\t\r\n\t\t\t// get key\r\n\t\tcon.print(""Enter key as hexadecimal number: "");\r\n\t\tString\tkey_string = con.readWord();\r\n\t\tint\tkey = Hex16.convert(key_string);\r\n\t\t\r\n\t\t\t// open files\r\n\t\tFileIn\tfin  = new FileIn(name_in);\r\n\t\tFileOut fout = new FileOut(name_out);\r\n\t\t\r\n\t\t// read blocks, encrypt and output blocks\r\n\t\ttry\r\n\t\t{\r\n\t\t\tfor (;;)\r\n\t\t\t{\r\n\t\t\t\tString\ts = fin.readWord();\r\n\t\t\t\tint\tp = Hex16.convert(s);\r\n\t\t\t\tint\tc = Coder.encrypt(key, p);\r\n\t\t\t\tString\tout = String.format(""0x%04x"", c);\r\n\t\t\t\tfout.println(out);\r\n\t\t\t}\r\n\t\t}\r\n\t\tcatch (EofX x)\r\n\t\t{\r\n\t\t}\r\n\t\tfout.close();\r\n\t\tcon.println(""-- Finished --"");\r\n\t}\r\n\r\n}\r\n\r\n----------------------------------- SOURCE END -------------------------------------",1392134757336
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1392134757346
+error,log,,,"Error in JDT Core during reconcile",1392134757354
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1392134757684
+error,log,,,"Error in JDT Core during AST creation",1392134757691
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1392134759350
+error,log,,,"Exception occurred during problem detection:\r\n----------------------------------- SOURCE BEGIN -------------------------------------\r\npackage all;\r\n\r\n/**\r\n * Encrypts a file containing blocks as hex numbers\r\n * Output is another file containing blocks\r\n * (c) Ron Poet\r\n */\r\n\r\nimport FormatIO.Console;\r\nimport FormatIO.EofX;\r\nimport FormatIO.FileIn;\r\nimport FormatIO.FileOut;\r\nimport class_file.Coder;\r\n\r\npublic class EncryptAllBlocks \r\n{\r\n\tpublic\tstatic\tvoid\tmain(String[] arg)\r\n\t{\r\n\t\t// create a Console for IO\r\n\t\tConsole\tcon = new Console(""EncryptAllBlocks"");\r\n\t\t\r\n\t\t\t// get file names\r\n\t\tcon.print(""Enter input  file name: "");\r\n\t\tString\tname_in = con.readWord();\r\n\t\tcon.print(""Enter output file name: "");\r\n\t\tString\tname_out = con.readWord();\r\n\t\t\r\n\t\t\t// get key\r\n\t\tcon.print(""Enter key as hexadecimal number: "");\r\n\t\tString\tkey_string = con.readWord();\r\n\t\tint\tkey = Hex16.convert(key_string);\r\n\t\t\r\n\t\t\t// open files\r\n\t\tFileIn\tfin  = new FileIn(name_in);\r\n\t\tFileOut fout = new FileOut(name_out);\r\n\t\t\r\n\t\t// read blocks, encrypt and output blocks\r\n\t\ttry\r\n\t\t{\r\n\t\t\tfor (;;)\r\n\t\t\t{\r\n\t\t\t\tString\ts = fin.readWord();\r\n\t\t\t\tint\tp = Hex16.convert(s);\r\n\t\t\t\tint\tc = Coder.encrypt(key, p);\r\n\t\t\t\tString\tout = String.format(""0x%04x"", c);\r\n\t\t\t\tfout.println(out);\r\n\t\t\t}\r\n\t\t}\r\n\t\tcatch (EofX x)\r\n\t\t{\r\n\t\t}\r\n\t\tfout.close();\r\n\t\tcon.println(""-- Finished --"");\r\n\t}\r\n\r\n}\r\n\r\n----------------------------------- SOURCE END -------------------------------------",1392134759883
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1392134759893
+error,log,,,"Error in JDT Core during reconcile",1392134759901
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1392134760909
+error,log,,,"Error in JDT Core during AST creation",1392134760917
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1392134762384
+error,log,,,"Error in JDT Core during AST creation",1392134762392
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1392134767345
+opened,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392134770963
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392134771043
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1392134777647
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134783484
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134785619
+executed,command,org.eclipse.ui.ide,3.7.0.v20110928-1505,"org.eclipse.ui.project.cleanAction",1392134785632
+error,log,,,"Exception occurred during problem detection:\r\n----------------------------------- SOURCE BEGIN -------------------------------------\r\npackage all;\r\n\r\n/**\r\n * Encrypts a file containing blocks as hex numbers\r\n * Output is another file containing blocks\r\n * (c) Ron Poet\r\n */\r\n\r\nimport FormatIO.Console;\r\nimport FormatIO.EofX;\r\nimport FormatIO.FileIn;\r\nimport FormatIO.FileOut;\r\nimport class_file.Coder;\r\n\r\npublic class EncryptAllBlocks \r\n{\r\n\tpublic\tstatic\tvoid\tmain(String[] arg)\r\n\t{\r\n\t\t// create a Console for IO\r\n\t\tConsole\tcon = new Console(""EncryptAllBlocks"");\r\n\t\t\r\n\t\t\t// get file names\r\n\t\tcon.print(""Enter input  file name: "");\r\n\t\tString\tname_in = con.readWord();\r\n\t\tcon.print(""Enter output file name: "");\r\n\t\tString\tname_out = con.readWord();\r\n\t\t\r\n\t\t\t// get key\r\n\t\tcon.print(""Enter key as hexadecimal number: "");\r\n\t\tString\tkey_string = con.readWord();\r\n\t\tint\tkey = Hex16.convert(key_string);\r\n\t\t\r\n\t\t\t// open files\r\n\t\tFileIn\tfin  = new FileIn(name_in);\r\n\t\tFileOut fout = new FileOut(name_out);\r\n\t\t\r\n\t\t// read blocks, encrypt and output blocks\r\n\t\ttry\r\n\t\t{\r\n\t\t\tfor (;;)\r\n\t\t\t{\r\n\t\t\t\tString\ts = fin.readWord();\r\n\t\t\t\tint\tp = Hex16.convert(s);\r\n\t\t\t\tint\tc = Coder.encrypt(key, p);\r\n\t\t\t\tString\tout = String.format(""0x%04x"", c);\r\n\t\t\t\tfout.println(out);\r\n\t\t\t}\r\n\t\t}\r\n\t\tcatch (EofX x)\r\n\t\t{\r\n\t\t}\r\n\t\tfout.close();\r\n\t\tcon.println(""-- Finished --"");\r\n\t}\r\n\r\n}\r\n\r\n----------------------------------- SOURCE END -------------------------------------",1392134786489
+error,log,,,"Problems occurred when invoking code from plug-in: ""org.eclipse.jdt.ui"".",1392134786497
+error,log,,,"Error in JDT Core during reconcile",1392134786505
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392134790604
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1392134804966
+closed,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392134804968
+closed,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392134804992
+closed,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392134805009
+closed,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392134805043
+closed,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392134805090
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134811493
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134882221
+opened,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392134886160
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392134886206
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134889505
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134918049
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1392134919832
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.refresh",1392134921375
+started,bundle,org.eclipse.m2e.launching,1.0.200.20111228-1245,"org.eclipse.m2e.launching",1392134925702
+opened,view,org.eclipse.ui.console,3.5.100.v20111007_r372,"org.eclipse.ui.console.ConsoleView",1392134926529
+started,bundle,org.eclipse.cdt.dsf,2.2.0.201202111925,"org.eclipse.cdt.dsf",1392134926641
+started,bundle,org.eclipse.cdt.dsf.gdb,4.0.2.201202111925,"org.eclipse.cdt.dsf.gdb",1392134926644
+started,bundle,org.eclipse.cdt.dsf.gdb.ui,2.2.1.201202111925,"org.eclipse.cdt.dsf.gdb.ui",1392134926646
+started,bundle,org.eclipse.cdt.debug.mi.ui,6.1.1.201202111925,"org.eclipse.cdt.debug.mi.ui",1392134926731
+started,bundle,org.eclipse.cdt.debug.mi.core,7.1.1.201202111925,"org.eclipse.cdt.debug.mi.core",1392134926787
+activated,view,org.eclipse.ui.console,3.5.100.v20111007_r372,"org.eclipse.ui.console.ConsoleView",1392134926947
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392134935201
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1392134937068
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134938782
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134948424
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.properties",1392134948446
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134954633
+error,log,,,"Internal Error",1392134958435
+error,log,,,"Problems encountered while deleting resources.",1392134958443
+closed,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392134958586
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134967025
+executed,command,org.eclipse.ltk.ui.refactoring,3.6.0.v20110928-1453,"org.eclipse.ltk.ui.refactoring.commands.deleteResources",1392134967039
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1392134967039
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134970081
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134970657
+executed,command,org.eclipse.ltk.ui.refactoring,3.6.0.v20110928-1453,"org.eclipse.ltk.ui.refactoring.commands.deleteResources",1392134970668
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1392134970668
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134977011
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134981572
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134988033
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134991226
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392134993445
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392135003501
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392135003549
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392135005448
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392135015639
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392135018877
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392135021110
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392135024273
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392135024321
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392135025768
+opened,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392135030522
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392135030568
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392135036515
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392135040616
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.organize.imports",1392135040708
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1392135044707
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392135049759
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.undo",1392135052595
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.redo",1392135057219
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1392135065764
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392135070318
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392135072689
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1392135073662
+opened,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392135073933
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392135074001
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.organize.imports",1392135076828
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.file.save",1392135081934
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1392135082848
+opened,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392135083125
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392135083199
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1392135085232
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392135086245
+executed,command,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.edit.text.java.organize.imports",1392135088280
+executed,command,,,"AUTOGEN:::org.eclipse.jdt.internal.ui.CompilationUnitEditor.ruler.actions/org.eclipse.jdt.internal.ui.javaeditor.JavaSelectRulerAction",1392135095005
+activated,view,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.PackageExplorer",1392135100872
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392135107421
+closed,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392135110393
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392135110446
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.delete",1392135110463
+closed,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392135110479
+closed,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392135110608
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392135112319
+activated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392135120780
+executed,command,org.eclipse.ui,3.7.0.v20110928-1505,"org.eclipse.ui.edit.paste",1392135123134
+opened,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392135128603
+activated,editor,org.eclipse.jdt.ui,3.7.2.v20120109-1427,"org.eclipse.jdt.ui.CompilationUnitEditor",1392135128647
+deactivated,workbench,org.eclipse.ui.workbench,3.7.1.v20120104-1859,"",1392135131064

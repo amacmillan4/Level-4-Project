@@ -1,0 +1,40 @@
+import FormatIO.EofX;
+import FormatIO.FileIn;
+import FormatIO.FileOut;
+
+
+public class BruteForce1 {
+
+	public static void Main(String args[]){
+		
+		
+		System.out.println(String.format("%04X", 10));
+		
+//		String	key_string = con.readWord();
+//		int	key = Hex16.convert(key_string);
+//		
+//			// open files
+//		FileIn	fin  = new FileIn(name_in);
+//		FileOut fout = new FileOut(name_out);
+//		
+//		// read blocks, encrypt and output blocks
+//		try
+//		{
+//			for (;;)
+//			{
+//				String	s = fin.readWord();
+//				int	c = Hex16.convert(s);
+//				int	p = Coder.decrypt(key, c);
+//				String	out = String.format("0x%04x", p);
+//				fout.println(out);
+//			}
+//		}
+//		catch (EofX x)
+//		{
+//		}
+//		fout.close();
+//		con.println("-- Finished --");
+		
+	}
+	
+}

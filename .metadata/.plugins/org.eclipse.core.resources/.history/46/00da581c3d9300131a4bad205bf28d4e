@@ -1,0 +1,85 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import FormatIO.EofX;
+import FormatIO.FileIn;
+import FormatIO.FileOut;
+
+
+public class BruteForce1 {
+
+	public static void main(String args[]) throws IOException{
+
+
+		String key_string;
+
+		for (int i = 0; i < 65536; i++){
+			key_string = String.format("0x%04X", i);
+
+			int key = Hex16.convert(key_string);
+
+			// open files
+			FileIn	fin  = new FileIn("aaaa.txt");
+			FileOut fout = new FileOut("dec_aaaa.txt");
+
+			// read blocks, encrypt and output blocks
+			try
+			{
+				for (;;)
+				{
+					String	s = fin.readWord();
+					int	c = Hex16.convert(s);
+					int	p = Coder.decrypt(key, c);
+					String	out = String.format("0x%04x", p);
+					fout.println(out);
+				}
+			}
+			catch (EofX x)
+			{
+			}
+			fout.close();
+
+			fin = new FileIn("dec_aaaa.txt");
+			fout = new FileOut("check.txt");
+
+			// read blocks and output chars
+			try
+			{
+				for (;;)
+				{
+					String	s = fin.readWord();
+					i = Hex16.convert(s);
+					int	c0 = i / 256;
+					int	c1 = i % 256;
+					fout.print((char)c0);
+					if (c1 != 0)
+						fout.print((char)c1);
+				}
+			}
+			catch (EofX x)
+			{
+			}
+			fout.close();
+
+			BufferedReader br;
+			try {
+				br = new BufferedReader(new FileReader("check.txt"));
+
+				String line = br.readLine();
+				System.out.println(line);
+				br.close();
+			}
+			catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+
+
+
+		}		
+	}
+
+}
