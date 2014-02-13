@@ -16,6 +16,7 @@ import project.android.bellringing.utilities.Utils;
 import project.android.bellringing.views.BellImageView;
 import project.android.bellringing.views.LinesView;
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -155,6 +156,10 @@ public class FragmentPlayMethod extends Fragment {
 
 						if(status != MethodStatus.GO_TO_STAND_FROM_ROUNDS || status == MethodStatus.ROUNDS){
 							bellAudio.play(getActivity(), bellNumberTextViews.get(bellNumberTextViews.size() - 2).getText().toString());
+							
+
+							BellImageView b = (BellImageView)v.findViewById(Integer.parseInt(Utils.bellNumberToBells(bellNumberTextViews.get(bellNumberTextViews.size() - 2).getText().toString())));
+							b.switchImage((Integer) b.getTag(), images);
 						}
 					}
 				}
@@ -355,6 +360,7 @@ public class FragmentPlayMethod extends Fragment {
 
 					if(paused){
 						Intent i = new Intent(getActivity(), ActivityHelp.class);
+			        	i.putExtra("Parent", new ComponentName(getActivity(), ""));	        	
 						getActivity().startActivity(i); 
 					}
 					else
@@ -362,6 +368,7 @@ public class FragmentPlayMethod extends Fragment {
 				}
 				else{
 					Intent i = new Intent(getActivity(), ActivityHelp.class);
+		        	i.putExtra("Parent", new ComponentName(getActivity(), ""));	        	
 					getActivity().startActivity(i); 
 				}
 
@@ -448,7 +455,6 @@ public class FragmentPlayMethod extends Fragment {
 
 				//Re-initialise scoring variables
 				final String next = method.calcNext();
-				System.out.println(method.getWholeMethod());
 
 				//If text reaches the length of the number of bells then it is due a new line character
 				if ((currentText.length() - method.getPlayingOn()) % ((method.getPlayingOn()) + 1) == 0 && currentText.length() >= method.getPlayingOn()){

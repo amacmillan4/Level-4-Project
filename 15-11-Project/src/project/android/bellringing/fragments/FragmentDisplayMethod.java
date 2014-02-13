@@ -23,6 +23,8 @@ public class FragmentDisplayMethod extends Fragment {
 
 	private Method method;
 	private ArrayList<ShowView> ShowView = new ArrayList<ShowView>();
+	BobSingleView SingleView;
+	BobSingleView bobView;
 
 
 	@Override
@@ -44,6 +46,9 @@ public class FragmentDisplayMethod extends Fragment {
 			public void onClick(View v) {
 				for (ShowView l: ShowView)
 					l.changeDisplay();
+				
+				SingleView.changeDisplay();
+				bobView.changeDisplay();
 			}
 		});
 		
@@ -105,45 +110,45 @@ public class FragmentDisplayMethod extends Fragment {
 			linLayout.addView(displayMethod);
 			
 		}
-		BobSingleView displayMethod = new BobSingleView(getActivity());
-		displayMethod.setTextColor(Color.BLACK);
-		displayMethod.setClickable(false);
-		displayMethod.setBackgroundColor(Color.WHITE);
-		displayMethod.setTextSize(14);
-		displayMethod.setNumberOfBells(method.getPlayingOn());
-		displayMethod.setTypeface(Typeface.MONOSPACE); 
+		bobView = new BobSingleView(getActivity());
+		bobView.setTextColor(Color.BLACK);
+		bobView.setClickable(false);
+		bobView.setBackgroundColor(Color.WHITE);
+		bobView.setTextSize(14);
+		bobView.setNumberOfBells(method.getPlayingOn());
+		bobView.setTypeface(Typeface.MONOSPACE); 
 		
 		method = new Method((Method) SingletonData.get(getActivity()).getChosenMethod().get(0));
 		method.initialize(Integer.parseInt(Utils.stageToNumBells(SingletonData.get(getActivity()).getSetup().getStage())), Composition.TOUCH_WITH_BOBS_AND_SINGLES, 3);
 
-		displayMethod.setText(method.displayBob("bob").trim());  
-
+		bobView.setText(method.displayBob("bob").trim());  
+		bobView.append("\n\nBOB");
 		
 		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 		params.setMargins(20,20,20, 0);
-		displayMethod.setLayoutParams(params);
+		bobView.setLayoutParams(params);
 		
-		linLayout.addView(displayMethod);
+		linLayout.addView(bobView);
 		
-		BobSingleView displayMethod2 = new BobSingleView(getActivity());
-		displayMethod2.setTextColor(Color.BLACK);
-		displayMethod2.setClickable(false);
-		displayMethod2.setBackgroundColor(Color.WHITE);
-		displayMethod2.setTextSize(14);
-		displayMethod2.setNumberOfBells(method.getPlayingOn());
-		displayMethod2.setTypeface(Typeface.MONOSPACE); 
+		SingleView = new BobSingleView(getActivity());
+		SingleView.setTextColor(Color.BLACK);
+		SingleView.setClickable(false);
+		SingleView.setBackgroundColor(Color.WHITE);
+		SingleView.setTextSize(14);
+		SingleView.setNumberOfBells(method.getPlayingOn());
+		SingleView.setTypeface(Typeface.MONOSPACE); 
 		
 		method = new Method((Method) SingletonData.get(getActivity()).getChosenMethod().get(0));
 		method.initialize(Integer.parseInt(Utils.stageToNumBells(SingletonData.get(getActivity()).getSetup().getStage())), Composition.TOUCH_WITH_BOBS_AND_SINGLES, 5);
 
-		displayMethod2.setText(method.displayBob("single").trim());  
-
+		SingleView.setText(method.displayBob("single").trim());  
+		SingleView.append("\n\nSINGLE");
 		
 		LinearLayout.LayoutParams params2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 		params2.setMargins(20,20,20, 0);
-		displayMethod2.setLayoutParams(params2);
+		SingleView.setLayoutParams(params2);
 		
-		linLayout.addView(displayMethod2);
+		linLayout.addView(SingleView);
 
 
 		return v;

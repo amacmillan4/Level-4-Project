@@ -18,29 +18,34 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_centerHorizontal="true"
                 android:orientation="horizontal" >
 
                 <RelativeLayout
                     android:id="@+id/l1"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="match_parent" >
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="160dp" >
+                    android:layout_height="match_parent" >
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="160dp" >
 
-                        <project.android.bellringing.views.LinesView
-                            android:id="@+id/MC_title"
-                            android:layout_width="220dp"
-                            android:layout_height="match_parent"
-                            android:layout_centerHorizontal="true" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="160dp" >
+
+                            <project.android.bellringing.views.LinesView
+                                android:id="@+id/MC_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_centerHorizontal="true" />
+                        </RelativeLayout>
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -84,7 +89,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentTop="true"
                             android:background="#325C74"
-                            android:text="AVG"
+                            android:text="SCORE"
                             android:textColor="#FFFFFF" />
 
                         <TextView
@@ -103,40 +108,39 @@
                         android:layout_alignParentTop="true"
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="22dp" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                        <Button
+                            android:id="@+id/btnStop"
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_toRightOf="@+id/btnHelp"
+                            android:text="Show" />
+
+                        <Button
+                            android:id="@+id/btnRun"
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_toLeftOf="@+id/btnHelp"
+                            android:text="Start" />
+
+                        <Button
+                            android:id="@+id/btnHelp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:text="Help" />
+                    </RelativeLayout>
                 </RelativeLayout>
             </LinearLayout>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true" >
-
-            <Button
-                android:id="@+id/btnStop"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:layout_alignParentBottom="true"
-                android:layout_toRightOf="@+id/btnHelp"
-                android:text="Show" />
-
-            <Button
-                android:id="@+id/btnRun"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:layout_alignParentBottom="true"
-                android:layout_toLeftOf="@+id/btnHelp"
-                android:text="Start" />
-
-            <Button
-                android:id="@+id/btnHelp"
-                android:layout_width="wrap_content"
-                android:layout_height="35dp"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:text="Help" />
         </RelativeLayout>
     </RelativeLayout>
 

@@ -26,15 +26,6 @@
             android:text="Add" />
 
         <Button
-            android:id="@+id/MC_Edit"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="Edit" />
-
-        <Button
             android:id="@+id/MC_Delete"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"

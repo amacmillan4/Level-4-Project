@@ -47,7 +47,7 @@ public class Utils {
 	
 	public static String bellNumberToBells(String bellNum){
 		String[] bells = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"};
-		String[] bellNumber = {"1","2","3","4","5","6","6","7","8","9","0","E","T","A","B","C","D"};
+		String[] bellNumber = {"1","2","3","4","5","6","7","8","9","0","E","T","A","B","C","D"};
 		
 		return bells[Arrays.asList(bellNumber).indexOf(bellNum)];
 	}

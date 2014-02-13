@@ -46,7 +46,7 @@ public class BobSingleView extends TextView {
 	}
 
 	public void changeDisplay(){
-		display = (display + 1) % 3;
+		display = (display + 1) % 2;
 		super.setText(super.getText().toString());
 
 	}
@@ -75,7 +75,11 @@ public class BobSingleView extends TextView {
 	public void onDraw(Canvas canvas){
 
 
-		setTextColor(Color.TRANSPARENT);
+		if (display == 0)
+			setTextColor(Color.BLACK);
+		else
+			setTextColor(Color.TRANSPARENT);
+
 
 		paint2.setAntiAlias(true);
 		paint2.setStrokeWidth(4f);

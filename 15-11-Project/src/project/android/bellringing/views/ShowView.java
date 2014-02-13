@@ -44,7 +44,7 @@ public class ShowView extends TextView {
 	}
 	
 	public void changeDisplay(){
-		display = (display + 1) % 3;
+		display = (display + 1) % 2;
 		super.setText(super.getText().toString());
 
 	}

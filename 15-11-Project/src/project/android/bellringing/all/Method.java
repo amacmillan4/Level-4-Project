@@ -165,7 +165,6 @@ public class Method{
 	public String textBobSinglePlain(){
 
 		if (currentOperationSection + 3 >= methodChanges.size()){
-			System.out.println(compositionStatus);
 			return compositionStatus;
 
 		}
@@ -298,7 +297,6 @@ public class Method{
 			}
 		}
 
-		System.out.println("Bob: " + bob + "    Single: " + single );
 	}
 
 	private void calculateNextBobSingle(){
@@ -356,8 +354,6 @@ public class Method{
 			}
 		}
 
-
-		System.out.println(compositionStatus);
 
 		if (playingOnBells != bells){
 			for(int i = 0; i < methodChanges.size(); i++){
@@ -449,12 +445,6 @@ public class Method{
 
 			char[] temp = operation.toCharArray();
 			ArrayList<String> copy = new ArrayList<String>(bellNumbering);
-
-			System.out.println(operation);
-			
-			for(String s: copy)
-				System.out.print(s+",");
-			System.out.println();
 			
 			//Mark all positions that do not move as REMOVE and remove them from the arraylist
 			for (int i = 0; i < temp.length; i++)
@@ -462,10 +452,6 @@ public class Method{
 
 			copy.removeAll(Collections.singleton("REMOVE"));
 			
-			for(String s: copy)
-				System.out.print(s+",");
-			System.out.println();
-
 			for (int i = 0; i < copy.size(); i = i + 2)
 				newLine = swap(newLine,bellNumbering.indexOf(copy.get(i)) + 1, bellNumbering.indexOf(copy.get(i+1)) + 1);
 
