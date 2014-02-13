@@ -31,4 +31,11 @@
 <fullyQualifiedTypeName name="project.android.bellringing.utilities.Composition"/>
 <fullyQualifiedTypeName name="android.text.Html"/>
 <fullyQualifiedTypeName name="project.android.bellringing.activities.ActivitySelectComposition"/>
+<fullyQualifiedTypeName name="android.content.ComponentName"/>
+<fullyQualifiedTypeName name="project.android.bellringing.activities.ActivitySelectPealTime"/>
+<fullyQualifiedTypeName name="project.android.bellringing.activities.ActivityAddMethodsFromFile"/>
+<fullyQualifiedTypeName name="project.android.bellringing.activities.ActivitySelectMethod"/>
+<fullyQualifiedTypeName name="project.android.bellringing.activities.ActivityPlayMethod"/>
+<fullyQualifiedTypeName name="project.android.bellringing.activities.ActivitySetup"/>
+<fullyQualifiedTypeName name="project.android.bellringing.activities.ActivityDisplayMethod"/>
 </qualifiedTypeNameHistroy>

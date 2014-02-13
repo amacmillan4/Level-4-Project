@@ -137,15 +137,20 @@ public class Method{
 		for(int i = 0; i < mBob.size(); i++)
 			methodBob.remove(methodBob.size() - 1);
 
+		checkSpecialCasesBob();
+
+		
 		methodBob.addAll(mBob);
 
 		//Single Changes
 		methodSingle.addAll(mMethod);
 		methodSingle.addAll(mLeadEnd);
-
-		for(int i = 0; i < mBob.size(); i++)
+		
+		for(int i = 0; i < mSingle.size(); i++)
 			methodSingle.remove(methodSingle.size() - 1);
 
+		checkSpecialCasesSingle();
+		
 		methodSingle.addAll(mSingle);
 
 		//Decide whether next is Plain Course, Bob or Single
@@ -162,6 +167,18 @@ public class Method{
 			currentLine += bellNumbering.get(i);
 
 	}
+	public void checkSpecialCasesBob(){
+		if (methodName.equals("Grandsire")){
+			methodBob.set(methodBob.size()-1, "3");
+		}
+	}
+
+	public void checkSpecialCasesSingle(){
+		if (methodName.equals("Grandsire")){
+			methodSingle.set(methodSingle.size()-1, "3");
+		}
+	}
+
 	public String textBobSinglePlain(){
 
 		if (currentOperationSection + 3 >= methodChanges.size()){
@@ -251,50 +268,47 @@ public class Method{
 
 	private void getBobSingle(){
 
-		final Set<String> type1 = new HashSet<String>(Arrays.asList("Alliance Methods", "Plain Methods", "Surprise Methods", "Treble Bob Methods", "Delight Methods")); 
-
 		if (methodName.equals("Grandsire")){
 
-
+			bob = "1";
+			single = "123";
 		}
 		else if (bells % 2 == 0){
 
-			if(type1.contains(methodType)){
-
-				if(leadEnd.equals("12")){
-					bob = "14";
-					single = "1234";
-				}
-				else if(leadEnd.equals("1" + Utils.bellsToBellNumber(Integer.toString(bells)))){
-					bob = "1" + Utils.bellsToBellNumber(Integer.toString(bells - 2));
-					single = "1" + Utils.bellsToBellNumber(Integer.toString(bells - 2)) 
-							+ Utils.bellsToBellNumber(Integer.toString(bells - 1)) + Utils.bellsToBellNumber(Integer.toString(bells));
-				}
-				else{
-					bob = "";
-					single = "";
-				}
-
+			if(leadEnd.equals("12")){
+				bob = "14";
+				single = "1234";
 			}
+			else if(leadEnd.equals("1" + Utils.bellsToBellNumber(Integer.toString(bells)))){
+				bob = "1" + Utils.bellsToBellNumber(Integer.toString(bells - 2));
+				single = "1" + Utils.bellsToBellNumber(Integer.toString(bells - 2)) 
+						+ Utils.bellsToBellNumber(Integer.toString(bells - 1)) + Utils.bellsToBellNumber(Integer.toString(bells));
+			}
+			else{
+				bob = "";
+				single = "";
+			}
+
+
 		}
 		else{
 
-			if(type1.contains(methodType)){
 
-				if(leadEnd.equals("12" + Utils.bellsToBellNumber(Integer.toString(bells)))){
-					bob = "14" + Utils.bellsToBellNumber(Integer.toString(bells));
-					single = "1234" + Utils.bellsToBellNumber(Integer.toString(bells));
-				}
-				else if(leadEnd.equals("1")){
-					bob = "1" + Utils.bellsToBellNumber(Integer.toString(bells - 1)) + Utils.bellsToBellNumber(Integer.toString(bells));
-					single = "1" + Utils.bellsToBellNumber(Integer.toString(bells - 3)) + Utils.bellsToBellNumber(Integer.toString(bells - 2))
-							+ Utils.bellsToBellNumber(Integer.toString(bells - 1)) + Utils.bellsToBellNumber(Integer.toString(bells));
-				}
-				else{
-					bob = "";
-					single = "";
-				}
+
+			if(leadEnd.equals("12" + Utils.bellsToBellNumber(Integer.toString(bells)))){
+				bob = "14" + Utils.bellsToBellNumber(Integer.toString(bells));
+				single = "1234" + Utils.bellsToBellNumber(Integer.toString(bells));
 			}
+			else if(leadEnd.equals("1")){
+				bob = "1" + Utils.bellsToBellNumber(Integer.toString(bells - 1)) + Utils.bellsToBellNumber(Integer.toString(bells));
+				single = "1" + Utils.bellsToBellNumber(Integer.toString(bells - 3)) + Utils.bellsToBellNumber(Integer.toString(bells - 2))
+						+ Utils.bellsToBellNumber(Integer.toString(bells - 1)) + Utils.bellsToBellNumber(Integer.toString(bells));
+			}
+			else{
+				bob = "";
+				single = "";
+			}
+
 		}
 
 	}
@@ -305,8 +319,6 @@ public class Method{
 		methodChanges.clear();
 		int random;
 
-		System.out.println("OVERRIDING WITH" + overrideBobSingle);
-		
 		if (overrideBobSingle == 0)
 			random = (int) (Math.random() * 600);
 		else 
@@ -320,7 +332,7 @@ public class Method{
 		else if (composition == Composition.TOUCH_WITH_BOBS){
 			if(random % 2 == 0){
 				methodChanges.addAll(methodBob);
-				compositionStatus = "Bob";
+				compositionStatus = "Bob";	
 			}
 			else{
 				methodChanges.addAll(methodLeadEnd);
@@ -342,6 +354,11 @@ public class Method{
 				System.out.println("ADDING BOBS");
 				methodChanges.addAll(methodBob);
 				compositionStatus = "Bob";
+
+
+				for(String s:methodChanges)
+					System.out.println(s);
+
 			}
 			else if(random % 3 == 1) {
 				methodChanges.addAll(methodLeadEnd);
@@ -445,13 +462,13 @@ public class Method{
 
 			char[] temp = operation.toCharArray();
 			ArrayList<String> copy = new ArrayList<String>(bellNumbering);
-			
+
 			//Mark all positions that do not move as REMOVE and remove them from the arraylist
 			for (int i = 0; i < temp.length; i++)
 				copy.set(bellNumbering.indexOf(temp[i] + ""), "REMOVE");
 
 			copy.removeAll(Collections.singleton("REMOVE"));
-			
+
 			for (int i = 0; i < copy.size(); i = i + 2)
 				newLine = swap(newLine,bellNumbering.indexOf(copy.get(i)) + 1, bellNumbering.indexOf(copy.get(i+1)) + 1);
 
