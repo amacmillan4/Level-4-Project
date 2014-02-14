@@ -14,28 +14,30 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="5dp"
         android:layout_centerInParent="true"
         android:gravity="center"
         android:orientation="horizontal" >
 
         <Button
             android:id="@+id/MC_Add"
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
             android:text="Add" />
 
         <Button
             android:id="@+id/MC_Delete"
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:text="Delete" />
 
         <Button
             android:id="@+id/MC_Select"
+            style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="Select" />
     </LinearLayout>

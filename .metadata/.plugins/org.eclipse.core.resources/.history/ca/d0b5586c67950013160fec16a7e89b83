@@ -145,10 +145,6 @@ public class FragmentSelectMethod extends Fragment {
 					
 					if (selectedMethod.size() == 0)
 						item.performClick();
-					else{
-						((CheckBox) allViews.get(allViews.indexOf(selectedMethod.remove(0))).findViewById(R.id.MC_checkbox)).setChecked(false);
-						item.performClick();
-					}
 
 					ArrayList<Method> a = new ArrayList<Method>();
 
