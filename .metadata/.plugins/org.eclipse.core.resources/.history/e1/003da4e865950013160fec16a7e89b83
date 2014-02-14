@@ -123,7 +123,7 @@ public class Method{
 			mMethod = reverseMethod(mMethod);
 			mLeadEnd = reverseMethod(mLeadEnd);
 		}
-
+		
 		mBob = reverseMethod(mBob);
 		mSingle = reverseMethod(mSingle);
 
@@ -141,21 +141,21 @@ public class Method{
 		checkSpecialCasesBob();
 
 		methodBob.addAll(mBob);
-
+		
 		for(String s: methodBob)
 			System.out.print(s + " " );
-
+		
 		System.out.println();
 
 		//Single Changes
 		methodSingle.addAll(mMethod);
 		methodSingle.addAll(mLeadEnd);
-
+		
 		for(int i = 0; i < mSingle.size(); i++)
 			methodSingle.remove(methodSingle.size() - 1);
 
 		checkSpecialCasesSingle();
-
+		
 		methodSingle.addAll(mSingle);
 
 		//Decide whether next is Plain Course, Bob or Single
@@ -286,8 +286,8 @@ public class Method{
 					single = "123";
 				else
 					single = "1" +  Utils.bellsToBellNumber(Integer.toString(bells-3)) +  Utils.bellsToBellNumber(Integer.toString(bells-2))
-					+  Utils.bellsToBellNumber(Integer.toString(bells-1))+  Utils.bellsToBellNumber(Integer.toString(bells-1));
-			}
+							+  Utils.bellsToBellNumber(Integer.toString(bells-1))+  Utils.bellsToBellNumber(Integer.toString(bells-1));
+				
 			if(leadEnd.equals("12")){
 				bob = "14";
 				single = "1234";
@@ -312,8 +312,8 @@ public class Method{
 					single = "123";
 				else
 					single = "1" +  Utils.bellsToBellNumber(Integer.toString(bells-3)) +  Utils.bellsToBellNumber(Integer.toString(bells-2))
-					+  Utils.bellsToBellNumber(Integer.toString(bells-1))+  Utils.bellsToBellNumber(Integer.toString(bells-1));
-
+							+  Utils.bellsToBellNumber(Integer.toString(bells-1))+  Utils.bellsToBellNumber(Integer.toString(bells-1));
+				
 			}
 			else if(leadEnd.equals("12" + Utils.bellsToBellNumber(Integer.toString(bells)))){
 				bob = "14" + Utils.bellsToBellNumber(Integer.toString(bells));
@@ -330,9 +330,8 @@ public class Method{
 			}
 
 		}
+
 	}
-
-
 
 	private void calculateNextBobSingle(){
 
