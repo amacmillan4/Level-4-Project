@@ -306,6 +306,9 @@ public class FragmentPlayMethod extends Fragment {
 							status = MethodStatus.GO_TO_STAND_FROM_ROUNDS;
 						else
 							status = MethodStatus.GO_TO_STAND;
+						
+						bellAudio.playSound(getActivity(), "stand");
+
 
 						for (BellImageView b: bellImageViews)
 							b.setClickable(true);
@@ -340,10 +343,15 @@ public class FragmentPlayMethod extends Fragment {
 
 					}
 
-					else if(status == MethodStatus.ROUNDS) 
+					else if(status == MethodStatus.ROUNDS) {
 						status = MethodStatus.GO_TO_PLAYING;
-					else if(status == MethodStatus.PLAYING)
+						bellAudio.playSound(getActivity(), "go");
+					}
+					else if(status == MethodStatus.PLAYING){
 						status = MethodStatus.GO_TO_ROUNDS;
+						bellAudio.playSound(getActivity(), "rounds");
+
+					}
 
 				}
 
@@ -532,7 +540,12 @@ public class FragmentPlayMethod extends Fragment {
 						//Displays the correct amount of text on screen
 						methodView.setLimitingText(method.getPlayingOn(), cText, 6);
 
-						txtRound.setText(method.textBobSinglePlain());
+						
+						String bobOrSingle = method.textBobSinglePlain();
+						txtRound.setText(bobOrSingle);
+						if (bobOrSingle.equals("bob")||bobOrSingle.equals("single")){
+							bellAudio.playSound(getActivity(), bobOrSingle);
+						}
 
 						if (status == MethodStatus.PLAYING && ( (userPlayingLeft && bellNumberTextViews.get(bellNumberTextViews.size() - 2).getText().toString().equals(next)) ||
 								(userPlayingRight && bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString().equals(next)))){

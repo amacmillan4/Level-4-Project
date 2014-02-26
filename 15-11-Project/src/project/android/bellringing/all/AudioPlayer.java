@@ -58,11 +58,34 @@ public class AudioPlayer {
 					sounds.put(Utils.bellsToBellNumber(i + ""),sPool.load(c,smallScaleTowerbells[j++] ,1));
 				}
 		}
+		
+		sounds.put("bob",sPool.load(c,R.raw.bob ,1));
+		sounds.put("single",sPool.load(c,R.raw.single ,1));
+		sounds.put("rounds",sPool.load(c,R.raw.rounds ,1));
+		sounds.put("go",sPool.load(c,R.raw.go ,1));
+		sounds.put("stand",sPool.load(c,R.raw.stand ,1));
+
 
 	}
 
 	public void play(Context c, String bellNumber) {
-		sPool.play(sounds.get(bellNumber), 1, 1, 1, 0, 1f);
+		sPool.play(sounds.get(bellNumber), 0.7f, 0.7f, 1, 0, 1f);
+	}
+	
+	public void playSound(Context c, String command){
+
+		if(command.equals("bob")) {
+        	sPool.play(sounds.get("bob"), 1, 1, 1, 0, 1f);
+        } else if(command.equals("single")) {
+        	sPool.play(sounds.get("single"), 1, 1, 1, 0, 1f);
+        }else if(command.equals("rounds")) {
+        	sPool.play(sounds.get("rounds"), 1, 1, 1, 0, 1f);
+        }else if(command.equals("go")) {
+        	sPool.play(sounds.get("go"), 1, 1, 1, 0, 1f);
+        }else if(command.equals("stand")) {
+        	sPool.play(sounds.get("stand"), 1, 1, 1, 0, 1f);
+        }
+            
 	}
 
 }
