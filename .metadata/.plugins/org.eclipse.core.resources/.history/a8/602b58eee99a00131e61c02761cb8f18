@@ -1,0 +1,27 @@
+Report
+
+KPA
+Key = 0xACA5
+Text = All I ask is a chance to prove that money can't make me happy
+
+CTO
+Using the current algorithm and ciphertext, it requires 4 blocks to unambigously decode the message.
+
+Key = 0x719B
+Decoded Text = I have n
+All Text = I have never let my schooling interfere with my education
+
+K = 16^4 = 65536
+H(K) = log2(K) = 16
+
+2 Hex characters per letter so alphabet size R = 16 ^ 2 = 2 ^ 8 = 8 bits
+r = [1.0,1.5] so larger value is taken = 1.5
+
+Unicity Distance = 16/(8 - 1.5) = 2.46 Characters 
+Therefore 3 Characters are needed in an optimal solution
+
+2 Characters per block, therefore 2 blocks are needed
+
+TMT
+Key = 0x3691
+Text = It is dangerous to be right in matters on which the established authorities are wrong.

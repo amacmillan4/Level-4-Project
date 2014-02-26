@@ -14,25 +14,27 @@ public class AudioPlayer {
 	private HashMap<String, Integer> sounds = new HashMap<String, Integer>();
 	private SoundPool sPool = new SoundPool(100000, AudioManager.STREAM_MUSIC, 0);
 
-	public AudioPlayer(Context c, boolean handbells, int bells){
+	public AudioPlayer(Context c, boolean isHandbells, int numberOfBells){
 
-		if (handbells){
+		if (isHandbells){
 			
+			//Audio files
 			int[] smallScaleHandbells = {R.raw.bell65, R.raw.bell67, R.raw.bell69, R.raw.bell70, R.raw.bell72, R.raw.bell74, R.raw.bell76, R.raw.bell77};
 			int[] largeScaleHandbells = {R.raw.bell53,R.raw.bell55,R.raw.bell57,R.raw.bell58,R.raw.bell60,R.raw.bell62,R.raw.bell64,
 					R.raw.bell65, R.raw.bell67, R.raw.bell69, R.raw.bell70, R.raw.bell72, R.raw.bell74, R.raw.bell76, R.raw.bell77, R.raw.bell79};
 
 			int j = 0;
 
-			if (bells > 8){
-				for (int i = bells; i > 0; i--)
+			//Use large scale for more than 8 bells
+			if (numberOfBells > 8){
+				for (int i = numberOfBells; i > 0; i--)
 					sounds.put(Utils.bellsToBellNumber(i + ""),sPool.load(c,largeScaleHandbells[j++] ,1));
 
 			}
-			else
 			
-				for (int i = bells; i > 0; i--){
-					System.out.println(Utils.bellsToBellNumber(i + ""));
+			//Use small scale for 8 or less bells
+			else
+				for (int i = numberOfBells; i > 0; i--){
 					sounds.put(Utils.bellsToBellNumber(i + ""),sPool.load(c,smallScaleHandbells[j++] ,1));
 				}
 		}
@@ -44,14 +46,14 @@ public class AudioPlayer {
 
 			int j = 0;
 
-			if (bells > 8){
-				for (int i = bells; i > 0; i--)
+			if (numberOfBells > 8){
+				for (int i = numberOfBells; i > 0; i--)
 					sounds.put(Utils.bellsToBellNumber(i + ""),sPool.load(c,largeScaleTowerbells[j++] ,1));
 
 			}
 			else
 			
-				for (int i = bells; i > 0; i--){
+				for (int i = numberOfBells; i > 0; i--){
 					System.out.println(Utils.bellsToBellNumber(i + ""));
 					sounds.put(Utils.bellsToBellNumber(i + ""),sPool.load(c,smallScaleTowerbells[j++] ,1));
 				}
@@ -59,10 +61,8 @@ public class AudioPlayer {
 
 	}
 
-	public void play(Context c, String bell) {
-		sPool.play(sounds.get(bell), 1, 1, 1, 0, 1f);
-
-
+	public void play(Context c, String bellNumber) {
+		sPool.play(sounds.get(bellNumber), 1, 1, 1, 0, 1f);
 	}
 
 }

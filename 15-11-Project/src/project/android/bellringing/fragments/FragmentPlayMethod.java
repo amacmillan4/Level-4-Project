@@ -99,7 +99,6 @@ public class FragmentPlayMethod extends Fragment {
 		method = new Method(SingletonData.get(getActivity()).getChosenMethod().get(0));
 		setupInstructions = SingletonData.get(getActivity()).getSetup();
 
-
 		numOfBells = Integer.parseInt(Utils.stageToNumBells(setupInstructions.getStage()));
 		if (numOfBells % 2 == 1 && (!setupInstructions.getStage().equals("Doubles")))
 			numOfBells = numOfBells + 1;
@@ -265,6 +264,7 @@ public class FragmentPlayMethod extends Fragment {
 		methodView.setTextColor(Color.BLACK);
 		methodView.setBackgroundColor(Color.WHITE);
 		methodView.setClickable(false);
+		methodView.isHandbells(setupInstructions.getHandbellsOrNot());
 
 		//Set up TextView to display the method name
 		txtMethodName = new TextView(getActivity());
@@ -432,6 +432,8 @@ public class FragmentPlayMethod extends Fragment {
 
 					//Sets which bell the user is playing
 					methodView.setBell(bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString());
+					methodView.setSecondBell(bellNumberTextViews.get(bellNumberTextViews.size() - 2).getText().toString());
+
 
 
 				}

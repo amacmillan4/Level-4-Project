@@ -1,0 +1,43 @@
+import java.io.IOException;
+import java.util.HashMap;
+
+import FormatIO.EofX;
+import FormatIO.FileIn;
+
+
+public class BruteForce4 {
+
+	public static void main(String args[]) throws IOException{
+
+		HashMap<String, String> table = new HashMap<String,String>();
+		int T = 65536;
+		int L = 3;
+		int N = T/L;
+
+		FileIn tableIn = new FileIn("TMTable.txt");
+
+		try{
+			String word = tableIn.readWord();
+			while(word != null){
+				table.put(word.split(",")[0], word.split(",")[1]);
+				word = tableIn.readWord();
+			}
+		}
+		catch(EofX e){}
+
+		FileIn cipherIn = new FileIn("TMTCipher.txt");
+
+		try{
+			int hexC = Hex16.convert(cipherIn.readWord());
+			System.out.println();
+			
+			if(table.containsKey(hexC))
+				System.out.println(table.get(hexC));
+		}
+		catch(EofX e){}
+
+		tableIn.close();
+		cipherIn.close();
+	}
+
+}

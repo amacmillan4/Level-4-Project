@@ -1,0 +1,37 @@
+import java.io.IOException;
+import java.util.HashMap;
+
+import FormatIO.FileIn;
+import FormatIO.FileOut;
+
+
+public class BruteForce3 {
+
+	public static void main(String args[]) throws IOException{
+				
+		int knownPlainText = Hex16.convert("0x4974");
+		int T = 65536;
+		int N = 3;
+		int L = T/N;
+		
+		FileOut fout = new FileOut("TMTable.txt");
+
+		for (int q = 0; q < N; q++){
+			
+			int random_int = (int) (Math.random() * T + 1);
+			int copy = random_int;
+			System.out.println(copy);
+			
+			for(int i = 0; i < L; i++){
+				random_int = (random_int * knownPlainText) % T;			
+			}
+
+			
+			fout.println(random_int+","+copy);
+			
+		}
+		
+		fout.close();
+	}
+	
+}

@@ -89,7 +89,6 @@ public class FragmentDisplayMethod extends Fragment {
 			while (i < size){
 			
 				displayMethod.append(x + "\n");
-				displayMethod.drawLines(true);
 				
 				x = method.getNextLine();
 				

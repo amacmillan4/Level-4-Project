@@ -1,0 +1,44 @@
+import java.io.IOException;
+import java.util.ArrayList;
+
+import FormatIO.EofX;
+import FormatIO.FileIn;
+
+public class KPT {
+
+	public static void main(String args[]) {
+
+
+		//Ciphertext
+		FileIn fin  = new FileIn("KPT.txt");
+		String s = "";
+		String key_string = "";
+
+		try {
+			s = fin.readWord();
+		} catch (EofX e) {
+			e.printStackTrace();
+		}
+
+		for (int q = 0; q < 65536; q++){
+
+			key_string = String.format("0x%04X", q);
+
+			int key = Hex16.convert(key_string);
+
+			int	p = Coder.decrypt(key, Hex16.convert(s));
+			String	out = String.format("0x%04x", p);
+			System.out.println(out);
+			if (out.contains("0x416c")){
+				System.out.println("Key = " + key_string +" = " +Hex16.convert(key_string));
+				q = 100000;
+			}
+
+
+		}		
+	}
+
+
+
+
+}

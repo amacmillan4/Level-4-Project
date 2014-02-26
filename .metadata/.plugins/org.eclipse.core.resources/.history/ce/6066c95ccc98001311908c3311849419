@@ -1,0 +1,59 @@
+import FormatIO.EofX;
+import FormatIO.FileIn;
+
+public class KPT {
+
+	public static void main(String args[]) {
+
+		//Ciphertext
+		FileIn fin  = new FileIn("KPT.txt");
+		String s = "";
+		String key_string = "";
+		String knownPlainText = "0x416c";
+		String message = "";
+
+		try {
+			s = fin.readWord();
+		} catch (EofX e) {
+			e.printStackTrace();
+		}
+
+		for (int q = 0; q < 65536; q++){
+
+			key_string = String.format("0x%04X", q);
+
+			int key = Hex16.convert(key_string);
+
+			int	p = Coder.decrypt(key, Hex16.convert(s));
+			String	out = String.format("0x%04x", p);
+
+			if (out.contains(knownPlainText)){
+				System.out.println(key_string);
+				try {
+					while(true){
+
+						int	c0 = p / 256;
+						int	c1 = p % 256;
+
+						message += (char)c0;
+
+						if (c1 != 0)
+							message += (char)c1;
+
+						p = Coder.decrypt(key, Hex16.convert(s));
+
+						s = fin.readWord();
+					}
+
+				} catch (EofX e) {
+					System.out.println(message);
+				}
+
+			}
+		}		
+	}
+
+
+
+
+}

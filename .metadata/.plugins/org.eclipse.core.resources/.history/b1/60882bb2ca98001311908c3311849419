@@ -1,0 +1,69 @@
+import FormatIO.EofX;
+import FormatIO.FileIn;
+
+public class KPT {
+
+	public static void main(String args[]) {
+
+
+		//Ciphertext
+		FileIn fin  = new FileIn("KPT.txt");
+		FileIn fin1  = new FileIn("KPT.txt");
+
+		String s = "";
+		String key_string = "";
+		String alltext = "";
+		fin.close();
+
+		try {
+			s = fin.readWord();
+		} catch (EofX e) {
+System.out.println("AAA");		}
+
+		for (int q = 0; q < 65536; q++){
+
+			key_string = String.format("0x%04X", q);
+			int key = Hex16.convert(key_string);
+
+			int	p = Coder.decrypt(key, Hex16.convert(s));
+			String	out = String.format("0x%04x", p);
+			System.out.println(out);
+			if (out.contains("0x416c")){
+				System.out.println("Key = " + key_string +" = " +Hex16.convert(key_string));
+				q = 100000;
+			}
+
+
+		}	
+		String word = "";
+		try {
+			word = fin1.readWord();
+		} catch (EofX e) {		}
+
+		while(word != null){
+
+			int	p = Coder.decrypt(Hex16.convert(key_string), Hex16.convert(word));
+
+			int	c0 = p / 256;
+			int	c1 = p % 256;
+
+			alltext += (char)c0;
+
+			if (c1 != 0)
+				alltext += (char)c1;
+
+			try {
+				word = fin1.readWord();
+			} catch (EofX e) {
+				System.out.println("AA");
+			}
+		}
+		
+		System.out.println(alltext);
+		
+	}
+
+
+
+
+}

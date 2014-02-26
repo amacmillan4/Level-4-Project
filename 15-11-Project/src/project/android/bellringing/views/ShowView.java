@@ -10,14 +10,13 @@ import android.widget.TextView;
 
 public class ShowView extends TextView {
 
-	String bell = "2";
-	int bells;
-	int display = 0;
+	private String bellChoice = "2";
+	private int numberOfBells;
+	private int displayOptions = 0;
 		
-	public boolean lines = false;
-	Paint paint1 = new Paint();
-	Paint paint2 = new Paint();
-	Paint p = new Paint();
+	private Paint paint1 = new Paint();
+	private Paint paint2 = new Paint();
+	private Paint p = new Paint();
 
 	public ShowView(Context context){
 		super(context);
@@ -31,52 +30,34 @@ public class ShowView extends TextView {
 		super(context, attrs, defStyle);
 	}
 	
-	public void setBell(String bell){
-		this.bell = bell;
+	/** Sets the bell that will be used alongside the treble:  @param bellChoice*/
+	public void setBell(String bellChoice){
+		this.bellChoice = bellChoice;
 	}
 	
-	public void setNumberOfBells(int bell){
-		this.bells = bell;
+	/** Sets the number of bells being played on:  @param numberOfBells*/
+	public void setNumberOfBells(int numberOfBells){
+		this.numberOfBells = numberOfBells;
 	}
 	
 	public void clearText(){
 		super.setText("");
 	}
 	
+	/** Changes the display option */
 	public void changeDisplay(){
-		display = (display + 1) % 2;
+		displayOptions = (displayOptions + 1) % 2;
 		super.setText(super.getText().toString());
-
-	}
-	
-	public void setLimitingText(int bells, String text, int lines){
-		
-		int characters_allowed = ((bells + 1) * (lines)) - 1;
-		
-		if (text.length() > characters_allowed){
-			text = text.substring(text.length() - characters_allowed, text.length());
-			text = text.substring(1 + text.indexOf("\n"), text.length());
-		}
-		
-		super.setText(text);
-	}
-	
-	public void drawLines(boolean lines){
-		this.lines  = lines;
-	}
-
-	public boolean getdrawLines(){
-		return lines;
 	}
 
 	@Override
 	public void onDraw(Canvas canvas){
 		
-		if (display == 0 || display == 1){
+		if (displayOptions == 0 || displayOptions == 1){
 			
-			if (display == 0)
+			if (displayOptions == 0)
 				setTextColor(Color.BLACK);
-			else if (display == 1)
+			else if (displayOptions == 1)
 				setTextColor(Color.TRANSPARENT);
 			
 			paint2.setAntiAlias(true);
@@ -87,26 +68,24 @@ public class ShowView extends TextView {
 			paint1.setStrokeWidth(5f);
 			paint1.setColor(Color.RED);
 
-			String a = (String) super.getText().toString();
-
-			int index2 = a.indexOf(bell);
-			int index1 = a.indexOf("1");
-			
+			//Set-up varaibles
+			String text = (String) super.getText().toString();
+			int index2 = text.indexOf(bellChoice);
+			int index1 = text.indexOf("1");
 			int next2 = 0;
 			int next1 = 0;
-			
 			float y = Utils.dpToPx(11, getContext());
-			
-			float pos = getWidth()/(bells * 2);
+			float pos = getWidth()/(numberOfBells * 2);
 		
-
-			while (a.length() > bells){
+			//Loop until all text has been seen
+			while (text.length() > numberOfBells){
 				
-				a = a.substring(bells + 1, a.length());
+				text = text.substring(numberOfBells + 1, text.length());
 
-				next2 = a.indexOf(bell);
-				next1 = a.indexOf("1");
+				next2 = text.indexOf(bellChoice);
+				next1 = text.indexOf("1");
 				
+				//Draw lines based on last position and current position of chosen numbers
 				if (next2 != -1)
 					canvas.drawLine( (float) (pos + (index2 * (2 * pos))), y - Utils.dpToPx(1, getContext()),
 							(float) (pos + (next2 * (2 * pos))), y + Utils.dpToPx(16, getContext()), paint2);
@@ -122,7 +101,7 @@ public class ShowView extends TextView {
 				
 			}
 			
-			if (display == 1){
+			if (displayOptions == 1){
 				
 				p.setAntiAlias(true);
 				p.setStrokeWidth(2f);
@@ -132,9 +111,9 @@ public class ShowView extends TextView {
 				
 				for(float i = 0; i < getHeight() - getHeight()/numberOfLines; i = i + getHeight()/numberOfLines ){
 					
-					for(float j = 0; j < bells/2; j++){
+					for(float j = 0; j < numberOfBells/2; j++){
 						
-						float distance = getWidth()/((bells)*2);
+						float distance = getWidth()/((numberOfBells)*2);
 						
 						canvas.drawLine(distance * 2 + j * 4 * distance, 10 + i, distance * 2 + j * 4 * distance, 10 + i + getHeight()/numberOfLines/2  , p);
 						

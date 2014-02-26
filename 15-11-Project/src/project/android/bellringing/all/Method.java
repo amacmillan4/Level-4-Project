@@ -2,10 +2,7 @@ package project.android.bellringing.all;
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
 
 import project.android.bellringing.utilities.Composition;
 import project.android.bellringing.utilities.Utils;
@@ -142,11 +139,6 @@ public class Method{
 
 		methodBob.addAll(mBob);
 
-		for(String s: methodBob)
-			System.out.print(s + " " );
-
-		System.out.println();
-
 		//Single Changes
 		methodSingle.addAll(mMethod);
 		methodSingle.addAll(mLeadEnd);
@@ -202,7 +194,7 @@ public class Method{
 		String a = "";
 		while (i < methodLeadEnd.size() * 2 * getPlayingOn()){
 
-			if(i > (methodLeadEnd.size() - 6) * getPlayingOn() && i < (methodLeadEnd.size() + 4) * getPlayingOn() + 1){
+			if(i > (methodLeadEnd.size() - 5) * getPlayingOn() && i < (methodLeadEnd.size() + 3) * getPlayingOn() + 1){
 				a += calcNext();
 				if (i % getPlayingOn() == 0)
 					a += "\n";
@@ -278,15 +270,22 @@ public class Method{
 			bob = "1";
 			single = "123";
 		}
+		else if (methodName.equals("Stedman")){
+			bob = "" + Utils.bellsToBellNumber(Integer.toString(bells - 2));
+			single = "" + Utils.bellsToBellNumber(Integer.toString(bells - 2)) 
+					+ Utils.bellsToBellNumber(Integer.toString(bells - 1)) + Utils.bellsToBellNumber(Integer.toString(bells));
+		}
 		else if (bells % 2 == 0){
 
+			if(bells == 4){
+				single = "";
+				bob = "";
+			}
 			if (leadEnd.equals("")){
-				bob = "14" +  Utils.bellsToBellNumber(Integer.toString(bells));;
-				if(bells == 5)
-					single = "123";
-				else
-					single = "1" +  Utils.bellsToBellNumber(Integer.toString(bells-3)) +  Utils.bellsToBellNumber(Integer.toString(bells-2))
-					+  Utils.bellsToBellNumber(Integer.toString(bells-1))+  Utils.bellsToBellNumber(Integer.toString(bells-1));
+
+				single = "1234";
+				bob = "14";
+
 			}
 			if(leadEnd.equals("12")){
 				bob = "14";
@@ -312,7 +311,7 @@ public class Method{
 					single = "123";
 				else
 					single = "1" +  Utils.bellsToBellNumber(Integer.toString(bells-3)) +  Utils.bellsToBellNumber(Integer.toString(bells-2))
-					+  Utils.bellsToBellNumber(Integer.toString(bells-1))+  Utils.bellsToBellNumber(Integer.toString(bells-1));
+					+  Utils.bellsToBellNumber(Integer.toString(bells-1))+  Utils.bellsToBellNumber(Integer.toString(bells));
 
 			}
 			else if(leadEnd.equals("12" + Utils.bellsToBellNumber(Integer.toString(bells)))){
@@ -468,6 +467,9 @@ public class Method{
 	private String calcLine(String lastLine, String operation){
 
 		String newLine = lastLine;
+		
+		System.out.println(wholeMethod);
+		System.out.println(operation);
 
 		//Swap all if operation is x
 		if (operation.equals("x")){

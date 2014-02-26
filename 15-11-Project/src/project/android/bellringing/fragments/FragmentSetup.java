@@ -299,9 +299,6 @@ public class FragmentSetup extends Fragment {
 		@Override
 		protected synchronized Void doInBackground(Void... arg0) {
 
-
-
-
 			return null;
 		}
 
