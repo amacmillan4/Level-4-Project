@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="fin." key="selection"/>
+		<item value="wait((lon" key="selection"/>
 		<list key="findhistory">
+			<item value="wait((lon"/>
+			<item value="wait"/>
+			<item value="Bob"/>
+			<item value="methodV"/>
+			<item value="lines"/>
 			<item value="fin."/>
 			<item value="57741"/>
 			<item value="show"/>
-			<item value="methodLeadEnd"/>
-			<item value="methodLeadEndS"/>
-			<item value="methodLea"/>
-			<item value="System"/>
-			<item value="displayMethod2"/>
 		</list>
 		<list key="replacehistory">
 			<item value="SingleView"/>

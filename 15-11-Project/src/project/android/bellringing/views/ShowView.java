@@ -53,6 +53,8 @@ public class ShowView extends TextView {
 	@Override
 	public void onDraw(Canvas canvas){
 		
+		int numberOfLines = getText().length() - getText().toString().replace("\n", "").length();
+		
 		if (displayOptions == 0 || displayOptions == 1){
 			
 			if (displayOptions == 0)
@@ -70,12 +72,14 @@ public class ShowView extends TextView {
 
 			//Set-up varaibles
 			String text = (String) super.getText().toString();
-			int index2 = text.indexOf(bellChoice);
+				int index2 = text.indexOf(bellChoice);
 			int index1 = text.indexOf("1");
 			int next2 = 0;
 			int next1 = 0;
-			float y = Utils.dpToPx(11, getContext());
-			float pos = getWidth()/(numberOfBells * 2);
+			float y = getHeight()/numberOfLines/2;
+			float pos = (float) super.getWidth()/((float) numberOfBells * 2f + 1f);
+
+
 		
 			//Loop until all text has been seen
 			while (text.length() > numberOfBells){
@@ -85,16 +89,15 @@ public class ShowView extends TextView {
 				next2 = text.indexOf(bellChoice);
 				next1 = text.indexOf("1");
 				
+				
 				//Draw lines based on last position and current position of chosen numbers
 				if (next2 != -1)
-					canvas.drawLine( (float) (pos + (index2 * (2 * pos))), y - Utils.dpToPx(1, getContext()),
-							(float) (pos + (next2 * (2 * pos))), y + Utils.dpToPx(16, getContext()), paint2);
+					canvas.drawLine( (float) (pos + index2 * 2 * pos), y,(float) (pos + next2 * 2 * pos), y + getHeight()/numberOfLines, paint2);
 				
 				if (next1 != -1)
-					canvas.drawLine((float) (pos + (index1 * (2 * pos))), y - Utils.dpToPx(1, getContext()),
-							(float) (pos + (next1 * (2 * pos))), y + Utils.dpToPx(16, getContext()), paint1);
+					canvas.drawLine((float) (pos + index1 * 2 * pos), y,(float) (pos + next1 * 2 * pos), y + getHeight()/numberOfLines, paint1);
 				
-				y = y + Utils.dpToPx(16f, getContext());
+				y = y + getHeight()/numberOfLines;
 				
 				index2 = next2;
 				index1 = next1;
@@ -107,13 +110,12 @@ public class ShowView extends TextView {
 				p.setStrokeWidth(2f);
 				p.setColor(Color.BLACK);
 
-				int numberOfLines = getText().length() - getText().toString().replace("\n", "").length();
 				
 				for(float i = 0; i < getHeight() - getHeight()/numberOfLines; i = i + getHeight()/numberOfLines ){
 					
 					for(float j = 0; j < numberOfBells/2; j++){
 						
-						float distance = getWidth()/((numberOfBells)*2);
+						float distance = (float) super.getWidth()/((float) numberOfBells * 2f + 1f);
 						
 						canvas.drawLine(distance * 2 + j * 4 * distance, 10 + i, distance * 2 + j * 4 * distance, 10 + i + getHeight()/numberOfLines/2  , p);
 						

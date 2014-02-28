@@ -16,6 +16,10 @@ public class LinesView extends TextView {
 
 	boolean lines = false;
 	boolean handbells = false;
+	boolean testSizes = true;
+	float height = 0;
+	float width = 0;
+
 
 	Paint paint1 = new Paint();
 	Paint paint2 = new Paint();
@@ -44,6 +48,15 @@ public class LinesView extends TextView {
 
 	public void setNumberOfBells(int bell){
 		this.bells = bell;
+	}
+	public void calcDimensions(){
+		String s = "";
+		for(int i = 0; i < bells; i++)
+			s+=" ";
+
+		String t = s + "\n\n\n\n\n";
+
+		super.setText(t);
 	}
 
 	public void isHandbells(boolean x){
@@ -78,17 +91,20 @@ public class LinesView extends TextView {
 	@Override
 	public void onDraw(Canvas canvas){
 
+		height = (float) super.getHeight()/ 14.0f - Utils.dpToPx(0.3f, getContext()) ;
+		width =  (float) super.getWidth()/((float) bells * 2f + 1f);
+
 		if (lines){
 			paint2.setAntiAlias(true);
-			paint2.setStrokeWidth(8f);
+			paint2.setStrokeWidth(6f);
 			paint2.setColor(Color.BLUE);
 
 			paint1.setAntiAlias(true);
-			paint1.setStrokeWidth(8f);
+			paint1.setStrokeWidth(6f);
 			paint1.setColor(Color.RED);
 
 			paint3.setAntiAlias(true);
-			paint3.setStrokeWidth(8f);
+			paint3.setStrokeWidth(6f);
 			paint3.setColor(Color.GREEN);
 
 			String a = (String) super.getText().toString();
@@ -101,7 +117,7 @@ public class LinesView extends TextView {
 			int next1 = 0;
 			int next3 = 0;
 
-			float y = Utils.dpToPx(16, getContext());
+			float y = height;
 
 			while (a.length() > bells){
 
@@ -112,19 +128,17 @@ public class LinesView extends TextView {
 				next1 = a.indexOf("1");
 
 				if (next2 != -1)
-					canvas.drawLine(Utils.dpToPx(6.7f, getContext()) + index2 * 27f, y - Utils.dpToPx(2, getContext()),
-							Utils.dpToPx(6.7f, getContext()) + next2 * 27f, y + Utils.dpToPx(27, getContext()), paint2);
+					canvas.drawLine(1 + width + index2 *2* width, y-1 ,1 + width + next2 *2* width, y+1 + (2*height), paint2);
 
 				if (next1 != -1)
-					canvas.drawLine(Utils.dpToPx(6.7f, getContext()) + index1 * 27f, y - Utils.dpToPx(2, getContext()),
-							Utils.dpToPx(6.7f, getContext()) + next1 * 27f, y + Utils.dpToPx(27, getContext()), paint1);
-				
+					canvas.drawLine(1 + width + index1 *2* width,y-1 ,1 + width + next1 *2* width, y+1 + (2*height), paint1);
+
+
 				if(handbells)
 					if (next3 != -1)
-						canvas.drawLine(Utils.dpToPx(6.7f, getContext()) + index3 * 27f, y - Utils.dpToPx(2, getContext()),
-								Utils.dpToPx(6.7f, getContext()) + next3 * 27f, y + Utils.dpToPx(27, getContext()), paint3);
+						canvas.drawLine(1 + width + index3 *2* width,y-1 ,1 + width + next3 *2* width, y +1+ (2*height), paint3);
 
-				y = y + Utils.dpToPx(27.6f, getContext());
+				y = y + (2*height);
 
 				index2 = next2;
 				index1 = next1;

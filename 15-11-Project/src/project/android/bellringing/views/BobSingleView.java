@@ -74,6 +74,7 @@ public class BobSingleView extends TextView {
 	@Override
 	public void onDraw(Canvas canvas){
 
+		int numberOfLines = getText().length() - getText().toString().replace("\n", "").length() +1;
 
 		if (display == 0)
 			setTextColor(Color.BLACK);
@@ -100,8 +101,8 @@ public class BobSingleView extends TextView {
 			else
 				p = paint2;
 
-			float y = Utils.dpToPx(11, getContext());
-			float pos = getWidth()/(bells * 2);
+			float y = getHeight()/numberOfLines/2;
+			float pos = (float) super.getWidth()/((float) bells * 2f + 1f);
 
 			String b = a;
 
@@ -116,10 +117,9 @@ public class BobSingleView extends TextView {
 				next = b.indexOf(currentBell);
 
 				if (next != -1)
-					canvas.drawLine( (float) (pos + (index * (2 * pos))), y - Utils.dpToPx(1, getContext()),
-							(float) (pos + (next * (2 * pos))), y + Utils.dpToPx(16, getContext()), p);
+					canvas.drawLine( (float) (pos + index * 2 * pos), y,(float) (pos + next * 2 * pos), 1 + y + getHeight()/numberOfLines, p);
 
-				y = y + Utils.dpToPx(16f, getContext());
+				y = y + getHeight()/numberOfLines;
 
 				index = next;
 			}

@@ -258,9 +258,13 @@ public class FragmentPlayMethod extends Fragment {
 		//Set up TextView to display the method
 		methodView = (LinesView) v.findViewById(R.id.MC_title);
 		methodView.setNumberOfBells(method.getPlayingOn());
-		methodView.setTextSize(24);
 		methodView.setTypeface(Typeface.MONOSPACE);
-		methodView.setText("           ");
+		
+//		String s = "";
+//		for(int i = 0; i < method.getPlayingOn(); i++)
+//			s+=" ";
+//		s+="\n\n\n\n\n";
+		
 		methodView.setTextColor(Color.BLACK);
 		methodView.setBackgroundColor(Color.WHITE);
 		methodView.setClickable(false);
@@ -335,6 +339,9 @@ public class FragmentPlayMethod extends Fragment {
 				}else{
 
 					if(status == MethodStatus.STANDING){
+						methodView.calcDimensions();
+						
+						System.out.println("HERE" + methodView.getWidth());
 						status = MethodStatus.ROUNDS;
 						method.swapRound();
 
