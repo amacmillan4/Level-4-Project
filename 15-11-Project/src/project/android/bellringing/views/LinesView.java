@@ -1,6 +1,5 @@
 package project.android.bellringing.views;
 
-import project.android.bellringing.utilities.Utils;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -54,7 +53,7 @@ public class LinesView extends TextView {
 		for(int i = 0; i < bells; i++)
 			s+=" ";
 
-		String t = s + "\n\n\n\n\n\n";
+		String t = s + "\n\n\n\n\n";
 
 		super.setText(t);
 	}
@@ -64,7 +63,13 @@ public class LinesView extends TextView {
 	}
 
 	public void clearText(){
-		super.setText("");
+		String s = "";
+		for(int i = 0; i < bells; i++)
+			s+=" ";
+
+		String t = s + "\n\n\n\n\n";
+
+		super.setText(t);
 	}
 
 	public void setLimitingText(int bells, String text, int lines){
@@ -90,8 +95,10 @@ public class LinesView extends TextView {
 
 	@Override
 	public void onDraw(Canvas canvas){
-
-		height = (float) super.getHeight()/ 13.7f - Utils.dpToPx(0.0f, getContext()) ;
+		
+		String occurences = (String) super.getText();
+		height = (float) super.getHeight()/2/ (occurences.length() - occurences.replace("\n", "").length() + 1);
+				
 		width =  (float) super.getWidth()/((float) bells * 2f + 1f);
 
 		if (lines){

@@ -43,7 +43,7 @@
                             <project.android.bellringing.views.LinesView
                                 android:id="@+id/MC_title"
                                 android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
+                                android:layout_height="wrap_content"
                                 android:layout_centerHorizontal="true"
                                 android:textSize="24sp" />
                         </RelativeLayout>
@@ -94,7 +94,7 @@
                             android:background="#325C74"
                             android:text="SCORE"
                             android:textColor="#FFFFFF"
-                            android:textSize="24sp" />
+                           />
 
                         <TextView
                             android:id="@+id/ScoreSummaryTextView"
