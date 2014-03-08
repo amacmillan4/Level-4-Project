@@ -3,6 +3,6 @@
     android:id="@+id/methodInteractionFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:name="project.android.bellringing.fragments.FragmentPlayMethod">
+    android:name="project.android.bellringing.fragments.FragmentRingMethod">
     
 </fragment>

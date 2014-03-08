@@ -65,14 +65,16 @@
                             android:layout_alignParentTop="true"
                             android:background="#325C74"
                             android:text="SCORE"
-                            android:textColor="#FFFFFF" />
+                            android:textColor="#FFFFFF"
+                             />
 
                         <TextView
                             android:id="@+id/ScoreTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/ScoreTitle"
-                            android:layout_centerHorizontal="true" />
+                            android:layout_centerHorizontal="true"
+                            android:textSize="24sp" />
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -91,14 +93,16 @@
                             android:layout_alignParentTop="true"
                             android:background="#325C74"
                             android:text="SCORE"
-                            android:textColor="#FFFFFF" />
+                            android:textColor="#FFFFFF"
+                            android:textSize="24sp" />
 
                         <TextView
                             android:id="@+id/ScoreSummaryTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/ScoreSummaryTitle"
-                            android:layout_centerHorizontal="true" />
+                            android:layout_centerHorizontal="true"
+                            android:textSize="24sp" />
                     </RelativeLayout>
 
                     <TextView

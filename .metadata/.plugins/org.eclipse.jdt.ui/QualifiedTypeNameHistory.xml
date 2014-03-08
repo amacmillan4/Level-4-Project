@@ -7,7 +7,6 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="android.widget.CompoundButton.OnCheckedChangeListener"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="android.widget.LinearLayout"/>
 <fullyQualifiedTypeName name="project.android.bellringing.MethodShortlistSerializer"/>
 <fullyQualifiedTypeName name="project.android.bellringing.ShortlistedMethods"/>
@@ -40,4 +39,5 @@
 <fullyQualifiedTypeName name="project.android.bellringing.activities.ActivityDisplayMethod"/>
 <fullyQualifiedTypeName name="Hex16"/>
 <fullyQualifiedTypeName name="project.android.bellringing.R.raw"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

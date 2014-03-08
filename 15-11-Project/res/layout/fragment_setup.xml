@@ -167,7 +167,7 @@
             android:id="@+id/setupBtnStartRun"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Play Method" />
+            android:text="Ring Method" />
 
         <Space
             android:layout_width="wrap_content"

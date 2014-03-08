@@ -13,7 +13,7 @@ public class SetupInstructions {
 		this.composition = "";
 		this.method = "";
 		this.handbells = false;
-		this.pealTime = "1.30";
+		this.pealTime = "1:30";
 		this.stopAtRounds = false;
 		this.handstrokeGap = false;
 		this.waitForMe = false;

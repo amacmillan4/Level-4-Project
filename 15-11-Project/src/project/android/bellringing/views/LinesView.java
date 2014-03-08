@@ -54,7 +54,7 @@ public class LinesView extends TextView {
 		for(int i = 0; i < bells; i++)
 			s+=" ";
 
-		String t = s + "\n\n\n\n\n";
+		String t = s + "\n\n\n\n\n\n";
 
 		super.setText(t);
 	}
@@ -91,7 +91,7 @@ public class LinesView extends TextView {
 	@Override
 	public void onDraw(Canvas canvas){
 
-		height = (float) super.getHeight()/ 14.0f - Utils.dpToPx(0.3f, getContext()) ;
+		height = (float) super.getHeight()/ 13.7f - Utils.dpToPx(0.0f, getContext()) ;
 		width =  (float) super.getWidth()/((float) bells * 2f + 1f);
 
 		if (lines){
