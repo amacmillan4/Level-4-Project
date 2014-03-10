@@ -1,0 +1,106 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {1.1}Problem Overview and Background}{1}
+\contentsline {section}{\numberline {1.2}Background To Bell-Ringing}{1}
+\contentsline {subsection}{\numberline {1.2.1}Terminology}{1}
+\contentsline {subsection}{\numberline {1.2.2}Rules}{2}
+\contentsline {subsection}{\numberline {1.2.3}Example}{3}
+\contentsline {section}{\numberline {1.3}Existing Technology}{3}
+\contentsline {subsubsection}{John Carter}{4}
+\contentsline {subsubsection}{Peter Cummins}{4}
+\contentsline {section}{\numberline {1.4}Outline}{4}
+\contentsline {chapter}{\numberline {2}Requirements}{5}
+\contentsline {section}{\numberline {2.1}Functional Requirements}{5}
+\contentsline {subsection}{\numberline {2.1.1}Must Have}{5}
+\contentsline {subsection}{\numberline {2.1.2}Should Have}{6}
+\contentsline {subsection}{\numberline {2.1.3}Could Have}{6}
+\contentsline {subsection}{\numberline {2.1.4}Would Have}{7}
+\contentsline {section}{\numberline {2.2}Non-Functional Requirements}{7}
+\contentsline {chapter}{\numberline {3}Design}{8}
+\contentsline {section}{\numberline {3.1}Model-View-Controller}{8}
+\contentsline {subsection}{\numberline {3.1.1}Model}{8}
+\contentsline {subsection}{\numberline {3.1.2}View}{8}
+\contentsline {subsection}{\numberline {3.1.3}Controller}{8}
+\contentsline {subsection}{\numberline {3.1.4}Interaction}{9}
+\contentsline {subsection}{\numberline {3.1.5}Benefits of MVC}{9}
+\contentsline {section}{\numberline {3.2}Android Architecture}{10}
+\contentsline {subsection}{\numberline {3.2.1}Activities}{10}
+\contentsline {subsection}{\numberline {3.2.2}Layouts}{10}
+\contentsline {subsection}{\numberline {3.2.3}Fragments}{11}
+\contentsline {subsection}{\numberline {3.2.4}Others}{12}
+\contentsline {subsubsection}{Threads}{12}
+\contentsline {subsubsection}{Intents}{12}
+\contentsline {subsubsection}{Android Manifest}{12}
+\contentsline {section}{\numberline {3.3}Design Decisions}{12}
+\contentsline {subsection}{\numberline {3.3.1}Porting MOBEL}{13}
+\contentsline {subsubsection}{Development Experience}{13}
+\contentsline {subsubsection}{Translation Anomalies}{13}
+\contentsline {subsection}{\numberline {3.3.2}Modifications}{14}
+\contentsline {subsubsection}{Home Screen}{14}
+\contentsline {subsubsection}{Ring Button}{14}
+\contentsline {subsection}{\numberline {3.3.3}API Version}{14}
+\contentsline {subsection}{\numberline {3.3.4}MediaPlayer vs SoundPool}{14}
+\contentsline {subsubsection}{MediaPlayer}{15}
+\contentsline {subsubsection}{SoundPool}{15}
+\contentsline {subsubsection}{Conclusion}{15}
+\contentsline {section}{\numberline {3.4}Design Patterns}{15}
+\contentsline {subsection}{\numberline {3.4.1}Singleton}{15}
+\contentsline {subsubsection}{Benefits}{16}
+\contentsline {subsection}{\numberline {3.4.2}Adapter (Decorator) Pattern}{16}
+\contentsline {subsubsection}{Benefits}{16}
+\contentsline {chapter}{\numberline {4}Implementation}{18}
+\contentsline {section}{\numberline {4.1}Set-up}{18}
+\contentsline {subsection}{\numberline {4.1.1}Shortlist}{18}
+\contentsline {subsubsection}{Benefits}{18}
+\contentsline {subsubsection}{Implementation}{19}
+\contentsline {subsection}{\numberline {4.1.2}ListView}{19}
+\contentsline {subsubsection}{Performance}{19}
+\contentsline {subsubsection}{Scalability}{20}
+\contentsline {subsection}{\numberline {4.1.3}Drawing Lines}{20}
+\contentsline {subsubsection}{Requirement}{20}
+\contentsline {subsubsection}{Implementation}{21}
+\contentsline {subsubsection}{Algorithm}{21}
+\contentsline {section}{\numberline {4.2}ringing Along}{21}
+\contentsline {subsection}{\numberline {4.2.1}Rotating Images}{21}
+\contentsline {subsubsection}{Need For Rotation}{21}
+\contentsline {subsubsection}{Implementation}{21}
+\contentsline {subsubsection}{Algorithm}{21}
+\contentsline {subsection}{\numberline {4.2.2}Sounds}{21}
+\contentsline {subsubsection}{Sound Scheduling}{22}
+\contentsline {subsubsection}{User Interaction}{23}
+\contentsline {section}{\numberline {4.3}Playing}{23}
+\contentsline {subsection}{\numberline {4.3.1}Implementation}{23}
+\contentsline {subsection}{\numberline {4.3.2}Difficulties}{23}
+\contentsline {section}{\numberline {4.4}Home Screen}{24}
+\contentsline {chapter}{\numberline {5}Testing}{25}
+\contentsline {section}{\numberline {5.1}Testing Methodology}{25}
+\contentsline {subsection}{\numberline {5.1.1}Waterfall Method}{25}
+\contentsline {subsection}{\numberline {5.1.2}Agile Methods}{26}
+\contentsline {subsection}{\numberline {5.1.3}Chosen Methodology}{26}
+\contentsline {section}{\numberline {5.2}Functional Testing}{26}
+\contentsline {section}{\numberline {5.3}Formal User Testing}{26}
+\contentsline {subsection}{\numberline {5.3.1}Aims}{26}
+\contentsline {subsection}{\numberline {5.3.2}Testing Conditions}{27}
+\contentsline {subsection}{\numberline {5.3.3}Reuslts}{27}
+\contentsline {subsubsection}{Bug :Test 9}{28}
+\contentsline {subsubsection}{Bug :Test 10}{28}
+\contentsline {subsubsection}{Bug: Test 23}{28}
+\contentsline {chapter}{\numberline {6}Evaluation}{30}
+\contentsline {section}{\numberline {6.1}Chris Hughes Evaluation}{30}
+\contentsline {chapter}{\numberline {7}Conclusion}{31}
+\contentsline {chapter}{Appendices}{32}
+\contentsline {chapter}{\numberline {A}Android}{33}
+\contentsline {section}{\numberline {A.1}Introduction}{33}
+\contentsline {subsection}{\numberline {A.1.1}Android Beginnings}{33}
+\contentsline {subsection}{\numberline {A.1.2}Fragmentation}{33}
+\contentsline {section}{\numberline {A.2}Development}{34}
+\contentsline {subsection}{\numberline {A.2.1}Language \& Android Architecture}{34}
+\contentsline {subsection}{\numberline {A.2.2}Development Tools}{34}
+\contentsline {subsection}{\numberline {A.2.3}Design Patterns}{35}
+\contentsline {subsubsection}{Model-View-Controller}{35}
+\contentsline {subsubsection}{Observer-Observable}{35}
+\contentsline {chapter}{\numberline {B}GitHub}{36}
+\contentsline {chapter}{\numberline {C}Stages}{37}
+\contentsline {chapter}{\numberline {D}Functional Testing Tests}{38}
+\contentsline {chapter}{\numberline {E}Testing \& Questionairre}{41}
+\contentsline {chapter}{\numberline {F}Functional Requirements \& Testing Relationship}{44}
+\contentsline {chapter}{\numberline {G}Generating Random Graphs}{45}

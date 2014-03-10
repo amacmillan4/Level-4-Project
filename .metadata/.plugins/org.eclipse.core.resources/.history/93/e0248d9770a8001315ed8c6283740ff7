@@ -1,0 +1,45 @@
+package project.android.bellringing.activities;
+
+import project.android.bellringing.R;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
+public class ActivityHelp extends AbstractActivity {
+
+	private ComponentName parent; 
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_help);
+		parent = getIntent().getParcelableExtra("Parent");
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main_without_help, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			if (parent != null) {
+				final Intent parentIntent = new Intent();
+				parentIntent.setComponent(parent);
+				startActivity(parentIntent);
+				finish();
+				return true;
+			}
+		case R.id.action_settings:
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}	
+}

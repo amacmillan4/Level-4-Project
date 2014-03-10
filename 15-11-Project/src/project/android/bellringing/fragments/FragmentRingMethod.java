@@ -441,6 +441,7 @@ public class FragmentRingMethod extends Fragment {
 				public void run() {
 
 					methodView.clearText();
+					txtMethodName.setText("");
 
 					//Nullify listeners while playing
 					for (BellImageView b: bellImageViews)
@@ -460,7 +461,7 @@ public class FragmentRingMethod extends Fragment {
 			while (status != MethodStatus.STANDING){
 
 				//Display the number of completed rows
-				if (i % method.getPlayingOn() == 0 && status != MethodStatus.ROUNDS && status != MethodStatus.STANDING){
+				if (i % method.getPlayingOn() == 0 && status != MethodStatus.STANDING){
 					round++;
 					final int temp = round;
 
@@ -490,8 +491,29 @@ public class FragmentRingMethod extends Fragment {
 					if(stopAtRoundsString.length() > method.getPlayingOn() + 1)
 						stopAtRoundsString = stopAtRoundsString.substring(stopAtRoundsString.length() - (method.getPlayingOn() + 1), stopAtRoundsString.length());
 
-					if(stopAtRoundsString.equals("\n" + roundsTest) && status == MethodStatus.PLAYING)
+					if(stopAtRoundsString.equals("\n" + roundsTest) && status == MethodStatus.PLAYING){
 						status = MethodStatus.STANDING;
+						
+						mHandler.post(new Runnable() {
+
+							@Override
+							public void run() {
+
+								for( BellImageView b: bellImageViews)
+									b.restart((Integer) b.getTag(), images);
+
+								if (userPlayingLeft && setupInstructions.isScoreSummary())
+									txvScoreLeft.setText("" + scoreLeft.getAverage());
+								if (userPlayingRight && setupInstructions.isScoreSummary())
+									txvScoreRight.setText("" + scoreRight.getAverage());
+							}});
+
+						userPlayingLeft = false;
+						userPlayingRight = false;
+
+						method = new Method((Method) SingletonData.get(getActivity()).getChosenMethod().get(0));
+						method.initialize(numOfBells, Utils.getComposition(setupInstructions.getComposition()), 0);
+					}
 				}
 
 				final String cText = currentText;

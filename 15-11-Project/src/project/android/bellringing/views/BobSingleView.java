@@ -20,6 +20,8 @@ public class BobSingleView extends TextView {
 	Paint paint1 = new Paint();
 	Paint paint2 = new Paint();
 	Paint p = new Paint();
+	Paint line = new Paint();
+
 
 	public BobSingleView(Context context){
 		super(context);
@@ -92,6 +94,7 @@ public class BobSingleView extends TextView {
 
 		String a = (String) super.getText().toString();
 
+		
 		for(int i = 0; i < bells; i++){
 
 			String currentBell = possiblities[i];
@@ -101,8 +104,10 @@ public class BobSingleView extends TextView {
 			else
 				p = paint2;
 
-			float y = getHeight()/numberOfLines/2;
-			float pos = (float) super.getWidth()/((float) bells * 2f + 1f);
+			float y = (float) getHeight()/((float)numberOfLines*2.0f);
+			float a1 = y;
+			float pos = (float) super.getWidth()/((float) bells * 2.0f);
+
 
 			String b = a;
 
@@ -117,14 +122,13 @@ public class BobSingleView extends TextView {
 				next = b.indexOf(currentBell);
 
 				if (next != -1)
-					canvas.drawLine( (float) (pos + index * 2 * pos), y,(float) (pos + next * 2 * pos), 1 + y + getHeight()/numberOfLines, p);
+					canvas.drawLine( (float) (pos + index * 2 * pos), y,(float) (pos + next * 2 * pos), 1 + y +  2*a1, p);
 
-				y = y + getHeight()/numberOfLines;
+				y = y + 2 * a1;
 
 				index = next;
 			}
 			
-			Paint line = new Paint();
 			line.setColor(Color.BLACK);
 			line.setAntiAlias(true);
 			line.setStrokeWidth(2f);

@@ -147,7 +147,6 @@ public class FragmentDisplayMethod extends Fragment {
 		
 		linLayout.addView(SingleView);
 
-
 		return v;
 
 	}

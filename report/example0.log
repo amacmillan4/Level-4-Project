@@ -1,0 +1,1031 @@
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.11.22)  10 MAR 2014 14:33
+entering extended mode
+**example0.tex
+("C:\Users\Allan\Dropbox\Computing - Project\report\example0.tex"
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2009-06-19, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, lao, latin, lat
+vian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerm
+an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese, 
+romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
+sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
+senglishmax, welsh, loaded.
+("C:\Users\Allan\Dropbox\Computing - Project\report\l4proj.cls"
+Document Class: l4proj 2009/01/09 Colin Perkins <csp@dcs.gla.ac.uk>.2009/09/16 
+Modified by Tim Storer <tws@dcs.gla.ac.uk> to support non pdf modes.2011/02/15 
+Modified by Gregg Hamilton <hamiltgr@dcs.gla.ac.uk> for use in final year proje
+cts.2012/10/18 Modified by Patrick Prosser, use geometry to control margins, si
+mplified.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\report.cls"
+Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\size11.clo"
+File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count88
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\appendix\appendix.sty"
+Package: appendix 2009/09/02 v1.2b extra appendix facilities
+\c@@pps=\count89
+\c@@ppsavesec=\count90
+\c@@ppsaveapp=\count91
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\times.sty"
+Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count92
+\Gm@cntv=\count93
+\c@Gm@tempcnt=\count94
+\Gm@bindingoffset=\dimen105
+\Gm@wd@mp=\dimen106
+\Gm@odd@mp=\dimen107
+\Gm@even@mp=\dimen108
+\Gm@layoutwidth=\dimen109
+\Gm@layoutheight=\dimen110
+\Gm@layouthoffset=\dimen111
+\Gm@layoutvoffset=\dimen112
+\Gm@dimlist=\toks15
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg")))
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsmath.sty"
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amstext.sty"
+Package: amstext 2000/06/29 v2.01
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks16
+\ex@=\dimen113
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen114
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsopn.sty"
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count95
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count96
+\leftroot@=\count97
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count98
+\DOTSCASE@=\count99
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen115
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count100
+\c@MaxMatrixCols=\count101
+\dotsspace@=\muskip10
+\c@parentequation=\count102
+\dspbrk@lvl=\count103
+\tag@help=\toks17
+\row@=\count104
+\column@=\count105
+\maxfields@=\count106
+\andhelp@=\toks18
+\eqnshift@=\dimen116
+\alignsep@=\dimen117
+\tagshift@=\dimen118
+\tagwidth@=\dimen119
+\totwidth@=\dimen120
+\lineht@=\dimen121
+\@envbody=\toks19
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\subfigure\subfigure.sty"
+Package: subfigure 2002/07/30 v2.1.4 subfigure package
+\subfigtopskip=\skip46
+\subfigcapskip=\skip47
+\subfigcaptopadj=\dimen122
+\subfigbottomskip=\skip48
+\subfigcapmargin=\dimen123
+\subfiglabelskip=\skip49
+\c@subfigure=\count107
+\c@lofdepth=\count108
+\c@subtable=\count109
+\c@lotdepth=\count110
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+("C:\Program Files\MiKTeX 2.9\tex\latex\subfigure\subfigure.cfg")
+\subfig@top=\skip50
+\subfig@bottom=\skip51
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
+Package: caption 2012/02/19 v3.2f Customizing captions (AR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
+Package: caption3 2012/01/12 v1.4b caption3 kernel (AR)
+\captionmargin=\dimen124
+\captionmargin@=\dimen125
+\captionwidth=\dimen126
+\caption@indent=\dimen127
+\caption@parindent=\dimen128
+\caption@hangindent=\dimen129
+)
+\c@ContinuedFloat=\count111
+Package caption Info: subfigure package is loaded.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdfpages\pdfpages.sty"
+Package: pdfpages 2012/04/03 v0.4s Insert pages of external PDF documents (AM)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count112
+\calc@Bcount=\count113
+\calc@Adimen=\dimen130
+\calc@Bdimen=\dimen131
+\calc@Askip=\skip52
+\calc@Bskip=\skip53
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count114
+\calc@Cskip=\skip54
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\eso-pic\eso-pic.sty"
+Package: eso-pic 2010/10/06 v2.0c eso-pic (RN)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\atbegshi.sty"
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdfpages\pppdftex.def"
+File: pppdftex.def 2012/04/03 v0.4s Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box28
+\AM@toc@title=\toks21
+\c@AM@survey=\count115
+\AM@templatesizebox=\box29
+)
+("C:\Users\Allan\Dropbox\Computing - Project\report\example0.aux")
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 9.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count116
+\scratchdimen=\dimen132
+\scratchbox=\box30
+\nofMPsegments=\count117
+\nofMParguments=\count118
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count119
+\MPscratchDim=\dimen133
+\MPnumerator=\count120
+\makeMPintoPDFobject=\count121
+\everyMPtoPDFconversion=\toks23
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(89.62709pt, 418.25368pt, 89.6271pt)
+* v-part:(T,H,B)=(99.58464pt, 631.65118pt, 113.81102pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=490.52367pt
+* \textheight=703.92117pt
+* \oddsidemargin=-18.7779pt
+* \evensidemargin=17.3571pt
+* \topmargin=-45.82034pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=50.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+\AtBeginShipoutBox=\box31
+<images/CompSci_colour.pdf, id=1, 340.27126pt x 49.18375pt>
+File: images/CompSci_colour.pdf Graphic file (type pdf)
+
+<use images/CompSci_colour.pdf>
+Package pdftex.def Info: images/CompSci_colour.pdf used on input line 13.
+(pdftex.def)             Requested size: 283.36508pt x -7.72174pt.
+ [1
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/Allan/Dropbox/Co
+mputing - Project/report/images/CompSci_colour.pdf>]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 15.
+ [1]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 19.
+ [1]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 24.
+ ("C:\Users\Allan\Dropbox\Computing - Project\report\example0.toc" [2
+
+] [3] [4])
+\tf@toc=\write3
+ [5]
+Chapter 1.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 27.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 40.
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ú in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ù in font ptmr7t!
+[1
+
+]
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ú in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ù in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ú in font ptmr7t!
+Missing character: There is no ‚ in font ptmr7t!
+Missing character: There is no Ä in font ptmr7t!
+Missing character: There is no ù in font ptmr7t!
+ [2] <Guide.png, id=37, 255.95625pt x 240.14719pt>
+File: Guide.png Graphic file (type png)
+ <use Guide.png>
+Package pdftex.def Info: Guide.png used on input line 103.
+(pdftex.def)             Requested size: 256.0748pt x 240.27483pt.
+
+<CompleteMethod.png, id=39, 196.48407pt x 158.84344pt>
+File: CompleteMethod.png Graphic file (type png)
+
+<use CompleteMethod.png>
+Package pdftex.def Info: CompleteMethod.png used on input line 104.
+(pdftex.def)             Requested size: 196.48358pt x 158.84305pt.
+ [3]
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 121.
+
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 121.
+ [4 <C:/Users/Allan/Dropbox/Computing - Project/report/Guide.png> <C:/Users/All
+an/Dropbox/Computing - Project/report/CompleteMethod.png>]
+Chapter 2.
+
+Overfull \hbox (11.78064pt too wide) in paragraph at lines 142--164
+[][] 
+ []
+
+
+Overfull \hbox (17.25563pt too wide) in paragraph at lines 167--181
+[][] 
+ []
+
+[5
+
+]
+Underfull \hbox (badness 2635) in paragraph at lines 196--196
+[]\OT1/ptm/m/n/10.95 Method Short-list Se-lec-
+ []
+
+
+Underfull \hbox (badness 4403) in paragraph at lines 198--198
+[]\OT1/ptm/m/n/10.95 Method Short-list Ad-di-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 200--200
+[]\OT1/ptm/m/n/10.95 Method Short-list Re-
+ []
+
+
+Underfull \hbox (badness 1701) in paragraph at lines 220--220
+[]\OT1/ptm/m/n/10.95 Method Paus-ing & Re-
+ []
+
+
+Overfull \hbox (17.25563pt too wide) in paragraph at lines 190--223
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 242--242
+[]\OT1/ptm/m/n/10.95 Display Al-ter-na-tive
+ []
+
+
+Overfull \hbox (17.25563pt too wide) in paragraph at lines 231--245
+[][] 
+ []
+
+[6]
+Overfull \hbox (17.25563pt too wide) in paragraph at lines 254--262
+[][] 
+ []
+
+
+Overfull \hbox (16.84149pt too wide) in paragraph at lines 267--285
+[][] 
+ []
+
+[7]
+Chapter 3.
+<mvc.png, id=59, 286.82156pt x 258.9675pt>
+File: mvc.png Graphic file (type png)
+ <use mvc.png>
+Package pdftex.def Info: mvc.png used on input line 295.
+(pdftex.def)             Requested size: 220.59943pt x 199.16928pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 296--296
+[]\OT1/ptm/m/n/10.95 Figure 3.1: |In-ter-ac-tion be-tween com-po-nents in the M
+VC frame-work. Im-age taken from:
+ []
+
+[8
+
+] [9 <C:/Users/Allan/Dropbox/Computing - Project/report/mvc.png>]
+<activity_lifecycle.png, id=67, 514.92375pt x 665.48625pt>
+File: activity_lifecycle.png Graphic file (type png)
+
+<use activity_lifecycle.png>
+Package pdftex.def Info: activity_lifecycle.png used on input line 336.
+(pdftex.def)             Requested size: 176.11674pt x 227.62204pt.
+
+Overfull \hbox (32.35461pt too wide) in paragraph at lines 337--337
+[]\OT1/ptm/m/n/10.95 Figure 3.2: |The Ac-tiv-ity Life-cy-cle. Im-age taken from
+: http://developer.android.com/reference/android/app/Activity.html| 
+ []
+
+[10 <C:/Users/Allan/Dropbox/Computing - Project/report/activity_lifecycle.png>]
+<fragment_lifecycle.png, id=72, 599.23875pt x 530.73282pt>
+File: fragment_lifecycle.png Graphic file (type png)
+
+<use fragment_lifecycle.png>
+Package pdftex.def Info: fragment_lifecycle.png used on input line 359.
+(pdftex.def)             Requested size: 199.16666pt x 170.71259pt.
+ [11 <C:/Users/Allan/Dropbox/Computing - Project/report/fragment_lifecycle.png>
+] [12] [13] [14]
+Overfull \hbox (156.01707pt too wide) in paragraph at lines 433--436
+[]\OT1/ptm/m/n/10.95 http://developer.android.com/reference/android/media/Media
+Player.html http://developer.android.com/reference/android/media/SoundPool.html
+
+ []
+
+
+Overfull \hbox (20.6937pt too wide) in paragraph at lines 433--436
+\OT1/ptm/m/n/10.95 http://www.stealthcopter.com/blog/2010/08/android-soundpool-
+vs-mediaplayer-focus-on-soundboards-and-memory-
+ []
+
+[15] <ObjectAdapter.png, id=89, 546.98471pt x 392.5253pt>
+File: ObjectAdapter.png Graphic file (type png)
+
+<use ObjectAdapter.png>
+Package pdftex.def Info: ObjectAdapter.png used on input line 454.
+(pdftex.def)             Requested size: 198.2414pt x 142.26378pt.
+ [16 <C:/Users/Allan/Dropbox/Computing - Project/report/ObjectAdapter.png>] [17
+]
+Chapter 4.
+[18
+
+]
+Overfull \hbox (4.58557pt too wide) in paragraph at lines 492--493
+\OT1/ptm/m/n/10.95 Functional Re-quire-ment 6 stated that the ap-pli-ca-tion sh
+ould avoid us-ing Sys-tem Mem-ory where pos-si-ble. ListView
+ []
+
+<listview1.png, id=100, 539.01375pt x 268.00125pt>
+File: listview1.png Graphic file (type png)
+ <use listview1.png>
+Package pdftex.def Info: listview1.png used on input line 501.
+(pdftex.def)             Requested size: 199.16876pt x 113.8111pt.
+
+<ListViews.png, id=101, 258.21469pt x 200.24812pt>
+File: ListViews.png Graphic file (type png)
+ <use ListViews.png>
+Package pdftex.def Info: ListViews.png used on input line 509.
+(pdftex.def)             Requested size: 183.45584pt x 142.26378pt.
+ [19 <C:/Users/Allan/Dropbox/Computing - Project/report/listview1.png>]
+<lines.png, id=106, 722.7pt x 1284.8pt>
+File: lines.png Graphic file (type png)
+ <use lines.png>
+Package pdftex.def Info: lines.png used on input line 529.
+(pdftex.def)             Requested size: 85.35284pt x 113.80379pt.
+
+<lines2.png, id=107, 722.7pt x 1284.8pt>
+File: lines2.png Graphic file (type png)
+ <use lines2.png>
+Package pdftex.def Info: lines2.png used on input line 531.
+(pdftex.def)             Requested size: 85.35284pt x 113.80379pt.
+ [20 <C:/Users/Allan/Dropbox/Computing - Project/report/ListViews.png> <C:/User
+s/Allan/Dropbox/Computing - Project/report/lines.png> <C:/Users/Allan/Dropbox/C
+omputing - Project/report/lines2.png>] <Rotation.png, id=112, 606.76688pt x 244
+.66406pt>
+File: Rotation.png Graphic file (type png)
+
+<use Rotation.png>
+Package pdftex.def Info: Rotation.png used on input line 557.
+(pdftex.def)             Requested size: 426.79134pt x 172.09618pt.
+ [21] [22 <C:/Users/Allan/Dropbox/Computing - Project/report/Rotation.png>] [23
+] [24]
+Chapter 5.
+<waterfall-method.png, id=129, 475.7775pt x 221.82875pt>
+File: waterfall-method.png Graphic file (type png)
+
+<use waterfall-method.png>
+Package pdftex.def Info: waterfall-method.png used on input line 627.
+(pdftex.def)             Requested size: 227.62283pt x 142.26099pt.
+ [25
+
+ <C:/Users/Allan/Dropbox/Computing - Project/report/waterfall-method.png>] [26]
+
+<testingTable.png, id=136, 557.83406pt x 225.09094pt>
+File: testingTable.png Graphic file (type png)
+ <use testingTable.png>
+Package pdftex.def Info: testingTable.png used on input line 665.
+(pdftex.def)             Requested size: 512.1496pt x 206.66371pt.
+
+Overfull \hbox (21.62593pt too wide) in paragraph at lines 665--666
+ [][] 
+ []
+
+[27 <C:/Users/Allan/Dropbox/Computing - Project/report/testingTable.png>]
+[28] [29]
+Chapter 6.
+[30
+
+]
+Chapter 7.
+[31
+
+] [32
+
+
+]
+Appendix A.
+[33
+
+] <sizeComp.png, id=160, 976.39781pt x 353.82187pt>
+File: sizeComp.png Graphic file (type png)
+ <use sizeComp.png>
+Package pdftex.def Info: sizeComp.png used on input line 733.
+(pdftex.def)             Requested size: 398.34418pt x 170.71797pt.
+
+<android_architecture.jpg, id=161, 725.75366pt x 521.15831pt>
+File: android_architecture.jpg Graphic file (type jpg)
+
+<use android_architecture.jpg>
+Package pdftex.def Info: android_architecture.jpg used on input line 747.
+(pdftex.def)             Requested size: 284.52672pt x 227.61655pt.
+ [34 <C:/Users/Allan/Dropbox/Computing - Project/report/sizeComp.png>] [35 <C:/
+Users/Allan/Dropbox/Computing - Project/report/android_architecture.jpg>]
+Appendix B.
+[36
+
+]
+Appendix C.
+[37
+
+]
+Appendix D.
+
+Underfull \hbox (badness 10000) in paragraph at lines 796--796
+[]\OT1/ptm/b/n/10.95 Related
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 796--796
+\OT1/ptm/b/n/10.95 Func-tional
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 796--796
+\OT1/ptm/b/n/10.95 Re-quire-
+ []
+
+
+Overfull \hbox (6.54697pt too wide) in paragraph at lines 796--796
+[]\OT1/ptm/b/n/10.95 Pass/
+ []
+
+
+Overfull \hbox (0.90782pt too wide) in paragraph at lines 796--796
+\OT1/ptm/b/n/10.95 Fail| 
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 799--799
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 801--801
+[]\OT1/ptm/m/n/10.95 Composition
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 801--801
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Underfull \hbox (badness 3536) in paragraph at lines 801--802
+[]\OT1/ptm/m/n/10.95 Difficult to test
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 803--803
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 805--805
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Underfull \hbox (badness 3536) in paragraph at lines 805--806
+[]\OT1/ptm/m/n/10.95 Difficult to test
+ []
+
+
+Underfull \hbox (badness 1577) in paragraph at lines 807--807
+[]\OT1/ptm/m/n/10.95 Method Se-lec-
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 807--807
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Underfull \hbox (badness 3536) in paragraph at lines 807--808
+[]\OT1/ptm/m/n/10.95 Difficult to test
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 809--809
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 811--811
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 813--813
+[]\OT1/ptm/m/n/10.95 Display
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 813--813
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Underfull \hbox (badness 3536) in paragraph at lines 813--814
+[]\OT1/ptm/m/n/10.95 Difficult to test
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 815--815
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 817--817
+[]\OT1/ptm/m/n/10.95 Start Method
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 817--817
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 819--819
+[]\OT1/ptm/m/n/10.95 Show All
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 819--819
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 821--821
+[]\OT1/ptm/m/n/10.95 Show All
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 821--821
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Underfull \hbox (badness 1565) in paragraph at lines 823--823
+[]\OT1/ptm/m/n/10.95 Method Short-
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 823--823
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Underfull \hbox (badness 1565) in paragraph at lines 825--825
+[]\OT1/ptm/m/n/10.95 Method Short-
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 825--825
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Underfull \hbox (badness 1565) in paragraph at lines 827--827
+[]\OT1/ptm/m/n/10.95 Method Short-
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 827--827
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Underfull \hbox (badness 1565) in paragraph at lines 829--829
+[]\OT1/ptm/m/n/10.95 Method Short-
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 829--829
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Underfull \hbox (badness 1565) in paragraph at lines 831--831
+[]\OT1/ptm/m/n/10.95 Method Short-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 831--831
+\OT1/ptm/m/n/10.95 list Group-ing
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 831--831
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 833--833
+[]\OT1/ptm/m/n/10.95 Stop At
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 833--833
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Overfull \hbox (25.90807pt too wide) in paragraph at lines 794--837
+[] 
+ []
+
+[38
+
+]
+Overfull \vbox (265.6416pt too high) has occurred while \output is active []
+
+
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 840--840
+[]\OT1/ptm/b/n/10.95 Related
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 840--840
+\OT1/ptm/b/n/10.95 Func-tional
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 840--840
+\OT1/ptm/b/n/10.95 Re-quire-
+ []
+
+
+Overfull \hbox (6.54697pt too wide) in paragraph at lines 840--840
+[]\OT1/ptm/b/n/10.95 Pass/
+ []
+
+
+Overfull \hbox (0.90782pt too wide) in paragraph at lines 840--840
+\OT1/ptm/b/n/10.95 Fail| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 842--842
+[]\OT1/ptm/m/n/10.95 Handstroke
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 842--842
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Underfull \hbox (badness 5847) in paragraph at lines 844--844
+[]\OT1/ptm/m/n/10.95 Wait For Me
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 844--844
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 846--846
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 848--848
+[]\OT1/ptm/m/n/10.95 Score Sum-
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 848--848
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 850--850
+[]\OT1/ptm/m/n/10.95 Orientation
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 850--850
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 852--852
+[]\OT1/ptm/m/n/10.95 Back To
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 852--852
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 854--854
+[]\OT1/ptm/m/n/10.95 Display Bobs
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 854--854
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Underfull \hbox (badness 1466) in paragraph at lines 856--856
+[]\OT1/ptm/m/n/10.95 Bob & Sin-gle
+ []
+
+
+Overfull \hbox (2.23273pt too wide) in paragraph at lines 856--856
+[]\OT1/ptm/m/n/10.95 Pass| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 856--857
+[]\OT1/ptm/m/n/10.95 Possibly dis-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 856--857
+\OT1/ptm/m/n/10.95 ap-pears too
+ []
+
+
+Overfull \hbox (42.90807pt too wide) in paragraph at lines 838--859
+[][] 
+ []
+
+[40]
+Appendix E.
+[41
+
+] <UserTesting.pdf, id=190, page=1, 597.63278pt x 844.95674pt>
+File: UserTesting.pdf Graphic file (type pdf)
+
+<use UserTesting.pdf, page 1>
+Package pdftex.def Info: UserTesting.pdf, page1 used on input line 864.
+(pdftex.def)             Requested size: 597.63132pt x 844.95468pt.
+File: UserTesting.pdf Graphic file (type pdf)
+ <use UserTesting.pdf, page 1>
+Package pdftex.def Info: UserTesting.pdf, page1 used on input line 864.
+(pdftex.def)             Requested size: 598.13286pt x 845.66379pt.
+File: UserTesting.pdf Graphic file (type pdf)
+
+<use UserTesting.pdf, page 1>
+Package pdftex.def Info: UserTesting.pdf, page1 used on input line 864.
+(pdftex.def)             Requested size: 598.13286pt x 845.66379pt.
+File: UserTesting.pdf Graphic file (type pdf)
+ <use UserTesting.pdf, page 1>
+Package pdftex.def Info: UserTesting.pdf, page1 used on input line 864.
+(pdftex.def)             Requested size: 598.13286pt x 845.66379pt.
+File: UserTesting.pdf Graphic file (type pdf)
+
+<use UserTesting.pdf, page 1>
+Package pdftex.def Info: UserTesting.pdf, page1 used on input line 864.
+(pdftex.def)             Requested size: 598.13286pt x 845.66379pt.
+ [42 <C:/Users/Allan/Dropbox/Computing - Project/report/UserTesting.pdf>]
+<UserTesting.pdf, id=239, page=2, 597.63278pt x 844.95674pt>
+File: UserTesting.pdf Graphic file (type pdf)
+
+<use UserTesting.pdf, page 2>
+Package pdftex.def Info: UserTesting.pdf, page2 used on input line 865.
+(pdftex.def)             Requested size: 597.63132pt x 844.95468pt.
+File: UserTesting.pdf Graphic file (type pdf)
+ <use UserTesting.pdf, page 2>
+Package pdftex.def Info: UserTesting.pdf, page2 used on input line 865.
+(pdftex.def)             Requested size: 598.13286pt x 845.66379pt.
+File: UserTesting.pdf Graphic file (type pdf)
+
+<use UserTesting.pdf, page 2>
+Package pdftex.def Info: UserTesting.pdf, page2 used on input line 865.
+(pdftex.def)             Requested size: 598.13286pt x 845.66379pt.
+File: UserTesting.pdf Graphic file (type pdf)
+ <use UserTesting.pdf, page 2>
+Package pdftex.def Info: UserTesting.pdf, page2 used on input line 865.
+(pdftex.def)             Requested size: 598.13286pt x 845.66379pt.
+File: UserTesting.pdf Graphic file (type pdf)
+
+<use UserTesting.pdf, page 2>
+Package pdftex.def Info: UserTesting.pdf, page2 used on input line 865.
+(pdftex.def)             Requested size: 598.13286pt x 845.66379pt.
+ [43 <C:/Users/Allan/Dropbox/Computing - Project/report/UserTesting.pdf>]
+Appendix F.
+[44
+
+]
+Appendix G.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 947.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+("C:\Users\Allan\Dropbox\Computing - Project\report\example0.bbl" [45
+
+]
+
+LaTeX Warning: Empty `thebibliography' environment on input line 3.
+
+) [46
+
+] ("C:\Users\Allan\Dropbox\Computing - Project\report\example0.aux") ) 
+Here is how much of TeX's memory you used:
+ 4959 strings out of 494045
+ 72346 string characters out of 3148386
+ 155192 words of memory out of 3000000
+ 8157 multiletter control sequences out of 15000+200000
+ 31992 words of font info for 65 fonts, out of 3000000 for 9000
+ 715 hyphenation exceptions out of 8191
+ 38i,18n,42p,928b,463s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Progr
+am Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier
+/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKT
+eX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on example0.pdf (53 pages, 1532026 bytes).
+PDF statistics:
+ 286 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 111 words of extra memory for PDF output out of 10000 (max. 10000000)
+
