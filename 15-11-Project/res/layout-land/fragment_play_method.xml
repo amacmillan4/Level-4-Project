@@ -121,7 +121,7 @@
                         <Button
                             android:id="@+id/btnStop"
                             android:layout_width="wrap_content"
-                            android:layout_height="35dp"
+                            android:layout_height="40dp"
                             android:layout_alignParentBottom="true"
                             android:layout_toRightOf="@+id/btnHelp"
                             android:text="Show" />
@@ -129,7 +129,7 @@
                         <Button
                             android:id="@+id/btnRun"
                             android:layout_width="wrap_content"
-                            android:layout_height="35dp"
+                            android:layout_height="40dp"
                             android:layout_alignParentBottom="true"
                             android:layout_toLeftOf="@+id/btnHelp"
                             android:text="Start" />
@@ -137,7 +137,7 @@
                         <Button
                             android:id="@+id/btnHelp"
                             android:layout_width="wrap_content"
-                            android:layout_height="35dp"
+                            android:layout_height="40dp"
                             android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
                             android:layout_marginLeft="15dp"

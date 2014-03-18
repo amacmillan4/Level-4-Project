@@ -55,8 +55,6 @@ public class ShowView extends TextView {
 
 		float numberOfLines = getText().length() - getText().toString().replace("\n", "").length() + 0.9f;
 
-		System.out.println(super.getHeight() + "      " + super.getWidth());
-
 		if (displayOptions == 0)
 			setTextColor(Color.BLACK);
 		else if (displayOptions == 1)
@@ -78,7 +76,8 @@ public class ShowView extends TextView {
 		int next1 = 0;
 		float y = (float) getHeight()/((float)numberOfLines*2.0f);
 		float a1 = 2 * y;
-		float pos;
+		float pos = (float) super.getWidth()/((float) numberOfBells * 2.0f);
+
 
 
 
@@ -90,7 +89,6 @@ public class ShowView extends TextView {
 			next2 = text.indexOf(bellChoice);
 			next1 = text.indexOf("1");
 
-			pos = (float) super.getWidth()/((float) numberOfBells * 2.0f);
 
 			//Draw lines based on last position and current position of chosen numbers
 			if (next2 != -1)
@@ -104,27 +102,27 @@ public class ShowView extends TextView {
 			index2 = next2;
 			index1 = next1;
 
+		}
+
+		if (displayOptions == 1){
+
+			p.setAntiAlias(true);
+			p.setStrokeWidth(2f);
+			p.setColor(Color.BLACK);
 
 
-			if (displayOptions == 1){
+			for(float i = 0; i < getHeight() - a1; i = i + a1 ){
 
-				p.setAntiAlias(true);
-				p.setStrokeWidth(2f);
-				p.setColor(Color.BLACK);
+				for(float j = 0; j < numberOfBells/2; j++){
 
-
-				for(float i = 0; i < getHeight() - a1; i = i + a1 ){
-
-					for(float j = 0; j < numberOfBells/2; j++){
-
-						canvas.drawLine(pos * 2 + j * 4 * pos, 10 + i, pos * 2 + j * 4 * pos, 10 + i + a1/2  , p);
-
-					}
+					canvas.drawLine(pos * 2 + j * 4 * pos, 10 + i, pos * 2 + j * 4 * pos, 10 + i + a1/2  , p);
 
 				}
-			}
 
+			}
 		}
+
+
 
 		super.onDraw(canvas);
 

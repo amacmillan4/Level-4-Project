@@ -140,14 +140,15 @@ public class FragmentRingMethod extends Fragment {
 
 				if(status != MethodStatus.STANDING){
 					if (event.getX() > globalLinearLayout.getWidth()/2 || !setupInstructions.getHandbellsOrNot()){
-						
+
+						pressTimeRight = System.currentTimeMillis();
+
 						BellImageView b = (BellImageView)v.findViewById(Integer.parseInt(Utils.bellNumberToBells(bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString())));
-						
+
 						if (userPlayingRight == false)
 							b.switchImage((Integer) b.getTag(), images);
 
 						userPlayingRight = true;
-						pressTimeRight = System.currentTimeMillis();
 
 						bellAudio.play(getActivity(), bellNumberTextViews.get(bellNumberTextViews.size() - 1).getText().toString());
 						b.switchImage((Integer) b.getTag(), images);
@@ -156,12 +157,12 @@ public class FragmentRingMethod extends Fragment {
 					else{
 						BellImageView b = (BellImageView)v.findViewById(Integer.parseInt(Utils.bellNumberToBells(bellNumberTextViews.get(bellNumberTextViews.size() - 2).getText().toString())));
 
+						pressTimeLeft = System.currentTimeMillis();
 
 						if (userPlayingLeft == false)
 							b.switchImage((Integer) b.getTag(), images);
-						
+
 						userPlayingLeft = true;
-						pressTimeLeft = System.currentTimeMillis();
 
 						bellAudio.play(getActivity(), bellNumberTextViews.get(bellNumberTextViews.size() - 2).getText().toString());
 						b.switchImage((Integer) b.getTag(), images);
@@ -308,6 +309,12 @@ public class FragmentRingMethod extends Fragment {
 					paused = false;
 					methodView.clearText();
 
+					for( BellImageView b: bellImageViews)
+						b.restart((Integer) b.getTag(), images);
+					
+					for (BellImageView b: bellImageViews)
+						b.setClickable(true);
+
 					method = new Method((Method) SingletonData.get(getActivity()).getChosenMethod().get(0));
 					method.initialize(numOfBells, Utils.getComposition(setupInstructions.getComposition()), 0);
 
@@ -323,8 +330,7 @@ public class FragmentRingMethod extends Fragment {
 						else
 							status = MethodStatus.GO_TO_STAND_EXTRA;
 
-						for (BellImageView b: bellImageViews)
-							b.setClickable(true);
+						
 
 					}
 				}
@@ -493,7 +499,7 @@ public class FragmentRingMethod extends Fragment {
 
 					if(stopAtRoundsString.equals("\n" + roundsTest) && status == MethodStatus.PLAYING){
 						status = MethodStatus.STANDING;
-						
+
 						mHandler.post(new Runnable() {
 
 							@Override
@@ -534,7 +540,8 @@ public class FragmentRingMethod extends Fragment {
 
 					while (pressTimeRight == 0 && userPlayingRight && System.currentTimeMillis() < waitRight + 2000 && !isCancelled()) {
 						try {
-							wait(100);
+							lastRing += 5;
+							wait(5);
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
@@ -553,7 +560,8 @@ public class FragmentRingMethod extends Fragment {
 
 					while (pressTimeLeft == 0 && userPlayingLeft && System.currentTimeMillis() < waitLeft + 2000 && !isCancelled()) {
 						try {
-							wait(100);
+							lastRing += 5;
+							wait(5);
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
@@ -635,7 +643,6 @@ public class FragmentRingMethod extends Fragment {
 
 					if(playTimeRight != 0 && status == MethodStatus.PLAYING){
 
-
 						mHandler.post(new Runnable() {
 							@Override
 							public void run() {
@@ -705,6 +712,9 @@ public class FragmentRingMethod extends Fragment {
 
 									for( BellImageView b: bellImageViews)
 										b.restart((Integer) b.getTag(), images);
+									
+									for (BellImageView b: bellImageViews)
+										b.setClickable(true);
 
 									if (userPlayingLeft && setupInstructions.isScoreSummary())
 										txvScoreLeft.setText("" + scoreLeft.getAverage());
@@ -729,8 +739,10 @@ public class FragmentRingMethod extends Fragment {
 
 					}
 
-					while(paused && !isCancelled())
+					while(paused && !isCancelled()){
+						lastRing += 500;
 						wait(500);
+					}
 
 					if (isCancelled()){
 						if (status == MethodStatus.ROUNDS)
