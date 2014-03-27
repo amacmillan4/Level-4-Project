@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Method.java&apos; to &apos;a&apos;&#x0D;&#x0A;- Original project: &apos;15-11-Project&apos;&#x0D;&#x0A;- Destination element: &apos;a&apos;&#x0D;&#x0A;- Original element: &apos;project.android.bellringing.Method.java&apos;" description="Copy compilation unit" destination="=a" element1="/src&lt;project.android.bellringing{Method.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1385224138204" units="1" version="1.0"/>
+</session>
